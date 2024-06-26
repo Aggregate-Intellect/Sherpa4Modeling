@@ -20,9 +20,13 @@ import networkx as nx
 import sys
 
 # %%
+from dotenv import load_dotenv
+ 
+# Load environment variables from the .env file
+load_dotenv()
 
-# put the huggingface api key
-openai_key = "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"
+openai_key = os.getenv("openai_key")
+
 os.environ["OPENAI_API_KEY"] = openai_key
 
 openai.api_key = openai_key
