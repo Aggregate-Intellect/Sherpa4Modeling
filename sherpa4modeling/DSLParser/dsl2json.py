@@ -1,16 +1,25 @@
 # %% [markdown]
-# # Parsing
+# # Set up
 
 # %%
 import json
+from pyparsing import (
+    Word, alphas, alphanums, Group, ZeroOrMore, OneOrMore, Optional, delimitedList, Keyword, Suppress, restOfLine, LineEnd, Combine, nums
+)
+
+# %% [markdown]
+# # Parsing
+
+# %%
 from lark import Lark, Transformer
+import json
 
 # Define the grammar for the Domain Specific Language (DSL)
 dsl_grammar = r"""
     start: enumerations classes relationships
 
     enumerations: "Enumerations:" enumeration+
-    enumeration: CNAME "(" CNAME ("," CNAME)* ")"
+    enumeration: "enum" CNAME "(" CNAME ("," CNAME)* ")"
 
     classes: "Classes:" class_def+
     class_def: CNAME "(" [class_attribute ("," class_attribute)*] ")"
@@ -35,7 +44,6 @@ dsl_grammar = r"""
 
 # Create a Lark parser with the defined grammar
 parser = Lark(dsl_grammar, start="start")
-
 
 # Transformer to convert parse tree into a dictionary
 class DSLToJSON(Transformer):
@@ -105,7 +113,6 @@ class DSLToJSON(Transformer):
                 "relationships": items[1],
                 "parent": items[2]
             }
-            
     def number(self, items):
         return items[0]
 
@@ -118,13 +125,12 @@ class DSLToJSON(Transformer):
         elif len(items) == 2:
             return str(items[0]) + "." + str(items[1])
 
-
 # Sample input DSL
 dsl_input = """\
 Enumerations:
-DeviceStatus(Activated, Deactivated)
-CommandType(lockDoor, turnOnHeating)
-CommandStatus(Requested, Completed, Failed)
+enum DeviceStatus(Activated, Deactivated)
+enum CommandType(lockDoor, turnOnHeating)
+enum CommandStatus(Requested, Completed, Failed)
 Classes:
 SHAS()
 SmartHome()
@@ -139,19 +145,18 @@ Relationships:
 RelationalTerm inherit BooleanExpression
 """
 
+# Parse the DSL input using the parser
+parse_tree = parser.parse(dsl_input)
 
-def dsl2json(dsl_input):
-    # Parse the DSL input using the parser
-    parse_tree = parser.parse(dsl_input)
+# Transform the parse tree into JSON
+transformer = DSLToJSON()
+parsed_dict = transformer.transform(parse_tree)
 
-    # Transform the parse tree into JSON
-    transformer = DSLToJSON()
-    parsed_dict = transformer.transform(parse_tree)
-
-    # Convert the dictionary to a JSON formatted string
-    dsl_json = json.dumps(parsed_dict, indent=4)
-    return dsl_json
-
+# Convert the dictionary to a JSON formatted string
+dsl_json = json.dumps(parsed_dict, indent=4)
 
 # Print the JSON string
-print(dsl2json(dsl_input))
+print(dsl_json)
+
+
+
