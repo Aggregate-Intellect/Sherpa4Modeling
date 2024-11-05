@@ -1,0 +1,100 @@
+{"split": "val", "image_filename": "CLEVR_val_002378.png", "answer": "2", "question": "How many metal objects would there be if you didn't include spheres?", "image_index": 2378}
+{"split": "val", "image_filename": "CLEVR_val_003661.png", "answer": "0", "question": "how many cylinders are there that are in front of a green cube?", "image_index": 3661}
+{"split": "val", "image_filename": "CLEVR_val_006023.png", "answer": "8", "question": "In total how many cylinders and cubes are there combined?", "image_index": 6023}
+{"split": "val", "image_filename": "CLEVR_val_002334.png", "answer": "2", "question": "how many balls are there?", "image_index": 2334}
+{"split": "val", "image_filename": "CLEVR_val_002594.png", "answer": "5", "question": "How many objects are metallic?", "image_index": 2594}
+{"split": "val", "image_filename": "CLEVR_val_007155.png", "answer": "1", "question": "How many cubes are not matte?", "image_index": 7155}
+{"split": "val", "image_filename": "CLEVR_val_004333.png", "answer": "2", "question": "How many objects of all sizes and colors are cube shaped?", "image_index": 4333}
+{"split": "val", "image_filename": "CLEVR_val_000022.png", "answer": "2", "question": "How many balls are there?", "image_index": 22}
+{"split": "val", "image_filename": "CLEVR_val_002189.png", "answer": "1", "question": "how many purple objects are there?", "image_index": 2189}
+{"split": "val", "image_filename": "CLEVR_val_006031.png", "answer": "2", "question": "how many cylinders are behind the blue sphere", "image_index": 6031}
+{"split": "val", "image_filename": "CLEVR_val_007907.png", "answer": "2", "question": "How many shiny objects are there?", "image_index": 7907}
+{"split": "val", "image_filename": "CLEVR_val_001354.png", "answer": "2", "question": "How many shiny purple items are there?", "image_index": 1354}
+{"split": "val", "image_filename": "CLEVR_val_002546.png", "answer": "1", "question": "how many cubes are there?", "image_index": 2546}
+{"split": "val", "image_filename": "CLEVR_val_003291.png", "answer": "1", "question": "How many objects are the same color as the small cylinder?", "image_index": 3291}
+{"split": "val", "image_filename": "CLEVR_val_005916.png", "answer": "2", "question": "How many spheres are in the image?", "image_index": 5916}
+{"split": "val", "image_filename": "CLEVR_val_005570.png", "answer": "1", "question": "How many small objects are matte?", "image_index": 5570}
+{"split": "val", "image_filename": "CLEVR_val_002398.png", "answer": "0", "question": "how many cylinders are there that are in front of a green cube?", "image_index": 2398}
+{"split": "val", "image_filename": "CLEVR_val_004172.png", "answer": "3", "question": "how many cylinders are there?", "image_index": 4172}
+{"split": "val", "image_filename": "CLEVR_val_004814.png", "answer": "4", "question": "How many objects are both cylinders and metallic?", "image_index": 4814}
+{"split": "val", "image_filename": "CLEVR_val_004955.png", "answer": "1", "question": "How many matte objects are to the left of the blue cylinder?", "image_index": 4955}
+{"split": "val", "image_filename": "CLEVR_val_003340.png", "answer": "2", "question": "how many cubes are there", "image_index": 3340}
+{"split": "val", "image_filename": "CLEVR_val_005243.png", "answer": "3", "question": "how many spheres are there?", "image_index": 5243}
+{"split": "val", "image_filename": "CLEVR_val_005065.png", "answer": "3", "question": "How many cylinders are there?", "image_index": 5065}
+{"split": "val", "image_filename": "CLEVR_val_003131.png", "answer": "3", "question": "How many small spheres are there?", "image_index": 3131}
+{"split": "val", "image_filename": "CLEVR_val_002329.png", "answer": "3", "question": "How many shiny gold objects are there?", "image_index": 2329}
+{"split": "val", "image_filename": "CLEVR_val_007505.png", "answer": "3", "question": "How many metallic colored items are there?", "image_index": 7505}
+{"split": "val", "image_filename": "CLEVR_val_005075.png", "answer": "4", "question": "how many cylinders are there?", "image_index": 5075}
+{"split": "val", "image_filename": "CLEVR_val_006659.png", "answer": "1", "question": "How many matte objects?", "image_index": 6659}
+{"split": "val", "image_filename": "CLEVR_val_005426.png", "answer": "1", "question": "How many small cubes are there?", "image_index": 5426}
+{"split": "val", "image_filename": "CLEVR_val_002993.png", "answer": "4", "question": "How many cylinders are there?", "image_index": 2993}
+{"split": "val", "image_filename": "CLEVR_val_001429.png", "answer": "3", "question": "How many of the items can roll away?", "image_index": 1429}
+{"split": "val", "image_filename": "CLEVR_val_000365.png", "answer": "5", "question": "how many objects are metallic?", "image_index": 365}
+{"split": "val", "image_filename": "CLEVR_val_005993.png", "answer": "2", "question": "how many green cubes are also metallic?", "image_index": 5993}
+{"split": "val", "image_filename": "CLEVR_val_007329.png", "answer": "yes", "question": "Are there an equal number of shiny and matte objects?", "image_index": 7329}
+{"split": "val", "image_filename": "CLEVR_val_002848.png", "answer": "yes", "question": "Are there any identical objects?", "image_index": 2848}
+{"split": "val", "image_filename": "CLEVR_val_006189.png", "answer": "no", "question": "Are all made of the same material?", "image_index": 6189}
+{"split": "val", "image_filename": "CLEVR_val_005882.png", "answer": "no", "question": "is there a shiny yellow cube?", "image_index": 5882}
+{"split": "val", "image_filename": "CLEVR_val_004212.png", "answer": "no", "question": "Are the 2 cylinders made of the same material?", "image_index": 4212}
+{"split": "val", "image_filename": "CLEVR_val_000053.png", "answer": "no", "question": "Are there more shiny gold objects than yellow objects?", "image_index": 53}
+{"split": "val", "image_filename": "CLEVR_val_004823.png", "answer": "no", "question": "is the furthest left object a purple sphere?", "image_index": 4823}
+{"split": "val", "image_filename": "CLEVR_val_001177.png", "answer": "no", "question": "Are the big cylinders made of the same material?", "image_index": 1177}
+{"split": "val", "image_filename": "CLEVR_val_001908.png", "answer": "no", "question": "Are any of the cubes red?", "image_index": 1908}
+{"split": "val", "image_filename": "CLEVR_val_002746.png", "answer": "yes", "question": "Is the cylinder to the right of the cube?", "image_index": 2746}
+{"split": "val", "image_filename": "CLEVR_val_003613.png", "answer": "yes", "question": "Is the brown cylinder rubber material?", "image_index": 3613}
+{"split": "val", "image_filename": "CLEVR_val_007340.png", "answer": "yes", "question": "Is there a sphere the same size as the cyan object?", "image_index": 7340}
+{"split": "val", "image_filename": "CLEVR_val_000982.png", "answer": "yes", "question": "Are there two blocks of the same color but not made of the same material?", "image_index": 982}
+{"split": "val", "image_filename": "CLEVR_val_004870.png", "answer": "yes", "question": "Are any of the small cylinders the same color?", "image_index": 4870}
+{"split": "val", "image_filename": "CLEVR_val_003840.png", "answer": "no", "question": "Is the blue sphere the same size as the brown sphere?", "image_index": 3840}
+{"split": "val", "image_filename": "CLEVR_val_001339.png", "answer": "no", "question": "are there more metallic cylinders than rubber objects?", "image_index": 1339}
+{"split": "val", "image_filename": "CLEVR_val_003013.png", "answer": "yes", "question": "Are the all the cubes made of the rubber?", "image_index": 3013}
+{"split": "val", "image_filename": "CLEVR_val_007885.png", "answer": "no", "question": "Are there more yellow metallic objects than matte objects?", "image_index": 7885}
+{"split": "val", "image_filename": "CLEVR_val_004415.png", "answer": "no", "question": "Are the cubes the same size?", "image_index": 4415}
+{"split": "val", "image_filename": "CLEVR_val_003077.png", "answer": "no", "question": "Are most of the objects cubes?", "image_index": 3077}
+{"split": "val", "image_filename": "CLEVR_val_007426.png", "answer": "no", "question": "are both spheres shiny?", "image_index": 7426}
+{"split": "val", "image_filename": "CLEVR_val_007697.png", "answer": "no", "question": "Is there a blue sphere here?", "image_index": 7697}
+{"split": "val", "image_filename": "CLEVR_val_006618.png", "answer": "no", "question": "Are there any small red shapes?", "image_index": 6618}
+{"split": "val", "image_filename": "CLEVR_val_002859.png", "answer": "no", "question": "Are there more spheres than cubes?", "image_index": 2859}
+{"split": "val", "image_filename": "CLEVR_val_000676.png", "answer": "yes", "question": "Are there more metallic small things than big metallic spheres?", "image_index": 676}
+{"split": "val", "image_filename": "CLEVR_val_005984.png", "answer": "yes", "question": "Are the two green objects made of the same material?", "image_index": 5984}
+{"split": "val", "image_filename": "CLEVR_val_007238.png", "answer": "no", "question": "Are there four items here?", "image_index": 7238}
+{"split": "val", "image_filename": "CLEVR_val_002488.png", "answer": "yes", "question": "Are both of the spheres purple?", "image_index": 2488}
+{"split": "val", "image_filename": "CLEVR_val_003288.png", "answer": "no", "question": "Is the small purple sphere the same color as the large spheres?", "image_index": 3288}
+{"split": "val", "image_filename": "CLEVR_val_004845.png", "answer": "no", "question": "Are all of the objects of the same color?", "image_index": 4845}
+{"split": "val", "image_filename": "CLEVR_val_006180.png", "answer": "yes", "question": "Are there more purple shapes than shapes the color of the cylinder?", "image_index": 6180}
+{"split": "val", "image_filename": "CLEVR_val_003305.png", "answer": "yes", "question": "Is the cylinder a different color from the other objects?", "image_index": 3305}
+{"split": "val", "image_filename": "CLEVR_val_000903.png", "answer": "yes", "question": "Are any objects shiny?", "image_index": 903}
+{"split": "val", "image_filename": "CLEVR_val_003246.png", "answer": "cylinder", "question": "What shape is the object that is not a sphere?", "image_index": 3246}
+{"split": "val", "image_filename": "CLEVR_val_000716.png", "answer": "green", "question": "What color is the shiny ball?", "image_index": 716}
+{"split": "val", "image_filename": "CLEVR_val_007713.png", "answer": "cube", "question": "What shape are two objects that are the same color?", "image_index": 7713}
+{"split": "val", "image_filename": "CLEVR_val_007751.png", "answer": "rubber", "question": "What material is the ball to the far left?", "image_index": 7751}
+{"split": "val", "image_filename": "CLEVR_val_001414.png", "answer": "green", "question": "Which color is seen the most?", "image_index": 1414}
+{"split": "val", "image_filename": "CLEVR_val_003216.png", "answer": "sphere", "question": "What shape is the cyan object?", "image_index": 3216}
+{"split": "val", "image_filename": "CLEVR_val_001151.png", "answer": "sphere", "question": "What shape is the smallestt object?", "image_index": 1151}
+{"split": "val", "image_filename": "CLEVR_val_005493.png", "answer": "yellow", "question": "What color is the object just left of gray object?", "image_index": 5493}
+{"split": "val", "image_filename": "CLEVR_val_001902.png", "answer": "green", "question": "What color is shared by only two objects in this image?", "image_index": 1902}
+{"split": "val", "image_filename": "CLEVR_val_001185.png", "answer": "cube", "question": "Which shape of object is neither least or most represented in this set?", "image_index": 1185}
+{"split": "val", "image_filename": "CLEVR_val_003358.png", "answer": "yellow", "question": "What color object is a different material from the rest?", "image_index": 3358}
+{"split": "val", "image_filename": "CLEVR_val_000128.png", "answer": "red", "question": "What color is the big square?", "image_index": 128}
+{"split": "val", "image_filename": "CLEVR_val_001859.png", "answer": "yellow", "question": "Half of the objects are what color?", "image_index": 1859}
+{"split": "val", "image_filename": "CLEVR_val_006803.png", "answer": "rubber", "question": "The purple object appears to be made out of a different material; what is it?", "image_index": 6803}
+{"split": "val", "image_filename": "CLEVR_val_004063.png", "answer": "sphere", "question": "What shape are the two metallic items?", "image_index": 4063}
+{"split": "val", "image_filename": "CLEVR_val_003066.png", "answer": "red", "question": "Are there more red objects or yellow objects?", "image_index": 3066}
+{"split": "val", "image_filename": "CLEVR_val_002932.png", "answer": "cylinder", "question": "What is the shape of the green object?", "image_index": 2932}
+{"split": "val", "image_filename": "CLEVR_val_007515.png", "answer": "cylinder", "question": "What shape do three large objects have in common?", "image_index": 7515}
+{"split": "val", "image_filename": "CLEVR_val_005122.png", "answer": "cylinder", "question": "what kind of object is furthest right?", "image_index": 5122}
+{"split": "val", "image_filename": "CLEVR_val_005592.png", "answer": "cube", "question": "what shape is the gold metallic object?", "image_index": 5592}
+{"split": "val", "image_filename": "CLEVR_val_006799.png", "answer": "sphere", "question": "What shape is the object that has the same shape as the big green thing?", "image_index": 6799}
+{"split": "val", "image_filename": "CLEVR_val_002211.png", "answer": "blue", "question": "What is the color of the cylinder?", "image_index": 2211}
+{"split": "val", "image_filename": "CLEVR_val_004813.png", "answer": "sphere", "question": "What shape is the item that is not like all the other items?", "image_index": 4813}
+{"split": "val", "image_filename": "CLEVR_val_004807.png", "answer": "green", "question": "What color is the largest sphere?", "image_index": 4807}
+{"split": "val", "image_filename": "CLEVR_val_001709.png", "answer": "purple", "question": "There are three objects of same color and one object of different color. Which color is is different from the others?", "image_index": 1709}
+{"split": "val", "image_filename": "CLEVR_val_000302.png", "answer": "metal", "question": "Are all of the purple objects metallic or matte?", "image_index": 302}
+{"split": "val", "image_filename": "CLEVR_val_001985.png", "answer": "red", "question": "what color is to the right of the green cylinder", "image_index": 1985}
+{"split": "val", "image_filename": "CLEVR_val_001267.png", "answer": "cylinder", "question": "are there more small spheres or small cylinders?", "image_index": 1267}
+{"split": "val", "image_filename": "CLEVR_val_003275.png", "answer": "rubber", "question": "Are there more items that are metallic or matte?", "image_index": 3275}
+{"split": "val", "image_filename": "CLEVR_val_002328.png", "answer": "sphere", "question": "What shape is between the two cylinders?", "image_index": 2328}
+{"split": "val", "image_filename": "CLEVR_val_007572.png", "answer": "sphere", "question": "What is the shape of the small brown object?", "image_index": 7572}
+{"split": "val", "image_filename": "CLEVR_val_002975.png", "answer": "red", "question": "what color is the sphere on the right?", "image_index": 2975}
+{"split": "val", "image_filename": "CLEVR_val_007135.png", "answer": "cube", "question": "What is the shape of the object that is not brown?", "image_index": 7135}
+{"split": "val", "image_filename": "CLEVR_val_000654.png", "answer": "cyan", "question": "What color are the two identical objects?", "image_index": 654}
