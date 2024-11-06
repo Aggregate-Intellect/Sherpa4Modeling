@@ -379,13 +379,15 @@ class IdentifyAbstractClasses(BaseAction):
         For example:
         Person(string name, string address)
         abstract Account(int amount)
+        SavingsAccount() inherit Account
         only output class with attribute in () and separated by each line. do not include any other words or symbels in your generated text.
-        make sure to add "inherit superclass" after the sub classes
+        make sure to add "inherit superclass" after the sub classes: SavingsAccount() inherit Account
         """
 
         constraint = """
         Only add the keyword abstract if the original class should be an abstract class
         You can adjust the attributes within the subclass if the super class already contain the attribute
+        You should add "inherit superclass" after subclasses.
         Output ALL classes, including abstract classes, normal classes, and enumeration class
         """
 
@@ -417,7 +419,8 @@ class IdentifyAbstractClasses(BaseAction):
         ]
         print("=" * 40)
         print("partial model - IdentifyAbstractClasses only")
-        print(class_list)
+        for e in class_list:
+            print(e)
         print("=" * 40)
         return class_list
 
