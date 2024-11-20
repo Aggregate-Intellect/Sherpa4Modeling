@@ -2,28 +2,34 @@ from typing import Any
 
 from langchain_core.prompts import PromptTemplate
 from sherpa_ai.actions.base import BaseAction
+import re
+import json
 
 
 class Filter(BaseAction):
     name: str = "filter_with_attribute"
     usage: str = "Return the all objects in the scene with the given attribute"
     args: dict = {
-        "object_ids": "List of object ids to filter, type: list",
-        "attribute": "Name of the attribute to filter, type: str",
-        "value": "Value to filter the attribute with, type: str",
+        # "object_ids": "List of object ids to filter, type: list",
+        "attributes": "Name and value of the attributes to filter, type: dict",
     }
 
-    def execute(self, object_ids, attribute, value) -> str:
+    def execute(self, attributes) -> str:
         scene = self.belief.get("scene")
 
-        if len(object_ids) == 0:
-            object_ids = list(range(len(scene["objects"])))
+        # if len(object_ids) == 0:
+        object_ids = list(range(len(scene["objects"])))
         object_ids = set(object_ids)
 
         results = []
         for obj_id, obj in enumerate(scene["objects"]):
             if obj_id in object_ids:
-                if obj[attribute] == value:
+                include = True
+                for attribute, value in attributes.items():
+                    if obj[attribute.lower()] != value.lower():
+                        include = False
+                        break
+                if include:
                     results.append(obj_id)
 
         return str(results)
@@ -48,6 +54,7 @@ class Related(BaseAction):
     }
 
     def execute(self, object_id, relation) -> str:
+        object_id = int(object_id)
         scene = self.belief.get("scene")
         object_ids = scene["relationships"][relation][object_id]
         return str(object_ids)
@@ -62,6 +69,7 @@ class Query(BaseAction):
     }
 
     def execute(self, object_id, attribute) -> str:
+        object_id = int(object_id)
         scene = self.belief.get("scene")
         return scene["objects"][object_id][attribute]
 
@@ -102,38 +110,90 @@ class Output(BaseAction):
         return answer
 
 
-OUTPUT_PROMPT_TEMPLATE = """Given the following scene:
-{scene}
-and the question: {question}
-{usage}
+OUTPUT_PROMPT_TEMPLATE = """You are a careful assistant helping a visually impaired person to answer questions regarding a scene. Below is some information about the scene.
+
+Information:
+{information}
+
+First examine the scene and then check the following question. Reason about how this question can be answered concisely before provide the final answer. The answer should either be a number, yes or no or an attribute value.
+
+Give the final answer in the following JSON format:
+```json
+{{
+    "answer": "<answer to the question>"
+}}
+```
+
+Question: {question}
+"""
+
+OUTPUT_PROMPT_TEMPLATE_WITH_SCENE = """You are a careful assistant helping a visually impaired person to answer questions regarding a scene.  The scene is described in JSON format:
+
+Scene: {scene}
+
+Below is some information about the scene.
+
+Information:
+{information}
+
+First examine the scene and then check the following question. Reason about how this question can be answered concisely before provide the final answer. The answer should either be a number, yes or no or an attribute value.
+
+Give the final answer in the following JSON format:
+```json
+{{
+    "answer": "<answer to the question>"
+}}
+```
+
+Question: {question}
 """
 
 
 class GenerateOutput(BaseAction):
     name: str = "output"
-    usage: str = ""
+    usage: str = "Output answer to the question"
     args: dict = {}
     llm: Any
 
+    def transform_output(self, output_str: str) -> str:
+        """
+        Transform the output string into an action and arguments
+
+        Args:
+            output_str: Output string
+
+        Returns:
+            str: Action to be taken
+            dict: Arguments for the action
+        """
+        json_pattern = re.compile(r"(\{.*\})", re.DOTALL)
+        match = json_pattern.search(output_str)
+
+        if match is not None:
+            return json.loads(match.group(1))
+
     def execute(self) -> str:
-        prompt_template = PromptTemplate.from_template(OUTPUT_PROMPT_TEMPLATE)
+        scene = self.belief.get("agent_scene", None)
+        information = self.belief.get_internal_history(lambda _: 0)
+
+        if scene is not None:
+            prompt_template = PromptTemplate.from_template(
+                OUTPUT_PROMPT_TEMPLATE_WITH_SCENE
+            )
+            input = {
+                "scene": scene,
+                "information": information,
+                "question": self.belief.current_task.content,
+            }
+        else:
+            prompt_template = PromptTemplate.from_template(OUTPUT_PROMPT_TEMPLATE)
+            input = {
+                "information": information,
+                "question": self.belief.current_task.content,
+            }
 
         chain = prompt_template | self.llm
 
-        print(
-            prompt_template.invoke(
-                input={
-                    "scene": self.belief.get("scene"),
-                    "question": self.belief.current_task.content,
-                    "usage": self.usage,
-                }
-            )
-        )
+        result = chain.invoke(input=input).content
 
-        return chain.invoke(
-            input={
-                "scene": self.belief.get("scene"),
-                "question": self.belief.current_task.content,
-                "usage": self.usage,
-            }
-        ).content
+        return self.transform_output(result)
