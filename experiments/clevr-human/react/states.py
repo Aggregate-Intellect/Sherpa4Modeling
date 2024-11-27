@@ -1,16 +1,22 @@
-from actions import CountAll, Filter, Output, Query, Related, Same
+from react.actions import CountAll, Filter, GenerateOutput, Query, Related, Same
 from sherpa_ai.actions.base import BaseAction
 from sherpa_ai.memory import Belief
 from sherpa_ai.memory.state_machine import SherpaStateMachine
 from transitions.extensions import HierarchicalGraphMachine
 
 
-def get_actions(belief: Belief):
+
+def get_actions(belief: Belief, llm):
     filter = Filter(belief=belief, name="filter_with_attribute_action")
     query = Query(belief=belief, name="query_attribute_action")
     related = Related(belief=belief, name="get_related_objects_action")
     same = Same(belief=belief, name="get_same_objects_action")
-    output = Output(belief=belief, name="answer_action")
+    output = GenerateOutput(
+        belief=belief,
+        name="answer_action",
+        usage="Return the answer when there is enough information to answer the question",
+        llm=llm,
+    ) 
     count_all = CountAll(belief=belief, name="count_all_objects_action")
 
     return {
