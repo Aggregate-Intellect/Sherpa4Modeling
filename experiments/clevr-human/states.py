@@ -130,19 +130,25 @@ def add_state_machine(
         {
             "trigger": "other_options",
             "source": "Exploring_Checking",
-            "dest": "Exploring_Querying",
+            "dest": "Exploring_Filtering",
         },
         {
             "trigger": "query_attribute",
-            "source": "Exploring_Querying",
-            "dest": "Exploring_Querying",
+            "source": "Exploring",
+            "dest": "Exploring",
             "before": "query_attribute_action",
         },
-        {
-            "trigger": "other_options",
-            "source": "Exploring_Querying",
-            "dest": "Exploring_Filtering",
-        },
+        # {
+        #     "trigger": "query_attribute",
+        #     "source": "Exploring_Querying",
+        #     "dest": "Exploring_Querying",
+        #     "before": "query_attribute_action",
+        # },
+        # {
+        #     "trigger": "other_options",
+        #     "source": "Exploring_Querying",
+        #     "dest": "Exploring_Filtering",
+        # },
         {
             "trigger": "answer",
             "source": "Exploring",
