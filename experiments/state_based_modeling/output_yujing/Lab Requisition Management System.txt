@@ -1,0 +1,34 @@
+========================================
+Classes:
+abstract Test(string duration, boolean isWalkInOnly, boolean requiresAppointment)
+LabTracker()
+Doctor(string practitionerNumber, string signature, string name, string address, string phoneNumber, date dateFrom) inherit PlayerRole()
+Requisition(string healthNumber, string firstName, string lastName, date dateOfBirth, string doctorPractitionerNumber, List<Test> tests)
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) inherit PlayerRole()
+Appointment(string confirmationNumber, date date, time startTime, time endTime, string labName, string registrationNumber)
+Lab(string address, BusinessHours businessHours, Fee fee)
+Result(string status)
+Report(string details)
+BusinessHours(time startTime, time endTime)
+Fee(float amount)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+Relationships:
+Composition:
+1 LabTracker contain 0..* Requisition
+1 LabTracker contain 0..* Appointment
+1 LabTracker contain 0..* Lab
+1 LabTracker contain 0..* Result
+1 LabTracker contain 0..* Report
+1 Requisition contain 1 Doctor
+1 Requisition contain 1 Patient
+0..* Requisition contain 0..* Test
+1 Appointment contain 1 Lab
+Inheritance:
+Doctor inherit PlayerRole
+Patient inherit PlayerRole
+Association:
+0..* Patient associate 0..* Appointment
+0..* Doctor associate 0..* Requisition
+0..* Test associate 0..* Result
+0..* Test associate 0..* Report
+========================================

@@ -1,3 +1,4 @@
+import pandas as pd
 from demo.state_based_modeling.model_complete import add_mg_sm
 from sherpa_ai.agents.qa_agent import QAAgent
 from sherpa_ai.events import Event, EventType
@@ -42,7 +43,19 @@ def main():
     belief.state_machine.start()
     while True:
         qa_agent.run()
+        if belief.state_machine.name == "end":
+            break
 
 
 if __name__ == "__main__":
-    main()
+
+    # Read the CSV file
+    df = pd.read_csv("modeling_problems.csv")
+
+    # Display the dataframe
+    print(df)
+
+    # Access a specific column
+    print(df["column_name"])  # Replace 'column_name' with your actual column name
+
+    # main()

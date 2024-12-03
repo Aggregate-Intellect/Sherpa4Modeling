@@ -1,3 +1,5 @@
+import os
+
 from sherpa_ai.actions.base import BaseAction
 from sherpa_ai.actions.belief_actions import RetrieveBelief, UpdateBelief
 from sherpa_ai.memory.belief import Belief
@@ -6,6 +8,7 @@ from sherpa_ai.models import SherpaChatOpenAI
 from transitions.extensions import GraphMachine, HierarchicalGraphMachine
 
 from actions import (
+    CheckPlayerRolePattern,
     GenerateFeedback,
     IdentifyAbstractClasses,
     IdentifyAttributes,
@@ -14,17 +17,17 @@ from actions import (
     IdentifyNouns,
     IdentifyPlayerRolePattern,
     IdentifyRelationships,
+    InspectClass,
+    InspectPattern,
     IntegrateClasses,
     IntegrateFeedback,
     Respond,
     StartQuestion,
     SummarizePlayerRolePattern,
     UserHelp,
-    InspectClass,
-    InspectPattern,
-    CheckPlayerRolePattern,
 )
 
+# gpt-4o-mini, gpt-4
 llm_class = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
 llm_relation = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
 
@@ -158,16 +161,46 @@ def get_actions(belief: Belief) -> dict[str, BaseAction]:
 
     def has_player_role_pattern():
         print("has_player_role_pattern", belief.get("check_pattern", None))
-        return belief.get("check_pattern", None) == "True"
+        return "Result: True" in belief.get("check_pattern", None)
 
     def need_improve_class():
-        return not belief.get("inspect_class", None) == "True"
+        return not ("Result: True" in belief.get("inspect_class", None))
 
     def need_improve_pattern():
         # if there is a need of pattern, but there is not pattern in the current model, return True.
         # the system needs to regereate pattern
-        return belief.get("check_pattern", None) == "True" and belief.get("inspect_pattern", None) == "False"
+        return "Result: True" in belief.get(
+            "check_pattern", None
+        ) and "Result: False" in belief.get("inspect_pattern", None)
 
+    def output_model():
+
+        model = belief.get("complete_model")
+        print("=" * 40)
+        print("end state")
+
+        for e in model:
+            print(e)
+        print("=" * 40)
+
+        subfolder = "output_sherpa"
+        os.makedirs(subfolder, exist_ok=True)
+
+        # Define the output file path
+        name = belief.get("title")
+        output_file_path = os.path.join(subfolder, name + ".txt")
+
+        # Generate the output text
+        output_text = "=" * 40 + "\n"
+        for e in model:
+            output_text += f"{e}\n"
+        output_text += "=" * 40 + "\n"
+
+        # Write the output to the file
+        with open(output_file_path, "w") as file:
+            file.write(output_text)
+
+        print(f"Output saved to {output_file_path}")
 
     actions = [
         start_question,
@@ -195,17 +228,12 @@ def get_actions(belief: Belief) -> dict[str, BaseAction]:
     actions_dict["has_player_role_pattern"] = has_player_role_pattern
     actions_dict["need_improve_class"] = need_improve_class
     actions_dict["need_improve_pattern"] = need_improve_pattern
-
+    actions_dict["output_model"] = output_model
     return actions_dict
 
 
-problem_description = """The LabTracker software helps (i) doctors manage the requisition of tests and examinations for patients and (ii) patients book appointments for tests and examinations at a lab. For the remainder of this description, tests and examinations are used interchangeably.
-For a requisition, a doctor must provide their numeric practitioner number and signature for verification as well as their full name, their address, and their phone number. The signature is a digital signature, i.e., an image of the actual signature of the doctor. Furthermore, the doctor indicates the date from which the requisition is valid. The requisition must also show the patient?? information including their alpha-numeric health number, first name and last name, date of birth, address, and phone number. A doctor cannot prescribe a test for themselves but can prescribe tests to someone else who is a doctor.
-Several tests can be combined on one requisition but only if they belong to the same group of tests. For example, only blood tests can be combined on one requisition or only ultrasound examinations can be combined. It is not possible to have a blood test and an ultrasound examination on the same requisition. For each test, its duration is defined by the lab network, so that it is possible to schedule appointments accordingly. The duration of a test is the same at each lab. For some kinds of tests, it does not matter how many tests are performed. They take as long as a single test. For example, several blood tests can be performed on a blood sample, i.e., it takes as long to draw the blood sample for a single blood test as it does for several blood tests.
-A doctor may also indicate that the tests on a requisition are to be repeated for a specified number of times and interval. The interval is either weekly, monthly, every half year, or yearly. All tests on a requisition are following the same repetition pattern.
-The doctor and the patient can view the results of each test (either negative or positive) as well as the accompanying report.
-A patient is required to make an appointment for some tests while others are walk-in only. For example, x-ray examinations require an appointment, but blood tests are walk-in only (i.e., it is not possible to make an appointment for a blood test). On the other hand, some tests only require a sample to be dropped off (e.g., a urine or stool sample).
-To make an appointment for a requisition, a patient selects the desired lab based on the lab?? address and business hours. For requisitions with repeated tests, a patient is only allowed to make one appointment at a time. The confirmation for an appointment also shows a confirmation number, the date as well as start/end times, and the name of the lab as well as its registration number. It is possible to change or cancel an appointment at any time but doing so within 24 hours of the appointment incurs a change/cancellation fee. Each lab determines its own fee and business hours. All labs are open every day of the year and offer all tests. The business hours of a lab do not change from one week to the next. Each day a lab is open from the day?? start time to its end time, i.e., there are no breaks.
+problem_description = """Hotel Booking Management System (HBMS) Business travellers use HMBS for booking special accommodation deals offered by participating hotels. Travellers register to HBMS by providing their name, billing information (incl. company name and address) and optional travel preferences (e.g. breakfast included, free wifi, 24/7 front desk, etc.). When searching for accommodation, the traveller specifies the city, the date of arrival and departure, the number of needed rooms and the type of rooms (e.g. single, double, twin), minimum hotel rating (stars), a tentative budget (max. cost per night), and optionally, further travel preferences to filter offers in the search results. HBMS lists all available offers of hotels for the given travel period, and the traveller can either create a preliminary booking or complete a booking in the regular way. 
+In case of a preliminary booking, HBMS forwards the key parameters of the booking information (i.e. price, city area, hotel rating and key preferences and a unique booking identifier) to other hotels so that they can compete for the traveller with special offers provided within the next 24 hours. After 24-hour deadline, HBMS sends the five best special offers to the traveller who can switch to the new offer or proceed with the original preliminary booking. In both cases, the traveller needs to provide credit card information to finalize a booking. Each finalized booking can be either pre-paid (i.e. paid immediately when it cannot be reimbursed), or paid at hotel (when the traveller pays during his/her stay). A finalized booking needs to be confirmed by the hotel within 24 hours. A booking may also contain a cancellation deadline: if the traveller cancels a confirmed booking before this deadline, then there are no further consequences. However, if a confirmed booking is cancelled after this deadline, then 1-night accommodation is charged for the traveller. HBMS stores all past booking information for a traveller to calculate a reliability rating. Each hotel is located in a city at a particular address, and possibly run by a hotel chain. A hotel may announce its available types of rooms for a given period in HBMS, and may also inform HBMS when a particular type of room is fully booked. HBMS sends information about the preliminary booking information to competitor hotels together with the traveller’s preferences and his/her reliability rating. The competitor hotels may then provide a special offer. Once a booking is finalized, the hotel needs to send a confirmation to the traveller. If a completed booking is not confirmed by the hotel within 24 hours, then HBMS needs to cancel it, and reimburse the traveller in case of a pre-paid booking. If the hotel needs to cancel a confirmed booking, then financial compensation must be offered to the traveller.
 """
 
 task_description = """
@@ -271,7 +299,7 @@ def add_mg_sm(belief: Belief) -> Belief:
             ],
             "initial": "InspectClass",
         },
-        {"name": "end"},
+        {"name": "end", "on_enter": "output_model"},
     ]
     initial = "Start"
 
@@ -345,7 +373,7 @@ def add_mg_sm(belief: Belief) -> Belief:
             "conditions": "has_player_role_pattern",
         },
         {
-            "trigger": "Identify_pattern",
+            "trigger": "Generate_feedback",
             "source": "PlayerRolePatternIdentificationState_PatternIdentification",
             "dest": "FeedbackGenerationState",
             # "before": "identify_player_role_pattern",
@@ -404,7 +432,7 @@ def add_mg_sm(belief: Belief) -> Belief:
         {
             "trigger": "Regenerate_class",
             "source": "Inspection_InspectClass",
-            "dest": "ClassIdentificationState",
+            "dest": "ClassIdentificationState_ClassIdentification",
             "conditions": "need_improve_class",
         },
         {
