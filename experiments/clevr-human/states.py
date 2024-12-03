@@ -1,5 +1,4 @@
-from actions import (CountAll, Filter, GenerateOutput, Output, Query, Related,
-                     Same)
+from actions import CountAll, Filter, GenerateOutput, Output, Query, Related, Same
 from sherpa_ai.actions.base import BaseAction
 from sherpa_ai.memory import Belief
 from sherpa_ai.memory.state_machine import SherpaStateMachine
@@ -11,10 +10,16 @@ def get_actions(belief: Belief, llm):
     query = Query(belief=belief, name="query_attribute_action")
     related = Related(belief=belief, name="get_related_objects_action")
     same = Same(belief=belief, name="get_same_objects_action")
-    output = Output(
+    # output = Output(
+    #     belief=belief,
+    #     name="answer_action",
+    #     usage="Return the answer when there is enough information to answer the question",
+    # )  # noqa
+    output = GenerateOutput(
         belief=belief,
         name="answer_action",
         usage="Return the answer when there is enough information to answer the question",
+        llm=llm,
     )  # noqa
     count_all = CountAll(belief=belief, name="count_all_objects_action")
     output_count = Output(
@@ -55,178 +60,185 @@ def get_actions(belief: Belief, llm):
     }
 
 
-def add_state_machine(belief: Belief, action_map: dict[str, BaseAction]):
-    # states = [
-    #     {
-    #         "name": "Start",
-    #         "description": "Given the question, choose the most appropriate type of the final answer of the question is counting (number), querying (a property value) or judging (yes/no question). Choose the appropriate action to go to the corresponding state.",  # noqa
-    #     },
-    #     "Filtering",
-    #     "Checking",
-    #     "Relating",
-    #     "Querying",
-    #     "Finish",
-    # ]
-
-    # transitions = [
-    #     {
-    #         "trigger": "start",
-    #         "source": "Start",
-    #         "dest": "Filtering",
-    #         "before": "count_all_objects_action",
-    #     },
-    #     {
-    #         "trigger": "filter_with_attribute",
-    #         "source": "Filtering",
-    #         "dest": "Filtering",
-    #         "before": "filter_with_attribute_action",
-    #     },
-    #     {
-    #         "trigger": "query",
-    #         "source": "Filtering",
-    #         "dest": "Querying",
-    #     },
-    #     {
-    #         "trigger": "query_attribute",
-    #         "source": "Querying",
-    #         "dest": "Querying",
-    #         "before": "query_attribute_action",
-    #     },
-    #     {
-    #         "trigger": "relate",
-    #         "source": "Querying",
-    #         "dest": "Relating",
-    #     },
-    #     {
-    #         "trigger": "get_related_objects",
-    #         "source": "Relating",
-    #         "dest": "Relating",
-    #         "before": "get_related_objects_action",
-    #     },
-    #     {
-    #         "trigger": "same_objects",
-    #         "source": "Relating",
-    #         "dest": "Checking",
-    #     },
-    #     {
-    #         "trigger": "get_same_objects",
-    #         "source": "Checking",
-    #         "dest": "Checking",
-    #         "before": "get_same_objects_action",
-    #     },
-    #     {
-    #         "trigger": "filter",
-    #         "source": "Checking",
-    #         "dest": "Filtering",
-    #     },
-    #     {
-    #         "trigger": "answer",
-    #         "source": "Filtering",
-    #         "dest": "Finish",
-    #         "before": "answer_action",
-    #     },
-    #     {
-    #         "trigger": "answer",
-    #         "source": "Querying",
-    #         "dest": "Finish",
-    #         "before": "answer_action",
-    #     },
-    #     {
-    #         "trigger": "answer",
-    #         "source": "Relating",
-    #         "dest": "Finish",
-    #         "before": "answer_action",
-    #     },
-    #     {
-    #         "trigger": "answer",
-    #         "source": "Checking",
-    #         "dest": "Finish",
-    #         "before": "answer_action",
-    #     },
-    # ]
-
+def add_state_machine(
+    belief: Belief, action_map: dict[str, BaseAction], print_sm: bool = False
+):
     states = [
         {
             "name": "Start",
-            "description": "Given the question, choose the most appropriate type of the final answer of the question is counting (number), querying (a property value) or judging (yes/no question). Choose the appropriate action to go to the corresponding state.",  # noqa
         },
-        "Counting",
-        "Querying",
-        "Judging",
+        {
+            "name": "Exploring",
+            "initial": "Filtering",
+            "children": [
+                {
+                    "name": "Filtering",
+                    "description": "Choose the filter_with_attribute action providing the attribute if you think filter the object is the best action. Otherwise choose other_options to see other options. If you think you can answer the original question, choose answer.",  # noqa
+                },
+                {
+                    "name": "Checking",
+                    "description": "perform actions on the filtered objects. If you need to start filtering objects again, choose other_option. If you think you can answer the original question, choose answer.",
+                },
+                {
+                    "name": "Relating",
+                    "description": "Choose the get_related_objects action with an object id and the relation to get all ids of other objects related to the input object. Otherwise choose other_options to see other options. If you think you can answer the original question, choose answer.",
+                },  # noqa
+                {
+                    "name": "Querying",
+                    "description": "Choose the query_attribute action providing the object id and the attribute to get the value of the given object and attribute. Otherwise choose other_options to see other options. If you think you can answer the original question, choose answer.",
+                },  # noqa
+            ],
+        },
         "Finish",
     ]
 
     transitions = [
         {
-            "trigger": "count_question",
+            "trigger": "start",
             "source": "Start",
-            "dest": "Counting",
-        },
-        {
-            "trigger": "query_question",
-            "source": "Start",
-            "dest": "Querying",
-        },
-        {
-            "trigger": "judge_question",
-            "source": "Start",
-            "dest": "Judging",
-        },
-        {
-            "trigger": "get_related_objects",
-            "source": "Judging",
-            "dest": "Judging",
-            "before": "get_related_objects_action",
+            "dest": "Exploring",
+            "before": "count_all_objects_action",
         },
         {
             "trigger": "filter_with_attribute",
-            "source": "Judging",
-            "dest": "Judging",
+            "source": "Exploring_Filtering",
+            "dest": "Exploring_Filtering",
             "before": "filter_with_attribute_action",
         },
         {
-            "trigger": "get_same_objects",
-            "source": "Judging",
-            "dest": "Judging",
-            "before": "get_same_objects_action",
+            "trigger": "other_options",
+            "source": "Exploring_Filtering",
+            "dest": "Exploring_Relating",
         },
         {
             "trigger": "get_related_objects",
-            "source": "Counting",
-            "dest": "Counting",
+            "source": "Exploring_Relating",
+            "dest": "Exploring_Relating",
             "before": "get_related_objects_action",
         },
         {
-            "trigger": "filter_with_attribute",
-            "source": "Counting",
-            "dest": "Counting",
-            "before": "filter_with_attribute_action",
+            "trigger": "other_options",
+            "source": "Exploring_Relating",
+            "dest": "Exploring_Checking",
         },
         {
             "trigger": "get_same_objects",
-            "source": "Counting",
-            "dest": "Counting",
+            "source": "Exploring_Checking",
+            "dest": "Exploring_Checking",
             "before": "get_same_objects_action",
         },
         {
-            "trigger": "answer_counting",
-            "source": "Counting",
-            "dest": "Finish",
-            "before": "answer_count_action",
+            "trigger": "other_options",
+            "source": "Exploring_Checking",
+            "dest": "Exploring_Filtering",
         },
         {
-            "trigger": "answer_querying",
-            "source": "Querying",
-            "dest": "Finish",
-            "before": "answer_querying_action",
+            "trigger": "query_attribute",
+            "source": "Exploring",
+            "dest": "Exploring",
+            "before": "query_attribute_action",
         },
+        # {
+        #     "trigger": "query_attribute",
+        #     "source": "Exploring_Querying",
+        #     "dest": "Exploring_Querying",
+        #     "before": "query_attribute_action",
+        # },
+        # {
+        #     "trigger": "other_options",
+        #     "source": "Exploring_Querying",
+        #     "dest": "Exploring_Filtering",
+        # },
         {
-            "trigger": "answer_judging",
-            "source": "Judging",
+            "trigger": "answer",
+            "source": "Exploring",
             "dest": "Finish",
-            "before": "answer_judging_action",
+            "before": "answer_action",
         },
     ]
+
+    # states = [
+    #     {
+    #         "name": "Start",
+    #         "description": "Given the question, choose the most appropriate type of the final answer of the question is counting (number), querying (a property value) or judging (yes/no question). Choose the appropriate action to go to the corresponding state.",  # noqa
+    #     },
+    #     "Counting",
+    #     "Querying",
+    #     "Judging",
+    #     "Finish",
+    # ]
+
+    # transitions = [
+    #     {
+    #         "trigger": "count_question",
+    #         "source": "Start",
+    #         "dest": "Counting",
+    #     },
+    #     {
+    #         "trigger": "query_question",
+    #         "source": "Start",
+    #         "dest": "Querying",
+    #     },
+    #     {
+    #         "trigger": "judge_question",
+    #         "source": "Start",
+    #         "dest": "Judging",
+    #     },
+    #     {
+    #         "trigger": "get_related_objects",
+    #         "source": "Judging",
+    #         "dest": "Judging",
+    #         "before": "get_related_objects_action",
+    #     },
+    #     {
+    #         "trigger": "filter_with_attribute",
+    #         "source": "Judging",
+    #         "dest": "Judging",
+    #         "before": "filter_with_attribute_action",
+    #     },
+    #     {
+    #         "trigger": "get_same_objects",
+    #         "source": "Judging",
+    #         "dest": "Judging",
+    #         "before": "get_same_objects_action",
+    #     },
+    #     {
+    #         "trigger": "get_related_objects",
+    #         "source": "Counting",
+    #         "dest": "Counting",
+    #         "before": "get_related_objects_action",
+    #     },
+    #     {
+    #         "trigger": "filter_with_attribute",
+    #         "source": "Counting",
+    #         "dest": "Counting",
+    #         "before": "filter_with_attribute_action",
+    #     },
+    #     {
+    #         "trigger": "get_same_objects",
+    #         "source": "Counting",
+    #         "dest": "Counting",
+    #         "before": "get_same_objects_action",
+    #     },
+    #     {
+    #         "trigger": "answer_counting",
+    #         "source": "Counting",
+    #         "dest": "Finish",
+    #         "before": "answer_count_action",
+    #     },
+    #     {
+    #         "trigger": "answer_querying",
+    #         "source": "Querying",
+    #         "dest": "Finish",
+    #         "before": "answer_querying_action",
+    #     },
+    #     {
+    #         "trigger": "answer_judging",
+    #         "source": "Judging",
+    #         "dest": "Finish",
+    #         "before": "answer_judging_action",
+    #     },
+    # ]
 
     sm = SherpaStateMachine(
         states=states,
@@ -236,7 +248,8 @@ def add_state_machine(belief: Belief, action_map: dict[str, BaseAction]):
         sm_cls=HierarchicalGraphMachine,
     )
 
-    # print(sm.sm.get_graph().draw(None))
+    if print_sm:
+        print(sm.sm.get_graph().draw(None))
 
     belief.state_machine = sm
 

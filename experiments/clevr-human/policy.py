@@ -13,12 +13,6 @@ if TYPE_CHECKING:
 
 SELECTION_DESCRIPTION = """{role_description}
 
-{output_instruction}
-
-**Overall Question Description**: {task_description}
-
-**Current Task Description: {state_description}
-
 **Possible Actions**:
 {possible_actions}
 
@@ -26,12 +20,16 @@ SELECTION_DESCRIPTION = """{role_description}
 {history_of_previous_actions}
 
 You should only select the actions specified in **Possible Actions**
-You should only respond in JSON format as described below without any extra text.
+
 Response Format:
 {response_format}
 Ensure the response can be parsed by Python json.loads
 
-Follow the described format strictly.
+**Overall Question Description**: {task_description}
+
+**Current Task Description: {state_description}
+
+First, concisely summarize the current available information, then choose the most appropriate action and its corresponding arguments.
 
 """  # noqa: E501
 
@@ -44,14 +42,12 @@ class ReactPolicy(BasePolicy):
 
     Attributes:
         role_description (str): The description of the agent role to help select an action
-        output_instruction (str): The instruction to output the action in JSON format
         llm (BaseLanguageModel): The large language model used to generate text
         description (str): Description to select the action from the belief
         response_format (dict): The response format for the policy in JSON format
     """  # noqa: E501
 
     role_description: str
-    output_instruction: str
     llm: Any = (
         None  # Cannot use langchain's BaseLanguageModel due to they are using Pydantic v1
     )
@@ -62,6 +58,7 @@ class ReactPolicy(BasePolicy):
             "args": {"arg name": "value"},
         },
     }
+    checked_up_to: int = 1
 
     def transform_output(self, output_str: str) -> Tuple[str, dict]:
         """
@@ -111,6 +108,15 @@ class ReactPolicy(BasePolicy):
             Optional[PolicyOutput]: The selected action and arguments, or None if the selected
             action is not found in the list of possible actions
         """  # noqa: E501
+        # if the last action results in an error, go to the next state
+        if len(belief.internal_events) > self.checked_up_to:
+            self.checked_up_to = len(belief.internal_events)
+            if "error" in belief.internal_events[-1].content.lower():
+                logger.error(belief.internal_events[-1].content)
+                return PolicyOutput(action=belief.get_action("other_options"), args={})
+            if len(belief.internal_events) > 4 and belief.internal_events[-4].content == belief.internal_events[-2].content:
+                return PolicyOutput(action=belief.get_action("other_options"), args={})
+
         actions = belief.get_actions()
 
         if self.is_selection_trivial(actions):
@@ -138,12 +144,11 @@ class ReactPolicy(BasePolicy):
             possible_actions=possible_actions,
             history_of_previous_actions=history_of_previous_actions,
             state_description=state_description,
-            output_instruction=self.output_instruction,
             response_format=response_format,
         )
-        logger.debug(f"Prompt: {prompt}")
+        # logger.info(f"Prompt: {prompt}")
         result = self.llm.predict(prompt)
-        logger.debug(f"Result: {result}")
+        # logger.info(f"Result: {result}")
 
         name, args = self.transform_output(result)
 
