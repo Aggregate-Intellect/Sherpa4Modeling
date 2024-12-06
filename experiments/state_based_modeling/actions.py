@@ -376,6 +376,7 @@ class IdentifyAbstractClasses(BaseAction):
     Identify abstract classes from the current class.
     TODO: focus on abstract classes only. only generate abstract classes
     TODO: maintaining a set class. update set only
+    TODO: message?
     """
 
     args: dict = {}
@@ -768,7 +769,7 @@ class GenerateFeedback(BaseAction):
         - For the enumeration class, evaluate if it should be captured by an attribute and if its literals are necessary
         - For the subclasses, evaluate if they are necessary to be present in the system.
 
-
+        If there are missing classes, please add them.
 
         You can write general comments and comments to each class, evaluate if the class is necessary. If not, provide a solution to change it.
         """
