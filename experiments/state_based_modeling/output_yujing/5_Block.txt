@@ -1,0 +1,23 @@
+========================================
+Classes:
+abstract User(string username, string password)
+Game(string name, int maxLevels, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, int initialLives, list<Score> hallOfFame)
+Admin(string username, string password) inherit User
+Player(string username, string password, int currentScore, int remainingLives) inherit User
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int numberOfBlocks)
+Score(string playerName, int score)
+Relationships:
+
+
+Composition:
+1 Game contain 0..* Block
+1 Game contain 1..* Level
+1 Game contain 0..* Score
+Inheritance:
+Admin inherit User
+Player inherit User
+Association:
+0..1 Admin associate 1 Game
+0..* Player associate 0..* Game
+========================================

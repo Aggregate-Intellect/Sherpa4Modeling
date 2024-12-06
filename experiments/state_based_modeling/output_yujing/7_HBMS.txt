@@ -1,0 +1,26 @@
+========================================
+Classes:
+Traveller(string name, string billingInformation, string companyName, string address, string travelPreferences, float reliabilityRating)
+Hotel(string name, string address, int starRating, string city, string hotelChain)
+Booking(string bookingIdentifier, date arrivalDate, date departureDate, int numberOfRooms, RoomType roomType, float price, string cityArea, string keyPreferences, boolean isPrePaid, date cancellationDeadline)
+Offer(float price, string cityArea, int hotelRating, string keyPreferences, date deadline)
+CreditCard(string cardNumber, string cardHolderName, date expirationDate, int securityCode)
+enum RoomType(Single, Double, Twin)
+Relationships:
+
+
+Composition:
+1 HBMS contain 0..* Traveller
+1 HBMS contain 0..* Hotel
+1 HBMS contain 0..* Booking
+1 HBMS contain 0..* Offer
+1 HBMS contain 0..* CreditCard
+Inheritance:
+PreliminaryBooking inherit BookingRole
+FinalizedBooking inherit BookingRole
+Association:
+0..* Traveller associate 0..* Booking
+1 Traveller associate 0..1 CreditCard
+0..* Hotel associate 0..* Booking
+0..* Booking associate 0..* Offer
+========================================

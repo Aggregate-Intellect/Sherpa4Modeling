@@ -67,9 +67,12 @@ if __name__ == "__main__":
 
     for index, row in df.iterrows():
         # print(row['description'].strip())
+        # if index != 1:
+        #     print(index)
+        #     continue
         print(row["name"].strip())
         description = row["description"]
-        name = row["name"]
+        name = str(index) + "_" + row["name"]
         main(description, name)
-        break
+        # break
     # main()

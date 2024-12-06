@@ -1,0 +1,35 @@
+========================================
+Classes:
+Device(string deviceId, string deviceType)
+SmartHomeAutomationSystem(string infrastructureMap)
+SmartHome(string physicalAddress)
+Room(string roomName)
+SensorDevice() inherit Device
+ActuatorDevice() inherit Device
+AutomationRule(string ruleId, string precondition, string action, boolean isActive)
+ActivityLog(string logId, string timestamp, string details)
+ControlCommand(string commandId, string commandType, string status, string timestamp)
+SensorReading(string readingId, float measuredValue, string timestamp)
+User(string userId, string userName, string role)
+enum CommandStatus(Requested, Completed, Failed)
+Relationships:
+
+
+Composition:
+1 SmartHomeAutomationSystem contain 0..* SmartHome
+1 SmartHome contain 0..* Room
+1 Room contain 0..* SensorDevice
+1 Room contain 0..* ActuatorDevice
+1 SmartHomeAutomationSystem contain 0..* AutomationRule
+1 SmartHomeAutomationSystem contain 0..* ActivityLog
+1 ActivityLog contain 0..* SensorReading
+1 ActivityLog contain 0..* ControlCommand
+Inheritance:
+SensorDevice inherit Device
+ActuatorDevice inherit Device
+Association:
+0..* User associate 1 SmartHome
+1 AutomationRule associate 0..* ControlCommand
+1 SensorDevice associate 0..* SensorReading
+1 ActuatorDevice associate 0..* ControlCommand
+========================================

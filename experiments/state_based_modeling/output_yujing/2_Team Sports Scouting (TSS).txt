@@ -1,0 +1,31 @@
+========================================
+Classes:
+abstract Employee(string role, string name)
+HeadCoach(string role, string name) inherit Employee
+Director(string role, string name) inherit Employee
+Scout(string role, string name) inherit Employee
+PlayerProfile(string targetPosition, string attributeName, string attributeValue)
+Player(string name, string position)
+ScoutingAssignment(string playerName, string assignmentDetails)
+ScoutingReport(string playerName, string pros, string cons, Recommendation recommendation)
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+Relationships:
+
+
+Composition:
+1 TeamSportsScoutingSystem contain 0..* Employee
+1 TeamSportsScoutingSystem contain 0..* PlayerProfile
+1 TeamSportsScoutingSystem contain 0..* Player
+1 TeamSportsScoutingSystem contain 0..* ScoutingAssignment
+1 TeamSportsScoutingSystem contain 0..* ScoutingReport
+Inheritance:
+HeadCoach inherit Employee
+Director inherit Employee
+Scout inherit Employee
+Association:
+0..* Scout associate 0..* ScoutingAssignment
+0..* ScoutingAssignment associate 1 Player
+0..* ScoutingReport associate 1 Player
+0..* ScoutingReport associate 1 Recommendation
+0..* Player associate 0..* PlayerProfile
+========================================

@@ -249,6 +249,7 @@ class IdentifyAttributes(BaseAction):
         constraint = """
         You can overwrite the current class list if some classes are not necessary or should be attributes instead.
         Only generate attributes for the current classes.
+        Do not remove any class.
         """
         constraint = textwrap.dedent(constraint)
 
@@ -325,6 +326,7 @@ class IdentifyEnumerationClasses(BaseAction):
         constraint = """
         Only add the keyword enum if the original class should be an enumeration class
         Output all classes, including enumeration class and normal class
+        Do not remove any classes.
         """
         constraint = textwrap.dedent(constraint)
 
@@ -387,8 +389,11 @@ class IdentifyAbstractClasses(BaseAction):
         task_description = self.belief.get("task_description")
         identify_classes_prompt = """
         Identify abstract classes from the current class.
+        An abstract class is ideal when you want to define a base class that provides a common structure or functionality while enforcing certain behaviors for derived classes.
+        
         Abstract classes cannot be instantiated, i.e. the object of such class cannot be created directly using the new keyword
-
+        An abstract class needed to be extended by subclass
+        
         We can treat an abstract class as a superclass and extend it:
         Structure and behavior specified for a superclass also applies to the subclass
         Subclass inherits from superclass
@@ -406,6 +411,7 @@ class IdentifyAbstractClasses(BaseAction):
 
         use the keyword "abstract" to represent the class is abstract
         Use the keyword "inherit" to represent the subclass inherit attributes and relations from the super class
+        Note: the root class for the software system is usually not abstract class
         """
         identify_classes_prompt = textwrap.dedent(identify_classes_prompt)
 
@@ -425,6 +431,7 @@ class IdentifyAbstractClasses(BaseAction):
         You can adjust the attributes within the subclass if the super class already contain the attribute
         You should add "inherit superclass" after subclasses.
         Output ALL classes, including abstract classes, normal classes, and enumeration class
+        You should not remove any class from the Class list.
         """
         constraint = textwrap.dedent(constraint)
 
