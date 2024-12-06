@@ -355,7 +355,7 @@ class IdentifyEnumerationClasses(BaseAction):
         class_list = [
             i.strip() for i in class_list if (i != "" and i != "\n" and i != None)
         ]
-
+        print(class_list)
         return class_list
         # iteration_list = []
 
@@ -742,7 +742,7 @@ class IntegrateClasses(BaseAction):
         print("integrated classes with player role pattern")
         print(class_list)
         print("=" * 40)
-
+        self.belief.set("complete_model", class_list)
         return class_list
 
 

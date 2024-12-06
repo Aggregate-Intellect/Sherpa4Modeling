@@ -1,10 +1,17 @@
 ========================================
-PlayerProfile(string targetPosition, map<string, Value> attributes)  
-Scout(string scoutId, string name, list<Player> assignedPlayers)  
-ScoutingReport(Player player, list<string> pros, list<string> cons, Recommendation recommendation)  
-HeadCoach(string coachId, string name, list<PlayerProfile> designatedPlayerProfiles)  
-HeadScout(string scoutId, string name, list<Player> longListPlayers, list<Player> shortListPlayers)  
-Player(string playerId, string name, string currentTeam)  
-Director(string directorId, string name)  
-Recommendation()
+```plaintext
+abstract Employee(string name, string role)
+HeadCoach(string name) inherit Employee
+Director(string name) inherit Employee
+Scout(string name) inherit Employee
+HeadScout(string name) inherit Employee
+PlayerProfile(string targetPosition, string attributeName, string attributeValue)
+Player(string name, int age, string position)
+LongList(date creationDate)
+ScoutingAssignment(date startDate, date endDate)
+ScoutingReport(string pros, string cons, Recommendation recommendation)
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+ShortList(date creationDate)
+Offer(date offerDate, double amount)
+```
 ========================================

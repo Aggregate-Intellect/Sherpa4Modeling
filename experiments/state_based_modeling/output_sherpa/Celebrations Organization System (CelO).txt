@@ -1,12 +1,12 @@
 ========================================
 ```
-abstract Person(string firstName, string lastName, string emailAddress)
-Organizer(string postalAddress, string phoneNumber, string password) inherit Person
-Attendee(string password, string invitationStatus) inherit Person
-abstract EventBase(datetime startDateTime, datetime endDateTime, string occasion, Location location)
-Event(string eventType) inherit EventBase
-Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean notApplicable)
+abstract Person(string firstName, string lastName, string emailAddress, string password)
+Organizer(string postalAddress, string phoneNumber) inherit Person
+Attendee(InvitationStatus invitationStatus) inherit Person
+Event(EventType eventType, date startDate, date endDate, string occasion, Location location)
+Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean isNotApplicable)
 Location(string name, string address)
-Invitation(Attendee attendee, Event event, string status)
+enum EventType(BirthdayParty, GraduationParty)
+enum InvitationStatus(Attending, Maybe, NotAttending)
 ```
 ========================================
