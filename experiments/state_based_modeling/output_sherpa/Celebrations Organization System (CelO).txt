@@ -1,0 +1,12 @@
+========================================
+```
+abstract Person(string firstName, string lastName, string emailAddress)
+Organizer(string postalAddress, string phoneNumber, string password) inherit Person
+Attendee(string password, string invitationStatus) inherit Person
+abstract EventBase(datetime startDateTime, datetime endDateTime, string occasion, Location location)
+Event(string eventType) inherit EventBase
+Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean notApplicable)
+Location(string name, string address)
+Invitation(Attendee attendee, Event event, string status)
+```
+========================================

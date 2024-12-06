@@ -1,0 +1,20 @@
+========================================
+Classes:
+User(string name, string emailAddress, string role, string bankAccount)
+Subject(string name, string level, float hourlyPrice)
+TutoringSession(datetime scheduledTime, float price, boolean isConfirmed, Cancellation cancellationDetails)
+TutoringRequest(datetime targetDateTime, string level)
+Payment(string method, float amount)
+Cancellation(datetime cancellationTime, boolean isWithin24Hours)
+Relationships:
+Composition:
+1 TutoringSession contain 0..1 Cancellation
+Inheritance:
+TutorRole inherit UserRole
+StudentRole inherit UserRole
+Association:
+0..* User associate 0..* Subject
+0..* User associate 0..* TutoringSession
+0..* User associate 0..* TutoringRequest
+1 TutoringSession associate 1 Payment
+========================================

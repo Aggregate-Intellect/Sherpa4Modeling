@@ -28,8 +28,8 @@ from actions import (
 )
 
 # gpt-4o-mini, gpt-4
-llm_class = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
-llm_relation = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
+llm_class = SherpaChatOpenAI(model_name="gpt-4o", temperature=0.01)
+llm_relation = SherpaChatOpenAI(model_name="gpt-4o", temperature=0.01)
 
 
 def get_actions(belief: Belief) -> dict[str, BaseAction]:

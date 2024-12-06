@@ -1,0 +1,11 @@
+========================================
+```plaintext
+abstract User(string username, string password)
+Admin() inherit User
+Player(int highScore, int totalScore, int lives) inherit User
+Game(string name, int maxLevels, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength)
+Block(string color, int points, int gridX, int gridY)
+Level(int levelNumber, boolean isRandom, int initialBlockCount)
+HallOfFame(string gameName, list<string> playerNames, list<int> scores)
+```
+========================================

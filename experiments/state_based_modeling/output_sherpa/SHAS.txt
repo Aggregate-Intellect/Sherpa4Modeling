@@ -1,0 +1,12 @@
+========================================
+SmartHome(string address, list rooms, ActivityLog activityLog, list automationRules)  
+Room(string name, list sensors, list actuators)  
+Device(string deviceId, Status status)  
+Sensor(string sensorType, list readings) inherit Device  
+Actuator(string actuatorType, list commands) inherit Device  
+SensorReading(float value, datetime timestamp)  
+ControlCommand(string commandType, datetime timestamp, Status status)  
+ActivityLog(list entries)  
+AutomationRule(string precondition, string action, Status status, list dependencies, list conflicts, datetime lastTriggered)  
+Status(Enum literals: activated, deactivated, requested, completed, failed)  
+========================================

@@ -1,0 +1,10 @@
+========================================
+```
+GameDesigner(list boardLayout, list deckOfActionCards)
+Player(string color, Tile currentPosition, bool hasExtraTurn, bool skippedTurn)
+Board(list tiles, Tile hiddenTile, list actionTiles, list startingPositions)
+Tile(tuple position, bool isVisited, bool isActionTile)
+ActionCard(enum type, int effectDuration)
+Game(Player currentPlayer, bool isGameOver)
+```
+========================================

@@ -1,0 +1,9 @@
+========================================
+```
+Traveller(string name, string billingInformation, list<string> travelPreferences, float reliabilityRating)
+Hotel(string name, string address, string city, string hotelChain, list<string> availableRoomTypes, int hotelRating)
+Booking(string bookingIdentifier, Traveller traveller, Hotel hotel, string roomType, float price, string cityArea, list<string> preferences, CreditCardInformation creditCardInformation, string bookingStatus, string paymentMethod, string cancellationDeadline, string confirmationStatus)
+SpecialOffer(string offerDetails, float priceReduction, string validityPeriod)
+CreditCardInformation(string cardNumber, string expirationDate, string cardholderName, string securityCode)
+```
+========================================

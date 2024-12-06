@@ -236,7 +236,6 @@ class IdentifyAttributes(BaseAction):
 
         Notes:
         For each class, evaluate if it can be represented by an attrbute inside another class. If so, remove the class and make it an attribute.
-        Do not include the class if it is not necessary in the software system.
         """
         identify_attribute_prompt = textwrap.dedent(identify_attribute_prompt)
         format_description = """
@@ -319,7 +318,7 @@ class IdentifyEnumerationClasses(BaseAction):
         Person(string name, string address)
         enum Cake(WeddingCake, BirthdayCake)
 
-        only output class with attribute in () and separated by each line. do not include any other words or symbels in your generated text.
+        only output class with attribute in () and separated by each line. do not include any other words or symbols in your generated text.
         """
         format_description = textwrap.dedent(format_description)
 
@@ -375,6 +374,8 @@ class IdentifyEnumerationClasses(BaseAction):
 class IdentifyAbstractClasses(BaseAction):
     """
     Identify abstract classes from the current class.
+    TODO: focus on abstract classes only. only generate abstract classes
+    TODO: maintaining a set class. update set only
     """
 
     args: dict = {}
@@ -459,6 +460,8 @@ class IdentifyAbstractClasses(BaseAction):
         for e in class_list:
             print(e)
         print("=" * 40)
+        
+        self.belief.set("complete_model", class_list)
         return class_list
 
 
@@ -758,11 +761,14 @@ class GenerateFeedback(BaseAction):
         checker_prompt = """
         Given the class list for the problem description, write comment for each class with its attribute. 
         Evaluate if it is at the correct level of abstraction to be included in the software system.
+
         Many classes may not be needed and may not be necessary, example cases:
         - if class A is too detailed to be included in the system, consider removing it.
         - if class A does not contain any attributes or only contains 1 attribute, consider moving the attribute of class A to another class and removing class A
         - For the enumeration class, evaluate if it should be captured by an attribute and if its literals are necessary
         - For the subclasses, evaluate if they are necessary to be present in the system.
+
+
 
         You can write general comments and comments to each class, evaluate if the class is necessary. If not, provide a solution to change it.
         """
@@ -777,6 +783,8 @@ class GenerateFeedback(BaseAction):
 
         if complete_model:
             complete_model = "\n".join(complete_model)
+        
+        print(self.belief.dict)
         prompt = (
             f"Task description: {task_description}"
             + "\n\n"
@@ -788,7 +796,9 @@ class GenerateFeedback(BaseAction):
             + "\n\n"
             + f"Generated comments: \n"
         )
-
+        
+        print(prompt)
+        
         generated_text = self.llm.predict(prompt)
 
         comments = generated_text.split("\n")
