@@ -707,13 +707,6 @@ if __name__ == "__main__":
 
     df = pd.read_csv("modeling_problems.csv")
 
-    # Display the dataframe
-    # print(df)
-
-    # # Access a specific column
-    # print(df['description'])  # Replace 'column_name' with your actual column name
-    # print(df['name'])
-
     for index, row in df.iterrows():
         
         if index in [0]:

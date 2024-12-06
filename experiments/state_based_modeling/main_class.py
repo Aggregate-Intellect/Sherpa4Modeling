@@ -71,5 +71,5 @@ if __name__ == "__main__":
         description = row["description"]
         name = row["name"]
         main(description, name)
-        break
+        # break
     # main()
