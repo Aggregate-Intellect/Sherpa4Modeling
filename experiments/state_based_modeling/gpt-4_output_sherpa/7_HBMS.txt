@@ -1,0 +1,10 @@
+========================================
+HBMS(string city, date arrivalDate, date departureDate, int numberOfRooms, string roomType, int hotelRating, float budget, boolean travelPreferences)
+BusinessTraveller(string name, string companyName, string address, boolean travelPreferences, int reliabilityRating)
+AccommodationDeal(string city, date arrivalDate, date departureDate, int numberOfRooms, string roomType, int hotelRating, float budget)
+Hotel(string name, string address, int hotelRating, string roomType, boolean availability)
+Room(string type, int number)
+Booking(string city, date arrivalDate, date departureDate, int numberOfRooms, string roomType, float price, string uniqueBookingIdentifier, float financialCompensation)
+SpecialOffer(float price, string cityArea, int hotelRating, string keyPreferences)
+Confirmation(boolean confirmed, date confirmationDate)
+========================================

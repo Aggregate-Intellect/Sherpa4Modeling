@@ -1,0 +1,46 @@
+========================================
+Classes:
+'HotelBookingManagementSystem(string city, date dateOfArrival, date dateOfDeparture, int numberOfRooms, string typeOfRooms, int hotelRating, float budget, string travelPeriod, string bookingStatus, string bookingIdentifier)',
+'BusinessTraveller(string name, BillingInformation billingInformation, TravelPreference travelPreference, ReliabilityRating reliabilityRating)',
+'AccommodationDeal(string city, date dateOfArrival, date dateOfDeparture, int numberOfRooms, string typeOfRooms, int hotelRating, float budget)',
+'Hotel(string name, string address, string city, string hotelChain, RoomAvailability roomAvailability)',
+'BillingInformation(string companyName, string address)',
+'TravelPreference(boolean breakfastIncluded, boolean freeWifi, boolean frontDesk24_7)',
+'abstract BookingStatus()',
+'PreliminaryBooking(string bookingIdentifier, string cityArea, int hotelRating, string keyPreferences) inherit BookingStatus()',
+'RegularBooking(string bookingIdentifier) inherit BookingStatus()',
+'FinalizedBooking(string bookingIdentifier, CreditCardInformation creditCardInformation) inherit BookingStatus()',
+'ConfirmedBooking(string bookingIdentifier, date cancellationDeadline, FinancialCompensation financialCompensation) inherit BookingStatus()',
+'CancelledBooking(string bookingIdentifier, FinancialCompensation financialCompensation) inherit BookingStatus()',
+'SpecialOffer(float price, string cityArea, int hotelRating, string keyPreferences)',
+'CreditCardInformation(string cardNumber, string cardHolderName, date expiryDate, int cvv)',
+'RoomAvailability(string typeOfRoom, boolean isAvailable)',
+'enum BookingStatus(Preliminary, Regular, Finalized, Confirmed, Cancelled)',
+'enum PaymentType(PrePaid, PaidAtHotel)',
+'enum RoomType(Single, Double, Twin)',
+'enum HotelRating(OneStar, TwoStar, ThreeStar, FourStar, FiveStar)'
+Relationships:
+
+
+Composition:
+1 HotelBookingManagementSystem contain 1..* BusinessTraveller
+1 HotelBookingManagementSystem contain 1..* AccommodationDeal
+1 HotelBookingManagementSystem contain 1..* Hotel
+1 HotelBookingManagementSystem contain 1..* SpecialOffer
+Inheritance:
+PreliminaryBooking inherit BookingStatus
+RegularBooking inherit BookingStatus
+FinalizedBooking inherit BookingStatus
+ConfirmedBooking inherit BookingStatus
+CancelledBooking inherit BookingStatus
+Association:
+1 BusinessTraveller associate 0..* AccommodationDeal
+1 BusinessTraveller associate 0..* BookingStatus
+1 AccommodationDeal associate 1..* Hotel
+1 Hotel associate 0..* SpecialOffer
+1 BookingStatus associate 1 CreditCardInformation
+1 BookingStatus associate 1..* RoomAvailability
+1 BookingStatus associate 1..* PaymentType
+1 BookingStatus associate 1..* RoomType
+1 BookingStatus associate 1..* HotelRating
+========================================

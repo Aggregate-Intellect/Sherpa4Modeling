@@ -1,0 +1,46 @@
+========================================
+Classes:
+'SmartHomeAutomationSystem(SystemStatus systemStatus)',
+'User(string userID, UserRole userRole)',
+'Owner(string ownerID)',
+'SmartHome(string physicalAddress, string homeID)',
+'Room(string roomName, string roomID)',
+'abstract Device(DeviceStatus deviceStatus, DeviceType deviceType, string deviceID)',
+'SensorDevice() inherit Device()',
+'ActuatorDevice() inherit Device()',
+'InfrastructureMap(MapStatus mapStatus)',
+'SensorReading(string deviceID, string measuredValue, string timestamp)',
+'ControlCommand(CommandStatus commandStatus, string commandName, string timestamp)',
+'ActivityLog(LogStatus logStatus, string logID)',
+'Alert(AlertStatus alertStatus, string alertID)',
+'AutomationRule(RuleStatus ruleStatus, string ruleID, string precondition, string action)',
+'RuleHierarchy(HierarchyStatus hierarchyStatus)'
+Relationships:
+
+
+Composition:
+1 SmartHomeAutomationSystem contain 1..* User
+1 SmartHomeAutomationSystem contain 1..* SmartHome
+1 SmartHome contain 1..* Room
+1 Room contain 0..* Device
+1 SmartHomeAutomationSystem contain 1 InfrastructureMap
+1 SmartHomeAutomationSystem contain 1..* SensorReading
+1 SmartHomeAutomationSystem contain 1..* ControlCommand
+1 SmartHomeAutomationSystem contain 1 ActivityLog
+1 SmartHome contain 1..* Alert
+1 SmartHome contain 1..* AutomationRule
+1 SmartHome contain 1 RuleHierarchy
+Inheritance:
+SensorDevice inherit Device
+ActuatorDevice inherit Device
+Owner inherit User
+Association:
+1 User associate 1..* SmartHome
+1 Room associate 0..* SensorDevice
+1 Room associate 0..* ActuatorDevice
+1 SensorDevice associate 1..* SensorReading
+1 ActuatorDevice associate 1..* ControlCommand
+1 SmartHome associate 1..* Alert
+1 SmartHome associate 1..* AutomationRule
+1 AutomationRule associate 0..* RuleHierarchy
+========================================

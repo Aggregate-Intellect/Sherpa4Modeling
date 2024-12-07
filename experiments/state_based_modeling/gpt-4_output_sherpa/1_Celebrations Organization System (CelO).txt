@@ -1,0 +1,8 @@
+========================================
+CelOApplication(string name)
+User(string firstName, string lastName, string email, string password, string role, string postalAddress, string phoneNumber, boolean attendanceConfirmation)
+Event(string eventType, date startTime, date endTime, string occasion, string locationName, string locationAddress)
+Task(string taskName, string taskStatus)
+Invitation(string invitationStatus)
+Checklist(string checklistName)
+========================================

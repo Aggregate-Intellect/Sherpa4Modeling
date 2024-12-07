@@ -1,0 +1,28 @@
+========================================
+Classes:
+['User(string username, string password)', 'Admin(string username, string password, string gameName) inherit User()', 'Player(string username, string password, string gameName, int score, int lives) inherit User()', 'DestroyBlockGame(string gameName, boolean isPublished, Admin gameAdmin)', 'Block(string color, int points)', 'Level(int levelNumber, string blockArrangement, boolean isRandom)', 'GridSystem(Block[][] blocks)', 'Ball(float speed, string direction)', 'Paddle(float length)', 'HallOfFame(DestroyBlockGame game, Player[] players, int highScore)']
+Relationships:
+
+
+Composition:
+1 DestroyBlockGame contain 1..* Block
+1 DestroyBlockGame contain 1..99 Level
+1 DestroyBlockGame contain 1 GridSystem
+1 DestroyBlockGame contain 1 Ball
+1 DestroyBlockGame contain 1 Paddle
+1 DestroyBlockGame contain 1 HallOfFame
+1 Level contain 1 GridSystem
+1 GridSystem contain 0..* Block
+Inheritance:
+Admin inherit User
+Player inherit User
+Association:
+1 User associate 0..1 Admin
+1 User associate 0..1 Player
+1 DestroyBlockGame associate 1 Admin
+1 DestroyBlockGame associate 0..* Player
+1 Player associate 1..* DestroyBlockGame
+1 Admin associate 1..* DestroyBlockGame
+1 HallOfFame associate 0..* Player
+1 Player associate 0..1 HallOfFame
+========================================

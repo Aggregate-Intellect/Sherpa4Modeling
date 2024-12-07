@@ -1,0 +1,49 @@
+========================================
+Classes:
+"TileOApplication(boolean gameStatus)",
+"User(string userEmail, string userId)",
+"GameDesigner(string name, User user)",
+"BoardGame(string layout, Tile hiddenTile, int numberOfPlayers)",
+"Player(string name, PlayingPiece playingPiece, int turnOrder, User user)",
+"Tile(string color, boolean isHidden, boolean isActionTile)",
+"Board(Tile[][] tiles)",
+"PlayingPiece(string color)",
+"Die(int faceValue)",
+"ConnectionPiece(boolean isSpare)",
+"ActionCard(string actionType)",
+"Deck(ActionCard[] actionCards)",
+"GameTurn(int turnNumber, Player currentPlayer)"
+Relationships:
+
+
+Composition:
+1 TileOApplication contain 1 User
+1 TileOApplication contain 1 GameDesigner
+1 TileOApplication contain 1 BoardGame
+1 TileOApplication contain 0..4 Player
+1 TileOApplication contain 1 Board
+1 TileOApplication contain 1 Die
+1 TileOApplication contain 0..32 ConnectionPiece
+1 TileOApplication contain 1 Deck
+1 TileOApplication contain 1 GameTurn
+1 BoardGame contain 0..* Tile
+1 Board contain 0..* Tile
+1 Player contain 1 PlayingPiece
+1 Deck contain 0..32 ActionCard
+Inheritance:
+GameDesigner inherit User
+Player inherit User
+Association:
+1 BoardGame associate 0..4 Player
+1 Player associate 1 GameTurn
+1 Player associate 0..1 PlayingPiece
+1 Tile associate 0..4 ConnectionPiece
+1 ActionCard associate 0..1 Player
+1 GameTurn associate 1 Die
+1 GameTurn associate 1 BoardGame
+1 GameTurn associate 0..1 ActionCard
+1 GameDesigner associate 1 BoardGame
+1 GameDesigner associate 0..* Tile
+1 GameDesigner associate 0..32 ConnectionPiece
+1 GameDesigner associate 1 Deck
+========================================

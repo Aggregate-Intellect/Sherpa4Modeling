@@ -1,0 +1,20 @@
+========================================
+TileOApplication(string gameStatus)
+GameDesigner(string designerName)
+BoardGame(string gameName, int numberOfPlayers, string gameStatus)
+Player(string playerName, int playerNumber, string playerColor)
+abstract Tile(int tileId, string tileColor, boolean isHidden, boolean isActionTile)
+Board(int boardId, int numberOfTiles)
+PlayingPiece(string pieceColor)
+GameBoard(int boardId, string layout) inherit Board
+ConnectionPiece(int pieceId, boolean isSpare)
+HiddenTile(int tileId) inherit Tile
+StartingPosition(int positionId, int tileId)
+ActionTile(int tileId, int actionCardId) inherit Tile
+Deck(int deckId, int numberOfCards)
+ActionCard(int cardId, string actionDescription)
+Die(int dieNumber)
+Turn(int turnNumber, int playerId)
+Pile(int pileId, int numberOfConnectionPieces)
+RegularTile(int tileId) inherit Tile
+========================================
