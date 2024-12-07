@@ -1,0 +1,12 @@
+========================================
+```
+Event(string eventName, string occasion, string startDateTime, string endDateTime, string locationName, string locationAddress)
+abstract Role()
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password) inherit Role()
+Attendee(string firstName, string lastName, string email, string invitationStatus) inherit Role()
+Task(string taskName, string status)
+Location(string name, string address)
+enum InvitationStatus(Attending, Maybe, NotAttending)
+enum EventType(BirthdayParty, GraduationParty, Other)
+```
+========================================
