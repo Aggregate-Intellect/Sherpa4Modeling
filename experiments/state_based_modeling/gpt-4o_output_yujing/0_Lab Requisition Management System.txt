@@ -1,0 +1,25 @@
+========================================
+Classes:
+Person(string fullName, string address, string phoneNumber)
+Doctor(int practitionerNumber, string signature, date requisitionValidFrom) inherit Person
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+Requisition(Patient patient, string testGroup, int repeatCount, RepeatInterval repeatInterval)
+Test(string testName, int duration)
+Appointment(date appointmentDate, time startTime, time endTime, string labName, string labRegistrationNumber, string confirmationNumber)
+Lab(string address, string registrationNumber, time startTime, time endTime, float changeCancellationFee)
+Report(boolean isPositive, string reportDetails)
+enum RepeatInterval(Weekly, Monthly, HalfYearly, Yearly)
+Relationships:
+
+
+Composition:
+1 Requisition contain 0..* Test
+1 Appointment contain 1 Lab
+Inheritance:
+Doctor inherit Person
+Association:
+1 Doctor associate 0..* Requisition
+1 Patient associate 0..* Requisition
+0..* Patient associate 0..* Appointment
+1 Requisition associate 0..* Report
+========================================

@@ -28,8 +28,9 @@ from actions import (
 )
 
 # gpt-4o-mini, gpt-4
-llm_class = SherpaChatOpenAI(model_name="gpt-4o", temperature=0.01)
-llm_relation = SherpaChatOpenAI(model_name="gpt-4o", temperature=0.01)
+model_name = "gpt-4o-mini"
+llm_class = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
+llm_relation = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
 
 
 def get_actions(belief: Belief) -> dict[str, BaseAction]:
@@ -183,7 +184,7 @@ def get_actions(belief: Belief) -> dict[str, BaseAction]:
             print(e)
         print("=" * 40)
 
-        subfolder = "output_sherpa"
+        subfolder = model_name + "_output_sherpa"
         os.makedirs(subfolder, exist_ok=True)
 
         # Define the output file path

@@ -1,0 +1,15 @@
+========================================
+```
+abstract Doctor(string practitionerNumber, string fullName, string address, string phoneNumber, Signature signature, date requisitionValidFrom)
+Requisition(Patient patient, List<Test> tests, int repetitionCount, Interval interval)
+Test(string testName, int duration, boolean isWalkInOnly)
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, Lab lab)
+Lab(string name, string registrationNumber, BusinessHours businessHours, Fee fee)
+Signature(string digitalSignatureImage)
+Report(string results)
+BusinessHours(time startTime, time endTime)
+Fee(float amount)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+```
+========================================

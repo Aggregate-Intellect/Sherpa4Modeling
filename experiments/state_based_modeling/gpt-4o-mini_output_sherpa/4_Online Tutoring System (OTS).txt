@@ -1,0 +1,17 @@
+========================================
+```
+OnlineTutoringSystem()
+Student(string name, string emailAddress)
+Tutor(string name, string emailAddress, string bankAccount)
+Subject(string name)
+Expertise(string level, string subject, double hourlyPrice)
+TutoringSession(date targetDate, time sessionTime)
+Availability(string dayOfWeek, time startTime, time endTime)
+Request(date targetDate, time sessionTime)
+Payment(string paymentMethod)
+Cancellation(boolean isCancelled, double penaltyAmount)
+Level(enum PrimarySchool, HighSchool, University)
+PaymentMethod(enum CreditCard, WireTransfer)
+DayOfWeek(enum Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+```
+========================================

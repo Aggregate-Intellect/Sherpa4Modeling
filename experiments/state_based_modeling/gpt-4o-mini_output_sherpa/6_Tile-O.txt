@@ -1,0 +1,14 @@
+========================================
+TileOApplication()  
+abstract Game(string gameName, boolean isActive)  
+Designer(string designerName)  
+Board(int width, int height)  
+Player(string playerName, string color, int position)  
+abstract Tile(string tileType, boolean isVisited)  
+ConnectionPiece(string direction)  
+ActionTile(string actionType, int turnsUntilRegular) inherit Tile(string tileType, boolean isVisited)  
+ActionCard(string actionDescription)  
+Die(int sides)  
+Turn(int turnNumber, string currentPlayer)  
+enum ActionCardType {ExtraTurn, ConnectTiles, RemoveConnection, MovePiece, LoseTurn}  
+========================================
