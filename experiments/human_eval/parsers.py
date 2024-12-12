@@ -23,14 +23,24 @@ class PythonOutputParser(BaseOutputParser):
 
 class PromptExampleParser(BaseOutputParser):
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    pattern: re.Pattern = re.compile(">>> (.+)\n\s+(.+)")
+    patterns: list[re.Pattern] = [
+        re.compile("^[ \*>]+(.*\(.*) =?[=\-|➞]>? (.+)"),
+        re.compile("(.+\(.+).+ returns (.+)"),
+        re.compile(">>> (.+)\n +(.+)"),
+    ]
 
     def parse(self, result: str) -> list[dict]:
-        matches = self.pattern.findall(result)
+        matches = []
+
+        for pattern in self.patterns:
+            matches = pattern.findall(result)
+
+            if len(matches) > 0:
+                break
 
         if len(matches) == 0:
             logger.warning(
                 f"No example in the response. The original response is \n {result}")
-            return None
+            return []
         else:
-            return [{"input": match[0], "output": match[1]} for match in matches]
+            return [{"input": match[0].strip(), "output": match[1].strip()} for match in matches]
