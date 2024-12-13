@@ -1,0 +1,5 @@
+-e file:///workspaces/Sherpa4Modeling/experiments/human_eval/human-eval
+langchain==0.3.11
+langchain_openai==0.2.12
+loguru==0.7.3
+sherpa_ai @ git+https://github.com/Aggregate-Intellect/sherpa&subdirectory=src@develop

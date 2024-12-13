@@ -21,6 +21,17 @@ class PythonOutputParser(BaseOutputParser):
             return None
 
 
+class TestCaseParser(BaseOutputParser):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+    pattern: re.Pattern = re.compile("assert .+")
+
+    def parse(self, result: Optional[str]) -> Optional[list[str]]:
+        if result is None:
+            return None
+
+        return self.pattern.findall(result)
+
+
 class PromptExampleParser(BaseOutputParser):
     model_config = ConfigDict(arbitrary_types_allowed=True)
     patterns: list[re.Pattern] = [

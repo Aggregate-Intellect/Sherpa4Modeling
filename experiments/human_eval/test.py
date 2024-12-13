@@ -1,32 +1,46 @@
 from typing import List
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    """ Check if in given list of numbers, are any two numbers closer to each other than
-    given threshold.
-    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)
-    False
-    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
-    True
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    """ Input to this function is a string containing multiple groups of nested parentheses. Your goal is to
+    separate those group into separate strings and return the list of those.
+    Separate groups are balanced (each open brace is properly closed) and not nested within each other
+    Ignore any spaces in the input string.
+    >>> separate_paren_groups('( ) (( )) (( )( ))')
+    ['()', '(())', '(()())']
     """
-    # Sort the numbers
-    numbers.sort()
+    # Remove spaces from the input string
+    paren_string = paren_string.replace(" ", "")
     
-    # Check adjacent elements
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i + 1]) <= threshold:
-            return True
-            
-    return False
+    groups = []
+    balance = 0
+    start_index = 0
+    
+    for i, char in enumerate(paren_string):
+        if char == '(':
+            if balance == 0:
+                start_index = i  # Mark the start of a new group
+            balance += 1
+        elif char == ')':
+            balance -= 1
+            if balance == 0:
+                # We found a complete group
+                groups.append(paren_string[start_index:i + 1])
+    
+    return groups
 
 def check(candidate):
-    # No elements
-    assert candidate([], 0.5) == False
-    # Single element
-    assert candidate([1.0], 0.5) == False
-    # All elements far apart
-    assert candidate([1.0, 2.0, 3.0], 0.5) == False
-    # At least one pair close
-    assert candidate([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3) == True
-    # Threshold is zero (checking for duplicates)
-    assert candidate([1.0, 1.0, 2.0], 0.0) == True
-
-check(has_close_elements)
+    # Test with multiple groups of parentheses
+    assert candidate('( ) (( )) (( )( ))') == ['()', '(())', '(()())']
+    
+    # Test with a single group of parentheses
+    assert candidate('()') == ['()']
+    
+    # Test with nested parentheses (should ignore nesting)
+    assert candidate('((()))') == ['((()))']
+    
+    # Test with spaces and multiple groups
+    assert candidate(' ( )   ( ( ) )   ( ( ) ( ) ) ') == ['()', '(())', '(()())']
+    
+    # Test with no parentheses
+    assert candidate('') == []
+check(separate_paren_groups)
