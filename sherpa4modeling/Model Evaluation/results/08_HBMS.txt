@@ -1,0 +1,26 @@
+Enumerations:
+RoomType(SINGLE, DOUBLE, TWIN)
+BookingStatus(FINALIZED, CONFIRMED, CANCELLED_BY_HBMS, PRELIMINARY, CANCELLED_BY_TRAVELLER, CANCELLED_BY_HOTEL)
+PaymentType (PREPAID, PAID_AT_HOTEL)
+
+Classes:
+HotelBookingManager()
+HotelChain()
+
+Traveller (string name, int reliabilityRating)
+
+BillingInformation(string companyName, string address)
+TravelPreference(string preference, string value)
+Hotel (string city, string country, string area)
+abstract Offer()
+SpecialOffer()
+RegularOffer()
+TravelSearch()
+SearchInfo()
+RoomAvailability()
+abstract TripInfo(int numberOfRooms, RoomType roomType, date arrivalDate, date departureDate, float budgetPerNight)
+BookingInfo()
+Booking (int bookingId, date cancellationDeadline, string creditCardNumber, BookingStatus bookingStatus, PaymentType paymentType, date confirmationDate, float paidAmount)
+
+
+Relationships:
