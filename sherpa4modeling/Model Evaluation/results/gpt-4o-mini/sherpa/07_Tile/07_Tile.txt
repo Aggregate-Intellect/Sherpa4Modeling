@@ -1,0 +1,22 @@
+Enumerations:
+ActionCardType(ExtraTurn, ConnectTiles, RemoveConnection, MovePiece, LoseTurn)
+
+Classes:
+TileOApplication()  
+abstract Game(string gameName, boolean isActive)  
+Designer(string designerName)  
+Board(int width, int height)  
+ConnectionPiece(string direction)  
+
+Die(int sides) 
+
+
+abstract Tile(string tileType, boolean isVisited)  
+ActionCard(string actionDescription) 
+ActionTile(string actionType, int turnsUntilRegular) inherit Tile(string tileType, boolean isVisited)  
+
+Player(string playerName, string color, int position)  
+Turn(int turnNumber, string currentPlayer)  
+
+
+Relationships:

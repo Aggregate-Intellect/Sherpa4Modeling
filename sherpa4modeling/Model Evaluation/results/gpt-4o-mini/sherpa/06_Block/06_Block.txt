@@ -1,0 +1,19 @@
+Enumerations:
+GameMode(PlayMode, AdminMode)
+
+Classes:
+DestroyBlockApplication()
+abstract User(string username, string password, string mode)
+Level(int levelNumber, ListBlock arrangement, boolean isRandom)
+Game(string name, HallOfFame hallOfFame, Admin admin, ListBlock blocks, ListLevel levels, int maxLevels)
+Block(string color, int points)
+Paddle(int length)
+Ball(int speed, String direction)
+HallOfFame(ListPlayer highScores)
+Admin(string username, string password) inherit User
+Player(string username, string password, int lives, int totalScore) inherit User
+PlayArea(ListBlock blocks, Ball ball, Paddle paddle)
+
+
+
+Relationships:
