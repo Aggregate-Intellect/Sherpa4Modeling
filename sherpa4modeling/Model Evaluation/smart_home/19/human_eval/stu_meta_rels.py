@@ -45,7 +45,11 @@
         "score": 0.5,
         "counterpart": "1 AlertRule contain 0..1 BooleanExpression",
     },
-    {"dsl": "1 AutomationRule contain  1 Action", "score": 0.5, "counterpart": "1 AlertRule contain * CommandSequence"},
+    {
+        "dsl": "1 AutomationRule contain  1 Action",
+        "score": 0.5,
+        "counterpart": "1 AlertRule contain * CommandSequence",
+    },
     {
         "dsl": "* RelationalTerm associate 0..1 Room",
         "score": 1,

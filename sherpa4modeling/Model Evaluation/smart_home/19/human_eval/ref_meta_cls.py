@@ -116,7 +116,7 @@
         "counterpart": "abstract Device",
         "attributes": {
             "DeviceStatus deviceStatus": {
-                "score": .5,
+                "score": 0.5,
                 "counterpart": ("boolean isActive", "abstract Device"),
             },
             "int deviceID": {
@@ -219,7 +219,12 @@
         "type": "regular",
         "dsl": "BinaryExpression(BinaryOp binaryOp)",
         "counterpart": "BooleanOperator",
-        "attributes": {"BinaryOp binaryOp": {"score": 1, "counterpart": ("Operator operator", "BooleanOperator")}},
+        "attributes": {
+            "BinaryOp binaryOp": {
+                "score": 1,
+                "counterpart": ("Operator operator", "BooleanOperator"),
+            }
+        },
     },
     "CommandSequence": {
         "score": 1,

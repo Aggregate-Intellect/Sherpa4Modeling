@@ -49,7 +49,11 @@
         "score": 0.5,
         "counterpart": "1 AutomationRule contain  1 PreCondition",
     },
-    {"dsl": "1 AlertRule contain * CommandSequence", "score": 0.5, "counterpart": "1 AutomationRule contain  1 Action"},
+    {
+        "dsl": "1 AlertRule contain * CommandSequence",
+        "score": 0.5,
+        "counterpart": "1 AutomationRule contain  1 Action",
+    },
     {
         "dsl": "* RelationalTerm associate 0..1  Room",
         "score": 1,

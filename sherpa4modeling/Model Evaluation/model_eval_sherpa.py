@@ -1,12 +1,17 @@
 # %% [markdown]
 # # Set up
 
+# %%
+from worde4mde import load_embeddings
+
+sgram_mde = load_embeddings("sgram-mde")
+
+# %%
+# import pickle
+
 import ast
 import json
 import os
-
-# %%
-import pickle
 import re
 import sys
 
@@ -14,6 +19,8 @@ import networkx as nx
 import numpy as np
 import openai
 import pandas as pd
+
+# %%
 from dotenv import load_dotenv
 from openai import OpenAI
 from worde4mde import load_embeddings
@@ -25,20 +32,43 @@ load_dotenv()
 openai_key = os.getenv("openai_key")
 os.environ["OPENAI_API_KEY"] = openai_key
 
-openai.api_key = openai_key
-
 # %% [markdown]
 # ## Input
 
 # %%
-g = input()
+args = dict(arg.split("=") for arg in sys.argv[1:])
 
-# %%
-instructor_dir = "smart_home/"
-instructor_input = instructor_dir + "instructor.txt"
-student_dir = "smart_home/GX/".replace("GX", g)
+instructor_dir = args.get("dir")
 
-student_input = student_dir + "dsl.txt"
+# 01_LabTracker
+# 02_CelO
+# 03_TSS
+# 04_SHAS
+# 05_OTS
+# 06_Block
+# 07_Tile
+# 08_HBMS
+problem_id = args.get("problem_id")
+
+# location of reference domain model is stored. It is in .txt format
+instructor_input = instructor_dir + "/" + problem_id + ".txt"
+
+# gpt-4o-mini
+# gpt-4
+# gpt-4o
+llm_id = args.get("llm_id")
+
+# yujing
+# sherpa
+method_id = args.get("method_id")
+
+student_dir = instructor_dir + "/" + llm_id + "/" + method_id + "/" + problem_id + "/"
+if not os.path.exists(student_dir):
+    # Create the directory
+    os.makedirs(student_dir)
+
+# location of generated domain model is saved. The file should be in .txt
+student_input = student_dir + problem_id + ".txt"
 student_input
 student_out_dir = student_dir + "result/"
 student_out_dir
@@ -76,21 +106,19 @@ splitCamelCase("device ID")
 splitCamelCase("CommandStatus")
 
 # %%
-client = OpenAI()
+# client = OpenAI()
 
+# def run_llm(prompt, model ="gpt-3.5-turbo"):
+#   response = client.chat.completions.create(
+#     model=model,
+#     messages=[
+#       {"role": "user", "content": prompt},
 
-def run_llm(prompt, model="gpt-3.5-turbo"):
-    response = client.chat.completions.create(
-        model=model,
-        messages=[
-            {"role": "user", "content": prompt},
-        ],
-    )
-    return response.choices[0].message.content
-
+#     ]
+#   )
+#   return response.choices[0].message.content
 
 # %%
-
 client = OpenAI()
 
 
@@ -124,6 +152,8 @@ def match_classes(raw_1, raw_2, dict_attr, thresh=0.5, verbose=False):
     # dict_attr: dictionary for embeddings
     # thresh for subst cost
     # map class lists raw_1 and raw_2
+    print(dict_attr)
+
     def node_subst_cost_attr(node1, node2):
         # threshod as 0.45
         if dict_attr[node1["name"]][node2["name"]] < thresh:
@@ -199,6 +229,12 @@ with open(instructor_input, "r") as file:
 with open(student_input, "r") as file:
     # Read the entire content of the file
     student_all = file.read()
+
+# %%
+print(instructor_all)
+
+# %%
+print(student_all)
 
 # %%
 shas_sol = instructor_all.split("Relationships:")[0]
@@ -458,6 +494,7 @@ similarity_mde_dsl = []
 percentage = 0.8
 for index, node in enumerate(ref_cls.cls_name):
     cls = node.split()[-1].strip()  # get the class name, remove abstract key word
+
     mde_emb_i = get_mde_embedding(cls, mde_embedding)
     mde_emb_i_dsl = get_mde_embedding(ref_cls.cls_atr[node]["dsl"], mde_embedding)
 
@@ -467,6 +504,7 @@ for index, node in enumerate(ref_cls.cls_name):
         cls = stu_node.split()[
             -1
         ].strip()  # get the class name, remove abstract key word
+        print()
         mde_emb_j = get_mde_embedding(cls, mde_embedding)
         mde_emb_j_dsl = get_mde_embedding(
             stu_cls.cls_atr[stu_node]["dsl"], mde_embedding
@@ -588,9 +626,16 @@ mde_embedding = sgram_mde
 threshold = 0.7
 
 
-if os.path.exists(student_dir + "ada_embedding.txt"):
-    with open(student_dir + "ada_embedding.txt", "r") as json_file:
-        dict_sim_all = json.load(json_file)
+# reuse saved embedding result...
+# may cause problem
+# if os.path.exists(student_dir + "ada_embedding.txt"):
+#   pass
+
+# with open(student_dir + "ada_embedding.txt", 'r') as json_file:
+#   dict_sim_all = json.load(json_file)
+
+if False:
+    pass
 
 else:
     for index, node in enumerate(ref_cls.cls_name):
@@ -627,6 +672,15 @@ with open(student_dir + "ada_embedding.txt", "w") as json_file:
 student_dir
 
 # %%
+ref_classes
+
+# %%
+stu_classes
+
+# %%
+dict_sim_all
+
+# %%
 mapping = match_classes(ref_classes, stu_classes, dict_sim_all, 0.8)
 mapping[0]
 
@@ -645,7 +699,7 @@ for map in mapping[0]:
             stu_cls.cls_atr[map[1]]["score"] = 0.5
 
 # %%
-dict_sim_all["BinaryOp"]
+
 
 # %% [markdown]
 # ## Stage 2.1 Attribute mapping
@@ -1037,7 +1091,7 @@ print("=" * 20)
 
 
 # %%
-ref_cls.cls_atr["NotExpression"]
+
 
 # %% [markdown]
 # ## Stage 3: Relationship mapping
@@ -1152,9 +1206,6 @@ def compare_edges(ref_e, stu_e):
 
 
 # %%
-compare_edges("1 SmartHome contain 0..1 ActivityLog", "1 SHAS contain 1  ActivityLog")
-
-# %%
 
 for i, ref_tmp in enumerate(edges[0].raw_dsl):
     matchings = []
@@ -1205,8 +1256,8 @@ if not os.path.exists(student_out_dir):
     os.makedirs(student_out_dir)
 
 # %%
-with open(student_out_dir + "matching.pkl", "wb") as outp:
-    pickle.dump(grader, outp, pickle.HIGHEST_PROTOCOL)
+# with open( student_out_dir + 'matching.pkl', 'wb') as outp:
+#     pickle.dump(grader, outp, pickle.HIGHEST_PROTOCOL)
 
 # %%
 student_out_dir
@@ -1271,7 +1322,8 @@ for key in list(ref_attributes.keys()):
     recall += ref_attributes[key]["score"]
 print(count, recall)
 
-algo_result["class"]["recall"] = recall / count
+if count != 0:
+    algo_result["class"]["recall"] = recall / count
 
 # %%
 # precision
@@ -1282,13 +1334,15 @@ for key in list(stu_attributes.keys()):
     precision += stu_attributes[key]["score"]
 
 print(count, precision)
+if count != 0:
+    algo_result["class"]["precision"] = precision / count
 
-algo_result["class"]["precision"] = precision / count
-algo_result["class"]["f1"] = (
-    2
-    * (algo_result["class"]["recall"] * algo_result["class"]["precision"])
-    / (algo_result["class"]["recall"] + algo_result["class"]["precision"])
-)
+if algo_result["class"]["recall"] + algo_result["class"]["precision"] != 0:
+    algo_result["class"]["f1"] = (
+        2
+        * (algo_result["class"]["recall"] * algo_result["class"]["precision"])
+        / (algo_result["class"]["recall"] + algo_result["class"]["precision"])
+    )
 
 
 # %% [markdown]
@@ -1306,7 +1360,8 @@ for key in list(ref_attributes.keys()):
         recall += ref_attributes[key]["attributes"][att]["score"]
 print(count, recall)
 
-algo_result["attribute"]["recall"] = recall / count
+if count != 0:
+    algo_result["attribute"]["recall"] = recall / count
 
 # %%
 count = 0
@@ -1319,12 +1374,14 @@ for key in list(stu_attributes.keys()):
         precision += stu_attributes[key]["attributes"][att]["score"]
 print(count, precision)
 
-algo_result["attribute"]["precision"] = precision / count
+if count != 0:
+    algo_result["attribute"]["precision"] = precision / count
 
 r = algo_result["attribute"]["recall"]
 p = algo_result["attribute"]["precision"]
 
-algo_result["attribute"]["f1"] = 2 * (r * p) / (r + p)
+if r + p != 0:
+    algo_result["attribute"]["f1"] = 2 * (r * p) / (r + p)
 
 
 # %% [markdown]
@@ -1340,7 +1397,8 @@ for tmp in edges[0].rels:
     recall += attrs
 print(count, recall)
 
-algo_result["relationship"]["recall"] = recall / count
+if count != 0:
+    algo_result["relationship"]["recall"] = recall / count
 
 # %%
 count = 0
@@ -1352,10 +1410,13 @@ for tmp in edges[1].rels:
     precision += attrs
 print(count, precision)
 
-algo_result["relationship"]["precision"] = precision / count
+if count != 0:
+    algo_result["relationship"]["precision"] = precision / count
 r = algo_result["relationship"]["recall"]
 p = algo_result["relationship"]["precision"]
-algo_result["relationship"]["f1"] = 2 * (r * p) / (r + p)
+
+if r + p != 0:
+    algo_result["relationship"]["f1"] = 2 * (r * p) / (r + p)
 
 
 # %%
@@ -1364,794 +1425,3 @@ algo_result["relationship"]["f1"] = 2 * (r * p) / (r + p)
 
 with open(student_out_dir + "algo_result.txt", "w") as file:
     file.write(json.dumps(algo_result))
-
-# %% [markdown]
-# ## Comparing with manual evaluation
-
-# %%
-
-
-class HumanEvaluation(object):
-    def __init__(self, ref_cls=None, stu_cls=None, ref_rels=None, stu_rels=None):
-        self.ref_cls = ref_cls
-        self.stu_cls = stu_cls
-        self.ref_rels = ref_rels
-        self.stu_rels = stu_rels
-
-
-group = HumanEvaluation()
-
-
-# %%
-
-
-# as requested in comment
-
-with open(student_dir + "human_eval/" + "ref_meta_cls.py", "r") as file:
-    content = file.read()
-    ref_cls_human = ast.literal_eval(content)
-    group.ref_cls = ref_cls_human
-
-with open(student_dir + "human_eval/" + "stu_meta_cls.py", "r") as file:
-    content = file.read()
-    stu_cls_human = ast.literal_eval(content)
-    group.stu_cls = stu_cls_human
-
-with open(student_dir + "human_eval/" + "ref_meta_rels.py", "r") as file:
-    content = file.read()
-    ref_rel_human = ast.literal_eval(content)
-    group.ref_rels = ref_rel_human
-
-with open(student_dir + "human_eval/" + "stu_meta_rels.py", "r") as file:
-    content = file.read()
-    stu_rel_human = ast.literal_eval(content)
-    group.stu_rels = stu_rel_human
-
-# %% [markdown]
-# ### Save to disk
-
-# %%
-# # # import pickle
-
-
-# with open(student_dir + 'human_grade.pkl', 'wb') as outp:
-#     g2 = HumanEvaluation(ref_cls_human, stu_cls_human, ref_rel_human, stu_rel_human)
-#     pickle.dump(g2, outp, pickle.HIGHEST_PROTOCOL)
-
-
-# %% [markdown]
-# ### Comparsion
-
-# %%
-algo_human = {}
-algo_human["class"] = {"precision": 0, "recall": 0, "f1": 0}
-algo_human["attribute"] = {"precision": 0, "recall": 0, "f1": 0}
-algo_human["relationship"] = {"precision": 0, "recall": 0, "f1": 0}
-
-# %% [markdown]
-# #### Class
-
-
-# %%
-def exist_mapping(mappings, one_mapping):
-    for m in mappings:
-        if m[0] == one_mapping[0] and m[1] == one_mapping[1]:
-            return True  # already exist
-    return False
-
-
-# %%
-# get human matching first:
-
-tmp = group.ref_cls
-human_mappings = []
-for key in tmp:
-    # print(tmp[key])
-    human_mappings.append((key, tmp[key]["counterpart"], tmp[key]["score"]))
-
-tmp = group.stu_cls
-for key in tmp:
-    # print(tmp[key])
-
-    # reserve the order
-    matching = (tmp[key]["counterpart"], key, tmp[key]["score"])
-
-    if not exist_mapping(human_mappings, matching):
-        human_mappings.append(matching)
-
-# %%
-human_mappings
-
-# %%
-# compare performance
-# algo matching
-grader.ref.cls_atr
-
-tmp = grader.ref.cls_atr
-EMB_mappings = []
-for key in tmp:
-    # print(tmp[key])
-    EMB_mappings.append((key, tmp[key]["counterpart"], tmp[key]["score"]))
-
-tmp = grader.stu.cls_atr
-
-for key in tmp:
-    # print(tmp[key])
-    matching = (tmp[key]["counterpart"], key, tmp[key]["score"])
-
-    if not exist_mapping(EMB_mappings, matching):
-        EMB_mappings.append(matching)
-
-# %%
-EMB_mappings
-
-# %% [markdown]
-# ##### Start Evaluation
-
-# %%
-# TP/FP/TN/FN
-TP = []
-FP = []
-TN = []
-FN = []
-
-
-def check_TP_TN(map_human, map_algo):
-    if (
-        map_human[0] == map_algo[0]
-        and map_human[1] == map_algo[1]
-        and not (None in map_human)
-    ):
-        return "TP"
-    elif (
-        map_human[0] == map_algo[0]
-        and map_human[1] == map_algo[1]
-        and (None in map_human)
-    ):
-        return "TN"
-    else:
-        return "NA"
-
-
-human_mappings_dict = {}
-for i in human_mappings:
-    human_mappings_dict[i] = False  # not mapped
-EMB_mappings_dict = {}
-for i in EMB_mappings:
-    EMB_mappings_dict[i] = False  # not mapped
-
-# filter out TP or TN first
-for i in human_mappings:
-    mappinged = False
-    if not mappinged:
-        for j in EMB_mappings:
-            ans = check_TP_TN(i, j)
-            if ans == "NA":
-                continue
-            elif ans == "TP":
-                score = 1 if i[2] == j[2] else 0.5
-                TP.append((i, j, score))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[j] = True
-            elif ans == "TN":
-                score = 1 if i[2] == j[2] else 0.5
-                TN.append((i, j, score))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[j] = True
-
-
-# %%
-def find_mapping_with_cls(mapping_dict, mapping, pos):
-    # position = 0 or 1
-    for i in mapping_dict:
-        element = mapping[pos]
-
-        if i[pos] == element:
-            return i
-    print("no mapping is found with", mapping, pos)
-    return None
-
-
-# %%
-human_mappings_dict
-
-for i in human_mappings_dict:
-    if human_mappings_dict[i]:
-        continue  # if mapped, ignore
-
-        # i[0] is human pair
-    mapping_0 = find_mapping_with_cls(EMB_mappings_dict, i, 0)  # human result
-    mapping_1 = find_mapping_with_cls(EMB_mappings_dict, i, 1)  # human result
-    if i[0] is not None and mapping_0:
-        mapping = mapping_0
-        # if mapping:
-        if i[1] is not None and mapping[1] is not None:  # a b	// a c	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[1] is not None and mapping[1] is None:  # a b	// a None	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[1] is None and mapping[1] is not None:  # a None // a b	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-    elif i[1] is not None and mapping_1:
-        mapping = mapping_1
-        if i[0] is None and mapping[0] is not None:  # none a //	b a 	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[0] is not None and mapping[0] is None:  # b a	// none a  	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[0] is not None and mapping[0] is not None:  # c a	// b a  0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-    else:
-        raise Exception(f"Sorry, no match found for {i}")
-
-
-# %%
-EMB_mappings_dict
-
-for i in EMB_mappings_dict:
-    if EMB_mappings_dict[i]:
-        continue  # if mapped, ignore
-
-        # i[0] is generaeted pair
-    mapping_0 = find_mapping_with_cls(human_mappings_dict, i, 0)  # human result
-    mapping_1 = find_mapping_with_cls(human_mappings_dict, i, 1)  # human result
-    if i[0] is not None and mapping_0:
-        mapping = mapping_0
-        if i[1] is not None and mapping[1] is not None:  # a b	// a c	0	FP
-            FP.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[1] is not None and i[1] is None:  # a b	// a None	0	FN
-            FN.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[1] is None and i[1] is not None:  # a None // a b	0	FP
-            FP.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-    elif i[1] is not None and mapping_1:
-        mapping = mapping_1
-        if mapping[0] is not None and i[0] is None:  # b a //	none a 	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[0] is None and i[0] is not None:  # none a //	b a  	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[0] is not None and i[0] is not None:  # c a	// b a  0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-    else:
-        raise Exception("matching failed")
-
-# %%
-# precision = TP /(TP + FP)
-# recall = TP /(TP + FN)
-
-tp = 0
-
-for i in TP:
-    tp += i[2]
-
-print("precision:", tp / (len(TP) + len(FP)))
-print("recall:", tp / (len(TP) + len(FN)))
-
-p = tp / (len(TP) + len(FP))
-r = tp / (len(TP) + len(FN))
-
-algo_human["class"]["precision"] = p
-algo_human["class"]["recall"] = r
-
-algo_human["class"]["f1"] = 2 * p * r / (p + r)
-
-
-# %% [markdown]
-#  a b => a c
-#  c
-
-# %%
-for fp in FP:
-    print(fp)
-
-# %%
-for fn in FN:
-    print(fn)
-
-# %% [markdown]
-# #### Attribute
-
-# %%
-# algo matching
-
-tmp = group.ref_cls
-human_mappings = []
-for cls in tmp:  # cls
-    for attr in tmp[cls]["attributes"]:  # attributes
-        # print(cls, attr)
-
-        human_mappings.append(
-            (
-                (attr, cls),
-                tmp[cls]["attributes"][attr]["counterpart"],
-                tmp[cls]["attributes"][attr]["score"],
-            )
-        )
-
-
-tmp = group.stu_cls
-for cls in tmp:
-    # print(tmp[key])
-    for attr in tmp[cls]["attributes"]:  # attributes
-
-        # order of the elements
-        matching = (
-            tmp[cls]["attributes"][attr]["counterpart"],
-            (attr, cls),
-            tmp[cls]["attributes"][attr]["score"],
-        )
-
-        if not exist_mapping(human_mappings, matching):
-            # print(matching)
-            human_mappings.append(matching)
-
-# %%
-human_mappings
-
-# %%
-# compare performance
-# algo matching
-grader.ref.cls_atr
-
-tmp = grader.ref.cls_atr
-EMB_mappings = []
-for cls in tmp:
-    # print(tmp[key])
-    for attr in tmp[cls]["attributes"]:
-        EMB_mappings.append(
-            (
-                (attr, cls),
-                tmp[cls]["attributes"][attr]["counterpart"],
-                tmp[cls]["attributes"][attr]["score"],
-            )
-        )
-
-tmp = grader.stu.cls_atr
-
-for cls in tmp:
-    # print(tmp[key])
-    for attr in tmp[cls]["attributes"]:
-        matching = (
-            tmp[cls]["attributes"][attr]["counterpart"],
-            (attr, cls),
-            tmp[cls]["attributes"][attr]["score"],
-        )
-        # if "LightController" in str(matching):
-        #   print(matching)
-        if not exist_mapping(EMB_mappings, matching):
-            EMB_mappings.append(matching)
-
-# %%
-# TP/FP/TN/FN
-TP = []
-FP = []
-TN = []
-FN = []
-
-
-def check_TP_TN(map_human, map_algo):
-    if (
-        map_human[0] == map_algo[0]
-        and map_human[1] == map_algo[1]
-        and not (None in map_human)
-    ):
-        return "TP"
-    elif (
-        map_human[0] == map_algo[0]
-        and map_human[1] == map_algo[1]
-        and (None in map_human)
-    ):
-        return "TN"
-    else:
-        return "NA"
-
-
-human_mappings_dict = {}
-for i in human_mappings:
-    human_mappings_dict[i] = False  # not mapped
-EMB_mappings_dict = {}
-for i in EMB_mappings:
-    EMB_mappings_dict[i] = False  # not mapped
-
-# filter out TP or TN first
-for i in human_mappings:
-    mappinged = False
-    if not mappinged:
-        for j in EMB_mappings:
-            ans = check_TP_TN(i, j)
-            if ans == "NA":
-                continue
-            elif ans == "TP":
-                score = 1 if i[2] == j[2] else 0.5
-                TP.append((i, j, score))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[j] = True
-            elif ans == "TN":
-                score = 1 if i[2] == j[2] else 0.5
-                TN.append((i, j, score))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[j] = True
-
-
-# %%
-human_mappings_dict
-
-for i in human_mappings_dict:
-
-    if human_mappings_dict[i]:
-        continue  # if mapped, ignore
-
-    else:
-        mapping_0 = find_mapping_with_cls(EMB_mappings_dict, i, 0)
-        mapping_1 = find_mapping_with_cls(EMB_mappings_dict, i, 1)
-        if i[0] is not None and mapping_0:
-            mapping = mapping_0
-            # print(i, mapping)
-            if i[1] is not None and mapping[1] is not None:  # a b	// a c	0	FP
-                FP.append((i, mapping))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[mapping] = True
-
-            elif i[1] is not None and mapping[1] is None:  # a b	// a None	0	FN
-                FN.append((i, mapping))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[mapping] = True
-
-            elif i[1] is None and mapping[1] is not None:  # a None // a b	0	FP
-                FP.append((i, mapping))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[mapping] = True
-
-        elif i[1] is not None and mapping_1:
-            mapping = mapping_1  # generated pair
-            # print(i)
-            # print(mapping)
-            if i[0] is None and mapping[0] is not None:  # none a //	b a 	0	FP
-                FP.append((i, mapping))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[mapping] = True
-
-            elif i[0] is not None and mapping[0] is None:  # b a	// none a  	0	FN
-                FN.append((i, mapping))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[mapping] = True
-
-            elif i[0] is not None and mapping[0] is not None:  # c a	// b a  0	FP
-                FP.append((i, mapping))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[mapping] = True
-
-
-# %%
-EMB_mappings_dict
-
-for i in EMB_mappings_dict:
-
-    if EMB_mappings_dict[i]:
-        continue  # if mapped, ignore
-
-        # i[0] is generaeted pair
-    mapping_0 = find_mapping_with_cls(human_mappings_dict, i, 0)  # human result
-    mapping_1 = find_mapping_with_cls(human_mappings_dict, i, 1)  # human result
-
-    if i[0] is not None and mapping_0:
-        # mapping = find_mapping_with_cls(human_mappings_dict, i, 0) # human result
-
-        mapping = mapping_0
-        if i[1] is not None and mapping_0[1] is not None:  # a b	// a c	0	FP
-            mapping = mapping_0
-            FP.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[1] is not None and i[1] is None:  # a b	// a None	0	FN
-            FN.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[1] is None and i[1] is not None:  # a None // a b	0	FP
-            FP.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-    elif i[1] is not None and mapping_1:
-        mapping = mapping_1
-        mapping = find_mapping_with_cls(human_mappings_dict, i, 1)
-        if mapping[0] is not None and i[0] is None:  # b a //	none a 	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[0] is None and i[0] is not None:  # none a //	b a  	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[0] is not None and i[0] is not None:  # c a	// b a  0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-# %%
-# precision = TP /(TP + FP)
-# recall = TP /(TP + FN)
-
-tp = 0
-
-for i in TP:
-    tp += i[2]
-
-print("precision:", tp / (len(TP) + len(FP)))
-print("recall:", tp / (len(TP) + len(FN)))
-
-p = tp / (len(TP) + len(FP))
-r = tp / (len(TP) + len(FN))
-
-algo_human["attribute"]["precision"] = p
-algo_human["attribute"]["recall"] = r
-
-algo_human["attribute"]["f1"] = 2 * p * r / (p + r)
-
-# %% [markdown]
-# #### Relationship
-
-# %%
-# algo matching
-
-tmp = group.ref_rels
-
-human_mappings = []
-for dic in tmp:  # cls
-    # cls is a dict
-
-    matching = (dic["dsl"], dic["counterpart"], dic["score"])
-
-    human_mappings.append(matching)
-
-
-tmp = group.stu_rels
-for dic in tmp:
-
-    # order of the elements
-    matching = (dic["counterpart"], dic["dsl"], dic["score"])
-
-    if not exist_mapping(human_mappings, matching):
-        # print(matching)
-        human_mappings.append(matching)
-
-# %%
-# compare performance
-# algo matching
-grader.ref.rel.rels
-
-tmp = grader.ref.rel.rels
-EMB_mappings = []
-for dic in tmp:  # cls
-    # cls is a dict
-
-    matching = (dic["dsl"], dic["counterpart"], dic["score"])
-    EMB_mappings.append(matching)
-
-tmp = grader.stu.rel.rels
-
-for dic in tmp:
-
-    # order of the elements
-    matching = (dic["counterpart"], dic["dsl"], dic["score"])
-
-    if not exist_mapping(EMB_mappings, matching):
-        # print(matching)
-        EMB_mappings.append(matching)
-
-
-# %% [markdown]
-# ##### Start evaluation
-
-# %%
-# TP/FP/TN/FN
-TP = []
-FP = []
-TN = []
-FN = []
-
-
-def check_TP_TN(map_human, map_algo):
-    if (
-        map_human[0] == map_algo[0]
-        and map_human[1] == map_algo[1]
-        and not (None in map_human)
-    ):
-        return "TP"
-    elif (
-        map_human[0] == map_algo[0]
-        and map_human[1] == map_algo[1]
-        and (None in map_human)
-    ):
-        return "TN"
-    else:
-        return "NA"
-
-
-human_mappings_dict = {}
-for i in human_mappings:
-    human_mappings_dict[i] = False  # not mapped
-EMB_mappings_dict = {}
-for i in EMB_mappings:
-    EMB_mappings_dict[i] = False  # not mapped
-
-# filter out TP or TN first
-for i in human_mappings:
-    mappinged = False
-    if not mappinged:
-        for j in EMB_mappings:
-            ans = check_TP_TN(i, j)
-            if ans == "NA":
-                continue
-            elif ans == "TP":
-                score = 1 if i[2] == j[2] else 0.5
-                TP.append((i, j, score))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[j] = True
-            elif ans == "TN":
-                score = 1 if i[2] == j[2] else 0.5
-                TN.append((i, j, score))
-                human_mappings_dict[i] = True
-                EMB_mappings_dict[j] = True
-
-
-# %%
-human_mappings_dict
-
-for i in human_mappings_dict:
-    print(i)
-    if human_mappings_dict[i]:
-        continue  # if mapped, ignore
-
-        # i[0] is human pair
-    elif i[0] is not None:
-        mapping = find_mapping_with_cls(EMB_mappings_dict, i, 0)  # generated pair
-        if i[1] is not None and mapping[1] is not None:  # a b	// a c	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[1] is not None and mapping[1] is None:  # a b	// a None	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[1] is None and mapping[1] is not None:  # a None // a b	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-    elif i[1] is not None:
-        mapping = find_mapping_with_cls(EMB_mappings_dict, i, 1)  # generated pair
-        if i[0] is None and mapping[0] is not None:  # none a //	b a 	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[0] is not None and mapping[0] is None:  # b a	// none a  	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-        elif i[0] is not None and mapping[0] is not None:  # c a	// b a  0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[i] = True
-            EMB_mappings_dict[mapping] = True
-
-
-# %%
-EMB_mappings_dict
-
-# %%
-
-
-# %%
-EMB_mappings_dict
-
-for i in EMB_mappings_dict:
-    if EMB_mappings_dict[i]:
-        continue  # if mapped, ignore
-
-        # i[0] is generaeted pair
-    elif i[0] is not None:
-        mapping = find_mapping_with_cls(human_mappings_dict, i, 0)  # human result
-        if i[1] is not None and mapping[1] is not None:  # a b	// a c	0	FP
-            FP.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[1] is not None and i[1] is None:  # a b	// a None	0	FN
-            FN.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[1] is None and i[1] is not None:  # a None // a b	0	FP
-            FP.append((mapping, i))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-    elif i[1] is not None:
-        mapping = find_mapping_with_cls(human_mappings_dict, i, 1)
-        if mapping[0] is not None and i[0] is None:  # b a //	none a 	0	FN
-            FN.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[0] is None and i[0] is not None:  # none a //	b a  	0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-        elif mapping[0] is not None and i[0] is not None:  # c a	// b a  0	FP
-            FP.append((i, mapping))
-            human_mappings_dict[mapping] = True
-            EMB_mappings_dict[i] = True
-
-# %%
-# precision = TP /(TP + FP)
-# recall = TP /(TP + FN)
-
-tp = 0
-
-for i in TP:
-    tp += i[2]
-
-print("precision:", tp / (len(TP) + len(FP)))
-print("recall:", tp / (len(TP) + len(FN)))
-
-p = tp / (len(TP) + len(FP))
-r = tp / (len(TP) + len(FN))
-
-algo_human["relationship"]["precision"] = p
-algo_human["relationship"]["recall"] = r
-
-algo_human["relationship"]["f1"] = 2 * p * r / (p + r)
-
-
-# %%
-algo_human
-
-# %%
-student_out_dir
-
-# %%
-
-# as requested in comment
-
-with open(student_out_dir + "algo_evaluation.txt", "w") as file:
-    file.write(json.dumps(algo_human))

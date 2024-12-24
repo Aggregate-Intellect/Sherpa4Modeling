@@ -91,7 +91,10 @@
         "dsl": "abstract Device( boolean isActive, unique Integer id, DeviceType deviceType)",
         "counterpart": "abstract Device",
         "attributes": {
-            "boolean isActive": {"score": 0.5, "counterpart": ("DeviceStatus deviceStatus", "abstract Device")},
+            "boolean isActive": {
+                "score": 0.5,
+                "counterpart": ("DeviceStatus deviceStatus", "abstract Device"),
+            },
             "unique Integer id": {
                 "score": 1,
                 "counterpart": ("int deviceID", "abstract Device"),
@@ -171,16 +174,19 @@
         "type": "regular",
         "dsl": "RelationalTerm( String condition)",
         "counterpart": "RelationalTerm",
-        "attributes": {
-            "String condition": {"score": 0, "counterpart": None}
-        },
+        "attributes": {"String condition": {"score": 0, "counterpart": None}},
     },
     "BooleanOperator": {
         "score": 1,
         "type": "regular",
         "dsl": "BooleanOperator( Operator operator)",
         "counterpart": "BinaryExpression",
-        "attributes": {"Operator operator": {"score": 1, "counterpart": ("BinaryOp binaryOp","BinaryExpression")}},
+        "attributes": {
+            "Operator operator": {
+                "score": 1,
+                "counterpart": ("BinaryOp binaryOp", "BinaryExpression"),
+            }
+        },
     },
     "Action": {
         "score": 1,
