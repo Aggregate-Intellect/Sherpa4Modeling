@@ -1,0 +1,22 @@
+Enumerations:
+
+
+Classes:
+OTS()
+
+
+Tutor(string bankAccount, float hourlyPrice)
+
+Subject(string name, string levelOfExpertise)
+Availability(string dayOfWeek, time startTime, time endTime)
+
+
+Student(string name, string emailAddress)
+Request(date targetDate, time targetTime, string level)
+TutoringSession(date sessionDate, time sessionTime, boolean isConfirmed)
+Payment(string paymentMethod)
+Cancellation(boolean isCancelled, float penaltyAmount)
+Discount(float discountPercentage)
+
+
+Relationships:

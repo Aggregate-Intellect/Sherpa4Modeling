@@ -1,0 +1,16 @@
+Enumerations:
+Occasion(Birthday, Graduation, Other)
+
+
+Classes:
+CelO()
+abstract Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)
+Attendee(string firstName, string lastName, string email, boolean isAttending, boolean maybeAttending, boolean cannotAttend)
+
+Invitation(string email, boolean isAccepted)
+Task(string taskDescription, string status)
+Location(string name, string address)
+Event(string eventType, dateTime startDateTime, dateTime endDateTime, string occasion, string locationName, string locationAddress)
+
+
+Relationships:

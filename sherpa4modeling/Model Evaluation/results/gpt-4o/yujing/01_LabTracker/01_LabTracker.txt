@@ -1,0 +1,19 @@
+Enumerations:
+RepeatInterval(Weekly, Monthly, HalfYearly, Yearly)
+
+Classes:
+Person(string fullName, string address, string phoneNumber)
+
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+Doctor(int practitionerNumber, string signature, date requisitionValidFrom)
+Requisition(Patient patient, string testGroup, int repeatCount, RepeatInterval repeatInterval)
+Report(boolean isPositive, string reportDetails)
+
+
+Appointment(date appointmentDate, time startTime, time endTime, string labName, string labRegistrationNumber, string confirmationNumber)
+
+Lab(string address, string registrationNumber, time startTime, time endTime, float changeCancellationFee)
+Test(string testName, int duration)
+
+
+Relationships:

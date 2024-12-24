@@ -1,0 +1,15 @@
+Enumerations:
+AttendanceStatus(Attending, MaybeAttending, NotAttending)
+
+Classes:
+Person(string firstName, string lastName, string emailAddress, string password)
+
+Organizer(string postalAddress, string phoneNumber) 
+Attendee(AttendanceStatus attendanceStatus)
+
+
+Task(string description, boolean isDone, boolean isNotApplicable, boolean isAssignedToAttendee)
+
+Event(string kind, datetime startDateTime, datetime endDateTime, string occasion, string locationName, string locationAddress)
+
+Relationships:

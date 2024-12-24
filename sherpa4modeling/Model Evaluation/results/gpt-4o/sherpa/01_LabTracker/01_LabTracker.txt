@@ -1,0 +1,14 @@
+Enumerations:
+RepeatInterval(Weekly, Monthly, HalfYear, Yearly)
+
+Classes:
+LabTracker()
+abstract Person(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) 
+Doctor(int practitionerNumber, string signature, string fullName, string address, string phoneNumber, date requisitionValidFrom)
+Requisition(Patient patient, string group, int repeatCount, RepeatInterval repeatInterval)
+Report(boolean result, string reportDetails)
+Test(string group, int duration, boolean requiresAppointment, boolean isWalkIn, boolean isSampleDropOff)
+
+Relationships:

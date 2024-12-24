@@ -1,0 +1,20 @@
+Enumerations:
+CommandStatus(Requested, Completed, Failed)
+
+Classes:
+SmartHomeAutomationSystem(string infrastructureMap)
+SmartHome(string physicalAddress)
+User(string userId, string userName, string role)
+
+
+Room(string roomName)
+Device(string deviceId, string deviceType)
+SensorDevice() 
+ActuatorDevice()
+ActivityLog(string logId, string timestamp, string details)
+
+SensorReading(string readingId, float measuredValue, string timestamp)
+ControlCommand(string commandId, string commandType, string status, string timestamp)
+AutomationRule(string ruleId, string precondition, string action, boolean isActive)
+
+Relationships:

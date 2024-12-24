@@ -1,0 +1,27 @@
+Enumerations:
+
+
+Classes:
+
+HotelChain(string chainName, string headquartersAddress)
+
+Traveller(string name, string companyName, string billingAddress, string creditCardInfo, int reliabilityRating)
+
+
+
+Hotel(string name, string address, string city, int rating, string chainName) 
+Offer(string offerId, string hotelId, double specialPrice, string conditions)
+
+
+
+
+Room(string roomType, int numberOfRooms, boolean isAvailable)
+
+
+abstract Booking(string bookingId, date arrivalDate, date departureDate, boolean isPrePaid, date cancellationDeadline)
+AccommodationDeal(string dealId, string hotelId, string roomType, double price, string preferences)
+Confirmation(string bookingId, boolean isConfirmed, date confirmationDate)
+Cancellation(string bookingId, boolean isCancelled, date cancellationDate)
+
+
+Relationships:

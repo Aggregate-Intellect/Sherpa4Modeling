@@ -1,0 +1,21 @@
+Enumerations:
+RoomType(Single, Double, Twin)
+
+Classes:
+
+
+
+Traveller(string name, string billingInformation, string companyName, string address, string travelPreferences, float reliabilityRating)
+
+
+
+Hotel(string name, string address, int starRating, string city, string hotelChain)
+Offer(float price, string cityArea, int hotelRating, string keyPreferences, date deadline)
+
+
+
+CreditCard(string cardNumber, string cardHolderName, date expirationDate, int securityCode)
+
+
+
+Relationships:

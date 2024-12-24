@@ -1,0 +1,1 @@
+{"class": {"precision": 0.875, "recall": 0.5, "f1": 0.6363636363636364}, "attribute": {"precision": 0.46, "recall": 0.40384615384615385, "f1": 0.43009795191451466}, "relationship": {"precision": 0, "recall": 0, "f1": 0}}

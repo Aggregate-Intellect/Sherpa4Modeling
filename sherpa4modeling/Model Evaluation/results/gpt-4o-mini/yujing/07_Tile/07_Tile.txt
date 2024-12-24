@@ -1,0 +1,22 @@
+Enumerations:
+
+
+Classes:
+TileOApplication(string gameId, string gameName, boolean isGameActive)
+GameBoard(int width, int height, Tile tiles, Tile hiddenTile, Player startingPositions, ActionTile actionTiles)
+GameDesigner(string designerId, string designerName)
+
+Deck(ActionCard actionCards)
+Tile(string tileId, boolean isVisited, boolean isActionTile)
+ActionCard(string cardId, string description)
+
+
+
+
+
+
+ActionTile(string tileId, int turnsUntilRegular)
+
+Player(string playerId, string playerName, string color)
+
+Relationships:

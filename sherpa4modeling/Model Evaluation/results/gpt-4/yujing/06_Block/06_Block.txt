@@ -1,0 +1,18 @@
+Enumerations:
+
+
+Classes:
+Level(int levelNumber, string arrangement, boolean isRandom)
+Game(string name, string hallOfFame, boolean isPublished, string state, boolean isConfirmed)
+Block(string color, int points)
+Paddle(int length)
+Ball(int speed, string direction)
+
+Player(string username, string password, int lives, int totalScore)
+Admin(string username, string password)
+User(string username, string password, GameMode mode)
+abstract PlayerRole()
+GameMode(Play, Admin)
+
+
+Relationships:

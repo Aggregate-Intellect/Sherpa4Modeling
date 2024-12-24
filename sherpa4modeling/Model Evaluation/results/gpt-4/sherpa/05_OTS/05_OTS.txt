@@ -1,0 +1,25 @@
+Enumerations:
+Level(enum PrimarySchool, HighSchool, University)
+PaymentMethod(enum CreditCard, WireTransfer)
+DayOfWeek(enum Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+Classes:
+OnlineTutoringSystem()
+
+
+Tutor(string name, string emailAddress, string bankAccount)
+
+Subject(string name)
+Availability(string dayOfWeek, time startTime, time endTime)
+
+
+Student(string name, string emailAddress)
+Request(date targetDate, time sessionTime)
+
+TutoringSession(date targetDate, time sessionTime)
+Payment(string paymentMethod)
+Expertise(string level, string subject, double hourlyPrice)
+Cancellation(boolean isCancelled, double penaltyAmount)
+
+
+Relationships:

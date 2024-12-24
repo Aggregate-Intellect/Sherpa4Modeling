@@ -1,0 +1,28 @@
+Enumerations:
+BooleanOperator(AND, OR, NOT)
+
+
+Classes:
+SmartHomeAutomationSystem()
+SmartHome(string physicalAddress, User owner)
+User(string userID, string name, string role)
+
+
+
+Room(string name, listDevice devices)
+abstract Device(string deviceIdentifier, string type)
+SensorDevice() inherit Device
+ActuatorDevice() inherit Device
+ActivityLog(listLogEntry entries)
+
+SensorReading(float measuredValue, datetime timestamp)
+ControlCommand(string command, datetime timestamp, string status)
+AutomationRule(boolean isActive, BooleanExpression precondition, listControlCommand actions)
+
+RelationalTerm()
+
+BooleanExpression(listRelationalTerm terms, listBooleanOperator operators)
+
+RuleHierarchy(listAutomationRule relatedRules)
+
+Relationships:

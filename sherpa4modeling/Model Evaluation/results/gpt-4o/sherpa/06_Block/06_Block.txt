@@ -1,0 +1,24 @@
+Enumerations:
+
+Classes:
+DestroyBlockApplication()
+abstract User(string username, string password)
+
+
+Level(int levelNumber, boolean isRandom, int numberOfBlocks, listBlock blocks)
+Game(string name, int maxLevels, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, HallOfFame hallOfFame, listLevel levels)
+Block(string color, int points)
+
+
+HallOfFame(listEntry entries)
+
+
+
+
+Admin()
+Player(int lives, int currentScore, int currentLevel)
+Entry(string playerName, int score, date dateAchieved)
+
+
+
+Relationships:

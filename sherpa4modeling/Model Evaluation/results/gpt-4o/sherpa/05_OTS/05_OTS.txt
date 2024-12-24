@@ -1,0 +1,21 @@
+Enumerations:
+Level(PrimarySchool, HighSchool, University)
+
+
+Classes:
+OTS()
+Person(string name, string emailAddress)
+
+TutorRole(string bankAccount)
+Subject(string name, string level, float hourlyPrice)
+
+abstract Role()
+
+StudentRole()
+TutoringRequest(string level, date targetDate, time targetTime)
+
+TutoringSession(date targetDate, time targetTime, boolean isConfirmed)
+Payment(string method, float amount)
+
+
+Relationships:

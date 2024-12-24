@@ -1,0 +1,17 @@
+Enumerations:
+
+
+Classes:
+abstract User(string name, string emailAddress)
+
+Tutor(string bankAccount, list subjects, list availability)
+
+Subject(string name, string level, float hourlyPrice)
+
+Student() 
+TutoringRequest(string subject, string level, DateTime targetDateTime)
+TutoringSession(DateTime targetDateTime, boolean isConfirmed)
+Payment(float amount, string method)
+Cancellation(boolean isCancelledByStudent, boolean isCancelledByTutor, float penalty)
+
+Relationships:

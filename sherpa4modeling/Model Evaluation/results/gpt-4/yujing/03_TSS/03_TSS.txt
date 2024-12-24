@@ -1,0 +1,19 @@
+Enumerations:
+Recommendation(key_player, first_team_player, reserve_team_player, prospective_player, not_a_good_signing)
+
+Classes:
+Employee(string name, string role)
+Player(string name, string position, string attributes)
+HeadCoach(string name, string role) inherit Employee
+Director(string name, string role) inherit Employee
+Scout(string name, string role) inherit Employee
+Club(string name, string location)
+
+ScoutingAssignment(string playerName, string scoutName, date assignmentDate)
+ScoutingReport(string playerName, string pros, string cons, Recommendation recommendation)
+PlayerProfile(string position, string attributes)
+
+Team(string name, string location)
+
+
+Relationships:

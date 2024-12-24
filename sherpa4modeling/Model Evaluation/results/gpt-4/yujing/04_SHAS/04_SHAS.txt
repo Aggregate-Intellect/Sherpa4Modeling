@@ -1,0 +1,20 @@
+Enumerations:
+CommandStatus(Requested, Completed, Failed)
+RuleStatus(Active, Inactive)
+DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+
+
+Classes:
+Device(string deviceIdentifier, string type)
+SensorDevice(string deviceIdentifier, string type)
+ActuatorDevice(string deviceIdentifier, string type)
+ActivityLog(date timestamp, string activityDescription)
+
+SensorReading(int measuredValue, date timestamp)
+ControlCommand(string command, date timestamp, string status)
+AutomationRule(string precondition, string action)
+Owner(string name)
+ActiveRule(date timestamp)
+
+
+Relationships:

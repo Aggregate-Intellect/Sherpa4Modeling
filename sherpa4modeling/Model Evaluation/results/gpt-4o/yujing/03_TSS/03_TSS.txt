@@ -1,0 +1,18 @@
+Enumerations:
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+
+Classes:
+abstract Employee(string role, string name)
+Player(string name, string position)
+HeadCoach(string role, string name) 
+Director(string role, string name) 
+Scout(string role, string name)
+
+
+ScoutingAssignment(string playerName, string assignmentDetails)
+ScoutingReport(string playerName, string pros, string cons, Recommendation recommendation)
+PlayerProfile(string targetPosition, string attributeName, string attributeValue)
+
+
+Relationships:

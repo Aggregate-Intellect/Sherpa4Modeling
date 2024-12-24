@@ -1,0 +1,28 @@
+Enumerations:
+ActionType(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)  
+
+Classes:
+TileOApplication(string version, string designerName)  
+Game(int currentPlayerIndex, boolean isGameOver)  
+
+
+
+
+Die(int sides)  
+
+
+Tile(boolean isVisited, boolean isHidden, boolean isActionTile, int turnsToRevert)  
+ActionCard(string actionType)  
+
+
+
+
+
+
+
+
+Player(string color, int position)  
+Board(int width, int height)  
+
+
+Relationships:

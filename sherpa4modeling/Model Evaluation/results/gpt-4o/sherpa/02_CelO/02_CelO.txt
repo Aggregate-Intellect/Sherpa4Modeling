@@ -1,0 +1,17 @@
+Enumerations:
+EventType(BirthdayParty, GraduationParty)
+
+Classes:
+CelOApplication()
+abstract Person(string firstName, string lastName, string emailAddress, string postalAddress, string phoneNumber, string password)
+abstract EventRole()
+OrganizerRole() 
+AttendeeRole(string invitationStatus) 
+
+
+Task(string description, boolean isDone, boolean isNotApplicable)
+Location(string name, string address)
+Event(string kind, date startDate, date endDate, string occasion, Location location, EventType eventType, Checklist checklist)
+
+
+Relationships:

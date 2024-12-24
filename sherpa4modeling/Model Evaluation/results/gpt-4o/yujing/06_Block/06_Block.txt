@@ -1,0 +1,18 @@
+Enumerations:
+
+
+Classes:
+
+abstract User(string username, string password)
+
+
+Level(int levelNumber, boolean isRandom, int numberOfBlocks)
+Game(string name, int maxLevels, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, int initialLives, listScore hallOfFame)
+Block(string color, int points)
+
+Player(string username, string password, int currentScore, int remainingLives) 
+Admin(string username, string password) 
+Score(string playerName, int score)
+
+
+Relationships:

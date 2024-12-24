@@ -1,0 +1,15 @@
+Enumerations:
+InvitationStatus(Attending, Maybe, NotAttending)
+EventType(BirthdayParty, GraduationParty, Other)
+
+
+Classes:
+abstract Role()
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password) 
+Attendee(string firstName, string lastName, string email, string invitationStatus)
+Task(string taskName, string status)
+Location(string name, string address)
+Event(string eventName, string occasion, string startDateTime, string endDateTime, string locationName, string locationAddress)
+
+
+Relationships:

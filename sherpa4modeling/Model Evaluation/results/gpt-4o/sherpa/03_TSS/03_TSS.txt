@@ -1,0 +1,22 @@
+Enumerations:
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+Classes:
+Team(string name)
+abstract Employee(string name, string role)
+Player(string name, int age, string positionCode, string positionDescription)
+HeadCoach(string name) 
+Director(string name) 
+Scout(string name)
+Club(string name)
+Offer(date offerDate, double amount)
+ScoutingAssignment(date startDate, date endDate, string playerName)
+ScoutingReport(string playerName, string pros, string cons, string recommendation)
+PlayerProfile(string targetPosition, string attributeName, string attributeValue)
+
+LongList(date creationDate)
+HeadScout(string name)
+ShortList(date creationDate)
+
+
+Relationships:
