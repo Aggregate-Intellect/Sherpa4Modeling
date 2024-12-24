@@ -1,25 +1,17 @@
 Enumerations:
-Level(enum PrimarySchool, HighSchool, University)
-PaymentMethod(enum CreditCard, WireTransfer)
-DayOfWeek(enum Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+LevelOfExpertise(PrimarySchoolLevel, HighSchoolLevel, UniversityLevel)
+PaymentMethod(CreditCard, WireTransfer)
 
 Classes:
-OnlineTutoringSystem()
-
-
-Tutor(string name, string emailAddress, string bankAccount)
-
-Subject(string name)
-Availability(string dayOfWeek, time startTime, time endTime)
-
-
-Student(string name, string emailAddress)
-Request(date targetDate, time sessionTime)
-
-TutoringSession(date targetDate, time sessionTime)
-Payment(string paymentMethod)
-Expertise(string level, string subject, double hourlyPrice)
-Cancellation(boolean isCancelled, double penaltyAmount)
+Person(string name, string emailAddress, string role)
+Tutor(string bankAccount, string weeklyAvailability) 
+TutoringOffer(string subject, LevelOfExpertise levelOfExpertise, float hourlyPrice, Tutor tutor)
+Subject(string subjectName)
+TutoringRequest(LevelOfExpertise levelOfTutoring, string targetDate, string time, Person student, Tutor tutor)
+TutoringSession(string targetDate, string time, boolean confirmation, Person tutor, Person student)
+Payment(PaymentMethod paymentMethod, float amount, Person student, Tutor tutor)
+Cancellation(string whoCancelled, float penalty, TutoringSession tutoringSession)
+TutorTutor(float discountAmount)
 
 
 Relationships:

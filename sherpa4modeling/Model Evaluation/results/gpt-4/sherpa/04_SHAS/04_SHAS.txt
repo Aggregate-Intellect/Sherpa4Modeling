@@ -1,37 +1,30 @@
 Enumerations:
-CommandStatus(Requested, Completed, Failed)
-SensorType(TemperatureSensor, MovementSensor)
-ActuatorType(LightController, LockController)
+BooleanOperator(AND, OR, NOT)
 
 
 Classes:
-SmartHomeAutomationSystem()
+SmartHomeAutomationSystem(string systemStatus)
 SmartHome(string physicalAddress)
-Owner(string name)
-Room(string name)
+User(string userName, string userType)
 
-SensorDevice(string deviceIdentifier)
-ActuatorDevice(string deviceIdentifier)
-ActivityLog()
 
-SensorReading(float measuredValue, date timestamp)
-ControlCommand(string command, date timestamp, string status)
-AutomationRule(string name, boolean isActive)
-BooleanExpression(string expression)
-RelationalTerm(string term)
 
-Precondition(BooleanExpression expression)
-Action(string commandSequence)
-abstract Sensor(string type)
-TemperatureSensor() inherit Sensor
-MovementSensor() inherit Sensor
-abstract Actuator(string type)
-LightController() inherit Actuator
-LockController() inherit Actuator
-Alert(string message)
-AtomicRelationalTerm(string term)
-ComplexRuleHierarchy()
-ActiveRule(date timestamp)
+Room(string roomName)
+abstract Device(string deviceIdentifier, string deviceStatus, string deviceType)
+SensorDevice()
+ActuatorDevice() 
+ActivityLog(string logStatus)
 
+SensorReading(string measuredValue, string timestamp)
+ControlCommand(string commandName, string commandStatus, string timestamp)
+AutomationRule(string ruleStatus, string booleanExpression, string sequence)
+
+
+
+
+
+InfrastructureMap(string mapStatus)
+Owner(string ownerName)
+RuleHierarchy(string hierarchyStatus)
 
 Relationships:

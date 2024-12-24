@@ -1,23 +1,24 @@
 Enumerations:
-RecommendationType(key_player, first_team_player, reserve_team_player, prospective_player, not_good_signing)
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
 
 Classes:
-TeamSportsScoutingSystem()
-abstract Employee(string name, string role)
-Player(string name, string position)
-HeadCoach(string name) inherit Employee
-Director(string name) inherit Employee
-Scout(string name) inherit Employee
-Club(string name)
-Offer(string playerName, string offerDetails)
-ScoutingAssignment(string playerName, string scoutName, date assignmentDate)
-ScoutingReport(string playerName, string pros, string cons, Recommendation recommendation)
-PlayerProfile(string targetPosition, PlayerAttribute attributes)
-PlayerAttribute(string name, string value)
-Employee(string name, string role)
-HeadScout(string name) inherit Employee
-Recommendation(string type)
-ShortList(string playerNames)
+TeamSportsScoutingSystem(string systemName)
+Employee(string employeeName)
+Player(string playerName, string playerAttributes)
+Director(string directorName)
 
+Scout(string scoutName) 
+Club(string clubName)
+Offer(string offerName)
+ScoutingAssignment(string assignmentName)
+ScoutingReport(string reportName, string pros, string cons, string recommendation)
+PlayerProfile(string profileName)
+PlayerAttribute(string attributeName, string attributeValue)
+TargetPosition(string positionName)
+LongList(string longListName)
+HeadScout(string headScoutName)
+
+ShortList(string shortListName)
 
 Relationships:
