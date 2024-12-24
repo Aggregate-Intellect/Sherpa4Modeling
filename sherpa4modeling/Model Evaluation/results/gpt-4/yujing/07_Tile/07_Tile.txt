@@ -2,21 +2,29 @@ Enumerations:
 
 
 Classes:
-TileOApplication(string gameId, string gameName, boolean isGameActive)
-GameBoard(int width, int height, Tile tiles, Tile hiddenTile, Player startingPositions, ActionTile actionTiles)
-GameDesigner(string designerId, string designerName)
+TileOApplication(boolean gameStatus)
+BoardGame(string layout, Tile hiddenTile, int numberOfPlayers)
 
+
+ConnectionPiece(boolean isSpare)
+
+Die(int faceValue)
 Deck(ActionCard actionCards)
-Tile(string tileId, boolean isVisited, boolean isActionTile)
-ActionCard(string cardId, string description)
+Tile(string color, boolean isHidden, boolean isActionTile)
+ActionCard(string actionType)
 
 
 
 
 
 
-ActionTile(string tileId, int turnsUntilRegular)
 
-Player(string playerId, string playerName, string color)
+
+Player(string name, PlayingPiece playingPiece, int turnOrder, User user)
+User(string userEmail, string userId)
+GameDesigner(string name, User user)
+Board(Tile tiles)
+PlayingPiece(string color)
+GameTurn(int turnNumber, Player currentPlayer)
 
 Relationships:

@@ -2,17 +2,22 @@ Enumerations:
 
 
 Classes:
-Level(int levelNumber, string arrangement, boolean isRandom)
-Game(string name, string hallOfFame, boolean isPublished, string state, boolean isConfirmed)
-Block(string color, int points)
-Paddle(int length)
-Ball(int speed, string direction)
+User(string username, string password)
 
-Player(string username, string password, int lives, int totalScore)
-Admin(string username, string password)
-User(string username, string password, GameMode mode)
-abstract PlayerRole()
-GameMode(Play, Admin)
+GridSystem(Block blocks)
+Ball(float speed, string direction)
+Level(int levelNumber, string blockArrangement, boolean isRandom)
+DestroyBlockGame(string gameName, boolean isPublished, Admin gameAdmin)
+Block(string color, int points) 
+Paddle(float length)
+
+HallOfFame(DestroyBlockGame game, Player players, int highScore)
+
+
+
+
+Player(string username, string password, string gameName, int score, int lives) 
+Admin(string username, string password, string gameName)
 
 
 Relationships:

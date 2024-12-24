@@ -2,21 +2,18 @@ Enumerations:
 
 
 Classes:
-OTS()
+User(string name, string email)
+
+Tutor(string bankAccount, string subjectExpertise, float hourlyPrice, string availability)
+
+Subject(string name, string level)
 
 
-Tutor(string bankAccount, float hourlyPrice)
 
-Subject(string name, string levelOfExpertise)
-Availability(string dayOfWeek, time startTime, time endTime)
+Student()
 
-
-Student(string name, string emailAddress)
-Request(date targetDate, time targetTime, string level)
-TutoringSession(date sessionDate, time sessionTime, boolean isConfirmed)
-Payment(string paymentMethod)
-Cancellation(boolean isCancelled, float penaltyAmount)
-Discount(float discountPercentage)
-
+TutoringSession(string date, string time, float price)
+Payment(string method, float amount)
+Cancellation(string whoCancelled, float penalty)
 
 Relationships:

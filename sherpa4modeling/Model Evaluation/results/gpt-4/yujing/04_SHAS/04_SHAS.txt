@@ -1,20 +1,32 @@
 Enumerations:
-CommandStatus(Requested, Completed, Failed)
-RuleStatus(Active, Inactive)
-DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+
 
 
 Classes:
-Device(string deviceIdentifier, string type)
-SensorDevice(string deviceIdentifier, string type)
-ActuatorDevice(string deviceIdentifier, string type)
-ActivityLog(date timestamp, string activityDescription)
+SmartHomeAutomationSystem(SystemStatus systemStatus)
+SmartHome(string physicalAddress, string homeID)
+User(string userID, UserRole userRole)
 
-SensorReading(int measuredValue, date timestamp)
-ControlCommand(string command, date timestamp, string status)
-AutomationRule(string precondition, string action)
-Owner(string name)
-ActiveRule(date timestamp)
+
+
+Room(string roomName, string roomID)
+abstract Device(DeviceStatus deviceStatus, DeviceType deviceType, string deviceID)
+SensorDevice() 
+ActuatorDevice()
+ActivityLog(LogStatus logStatus, string logID)
+
+SensorReading(string deviceID, string measuredValue, string timestamp)
+ControlCommand(CommandStatus commandStatus, string commandName, string timestamp)
+AutomationRule(RuleStatus ruleStatus, string ruleID, string precondition, string action)
+
+
+
+
+
+Owner(string ownerID)
+InfrastructureMap(MapStatus mapStatus)
+Alert(AlertStatus alertStatus, string alertID)
+RuleHierarchy(HierarchyStatus hierarchyStatus)
 
 
 Relationships:

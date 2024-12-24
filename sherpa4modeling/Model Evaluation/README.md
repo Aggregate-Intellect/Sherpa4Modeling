@@ -71,10 +71,10 @@ The result will be saved into __student_out_dir__, e.g. __Sherpa4Modeling/sherpa
 
 
 ## Model Element format
-The domain model format can be found in the [paper](https://www.computer.org/csdl/proceedings-article/models/2023/248000a162/1SOLHZynTpe)
+The domain model format can be found in the [paper](https://www.computer.org/csdl/proceedings-article/models/2023/248000a162/1SOLHZynTpe). You can also reference to instructor solutions...
 
 Note: 
-- the domain model should **not** contain special characters, e.g., [], <>... They may cause problem in the embedding process...
+- the domain model should **not** contain special characters or digits, e.g., [], <>, 1,2,3... They may cause problem in the embedding process...
 - Some classes may end up with a inherit notation. You should remove it.
 ```
 Doctor(int practitionerNumber, string signature, date requisitionValidFrom) inherit Person

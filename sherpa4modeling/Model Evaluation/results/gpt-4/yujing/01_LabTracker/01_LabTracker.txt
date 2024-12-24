@@ -1,17 +1,21 @@
 Enumerations:
-Interval(weekly, monthly, halfYear, yearly)
 
 
 Classes:
-Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) 
-Doctor(int practitionerNumber, string name, string address, string phoneNumber, string digitalSignature, date signatureDate)
-abstract Requisition(date validFrom, string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
-Result(string resultStatus)
-Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
-BusinessHours(time startTime, time endTime)
-Lab(string address, BusinessHours businessHours, float feeAmount)
-abstract Test(string testType, int duration, boolean requiresAppointment, boolean requiresSampleDropOff)
-Report(string reportDetails)
+Patient(string healthNumber, string firstName, string lastName, Date dateOfBirth, string address, string phoneNumber)
+Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, Image signature)
+Requisition(Date validFromDate, string patientInfo, string doctorInfo, string testInfo, int repetitionTimes, Interval interval)
 
+
+
+Appointment(Date appointmentDate, Time startTime, Time endTime, string labName, int registrationNumber, string confirmationNumber)
+
+Lab(string labAddress, Time businessHoursStart, Time businessHoursEnd, float changeCancellationFee)
+abstract Test(string testName, TestGroup testGroup, int duration)
+
+BloodTest(int duration) 
+
+UltrasoundExamination(int duration) 
+XRayExamination(int duration) 
 
 Relationships:

@@ -1,27 +1,35 @@
 Enumerations:
-
+RoomType(Single, Double, Twin)
+BookingStatus(Preliminary, Regular, Finalized, Confirmed, Cancelled)
+PaymentType(PrePaid, PaidAtHotel)
+HotelRating(OneStar, TwoStar, ThreeStar, FourStar, FiveStar)
 
 Classes:
 
-HotelChain(string chainName, string headquartersAddress)
+HotelBookingManagementSystem(string city, date dateOfArrival, date dateOfDeparture, int numberOfRooms, string typeOfRooms, int hotelRating, float budget, string travelPeriod, string bookingStatus, string bookingIdentifier)
+BusinessTraveller(string name, BillingInformation billingInformation, TravelPreference travelPreference, ReliabilityRating reliabilityRating)
 
-Traveller(string name, string companyName, string billingAddress, string creditCardInfo, int reliabilityRating)
+BillingInformation(string companyName, string address)
+TravelPreference(boolean breakfastIncluded, boolean freeWifi, boolean frontDesk)
+Hotel(string name, string address, string city, string hotelChain, RoomAvailability roomAvailability)
 
-
-
-Hotel(string name, string address, string city, int rating, string chainName) 
-Offer(string offerId, string hotelId, double specialPrice, string conditions)
-
-
+SpecialOffer(float price, string cityArea, int hotelRating, string keyPreferences)
 
 
-Room(string roomType, int numberOfRooms, boolean isAvailable)
+
+RoomAvailability(string typeOfRoom, boolean isAvailable)
 
 
-abstract Booking(string bookingId, date arrivalDate, date departureDate, boolean isPrePaid, date cancellationDeadline)
-AccommodationDeal(string dealId, string hotelId, string roomType, double price, string preferences)
-Confirmation(string bookingId, boolean isConfirmed, date confirmationDate)
-Cancellation(string bookingId, boolean isCancelled, date cancellationDate)
+RegularBooking(string bookingIdentifier)
+AccommodationDeal(string city, date dateOfArrival, date dateOfDeparture, int numberOfRooms, string typeOfRooms, int hotelRating, float budget)
+abstract BookingStatus()
+PreliminaryBooking(string bookingIdentifier, string cityArea, int hotelRating, string keyPreferences) 
+
+FinalizedBooking(string bookingIdentifier, CreditCardInformation creditCardInformation) 
+ConfirmedBooking(string bookingIdentifier, date cancellationDeadline, FinancialCompensation financialCompensation) 
+CancelledBooking(string bookingIdentifier, FinancialCompensation financialCompensation)
+CreditCardInformation(string cardNumber, string cardHolderName, date expiryDate, int cvv)
+
 
 
 Relationships:

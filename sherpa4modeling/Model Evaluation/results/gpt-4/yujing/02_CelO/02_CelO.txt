@@ -1,16 +1,20 @@
 Enumerations:
-Occasion(Birthday, Graduation, Other)
+AttendanceStatus(WillAttend, MaybeWillAttend, CannotAttend)
+TaskStatus(NeedsToBeDone, HasBeenDone, NotApplicable)
+EventType(BirthdayParty, GraduationParty)
 
 
 Classes:
-CelO()
-abstract Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)
-Attendee(string firstName, string lastName, string email, boolean isAttending, boolean maybeAttending, boolean cannotAttend)
+User(string firstName, string lastName, string email, string password)
 
-Invitation(string email, boolean isAccepted)
-Task(string taskDescription, string status)
+Organizer(User user, string postalAddress, string phoneNumber, EventType eventType)
+Attendee(User user, AttendanceStatus attendanceStatus)
+
+Invitation(string status)
+Task(string taskName, TaskStatus taskStatus)
 Location(string name, string address)
-Event(string eventType, dateTime startDateTime, dateTime endDateTime, string occasion, string locationName, string locationAddress)
+Event(EventType eventType, string startDate, string endDate, string occasion, Location location)
 
+Checklist(EventType eventName)
 
 Relationships:
