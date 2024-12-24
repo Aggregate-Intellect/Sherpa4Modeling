@@ -69,6 +69,9 @@ student_out_dir
 ```
 The result will be saved into __student_out_dir__, e.g. __Sherpa4Modeling/sherpa4modeling/Model Evaluation/results/gpt-4o-mini/sherpa/03_TSS/result/algo_result.txt__ in this case
 
+### Automation
+If you want to automated the evaluation process. You can use ***main_sherpa***. It is a simple automation script for evaluting the 8 domain models for the 8 modeling problems.
+
 
 ## Model Element format
 The domain model format can be found in the [paper](https://www.computer.org/csdl/proceedings-article/models/2023/248000a162/1SOLHZynTpe). You can also reference to instructor solutions...
