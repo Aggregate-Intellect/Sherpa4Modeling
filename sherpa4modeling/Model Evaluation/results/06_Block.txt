@@ -1,0 +1,22 @@
+Enumerations:
+
+
+Classes:
+DestroyBlock()
+User(string username, string password)
+BlockAssignment(int gridHorizontalPosition, int gridVerticalPosition)
+Level (boolean isRandom)
+Game (string name, int nrBlocksPerLevel)
+Block(int id, int red, int green, int blue, int points)
+Paddle(int amxPaddleLength, int minPaddleLength)
+Ball(int minBallSpeedX, int minBallSpeedY)
+HallOfFameEntry(int score)
+PlayedGame(int id, int score, int lives, int currentLevel)
+PlayedBall(double ballDirectionX, double ballDirectionY, double currentBallX, double currentBallY)
+PlayedPaddle(double currentPaddleLength, double currentPaddleX, double currentPaddleY)
+PlayedBlockAssignment(int x, int y)
+Player()
+Admin()
+
+
+Relationships:

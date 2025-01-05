@@ -1,0 +1,18 @@
+Enumerations:
+Interval(Weekly, Monthly, HalfYear, Yearly)
+
+
+Classes:
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+abstract Doctor(string practitionerNumber, string fullName, string address, string phoneNumber, Signature signature, date requisitionValidFrom)
+Requisition(Patient patient, Test tests, int repetitionCount, Interval interval)
+Report(string results)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, Lab lab)
+BusinessHours(time startTime, time endTime)
+Lab(string name, string registrationNumber, BusinessHours businessHours, Fee fee)
+Test(string testName, int duration, boolean isWalkInOnly)
+Signature(string digitalSignatureImage)
+Fee(float amount)
+
+Relationships:
+1 LabTracker contain * Person
