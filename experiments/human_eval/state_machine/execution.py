@@ -7,9 +7,10 @@ from sherpa_ai.agents.qa_agent import QAAgent
 from sherpa_ai.events import Event, EventType
 from sherpa_ai.policies.react_sm_policy import ReactStateMachinePolicy
 from tqdm import tqdm
-from argparse import ArgumentParser
 import os
 import json
+
+TOGETHER_AI_BASE_URL = "https://api.together.xyz/v1"
 
 
 def load_cache(filename: str) -> list[dict]:
@@ -51,11 +52,26 @@ def generate_one_task(llm, sample):
     return belief.get("generated_solution")
 
 
-def main(args):
+def get_llm(llm_family, model_name, temperature):
+    if llm_family == "openai":
+        return ChatOpenAI(model=model_name, temperature=temperature)
+    elif llm_family == "togetherai":
+        api_key = os.environ.get("TOGETHERAI_API_KEY")
+        return ChatOpenAI(
+            base_url=TOGETHER_AI_BASE_URL,
+            api_key=api_key,
+            model=model_name,
+            temperature=temperature
+        )
+    else:
+        raise ValueError(f"Unknown LLM family: {llm_family}")
+
+
+def generate_programs(args):
     problems = read_problems()
     task_ids = list(problems.keys())
 
-    llm = ChatOpenAI(model=args.llm_model, temperature=args.temperature)
+    llm = get_llm(args.llm_family, args.llm_model, args.temperature)
     results = load_cache(args.output_filename)
     processed_task_ids = [s["task_id"] for s in results]
     task_ids = [id for id in task_ids if id not in processed_task_ids]
@@ -73,16 +89,4 @@ def main(args):
     write_jsonl(args.output_filename, results)
 
 
-if __name__ == "__main__":
-    parser = ArgumentParser()
 
-    parser.add_argument("--llm_family", type=str,
-                        choices=["openai"], default="openai")
-    parser.add_argument("--llm_model", type=str, default="gpt-4o-mini")
-    parser.add_argument("--temperature", type=float, default=0.01)
-    parser.add_argument("--output_filename", type=str,
-                        default="state_machine_samples.jsonl")
-    parser.add_argument("--saving_frequency", type=int, default=5)
-
-    args = parser.parse_args()
-    main(args)

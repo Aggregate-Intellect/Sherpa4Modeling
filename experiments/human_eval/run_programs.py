@@ -1,42 +1,31 @@
-from human_eval.data import write_jsonl, read_problems
-from direct_prompt import get_openai_coder
-from tqdm import tqdm
-import json
-import os
+from argparse import ArgumentParser
+from direct_prompt import generate_programs as generate_programs_direct
+from state_machine.execution import generate_programs as generate_programs_state_machine
+from loguru import logger
 
 
-def load_cache(filename: str) -> list[dict]:
-    cache_results = []
-    if not os.path.exists(filename):
-        return cache_results
+def main(args):
+    logger.info(f"Running with args: {args}")
+    if args.method == "state_machine":
+        generate_programs_state_machine(args)
+    elif args.method == "direct_prompt":
+        generate_programs_direct(args)
 
-    with open(filename, "r") as f:
-        for line in f:
-            cache_results.append(json.loads(line))
-
-    return cache_results
+    logger.info("Done!")
 
 
-output_filename = "samples.jsonl"
-saving_frequency = 5
+if __name__ == "__main__":
+    parser = ArgumentParser()
 
-problems = read_problems()
+    parser.add_argument("--llm_family", type=str,
+                        choices=["openai", "togetherai"], default="openai")
+    parser.add_argument("--llm_model", type=str, default="gpt-4o-mini")
+    parser.add_argument("--temperature", type=float, default=0.01)
+    parser.add_argument("--output_filename", type=str,
+                        default="state_machine_samples.jsonl")
+    parser.add_argument("--saving_frequency", type=int, default=5)
+    parser.add_argument("--method", type=str,
+                        choices=["state_machine", "direct_prompt"], default="state_machine")
 
-num_samples_per_task = 200
-task_ids = list(problems.keys())
-coder = get_openai_coder("gpt-4o-mini")
-
-results = load_cache(output_filename)
-processed_task_ids = [s["task_id"] for s in results]
-task_ids = [id for id in task_ids if id not in processed_task_ids]
-
-for i, task_id in enumerate(tqdm(task_ids)):
-    result = {
-        "task_id": task_id,
-        "completion": coder.solve_problem(problems[task_id]["prompt"])
-    }
-    results.append(result)
-
-    if i % saving_frequency == 0:
-        write_jsonl(output_filename, results)
-write_jsonl(output_filename, results)
+    args = parser.parse_args()
+    main(args)

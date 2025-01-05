@@ -1,31 +1,7 @@
-FIRST_GENERATION_PROMPT = """You are a Python programming expert tasked with solving algorithmic problems. Your task is to write a Python function that satisfies the following requirements. Please ensure that your solution:
-1. Is written in Python 3.
-2. Is aligned with the problem description written in the function comment.
-2. Passes all the test cases provided in the problem description.
-3. Give a runnable problem including potential imports
-
-First explain how to solve the programming challenge, then output the final Python program as a Markdown code block:
-```python
-```
-
-## Problem
-{problem}
-
-## Solution
-"""
+FIRST_GENERATION_PROMPT = """Complete the following code. Use ```python to put the completed Python code, including the necessary imports, in markdown quotes:\n{problem}"""
 
 
-ITERATIVE_PROMPT = """You are a Python programming expert tasked with solving algorithmic problems. Your task is to write a Python function that satisfies the following requirements. Please ensure that your solution:
-1. Is written in Python 3.
-2. Is aligned with the problem description written in the function comment.
-2. Passes all the test cases provided in the problem description.
-3. Give a runnable problem including potential imports
-
-First explain how to solve the programming challenge, then output the final Python program as a Markdown code block:
-```python
-```
-
-## Problem
+ITERATIVE_PROMPT = """Complete the following code. Use ```python to put the completed Python code, including the necessary imports, in markdown quotes:
 {problem}
 
 ## Current Attempt
