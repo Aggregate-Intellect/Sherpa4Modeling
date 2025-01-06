@@ -25,13 +25,13 @@ class GenerateSolution(BaseAction):
             str: The generated solution
         """
         logger.info("Generating solution for the programming problem.")
-        problem = self.belief.get("problem")
-        if self.belief.get("existing_solution", None) is not None:
+        problem = self.belief.get("problem")["prompt"]
+        if self.belief.get("generated_solution", None) is not None:
             chain = PromptTemplate.from_template(
                 ITERATIVE_PROMPT) | self.llm | self.parser
             input_data = {
                 "problem": problem,
-                "existing_solution": self.belief.get("existing_solution"),
+                "existing_solution": self.belief.get("generated_solution"),
                 "test_cases": self.belief.get("test_cases")
             }
         else:
@@ -68,7 +68,7 @@ class GenerateTestCases(BaseAction):
             str: The generated test cases
         """
         logger.info("Generating test cases for the programming problem.")
-        problem = self.belief.get("problem")
+        problem = self.belief.get("problem")["prompt"]
         chain = PromptTemplate.from_template(
             TEST_GENERATION_PROMPT) | self.llm | self.parser | self.test_cases_parser
 

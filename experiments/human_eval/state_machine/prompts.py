@@ -6,7 +6,7 @@ ITERATIVE_PROMPT = """Complete the following code. Use ```python to put the comp
 
 ## Current Attempt
 There is already one attempt of the prompt:
-```pythoh
+```python
 {existing_solution}
 ```
 
