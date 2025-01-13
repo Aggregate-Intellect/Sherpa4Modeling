@@ -2,7 +2,7 @@ from sherpa_ai.actions.base import BaseAction
 from sherpa_ai.memory import Belief
 from sherpa_ai.memory.state_machine import SherpaStateMachine
 from transitions.extensions import HierarchicalGraphMachine
-from state_machine.actions import GenerateSolution, GenerateTestCases, EvaluateSolution, CheckCorrectness
+from llm_coder.test_based_sm.actions import GenerateSolution, GenerateTestCases, EvaluateSolution, CheckCorrectness
 from langchain_core.language_models import BaseChatModel
 
 

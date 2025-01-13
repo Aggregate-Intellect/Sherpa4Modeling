@@ -1,15 +1,19 @@
 from sherpa_ai.actions.base import BaseAction
 from langchain_core.language_models import BaseChatModel
-from parsers import PythonOutputParser, TestCaseParser
+from llm_coder.parsers import PythonOutputParser, TestCaseParser
 from langchain.prompts import PromptTemplate
-from state_machine.prompts import ITERATIVE_PROMPT, FIRST_GENERATION_PROMPT, TEST_GENERATION_PROMPT
+from llm_coder.test_based_sm.prompts import ITERATIVE_PROMPT, FIRST_GENERATION_PROMPT, TEST_GENERATION_PROMPT
 from human_eval.evaluation import check_correctness
 from loguru import logger
+
 
 class GenerateSolution(BaseAction):
     name: str = "generate_solution"
     args: dict = {}
     usage: str = "Generate a solution for the programming problem."
+
+    # Whether to consider the previous solution when generating a new solution
+    iterative: bool = True
 
     llm: BaseChatModel
     parser: PythonOutputParser = PythonOutputParser()
@@ -46,7 +50,8 @@ class GenerateSolution(BaseAction):
         while result is None:
             result = chain.invoke(input_data)
 
-        self.belief.set("generated_solution", result)
+        if self.iterative:
+            self.belief.set("generated_solution", result)
 
         return result
 

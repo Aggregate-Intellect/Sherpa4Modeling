@@ -5,7 +5,7 @@ from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel
 from tqdm import tqdm
-from parsers import PythonOutputParser
+from llm_coder.parsers import PythonOutputParser
 import os
 from loguru import logger
 
