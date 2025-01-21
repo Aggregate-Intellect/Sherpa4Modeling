@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import json
 import re
-from typing import TYPE_CHECKING, Any, Optional, Tuple
-
+from typing import TYPE_CHECKING, Optional, Tuple
+from langchain_core.language_models import BaseLanguageModel
 from loguru import logger
 from sherpa_ai.policies.base import BasePolicy, PolicyOutput
 
@@ -48,9 +48,7 @@ class ReactPolicy(BasePolicy):
     """  # noqa: E501
 
     role_description: str
-    llm: Any = (
-        None  # Cannot use langchain's BaseLanguageModel due to they are using Pydantic v1
-    )
+    llm: BaseLanguageModel = None
     description: str = SELECTION_DESCRIPTION
     response_format: dict = {
         "command": {
@@ -75,6 +73,8 @@ class ReactPolicy(BasePolicy):
         match = json_pattern.search(output_str)
 
         if match is not None:
+            result = match.group(1)
+            result.replace("'", '"')
             output = json.loads(match.group(1))
         else:
             logger.error("Output does not contain proper json format {}", output_str)
@@ -114,7 +114,11 @@ class ReactPolicy(BasePolicy):
             if "error" in belief.internal_events[-1].content.lower():
                 logger.error(belief.internal_events[-1].content)
                 return PolicyOutput(action=belief.get_action("other_options"), args={})
-            if len(belief.internal_events) > 4 and belief.internal_events[-4].content == belief.internal_events[-2].content:
+            if (
+                len(belief.internal_events) > 4
+                and belief.internal_events[-4].content
+                == belief.internal_events[-2].content
+            ):
                 return PolicyOutput(action=belief.get_action("other_options"), args={})
 
         actions = belief.get_actions()

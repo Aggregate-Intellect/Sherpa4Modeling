@@ -29,7 +29,7 @@ predicted,actual
 1,1
 1,1
 4,4
-6,3
+7,3
 5,5
 2,2
 yes,yes
@@ -41,7 +41,7 @@ no,no
 no,no
 no,no
 no,no
-no,yes
+yes,yes
 yes,yes
 yes,yes
 yes,yes
@@ -72,7 +72,7 @@ rubber,rubber
 green,green
 sphere,sphere
 sphere,sphere
-green,yellow
+brown,yellow
 green,green
 cube,cube
 yellow,yellow

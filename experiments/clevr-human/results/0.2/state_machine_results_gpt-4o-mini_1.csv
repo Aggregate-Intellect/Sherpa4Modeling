@@ -8,7 +8,7 @@ predicted,actual
 2,2
 2,2
 1,1
-1,2
+2,2
 2,2
 2,2
 1,1
@@ -26,7 +26,7 @@ predicted,actual
 0,3
 3,3
 4,4
-1,1
+0,1
 1,1
 4,4
 6,3
@@ -41,15 +41,15 @@ no,no
 no,no
 no,no
 no,no
-no,yes
 yes,yes
 yes,yes
 yes,yes
 yes,yes
-no,no
-no,no
 yes,yes
 no,no
+no,no
+yes,yes
+yes,no
 no,no
 no,no
 no,no
@@ -66,7 +66,7 @@ yes,yes
 yes,yes
 yes,yes
 cylinder,cylinder
-green,green
+unknown,green
 cube,cube
 rubber,rubber
 green,green
@@ -83,7 +83,7 @@ sphere,sphere
 yes,red
 cylinder,cylinder
 cylinder,cylinder
-purple metal cylinder,cylinder
+cylinder,cylinder
 no,cube
 sphere,sphere
 blue,blue
@@ -93,9 +93,9 @@ purple,purple
 yes,metal
 red,red
 no,cylinder
-yes,rubber
+no,rubber
 sphere,sphere
 sphere,sphere
-red,red
+blue,red
 cube,cube
 cyan,cyan

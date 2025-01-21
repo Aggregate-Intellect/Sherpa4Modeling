@@ -1,23 +1,37 @@
-from typing import Any
+from typing import Any, Optional
 
 from langchain_core.prompts import PromptTemplate
+from loguru import logger
 from sherpa_ai.actions.base import BaseAction
 import re
 import json
+from sherpa_ai.actions.base import ActionArgument
+from sherpa_ai.actions.exceptions import SherpaActionExecutionException
 
 
 class Filter(BaseAction):
     name: str = "filter_with_attribute"
-    usage: str = "Return the all objects in the scene with the given attribute"
-    args: dict = {
-        # "object_ids": "List of object ids to filter, type: list",
-        "attributes": "Name and value of the attributes to filter, type: dict",
-    }
+    usage: str = "Return the all objects in the scene with the given attribute value (color, size, shape, material)"  # noqa: E501
+    args: list = [
+        ActionArgument(
+            name="attribute_map",
+            type="dict",
+            description="Name and value of the attributes to filter",
+        )
+    ]
 
-    def execute(self, attributes) -> str:
+    def execute(self, attribute_map) -> str:
+        if not isinstance(attribute_map, dict):
+            raise SherpaActionExecutionException(
+                "Attribute map should be a dictionary, the key must be one of the following: color, size, shape, material"  # noqa: E501
+            )
+
+        for key in attribute_map.keys():
+            if key not in ["color", "size", "shape", "material"]:
+                raise SherpaActionExecutionException(
+                    "Attribute map should be a dictionary, the key must be one of the following: color, size, shape, material"  # noqa: E501
+                )
         scene = self.belief.get("scene")
-
-        # if len(object_ids) == 0:
         object_ids = list(range(len(scene["objects"])))
         object_ids = set(object_ids)
 
@@ -25,7 +39,7 @@ class Filter(BaseAction):
         for obj_id, obj in enumerate(scene["objects"]):
             if obj_id in object_ids:
                 include = True
-                for attribute, value in attributes.items():
+                for attribute, value in attribute_map.items():
                     if obj[attribute.lower()] != value.lower():
                         include = False
                         break
@@ -42,18 +56,31 @@ class CountAll(BaseAction):
 
     def execute(self) -> str:
         scene = self.belief.get("scene")
-        return f"There are {len(scene['objects'])} object: {[i for i in range(len(scene['objects']))]}"
+        return f"There are {len(scene['objects'])} object: {[i for i in range(len(scene['objects']))]}"  # noqa: E501
 
 
 class Related(BaseAction):
     name: str = "get_related_objects"
-    usage: str = "Get the objects spatially related to the given object"
-    args: dict = {
-        "object_id": "Object id to find related objects, type: int",
-        "relation": "Spatial relation to find, type: str",
-    }
+    usage: str = "Get the objects spatially related to the given object (left, right, front, behind)"  # noqa: E501
+    args: list[ActionArgument] = [
+        ActionArgument(
+            name="object_id",
+            type="int",
+            description="Object id to find related objects",
+        ),
+        ActionArgument(
+            name="relation",
+            type="str",
+            description="Spatial relation to find",
+        ),
+    ]
 
     def execute(self, object_id, relation) -> str:
+        if relation not in ["left", "right", "front", "behind"]:
+            raise SherpaActionExecutionException(
+                "Relation should be one of the following: left, right, front, behind"
+            )
+
         object_id = int(object_id)
         scene = self.belief.get("scene")
         object_ids = scene["relationships"][relation][object_id]
@@ -62,13 +89,26 @@ class Related(BaseAction):
 
 class Query(BaseAction):
     name: str = "query_attribute"
-    usage: str = "Query the attribute of the object given the object id"
-    args: dict = {
-        "object_id": "Object id to query, type: int",
-        "attribute": "Attribute to query, type: str",
-    }
+    usage: str = "Query the attribute (color, size, shape, material) of the object given the object id"  # noqa: E501
+    args: list[ActionArgument] = [
+        ActionArgument(
+            name="object_id",
+            type="int",
+            description="Object id to query",
+        ),
+        ActionArgument(
+            name="attribute",
+            type="str",
+            description="Attribute to query",
+        ),
+    ]
 
     def execute(self, object_id, attribute) -> str:
+        if attribute not in ["color", "size", "shape", "material"]:
+            raise SherpaActionExecutionException(
+                "Attribute should be one of the following: color, size, shape, material"
+            )
+
         object_id = int(object_id)
         scene = self.belief.get("scene")
         return scene["objects"][object_id][attribute]
@@ -76,13 +116,26 @@ class Query(BaseAction):
 
 class Same(BaseAction):
     name: str = "get_same_objects"
-    usage: str = "Get the objects that have the same attribute as the given object"
-    args: dict = {
-        "object_id": "Object id to compare, type: int",
-        "attribute": "Attribute name to compare, type: str",
-    }
+    usage: str = "Get the objects that have the same attribute (color, size, shape, material) as the given object"  # noqa: E501
+    args: list[ActionArgument] = [
+        ActionArgument(
+            name="object_id",
+            type="int",
+            description="Object id to compare",
+        ),
+        ActionArgument(
+            name="attribute",
+            type="str",
+            description="Attribute name to compare",
+        ),
+    ]
 
     def execute(self, object_id, attribute) -> str:
+        if attribute not in ["color", "size", "shape", "material"]:
+            raise SherpaActionExecutionException(
+                "Attribute should be one of the following: color, size, shape, material"
+            )
+
         object_id = int(object_id)
         scene = self.belief.get("scene")
         attribute_value = scene["objects"][object_id][attribute]
@@ -103,7 +156,7 @@ class Output(BaseAction):
     name: str = "output"
     usage: str = "Output answer to the question"
     args: dict = {
-        "answer": "Answer to the question. The answer should either be a number, yes or no or an attribute value.",
+        "answer": "Answer to the question. The answer should either be a number, yes or no or an attribute value.",  # noqa: E501
     }
 
     def execute(self, answer) -> str:
@@ -125,13 +178,13 @@ Give the final answer in the following JSON format:
 ```
 
 Question: {question}
-"""
+"""  # noqa: E501
 
 OUTPUT_PROMPT_TEMPLATE_WITH_SCENE = """You are a careful assistant helping a visually impaired person to answer questions regarding a scene.  The scene is described in JSON format:
 
 Scene: {scene}
 
-Below is some information about the scene.
+Below is some detailed information about the scene.
 
 Information:
 {information}
@@ -146,7 +199,7 @@ Give the final answer in the following JSON format:
 ```
 
 Question: {question}
-"""
+"""  # noqa: E501
 
 
 class GenerateOutput(BaseAction):
@@ -155,7 +208,7 @@ class GenerateOutput(BaseAction):
     args: dict = {}
     llm: Any
 
-    def transform_output(self, output_str: str) -> str:
+    def transform_output(self, output_str: str) -> Optional[str]:
         """
         Transform the output string into an action and arguments
 
@@ -171,6 +224,8 @@ class GenerateOutput(BaseAction):
 
         if match is not None:
             return json.loads(match.group(1))
+        else:
+            return None
 
     def execute(self) -> str:
         scene = self.belief.get("agent_scene", None)
@@ -194,6 +249,13 @@ class GenerateOutput(BaseAction):
 
         chain = prompt_template | self.llm
 
-        result = chain.invoke(input=input).content
+        answer = None
 
-        return self.transform_output(result)
+        while answer is None:
+            result = chain.invoke(input=input).content
+            try:
+                answer = self.transform_output(result)
+            except json.JSONDecodeError:
+                logger.error("JSON Decode Error")
+                continue
+        return answer
