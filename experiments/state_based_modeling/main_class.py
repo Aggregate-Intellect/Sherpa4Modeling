@@ -5,6 +5,7 @@ from sherpa_ai.memory.belief import Belief
 from sherpa_ai.models import SherpaChatOpenAI
 
 from model_class import add_mg_sm
+from tqdm import tqdm
 
 # from sherpa_ai.policies.react_policy import ReactPolicy
 from react_policy_modeling import ReactPolicy
@@ -27,7 +28,7 @@ Never Ask question repetitively. Never make random assumption
 
 def main(description, title):
     belief = Belief()
-    llm = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
+    llm = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.01)
 
     policy = ReactPolicy(
         role_description=role_description,
@@ -65,7 +66,7 @@ if __name__ == "__main__":
     # print(df['description'])  # Replace 'column_name' with your actual column name
     # print(df['name'])
 
-    for index, row in df.iterrows():
+    for index, row in tqdm(df.iterrows(), total=df.shape[0]):
         # print(row['description'].strip())
         # if index != 1:
         #     print(index)
