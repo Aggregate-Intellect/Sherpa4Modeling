@@ -29,7 +29,7 @@ from langchain_openai import ChatOpenAI
 
 # To generate a test case for each category, the test case should be:
 # ```python
-# def check(candidate):
+# def check(candidate):``
 #     # positive integers
 #     assert candidate(1, 2) == 3
 #     # negative integers
