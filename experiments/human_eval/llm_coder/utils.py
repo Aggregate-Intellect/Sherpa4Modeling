@@ -1,21 +1,19 @@
 from __future__ import annotations
+from ast import Dict
+import contextlib
+import tempfile
 
 from human_eval.data import read_problems, write_jsonl
 import os
 import json
 from loguru import logger
 import numpy as np
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 from concurrent.futures import ProcessPoolExecutor as Pool
 from tqdm import tqdm
 from langchain_openai import ChatOpenAI
 
-from llm_coder.coders.direct_prompt_coder import DirectPromptCoder
-from llm_coder.coders.test_based_sm_coder import TestBasedSMCoder
-
-if TYPE_CHECKING:
-    from llm_coder.coders.base import BaseCoder
-
+from llm_coder.coders import DirectPromptCoder, TestBasedSMCoder, AgentCoder
 
 TOGETHER_AI_BASE_URL = "https://api.together.xyz/v1"
 
@@ -27,6 +25,8 @@ def get_coder(method: str, llm_family: str, model_name: str, temperature: float 
         return DirectPromptCoder(llm=llm)
     elif method == "state_machine":
         return TestBasedSMCoder(llm=llm)
+    elif method == "agent_coder":
+        return AgentCoder(llm=llm)
     else:
         raise ValueError(f"Unknown method: {method}")
 

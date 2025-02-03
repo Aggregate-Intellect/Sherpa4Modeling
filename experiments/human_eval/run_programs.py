@@ -1,6 +1,15 @@
 from argparse import ArgumentParser
 from loguru import logger
 from llm_coder.utils import generate_programs
+import dotenv
+from loguru import logger
+import sys
+import os
+dotenv.load_dotenv()
+
+logger.remove()  # remove the default handler configuration
+logger.add(sys.stderr, level=os.environ.get("LOG_LEVEL", "INFO"), serialize=False)
+
 
 
 def main(args):
@@ -22,7 +31,7 @@ if __name__ == "__main__":
     parser.add_argument("--saving_frequency", type=int, default=30)
     parser.add_argument("--num_parallel", type=int, default=8)
     parser.add_argument("--method", type=str,
-                        choices=["state_machine", "direct_prompt"], default="state_machine")
+                        choices=["state_machine", "direct_prompt", "agent_coder"], default="state_machine")
 
     args = parser.parse_args()
     main(args)

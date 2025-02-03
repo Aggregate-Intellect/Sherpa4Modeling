@@ -1,5 +1,5 @@
 import pytest
-from parsers import PromptExampleParser
+from llm_coder.parsers import PromptExampleParser
 
 @pytest.fixture
 def parser():

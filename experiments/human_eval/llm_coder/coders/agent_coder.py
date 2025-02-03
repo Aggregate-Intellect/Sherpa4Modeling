@@ -1,19 +1,24 @@
+"""
+The state machine coder based on the workflow of AgentCoder: https://github.com/huangd1999/AgentCoder
+"""
+
+from llm_coder.agent_coder.states import add_state_machine
 from llm_coder.coders.base import BaseCoder
 from sherpa_ai.memory import Belief
-from sherpa_ai.agents.qa_agent import QAAgent
+from langchain_core.language_models import BaseChatModel
+from llm_coder.agent_coder.prompts import AGENT_DESCRIPTION_PROMPT
 from sherpa_ai.events import Event, EventType
 from sherpa_ai.policies.react_sm_policy import ReactStateMachinePolicy
-from llm_coder.test_based_sm.prompts import AGENT_DESCRIPTION_PROMPT
-from llm_coder.test_based_sm.states import add_state_machine
-from langchain_core.language_models import BaseChatModel
+from sherpa_ai.agents.qa_agent import QAAgent
+from loguru import logger
 
 
-class TestBasedSMCoder(BaseCoder):
+class AgentCoder(BaseCoder):
     llm: BaseChatModel
 
     def solve_problem(self, problem) -> str:
         belief = Belief()
-        add_state_machine(belief, self.llm, False)
+        add_state_machine(belief, self.llm, True)
 
         belief.set_current_task(
             Event(
@@ -35,4 +40,4 @@ class TestBasedSMCoder(BaseCoder):
 
         qa_agent.run()
 
-        return belief.get("generated_solution")
+        return belief.get("generated_solution", "")

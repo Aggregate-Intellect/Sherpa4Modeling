@@ -3,7 +3,7 @@ from langchain_core.language_models import BaseChatModel
 from llm_coder.parsers import PythonOutputParser, TestCaseParser
 from langchain.prompts import PromptTemplate
 from llm_coder.test_based_sm.prompts import ITERATIVE_PROMPT, FIRST_GENERATION_PROMPT, TEST_GENERATION_PROMPT
-from human_eval.evaluation import check_correctness
+from llm_coder.execution import check_correctness
 from loguru import logger
 
 
