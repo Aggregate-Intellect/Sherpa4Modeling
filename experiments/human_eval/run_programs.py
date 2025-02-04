@@ -31,7 +31,7 @@ if __name__ == "__main__":
     parser.add_argument("--saving_frequency", type=int, default=30)
     parser.add_argument("--num_parallel", type=int, default=8)
     parser.add_argument("--method", type=str,
-                        choices=["state_machine", "state_machine_with_feedback", "direct_prompt", "agent_coder"], default="state_machine")
+                        choices=["state_machine", "state_machine_with_feedback", "direct_prompt", "agent_coder", "agent_coder_improved"], default="state_machine")
 
     args = parser.parse_args()
     main(args)

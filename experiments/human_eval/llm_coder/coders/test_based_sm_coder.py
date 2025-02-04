@@ -1,4 +1,4 @@
-from llm_coder.coders.base import BaseCoder
+from llm_coder.coders.base import BaseCoder, CoderResult
 from sherpa_ai.memory import Belief
 from sherpa_ai.agents.qa_agent import QAAgent
 from sherpa_ai.events import Event, EventType
@@ -35,4 +35,4 @@ class TestBasedSMCoder(BaseCoder):
 
         qa_agent.run()
 
-        return belief.get("generated_solution")
+        return CoderResult(result=belief.get("generated_solution"), num_llm_calls=belief.get("num_llm_calls"))

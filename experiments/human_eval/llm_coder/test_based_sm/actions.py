@@ -49,7 +49,8 @@ class GenerateSolution(BaseAction):
 
         while result is None:
             result = chain.invoke(input_data)
-
+            num_llm_calls = self.belief.get("num_llm_calls", 0)
+            self.belief.set("num_llm_calls", num_llm_calls + 1)
         if self.iterative:
             self.belief.set("generated_solution", result)
 
@@ -82,7 +83,8 @@ class GenerateTestCases(BaseAction):
             result = chain.invoke({
                 "problem": problem
             })
-
+            num_llm_calls = self.belief.get("num_llm_calls", 0)
+            self.belief.set("num_llm_calls", num_llm_calls + 1)
         self.belief.set("test_cases", result)
 
         return result

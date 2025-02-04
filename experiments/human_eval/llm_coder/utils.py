@@ -27,6 +27,8 @@ def get_coder(method: str, llm_family: str, model_name: str, temperature: float 
         return TestBasedSMCoder(llm=llm)
     elif method == "agent_coder":
         return AgentCoder(llm=llm)
+    elif method == "agent_coder_improved":
+        return AgentCoder(llm=llm, improved=True)
     elif method == "state_machine_with_feedback":
         return TestBasedSMWithFeeedbackCoder(llm=llm)
     else:
@@ -64,9 +66,11 @@ def generate_one_solution(config) -> dict:
     args, task_id, problem = config
     coder = get_coder(args.method, args.llm_family,
                       args.llm_model, args.temperature)
+    coder_result = coder.solve_problem(problem)
     result = {
         "task_id": task_id,
-        "completion": coder.solve_problem(problem)
+        "completion": coder_result.result,
+        "num_llm_calls": coder_result.num_llm_calls
     }
 
     return result

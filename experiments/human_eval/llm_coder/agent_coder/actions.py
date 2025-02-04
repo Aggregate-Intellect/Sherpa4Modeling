@@ -33,6 +33,8 @@ class GenerateProgram(BaseAction):
         problem_description = self.belief.get("problem")["prompt"]
         chain = prompt_template | self.llm | self.parser
         result = chain.invoke({"problem_description": problem_description})
+        num_llm_calls = self.belief.get("num_llm_calls", 0)
+        self.belief.set("num_llm_calls", num_llm_calls + 1)
 
         generated_programs = self.belief.get("generated_programs", [])
         generated_programs.append(result)
@@ -67,6 +69,8 @@ class GenerateTest(BaseAction):
         problem_description = self.belief.get("problem")["prompt"]
         chain = prompt_template | self.llm | self.parser
         result = chain.invoke({"problem_description": problem_description})
+        num_llm_calls = self.belief.get("num_llm_calls", 0)
+        self.belief.set("num_llm_calls", num_llm_calls + 1)
         logger.info(result)
 
         generated_tests = self.belief.get("generated_tests", [])
@@ -116,7 +120,6 @@ class EvaluateProgram(BaseAction):
             passed = True
             self.belief.set("evaluation_passed", passed)
             self.belief.set("generated_solution", solutions[-1])
-            return True
 
         return True
 
