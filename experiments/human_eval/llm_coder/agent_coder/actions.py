@@ -34,7 +34,9 @@ class GenerateProgram(BaseAction):
         chain = prompt_template | self.llm | self.parser
         result = chain.invoke({"problem_description": problem_description})
 
-        self.belief.set("generate_program", "result")
+        generated_programs = self.belief.get("generated_programs", [])
+        generated_programs.append(result)
+        self.belief.set("generated_programs", generated_programs)
 
         return result
 
@@ -67,7 +69,10 @@ class GenerateTest(BaseAction):
         result = chain.invoke({"problem_description": problem_description})
         logger.info(result)
 
-        self.belief.set("generate_tests", result)
+        generated_tests = self.belief.get("generated_tests", [])
+        generated_tests.append(result)
+        self.belief.set("generated_tests", generated_tests)
+
         return result
 
 
@@ -86,23 +91,32 @@ class EvaluateProgram(BaseAction):
         problem = self.belief.get("problem")
 
         problem = problem.copy()
-        solution = self.belief.get("generate_program")
-        test_cases = self.belief.get("generate_tests")
-        test_cases = self.create_test(test_cases, problem["entry_point"])
-        problem["test"] = test_cases
-        evaluation_result = check_correctness(problem, solution, 3.0)
-        logger.info(evaluation_result)
-        passed = evaluation_result["passed"]
+        solutions= self.belief.get("generated_programs")
+        test_cases = self.belief.get("generated_tests")
+
+        for solution in solutions:
+            passed = 0
+            for test_case in test_cases:
+                test_case = self.create_test(test_case, problem["entry_point"])
+                problem["test"] = test_case
+                evaluation_result = check_correctness(problem, solution, 3.0)
+                
+                if evaluation_result["passed"]:
+                    passed += 1
+
+            if passed >= 3: # use the same number as in the AgentCoder
+                self.belief.set("evaluation_passed", passed)
+                if passed:
+                    self.belief.set("generated_solution", solution)
+                return True
 
         # If the current count is greater than or equal to the total count,
         # then stop
         if self.current_count >= self.total_count:
             passed = True
-
-        self.belief.set("evaluation_passed", passed)
-
-        if passed:
-            self.belief.set("generated_solution", solution)
+            self.belief.set("evaluation_passed", passed)
+            self.belief.set("generated_solution", solutions[-1])
+            return True
 
         return True
 

@@ -9,6 +9,7 @@ import multiprocessing
 import platform
 import signal
 import tempfile
+from loguru import logger
 
 
 def check_correctness(problem: Dict, completion: str, timeout: float,
@@ -41,6 +42,8 @@ def check_correctness(problem: Dict, completion: str, timeout: float,
                 problem["test"] + "\n" +
                 f"check({problem['entry_point']})"
             )
+
+            logger.debug(check_program)
 
             try:
                 exec_globals = {}

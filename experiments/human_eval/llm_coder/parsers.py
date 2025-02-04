@@ -5,6 +5,25 @@ from pydantic import ConfigDict
 from typing import Optional
 
 
+class PythonProgramParser(BaseOutputParser):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+    # The DOTALL flag allows . to match new line characters as well
+    pattern: re.Pattern = re.compile("```python(.+)```", flags=re.DOTALL)
+    assertion_pattern: re.Pattern = re.compile(r'(?m)^\s*assert\b.*$', re.DOTALL)
+
+    def parse(self, result: str) -> Optional[str]:
+        match = self.pattern.search(result)
+
+        if match:
+            python_text = match.group(1)
+            # Remove all assertions from the code
+            python_text = self.assertion_pattern.sub("", python_text)
+            return python_text
+        else:
+            logger.warning(
+                f"No python block in the response. The original response is \n {result}")
+            return None
+        
 class PythonOutputParser(BaseOutputParser):
     model_config = ConfigDict(arbitrary_types_allowed=True)
     # The DOTALL flag allows . to match new line characters as well
@@ -14,7 +33,8 @@ class PythonOutputParser(BaseOutputParser):
         match = self.pattern.search(result)
 
         if match:
-            return match.group(1)
+            python_text = match.group(1)
+            return python_text
         else:
             logger.warning(
                 f"No python block in the response. The original response is \n {result}")
@@ -35,9 +55,9 @@ class TestCaseParser(BaseOutputParser):
 class PromptExampleParser(BaseOutputParser):
     model_config = ConfigDict(arbitrary_types_allowed=True)
     patterns: list[re.Pattern] = [
-        re.compile("^[ \*>]+(.*\(.*) =?[=\-|➞]>? (.+)"),
-        re.compile("(.+\(.+).+ returns (.+)"),
-        re.compile(">>> (.+)\n +(.+)"),
+        re.compile(r"^[ \*>]+(.*\(.*) =?[=\-|➞]>? (.+)"),
+        re.compile(r"(.+\(.+).+ returns (.+)"),
+        re.compile(r">>> (.+)\n +(.+)"),
     ]
 
     def parse(self, result: str) -> list[dict]:

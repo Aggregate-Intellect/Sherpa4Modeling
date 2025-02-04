@@ -2,7 +2,7 @@ python run_programs.py --llm_family openai --llm_model gpt-4o-mini --temperature
 
 python run_programs.py --llm_family openai --llm_model gpt-4o-mini --temperature 0.01 --output_filename results/gpt-4o-mini/state_machine.jsonl --method state_machine
 
-python run_programs.py --llm_family togetherai --llm_model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo --temperature 0.01 --output_filename results/Meta-Llama-3.1-8B-Instruct-Turbo/direct_prompt.jsonl --method direct_prompt
+python run_programs.py --llm_family togetherai --llm_model meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --temperature 0.01 --output_filename results/Meta-Llama-3.1-70BB-Instruct-Turbo/direct_prompt.jsonl --method direct_prompt
 
 python run_programs.py --llm_family togetherai --llm_model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo --temperature 0.01 --output_filename results/Meta-Llama-3.1-8B-Instruct-Turbo/state_machine.jsonl --method state_machine
 
@@ -11,8 +11,15 @@ python run_programs.py --llm_family togetherai --llm_model Qwen/Qwen2.5-Coder-32
 
 python run_programs.py --llm_family togetherai --llm_model Qwen/Qwen2.5-Coder-32B-Instruct --temperature 0.01 --output_filename results/Qwen2.5-Coder-32B-Instruct/state_machine.jsonl --method state_machine
 
+python run_programs.py --llm_family togetherai --llm_model Qwen/Qwen2.5-Coder-32B-Instruct --temperature 0.01 --output_filename results/Qwen2.5-Coder-32B-Instruct/agent_coder.jsonl --method agent_coder
+
 
 # Run Qwen/Qwen2.5-7B-Instruct-Turbo
 python run_programs.py --llm_family togetherai --llm_model Qwen/Qwen2.5-7B-Instruct-Turbo --temperature 0.01 --output_filename results/Qwen2.5-7B-Instruct-Turbo/direct_prompt.jsonl --method direct_prompt
 
 python run_programs.py --llm_family togetherai --llm_model Qwen/Qwen2.5-7B-Instruct-Turbo --temperature 0.01 --output_filename results/Qwen2.5-7B-Instruct-Turbo/state_machine.jsonl --method state_machine
+
+# Test Agent coder
+python run_programs.py --llm_family openai --llm_model gpt-4o-mini --temperature 0.01 --output_filename results/gpt-4o-mini/agent_coder_test.jsonl --method agent_coder
+
+python run_programs.py --llm_family togetherai --llm_model meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo --temperature 0.01 --output_filename results/Meta-Llama-3.1-8B-Instruct-Turbo/agent_coder.jsonl --method agent_coder

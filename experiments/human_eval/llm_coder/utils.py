@@ -13,7 +13,7 @@ from concurrent.futures import ProcessPoolExecutor as Pool
 from tqdm import tqdm
 from langchain_openai import ChatOpenAI
 
-from llm_coder.coders import DirectPromptCoder, TestBasedSMCoder, AgentCoder
+from llm_coder.coders import DirectPromptCoder, TestBasedSMCoder, AgentCoder, TestBasedSMWithFeeedbackCoder
 
 TOGETHER_AI_BASE_URL = "https://api.together.xyz/v1"
 
@@ -27,6 +27,8 @@ def get_coder(method: str, llm_family: str, model_name: str, temperature: float 
         return TestBasedSMCoder(llm=llm)
     elif method == "agent_coder":
         return AgentCoder(llm=llm)
+    elif method == "state_machine_with_feedback":
+        return TestBasedSMWithFeeedbackCoder(llm=llm)
     else:
         raise ValueError(f"Unknown method: {method}")
 

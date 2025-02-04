@@ -18,7 +18,7 @@ class AgentCoder(BaseCoder):
 
     def solve_problem(self, problem) -> str:
         belief = Belief()
-        add_state_machine(belief, self.llm, True)
+        add_state_machine(belief, self.llm, False)
 
         belief.set_current_task(
             Event(

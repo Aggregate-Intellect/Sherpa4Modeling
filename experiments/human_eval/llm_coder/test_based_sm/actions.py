@@ -106,7 +106,10 @@ class EvaluateSolution(BaseAction):
         self.current_count += 1
         problem = self.belief.get("problem")
         problem = problem.copy()
-        solution = self.belief.get("generated_solution")
+
+        # Support both iterative setting (stored as "generated solution")
+        # and non-iterative setting (stored as "generate_solution")
+        solution = self.belief.get("generated_solution", self.belief.get("generate_solution"))
         test_cases = self.belief.get("test_cases")
 
         passed_test_cases = 0
@@ -119,6 +122,7 @@ class EvaluateSolution(BaseAction):
 
         if passed_test_cases == len(test_cases):
             self.belief.set("solution_correct", True)
+            self.belief.set("generated_solution", solution)
             return True
 
         generated_candidates = self.belief.get("generated_candidates", [])

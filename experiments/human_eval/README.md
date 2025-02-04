@@ -12,4 +12,4 @@ pip intall -r requirements.txt
 ### Environment configuration
 The following environment needs to be configured in order to generate the programs:
 1. `OPENAI_API_KEY`: OpenAI API key for using GPT models
-2. `TOGETHERAI_API_KEY`: TogetherAI API key to use models other than GPTs
+2. `TOGETHERAI_API_KEY`: TogetherAI API key to use models other than GPTs through together.ai
