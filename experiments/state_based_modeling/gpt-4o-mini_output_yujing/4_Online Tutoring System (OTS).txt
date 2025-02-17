@@ -1,0 +1,37 @@
+========================================
+Classes:
+OTS()
+Student(string name, string emailAddress)
+abstract UserRole()
+Tutor(string name, string emailAddress, string bankAccount, float hourlyPrice) inherit UserRole()
+Subject(string name, string level, string expertise)
+TutoringSession(date sessionDate, time sessionTime, boolean isConfirmed)
+Availability(string dayOfWeek, time startTime, time endTime)
+Request(date targetDate, time targetTime)
+Payment(string paymentMethod)
+Cancellation(boolean isCancelled, float penaltyAmount)
+Discount(float discountAmount)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum SubjectLevel(PrimarySchool, HighSchool, University)
+Relationships:
+
+
+Composition:
+1 OTS contain 0..* Student
+1 OTS contain 0..* Tutor
+1 Tutor contain 0..* Subject
+1 Tutor contain 0..* Availability
+1 OTS contain 0..* TutoringSession
+1 TutoringSession contain 0..* Request
+1 TutoringSession contain 0..* Payment
+1 TutoringSession contain 0..1 Cancellation
+1 TutoringSession contain 0..1 Discount
+Inheritance:
+Tutor inherit UserRole
+Association:
+0..* Student associate 0..* Request
+0..* Tutor associate 0..* TutoringSession
+0..* TutoringSession associate 0..1 Payment
+0..* TutoringSession associate 0..1 Cancellation
+0..* TutoringSession associate 0..1 Discount
+========================================

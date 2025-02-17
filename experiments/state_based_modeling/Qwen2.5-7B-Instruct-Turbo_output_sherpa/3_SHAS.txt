@@ -1,0 +1,23 @@
+========================================
+DeviceIdentifier(SensorIdentifier, ActuatorIdentifier)
+ControlCommandStatus(Requested, Completed, Failed)
+BooleanOperator(AND, OR, NOT)
+Device(DeviceIdentifier deviceIdentifier)
+SensorDevice(deviceIdentifier DeviceIdentifier) inherit Device
+ActuatorDevice(deviceIdentifier DeviceIdentifier) inherit Device
+SmartHome(physicalAddress PhysicalAddress)
+Room(smartHome SmartHome, string name)
+RelationalTerm()
+RelationalTerm_SensorDevice(room Room, sensorDevice SensorDevice, string measure) inherit RelationalTerm
+RelationalTerm_ActuatorDevice(room Room, actuatorDevice ActuatorDevice, string command) inherit RelationalTerm
+BooleanExpression()
+BooleanExpression_SingleRelationalTerm(relationalTerm RelationalTerm) inherit BooleanExpression
+BooleanExpression_LogicalOperator(booleanOperator BooleanOperator, booleanExpression1 BooleanExpression, booleanExpression2 BooleanExpression) inherit BooleanExpression
+Action()
+Action_ControlCommandSequence(controlCommandSequence ControlCommandSequence) inherit Action
+Rule(precondition BooleanExpression, action Action)
+TriggeredTimestamp(timestamp date)
+ControlCommand(string command, ControlCommandStatus status)
+AutomationRuleDependencies(dependentRules Rule, conflictingRules Rule)
+AutomationRuleHierarchy(parentRules Rule, childRules Rule)
+========================================

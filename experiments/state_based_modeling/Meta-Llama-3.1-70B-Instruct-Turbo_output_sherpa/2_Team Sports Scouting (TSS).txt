@@ -1,0 +1,18 @@
+========================================
+Club(string name, string location)
+Employee(string name, string position, boolean active)
+Profile(string name, string description, Position[] positions, Attribute[] attributes)
+Position(string name, string description)
+Attribute(string name, string value)
+Assignment(Player player, boolean completed)
+Report(string pros, string cons, string recommendation)
+HeadCoach() inherit Employee
+Scout() inherit Employee
+Director() inherit Employee
+PlayerRole()
+TargetPlayer(Profile targetProfile) inherit PlayerRole
+ScoutedPlayer(Assignment scoutingAssignment, Report scoutingReport) inherit PlayerRole
+ShortListedPlayer(string shortListReason) inherit PlayerRole
+SignedKeyPlayer(string contractDetails) inherit PlayerRole
+Player(string name, string playerName, PlayerRole[] roles)
+========================================

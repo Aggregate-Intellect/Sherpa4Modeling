@@ -1,0 +1,31 @@
+========================================
+Classes:
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+enum TestGroup(Blood, Ultrasound, XRay, Urine, Stool)
+Doctor(string practitionerNumber, string signature, string fullName, string address, string phoneNumber)
+Patient(string healthNumber, string firstName, string lastName, string dateOfBirth, string address, string phoneNumber)
+Test(string name, int duration, TestGroup group, string result, string report, string sampleType)
+Requisition(string date, int repetition, Interval interval, Doctor doctor, Patient patient, list<Test> tests)
+Lab(string name, string address, string registrationNumber, list<BusinessHours> businessHours, int changeCancellationFee)
+Appointment(string confirmationNumber, string date, string startTime, string endTime, string labName, string labRegistrationNumber, Patient patient, Requisition requisition)
+BusinessHours(string day, string startTime, string endTime)
+Relatipnships:
+Composition:
+1 LabTrackerSystem contain 0..* Doctor
+1 LabTrackerSystem contain 0..* Patient
+1 LabTrackerSystem contain 0..* Test
+1 LabTrackerSystem contain 0..* Requisition
+1 LabTrackerSystem contain 0..* Lab
+1 LabTrackerSystem contain 0..* Appointment
+1 LabTrackerSystem contain 0..* BusinessHours
+Inheritance:
+None
+Association:
+1 Doctor associate 0..* Requisition
+1 Patient associate 0..* Requisition
+1 Requisition associate 1..* Test
+1 Lab associate 0..* BusinessHours
+1 Appointment associate 1 Patient
+1 Appointment associate 1 Requisition
+1 Appointment associate 1 Lab
+========================================

@@ -1,0 +1,40 @@
+========================================
+```plaintext
+Classes:
+enum RoomType(Single, Double, Twin)
+enum PaymentType(PrePaid, PaidAtHotel)
+enum CancellationPolicy(NoFee, OneNightCharge)
+abstract Hotel(string name, string address, int rating, HotelChain hotelChain)
+HotelChain(string name)
+City(string name, string country, string region)
+Room(RoomType type, int capacity)
+Traveller(string name, string billingInformation, string companyName, string companyAddress, List<TravelPreference> travelPreferences, float reliabilityRating)
+Booking(string uniqueIdentifier, Traveller traveller, Hotel hotel, date arrivalDate, date departureDate, int numberOfRooms, RoomType roomType, int hotelRating, float budget, boolean isPreliminary, boolean isConfirmed, date confirmationDeadline, date cancellationDeadline, PaymentType paymentType, float costPerNight)
+SpecialOffer(string uniqueIdentifier, Hotel hotel, float costPerNight, RoomType roomType, List<TravelPreference> keyPreferences)
+Payment(PaymentType paymentType, float amount)
+Relatipnships:
+Composition:
+1 HotelBookingManagementSystem contain 0..* Traveller
+1 HotelBookingManagementSystem contain 0..* Hotel
+1 HotelBookingManagementSystem contain 0..* Booking
+1 HotelBookingManagementSystem contain 0..* SpecialOffer
+1 HotelBookingManagementSystem contain 0..* Payment
+1 Hotel contain 0..* Room
+1 Hotel contain 1 City
+1 Hotel contain 0..1 HotelChain
+Inheritance:
+Hotel inherit abstract Hotel
+Association:
+0..* Traveller associate 0..* Booking
+1 Booking associate 1 Traveller
+1 Booking associate 1 Hotel
+1 Booking associate 1 Payment
+1 SpecialOffer associate 1 Hotel
+1 SpecialOffer associate 0..* Booking
+1 Hotel associate 0..* SpecialOffer
+1 Hotel associate 1 City
+1 Hotel associate 0..1 HotelChain
+1 Room associate 1 Hotel
+1 Payment associate 1 Booking
+```
+========================================

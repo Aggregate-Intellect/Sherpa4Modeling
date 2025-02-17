@@ -1,0 +1,17 @@
+========================================
+```
+class Person(string name, string emailAddress)
+abstract class Role()
+class Student() inherit Role
+class Tutor(string bankAccount, float hourlyPrice) inherit Role
+class Subject(string name)
+class ExpertiseLevel(string level)
+abstract class TutoringSession(date sessionDate, time sessionTime, boolean isCancelled, date cancellationDate)
+class TutoringRequest(date requestedDate, time requestedTime) inherit TutoringSession
+class Payment(string paymentMethod)
+class Discount(float discountPercentage)
+class Availability(string availableDaysAndTimes)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum CancellationPolicy(StudentCancellation, TutorCancellation)
+```
+========================================

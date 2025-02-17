@@ -1,0 +1,25 @@
+========================================
+Hotel(int hotelId, string name, string address, int rating, HotelChain hotelChain)
+HotelChain(string chainName, string contactInformation)
+Booking(int bookingId, int hotelId, int travellerId, date arrivalDate, date departureDate, int roomType, int numberOfRooms, BookingStatus bookingStatus, date cancellationDeadline)
+PreliminaryBooking() inherit Booking
+RegularBooking() inherit Booking
+PrePaidBooking(date prePaymentDate) inherit Booking
+PaidAtStayBooking() inherit Booking
+Offer(int offerId, int hotelId, int bookingId, int pricePerNight, date offerDeadline)
+CompetingOffer() inherit Offer
+SpecialOffer() inherit Offer
+BestOffer() inherit Offer
+BusinessTraveller(int travellerId, string name, string companyName, string billingAddress, List<string> travelPreferences, int reliabilityRating)
+AccommodationDeal(int dealId, int hotelId, date startDate, date endDate, int roomType, int numberOfRooms, int pricePerNight)
+Search(string city, date arrivalDate, date departureDate, int numberOfRooms, int roomType, int minRating, int maxCostPerNight, List<string> travelPreferences)
+Confirmation(int bookingId, int hotelId, int travellerId, date confirmationDate)
+Cancellation(int bookingId, int hotelId, int travellerId, date cancellationDate)
+FinancialCompensation(int bookingId, int compensationAmount)
+CreditCard(string cardNumber, string cardHolderName, date expirationDate, string cvv)
+Payment(int paymentId, int bookingId, PaymentType paymentType, date paymentDate, int amount)
+Notification(int notificationId, int recipientId, string message, date sentDate)
+enum BookingStatus(Preliminary, Confirmed, Cancelled, Completed)
+enum RoomType(Single, Double, Twin)
+enum PaymentType(PrePaid, PaidAtStay)
+========================================

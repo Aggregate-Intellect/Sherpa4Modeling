@@ -1,0 +1,10 @@
+========================================
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password, eventType typeOfEvent, date startDateTime, date endDateTime, string occasion, Location location, Checklist eventSpecificChecklist)
+eventType(birthdayParty, graduationParty)
+Event(eventType typeOfEvent, date startDateTime, date endDateTime, string occasion, Location location, Organizer organizer)
+Invitation(organizer, event, attendee, status)
+Location(string name, string address)
+Checklist(Collection<Task> eventSpecificTasks)
+Task(string description)
+Attendee(string firstName, string lastName, string email, string invitationStatus)
+========================================

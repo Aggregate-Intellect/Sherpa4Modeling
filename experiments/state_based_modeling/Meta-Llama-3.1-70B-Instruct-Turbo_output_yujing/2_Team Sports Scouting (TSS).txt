@@ -1,0 +1,42 @@
+========================================
+Classes:
+Person(string roleId, string name, string role)
+Staff(string staffId, string name, string experience) inherit Person
+Coach(string coachId, string name, string experience) inherit Staff
+Scout(string scoutId, string name, string experience) inherit Staff
+Director(string directorId, string name, string experience) inherit Staff
+Player(string playerId, string name, PlayerPosition position, string team, string attribute)
+Assignment(string assignmentId, string playerId, string scoutId, Date dueDate)
+Report(string reportId, string assignmentId, string pros, string cons, ScoutingRecommendation recommendation)
+Offer(string offerId, string playerId, Date offerDate, boolean accepted)
+enum PlayerPosition(GK, LB, RB, CB, CM, LM, RM, ST)
+enum ScoutingRecommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+Relationships:
+
+
+Composition:
+1 TeamSportsScoutingSystem contain 0..* Coach
+1 TeamSportsScoutingSystem contain 0..* Scout
+1 TeamSportsScoutingSystem contain 0..* Director
+1 TeamSportsScoutingSystem contain 0..* Player
+1 TeamSportsScoutingSystem contain 0..* Assignment
+1 TeamSportsScoutingSystem contain 0..* Report
+1 TeamSportsScoutingSystem contain 0..* Offer
+Inheritance:
+Staff inherit Person
+Coach inherit Staff
+Scout inherit Staff
+Director inherit Staff
+Association:
+1 Coach associate 0..* Assignment
+1 Scout associate 0..* Assignment
+1 Assignment associate 1 Player
+1 Assignment associate 1 Scout
+1 Assignment associate 1 Report
+1 Report associate 1 Assignment
+1 Report associate 1 Offer
+1 Player associate 0..* Report
+1 Player associate 0..* Offer
+1 Director associate 0..* Offer
+========================================

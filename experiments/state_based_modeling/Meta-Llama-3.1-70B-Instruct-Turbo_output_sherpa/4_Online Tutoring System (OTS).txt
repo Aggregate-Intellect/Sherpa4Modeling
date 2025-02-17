@@ -1,0 +1,26 @@
+========================================
+User(string name, string email)
+UserRole(enum TUTOR, STUDENT, TUTOR-STUDENT)
+Tutor(string bankAccountNumber) inherit User, UserRole
+Student() inherit User, UserRole
+PaymentMethod(string type)
+CreditCardPayment(string cardNumber, string expirationDate) inherit PaymentMethod
+WireTransferPayment() inherit PaymentMethod
+BankAccount(string accountNumber)
+TutorAvailability(enum DayOfWeek dayOfWeek, time startTime, time endTime)
+DayOfWeek(enum MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY)
+LevelOfExpertise(enum PRIMARY_SCHOOL, HIGH_SCHOOL, UNIVERSITY)
+SubjectType(enum MATHEMATICS, SCIENCE, LITERATURE, OTHERS)
+TutoringAvailabilityStatus(enum AVAILABLE, UNAVAILABLE)
+TutoringSessionStatus(enum SCHEDULED, RESCHEDULED, CANCELED, FINISHED)
+CancellationPolicyType(enum FIXED_PERCENTAGE, NONE)
+DiscountType(enum PERCENTAGE, FIXED_AMOUNT)
+Session(date targetDate, time targetTime, double price)
+TutoringSession(enum TutoringSessionStatus tutoringSessionStatus, enum CancellationPolicyType cancellationPolicyType, double cancellationFeePercentage, double discountAmount, enum DiscountType discountType) inherit Session
+Request(date targetDate, time targetTime)
+TutoringRequest(enum SubjectType subjectType, enum LevelOfExpertise levelOfExpertise) inherit Request
+Registration(date registrationDate, boolean registrationStatus)
+Offer(Tutor tutor, enum SubjectType subjectType, enum LevelOfExpertise levelOfExpertise, double price)
+Review(Tutor tutor, Student student, date reviewDate, string reviewComment)
+Payment(Session session, PaymentMethod paymentMethod, date paymentDate, double paymentAmount)
+========================================

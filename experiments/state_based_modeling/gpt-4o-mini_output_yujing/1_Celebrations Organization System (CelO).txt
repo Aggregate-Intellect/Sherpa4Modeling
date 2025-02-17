@@ -1,0 +1,23 @@
+========================================
+Classes:
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)
+Event(string eventType, date startDate, time startTime, date endDate, time endTime, Occasion occasion, Location location)
+Attendee(string firstName, string lastName, string email, boolean isAttending, boolean maybeAttending, boolean notAttending)
+Task(string taskDescription, boolean isDone, boolean isNotApplicable)
+Location(string name, string address)
+Invitation(string email, boolean hasResponded)
+enum Occasion(Birthday, Graduation, Other)
+Relationships:
+
+
+Composition:
+1 Event contain 1..* Task
+1 Event contain 0..* Attendee
+1 Event contain 0..* Invitation
+1 Location contain 0..* Event
+Inheritance:
+Attendee inherit Organizer
+Association:
+0..* Organizer associate 0..* Event
+0..* Attendee associate 0..1 Invitation
+========================================

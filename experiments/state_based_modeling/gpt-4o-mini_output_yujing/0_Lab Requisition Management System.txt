@@ -1,0 +1,38 @@
+========================================
+Classes:
+abstract LabTracker()
+Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, string digitalSignature, date signatureDate) inherit PersonRole()
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) inherit PersonRole()
+Requisition(date validFrom, string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber, int repetitionCount, RepetitionInterval repetitionInterval)
+Test(string testType, int duration, boolean requiresAppointment, boolean isWalkInOnly)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
+Lab(string address, BusinessHours businessHours, Fee fee)
+Result(string resultStatus)
+Report(string reportDetails)
+BusinessHours(time startTime, time endTime)
+Fee(decimal amount)
+enum RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)
+Relationships:
+
+
+Composition:
+1 LabTracker contain 0..* Requisition
+1 LabTracker contain 0..* Appointment
+1 LabTracker contain 0..* Test
+1 LabTracker contain 0..* Lab
+1 LabTracker contain 0..* Result
+1 LabTracker contain 0..* Report
+Inheritance:
+Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, string digitalSignature, date signatureDate) inherit PersonRole()
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) inherit PersonRole()
+Association:
+0..* Requisition associate 1..* Test
+1 Requisition associate 1 Patient
+1 Requisition associate 1 Doctor
+1 Appointment associate 1 Requisition
+1 Appointment associate 1 Lab
+0..* Result associate 1 Test
+0..* Report associate 1 Test
+1 Lab associate 0..* Appointment
+1 Lab associate 0..* Test
+========================================

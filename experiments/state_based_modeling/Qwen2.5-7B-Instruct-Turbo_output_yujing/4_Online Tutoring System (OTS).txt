@@ -1,0 +1,36 @@
+========================================
+Classes:
+Registration(string name, string email)
+Tutor(string name, string email, string bankAccount, string[] subjects, TutoringLevel[] expertiseLevels, int[] hourlyPrices, string[] weeklyAvailability)
+Student(string name, string email)
+TutoringLevel(string level)
+Subject(string subject)
+TutoringRequest(string targetDate, string targetTime)
+TutoringSession(int price)
+Cancellation(int amount)
+Discount(int amount)
+Relationships:
+
+
+Composition:
+1 Tutor contain 0..1 Registration
+1 Tutor contain 0..1 TutoringSession
+1 Tutor contain 0..1 Cancellation
+1 Tutor contain 0..1 Discount
+1 Student contain 0..1 Registration
+1 Student contain 0..1 TutoringSession
+1 Student contain 0..1 Cancellation
+1 Student contain 0..1 Discount
+Inheritance:
+TutoringLevel inherit TutoringLevel
+Subject inherit Subject
+TutoringRequest inherit TutoringRequest
+TutoringSession inherit TutoringSession
+Cancellation inherit Cancellation
+Discount inherit Discount
+Association:
+1 Tutor associate 0..* TutoringRequest
+1 Student associate 0..* TutoringRequest
+1 Tutor associate 1 TutoringSession
+1 Student associate 1 TutoringSession
+========================================

@@ -1,0 +1,18 @@
+========================================
+Person(string firstName, string lastName, string address, string phoneNumber)
+Doctor(inherit Person, int practitionerNumber, DigitalSignature signature)
+Patient(inherit Person, string healthNumber, DateOfBirth dateOfBirth)
+Requisition(inherit Person, DateOfBirth dateOfBirth, string healthNumber, Doctor doctor, List<Test> testDetails, RepeatingPattern repeatingPattern, Date validity)
+Appointment(inherit Person, DateOfBirth dateOfBirth, string healthNumber, Doctor doctor, List<Test> testDetails, string confirmationNumber, TimeSpan appointmentTime, Lab lab, string confirmation, Fee cancellationFee)
+Test(string testType, TimeSpan duration, string result, string report)
+BloodTest(inherit Test, specific BloodTest properties if necessary)
+UltrasoundExamination(inherit Test, specific Ultrasound Examination properties if necessary)
+XRayExamination(inherit Test, specific XRay Examination properties if necessary)
+UrineSample(inherit Test, specific Urine Sample properties if necessary)
+StoolSample(inherit Test, specific Stool Sample properties if necessary)
+RepeatingPattern(Enum Kind)
+Fee(int value)
+Lab(string address, int registrationNumber, OpenHours openHours, Fee cancellationFee)
+OpenHours(TimeSpan startTime, TimeSpan endTime, Enum Days)
+AppointmentPolicy()
+========================================

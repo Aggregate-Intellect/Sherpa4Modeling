@@ -1,0 +1,8 @@
+========================================
+Game(int numberOfPlayers, Tile hiddenTile, int actionTileTurns, boolean isGameEnded, List<Tile> startingPositions, List<ActionCard> deck, int numberOfSpareConnectionPieces, List<Player> players, int currentTurn, Player currentPlayer)
+Board(int width, int height)
+Tile(int xPosition, int yPosition, boolean isVisited, boolean isHidden, boolean isAction, int turnsAsRegular, List<Tile> connectedTiles)
+ActionCard(string actionDescription)
+Die(int numberOfSides)
+Player(string name, string color, boolean hasLostNextTurn, int xPosition, int yPosition)
+========================================

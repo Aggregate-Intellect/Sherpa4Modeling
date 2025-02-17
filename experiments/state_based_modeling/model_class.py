@@ -6,7 +6,7 @@ from sherpa_ai.memory.belief import Belief
 from sherpa_ai.memory.state_machine import SherpaStateMachine
 from sherpa_ai.models import SherpaChatOpenAI
 from transitions.extensions import GraphMachine, HierarchicalGraphMachine
-
+from langchain_together import ChatTogether
 from actions import (
     CheckPlayerRolePattern,
     GenerateFeedback,
@@ -28,9 +28,14 @@ from actions import (
 )
 
 # gpt-4o-mini, gpt-4
-model_name = "gpt-4o-mini"
-llm_class = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
-llm_relation = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
+# model_name = "gpt-4o-mini"
+model_name = "Qwen2.5-7B-Instruct-Turbo"
+llm_class = ChatTogether(model="Qwen/Qwen2.5-7B-Instruct-Turbo", temperature=0.01)
+
+
+llm_relation = llm_class
+# llm_class = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
+# llm_relation = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
 
 
 def get_actions(belief: Belief) -> dict[str, BaseAction]:
@@ -198,7 +203,7 @@ def get_actions(belief: Belief) -> dict[str, BaseAction]:
         output_text += "=" * 40 + "\n"
 
         # Write the output to the file
-        with open(output_file_path, "w") as file:
+        with open(output_file_path, "w", encoding="utf-8") as file:
             file.write(output_text)
 
         print(f"Output saved to {output_file_path}")
@@ -226,6 +231,7 @@ def get_actions(belief: Belief) -> dict[str, BaseAction]:
     ]
 
     actions_dict = {action.name: action for action in actions}
+    actions_dict["can_generate_feedback"] = generate_feedback.can_execute
     actions_dict["has_player_role_pattern"] = has_player_role_pattern
     actions_dict["need_improve_class"] = need_improve_class
     actions_dict["need_improve_pattern"] = need_improve_pattern
@@ -461,6 +467,7 @@ def add_mg_sm(belief: Belief) -> Belief:
             "trigger": "Generate_feedback",
             "source": "Inspection_InspectCompleteModel",
             "dest": "FeedbackGenerationState_FeedbackGeneration",
+            "conditions": "can_generate_feedback"
         },
     ]
 

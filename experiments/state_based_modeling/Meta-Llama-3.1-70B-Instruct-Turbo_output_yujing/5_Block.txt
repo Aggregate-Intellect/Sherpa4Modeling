@@ -1,0 +1,34 @@
+========================================
+Classes:
+User(string username, string password, boolean isAdmin)
+Game(string name, int maxLevels, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, int[] scores)
+Admin(string username, string password)
+Player(string username, string password, int score, int lives)
+Block(string color, int points)
+Level(int number, int[][] grid)
+RandomLevel(int number, int[][] grid)
+
+Relationships:
+
+
+Composition:
+1 GameSystem contain 0..* User
+1 GameSystem contain 0..* Game
+1 Game contain 0..* Block
+1 Game contain 0..* Level
+1 Game contain 0..* RandomLevel
+1 Game contain 0..* Player
+1 Level contain 0..* Block
+1 RandomLevel contain 0..* Block
+Inheritance:
+Admin inherit UserRole
+Player inherit UserRole
+Association:
+0..* User associate 0..* Game
+1 User associate 1 Player
+1 User associate 1 Admin
+0..* Game associate 0..* Player
+1 Player associate 0..1 Game
+0..* Level associate 0..* Block
+0..* RandomLevel associate 0..* Block
+========================================

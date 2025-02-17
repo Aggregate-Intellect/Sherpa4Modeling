@@ -1,0 +1,20 @@
+========================================
+User(string name, string email)
+Owner(string name, string email) inherit User
+Room(string name)
+Device(string deviceId)
+Sensor(string sensorType, string deviceId) inherit Device
+Actuator(string actuatorType, string deviceId) inherit Device
+Reading(float value, Timestamp timestamp)
+Timestamp(int year, int month, int day, int hour, int minute, int second)
+Command(string commandType, Timestamp timestamp, string status)
+Log(Timestamp timestamp, string logMessage)
+Rule(string ruleName, ConditionalExpression precondition, CommandList action)
+Term(string operator, string termValue)
+SmartHome(string address, list Room rooms, list Device devices, list Owner owners)
+ConditionalExpression(list Term terms, list string operators)
+CommandList(list Command commands)
+RoomDeviceMapping(Room room, Device device)
+RoomSmartHomeMapping(Room room, SmartHome smartHome)
+OwnerSmartHomeMapping(Owner owner, SmartHome smartHome)
+========================================

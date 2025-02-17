@@ -1,15 +1,14 @@
 ========================================
-```
-abstract Doctor(string practitionerNumber, string fullName, string address, string phoneNumber, Signature signature, date requisitionValidFrom)
-Requisition(Patient patient, List<Test> tests, int repetitionCount, Interval interval)
-Test(string testName, int duration, boolean isWalkInOnly)
-Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
-Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, Lab lab)
-Lab(string name, string registrationNumber, BusinessHours businessHours, Fee fee)
-Signature(string digitalSignatureImage)
-Report(string results)
+LabTracker()
+Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, string digitalSignatureImage, date requisitionValidFrom) inherit Role()
+Requisition(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber, List<Test> tests, Repetition repetition)
+Test(string testName, Duration duration, boolean isWalkInOnly)
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) inherit Role()
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
+Lab(string address, BusinessHours businessHours, List<Test> tests, float fee)
+Report(string results, string reportDetails)
 BusinessHours(time startTime, time endTime)
-Fee(float amount)
-enum Interval(Weekly, Monthly, HalfYear, Yearly)
-```
+Duration(int durationInMinutes)
+Repetition(int numberOfRepetitions, Interval interval)
+enum Interval(Weekly, Monthly, HalfYearly, Yearly)
 ========================================

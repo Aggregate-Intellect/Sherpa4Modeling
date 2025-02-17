@@ -1,0 +1,37 @@
+========================================
+Classes:
+User(string name, string email)
+UserRole()
+TutorRole(string bankAccount)
+StudentRole()
+Session(string subject, SessionLevel level, double price, string startTime, string endTime, SessionStatus status)
+Request(Session session, string date, string time)
+Payment(Session session, double amount, string date, PaymentMethod paymentMethod)
+enum SessionLevel(PrimarySchool, HighSchool, University)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum CancellationReason(Student, Tutor)
+enum SessionStatus(Requested, Confirmed, Cancelled)
+Cancellation(Session session, string date, CancellationReason reason)
+
+Relationships:
+
+
+Composition:
+1 User contain 1 UserRole
+1 TutorRole contain 0..* Session
+1 StudentRole contain 0..* Request
+1 Session contain 1 Request
+1 Request contain 1 Payment
+1 Payment contain 1 Cancellation
+Inheritance:
+TutorRole inherit UserRole
+StudentRole inherit UserRole
+Association:
+1 User associate 1 TutorRole
+1 User associate 1 StudentRole
+1 TutorRole associate 0..* Session
+1 StudentRole associate 0..* Request
+1 Session associate 1 Request
+1 Request associate 1 Payment
+1 Payment associate 1 Cancellation
+========================================

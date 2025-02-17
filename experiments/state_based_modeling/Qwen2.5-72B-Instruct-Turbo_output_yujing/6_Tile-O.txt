@@ -1,0 +1,37 @@
+========================================
+Classes:
+Game(int numberOfPlayers, string hiddenTileLocation, int actionTileTurns, boolean isGameEnd, string winner)
+Designer(string name)
+Board(int width, int height)
+Tile(string color, boolean visited, string location, boolean isActionTile)
+ConnectionPiece(string location)
+Player(string color, string startingPosition, string currentTile)
+Die(int sides)
+Deck(int numberOfCards)
+ActionCard(enum ActionCardType action)
+Turn(int turnNumber, string currentPlayer)
+ActionCardType(RollExtraTurn, ConnectAdjacentTiles, RemoveConnection, MoveToArbitraryTile, LoseNextTurn)
+Relatipnships:
+Composition:
+1 Game contain 1 Board
+1 Game contain 0..* Player
+1 Game contain 1 Die
+1 Game contain 1 Deck
+1 Game contain 0..* Turn
+1 Board contain 0..* Tile
+1 Board contain 0..* ConnectionPiece
+1 Deck contain 32 ActionCard
+Inheritance:
+None
+Association:
+0..* Player associate 1 Game
+1 Die associate 1 Game
+1 Deck associate 1 Game
+0..* Turn associate 1 Game
+1 Designer associate 1 Game
+1 Tile associate 0..4 ConnectionPiece
+1 ActionCard associate 1 Deck
+1 Turn associate 1 Player
+1 Player associate 1 Tile
+1 Tile associate 0..1 Game
+========================================

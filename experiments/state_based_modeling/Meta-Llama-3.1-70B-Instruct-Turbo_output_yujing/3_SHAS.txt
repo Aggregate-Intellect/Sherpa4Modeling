@@ -1,0 +1,55 @@
+========================================
+Classes:
+User(string userEmail, string userId)
+Owner(string ownerId, string name)
+Administrator(string adminName, string adminPassword)
+Device(string deviceId, DeviceType type, boolean isActive)
+DeviceType
+Sensor(string sensorId, DeviceType type, boolean isActive)
+Actuator(string actuatorId, DeviceType type, boolean isActive)
+SmartHome(string address, List<Room> rooms)
+Room(string name, List<Device> devices)
+Address(string street, string city, string state, string zip)
+AutomationRule(string ruleId, RuleStatus status, string precondition, List<Command> actions)
+Command(string commandId, CommandType type, CommandStatus status, Date timestamp)
+Reading(string readingId, DeviceType type, double value, Date timestamp)
+Log(List<Reading> readings, List<Command> commands)
+Alert(string alertId, string message)
+RuleHierarchy(List<AutomationRule> rules)
+enum DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+enum CommandStatus(Requested, Completed, Failed)
+enum BooleanOperator(AND, OR, NOT)
+enum RuleStatus(Active, Inactive)
+enum CommandType(LockDoor, TurnOnHeating)
+Relationships:
+
+
+Composition:
+1 SmartHome contain 0..* Room
+1 Room contain 0..* Device
+1 Device contain 1 DeviceType
+1 SmartHome contain 1 Address
+1 Log contain 0..* Reading
+1 Log contain 0..* Command
+1 RuleHierarchy contain 0..* AutomationRule
+1 AutomationRule contain 0..* Command
+1 SmartHomeAutomationSystem contain 0..* User
+1 SmartHomeAutomationSystem contain 0..* SmartHome
+1 SmartHomeAutomationSystem contain 0..* AutomationRule
+1 SmartHomeAutomationSystem contain 0..* Log
+1 SmartHomeAutomationSystem contain 0..* Alert
+1 SmartHomeAutomationSystem contain 0..* RuleHierarchy
+Inheritance:
+Administrator inherit User
+Owner inherit User
+Sensor inherit Device
+Actuator inherit Device
+Association:
+0..* Device associate 0..* Reading
+0..* Device associate 0..* Command
+0..* AutomationRule associate 0..* Alert
+0..* AutomationRule associate 0..* RuleHierarchy
+0..* User associate 0..* SmartHome
+0..* User associate 0..* AutomationRule
+0..* SmartHome associate 0..* AutomationRule
+========================================

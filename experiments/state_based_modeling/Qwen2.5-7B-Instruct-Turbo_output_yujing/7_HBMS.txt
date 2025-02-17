@@ -1,0 +1,59 @@
+========================================
+Classes:
+Hotel(string name, string address, City city)
+Booking(BookingType type, Date arrivalDate, Date departureDate, int numberOfRooms, RoomType roomType, Rating rating, Budget budget, List<Preference> preferences, BookingIdentifier identifier)
+City(string name)
+Date(int year, int month, int day)
+Room(RoomType type, RoomStatus status)
+Type(string name)
+Rating(int stars)
+Budget(int maxCostPerNight)
+Preference(string name)
+Offer(OfferType type, int price, CityArea cityArea, Rating rating, List<Preference> preferences, SpecialOffer specialOffer)
+CreditCard(string number, string expirationDate)
+Period(Date startDate, Date endDate)
+RoomType(string name)
+BookingIdentifier(string id)
+SpecialOffer(string description)
+ReliabilityRating(int score)
+CompetitorHotel(string name)
+Confirmation(ConfirmationStatus status)
+FinancialCompensation(int amount)
+Relationships:
+
+
+Composition:
+1 Hotel contain 0..* Room
+1 Hotel contain 0..* Offer
+1 Hotel contain 0..* Booking
+1 Hotel contain 0..* CompetitorHotel
+1 Hotel contain 0..* City
+1 Booking contain 0..1 CreditCard
+1 Booking contain 0..1 Confirmation
+1 Booking contain 0..1 FinancialCompensation
+1 Booking contain 0..1 ReliabilityRating
+Inheritance:
+Booking inherit Offer
+Hotel inherit Type
+Room inherit Type
+Preference inherit Type
+Rating inherit Type
+Budget inherit Type
+SpecialOffer inherit Offer
+ConfirmationStatus inherit Type
+FinancialCompensation inherit Type
+Association:
+0..* Hotel associate 0..* City
+0..* Booking associate 0..* Preference
+0..* Booking associate 0..* Room
+0..* Booking associate 0..* Offer
+0..* CompetitorHotel associate 0..* Offer
+0..* City associate 0..* Hotel
+0..* Room associate 0..* RoomType
+0..* Preference associate 0..* Rating
+0..* Preference associate 0..* Budget
+0..* SpecialOffer associate 0..* Preference
+0..* Confirmation associate 0..1 Booking
+0..* FinancialCompensation associate 0..1 Booking
+0..* ReliabilityRating associate 0..1 Booking
+========================================

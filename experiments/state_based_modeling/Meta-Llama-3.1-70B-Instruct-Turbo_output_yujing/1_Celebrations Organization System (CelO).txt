@@ -1,0 +1,44 @@
+========================================
+Classes:
+Person(string firstName, string lastName, string email, string address, string phoneNumber, string password)
+PersonRole()
+OrganizerRole(string organizerId)
+Organizer(string firstName, string lastName, string email, string address, string phoneNumber, string password, string organizerId)
+AttendeeRole(string attendeeId)
+Attendee(string firstName, string lastName, string email, string attendeeId)
+Event(string name, Date startTime, Date endTime, string occasion, Location location, EventType eventType)
+Task(string name, TaskStatus taskStatus)
+Checklist(string name)
+Location(string name, string address)
+Invitation(string status, InvitationStatus invitationStatus)
+Account(string username, string password)
+EventType()
+InvitationStatus()
+TaskStatus()
+
+Relationships:
+
+
+Composition:
+1 Event contain 1 EventType
+1 Event contain 1 Location
+1 Checklist contain 0..* Task
+1 Organizer contain 1 Account
+1 Attendee contain 1 Account
+1 Event contain 0..* Invitation
+1 Event contain 1 Checklist
+Inheritance:
+OrganizerRole inherit PersonRole
+AttendeeRole inherit PersonRole
+Organizer inherit OrganizerRole
+Attendee inherit AttendeeRole
+Association:
+1 Organizer associate 0..* Event
+1 Event associate 0..* Organizer
+1 Event associate 0..* Attendee
+1 Attendee associate 0..* Event
+1 Invitation associate 1 Attendee
+1 Invitation associate 1 Event
+1 Task associate 1 Checklist
+1 Checklist associate 1 Event
+========================================

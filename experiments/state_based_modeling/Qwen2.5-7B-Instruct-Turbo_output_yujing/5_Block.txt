@@ -1,0 +1,36 @@
+========================================
+Classes:
+User(string username, string password)
+Game(string name, string designMode)
+Block(string color, int points)
+Level(int number, int blockCount, int minimumSpeed, int speedIncreaseFactor, int maximumLength, int minimumLength)
+HallOfFame()
+Ball()
+Paddle()
+Wall()
+Direction()
+GameSession()
+GameStatus()
+Confirmation()
+Relationships:
+
+
+Composition:
+1 Game contain 0..* Level
+1 Game contain 0..1 HallOfFame
+1 User contain 0..1 GameSession
+1 User contain 0..1 GameStatus
+1 User contain 0..1 Confirmation
+Inheritance:
+Player inherit User
+Admin inherit User
+Association:
+1 GameSession associate 0..1 User
+1 GameSession associate 0..1 Game
+1 GameSession associate 0..1 Level
+1 GameSession associate 0..1 Block
+1 GameSession associate 0..1 Ball
+1 GameSession associate 0..1 Paddle
+1 GameSession associate 0..1 Wall
+1 GameSession associate 0..1 Direction
+========================================

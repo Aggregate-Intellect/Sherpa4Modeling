@@ -1,0 +1,21 @@
+========================================
+User(string username, string password)
+UserStatus(boolean isAdmin)
+Game(string name)
+AdminMode(User user, Game game)
+Block(string color, int points)
+Level(int number, Game game, string arrangement)
+Wall(string color)
+Ball(string color, Game game)
+Paddle(string color, Game game, int length)
+Level1(int number) inherit Level
+RandomLevel(int number, Game game) inherit Level
+HallOfFame(list Entry entries)
+SaveRecord(User user, Game game, string state)
+Competitor(User user, Game game)
+Score(int score)
+Time(string timing)
+Paddle1(string color, Game game) inherit Paddle
+PointBlock(string color, int points) inherit Block
+TopWall(string color) inherit Wall
+========================================

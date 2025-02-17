@@ -1,0 +1,30 @@
+========================================
+```plaintext
+Classes:
+OTSUser(string name, string email, enum role)
+abstract OTSRole()
+TutorRole(string bankAccount) inherit OTSRole()
+Subject(string name, enum level)
+TutoringSession(date targetDate, time targetTime, int hourlyPrice, boolean isConfirmed, boolean isCancelled)
+Payment(string method, double amount)
+CancellationPolicy(int hoursBefore, double studentPenalty, double tutorDiscount)
+Relatipnships:
+Composition:
+1 OTSSystem contain 0..* OTSUser
+1 OTSSystem contain 0..* Subject
+1 OTSSystem contain 0..* TutoringSession
+1 OTSSystem contain 0..* Payment
+1 OTSSystem contain 0..* CancellationPolicy
+Inheritance:
+TutorRole inherit OTSRole
+StudentRole inherit OTSRole
+Association:
+0..* OTSUser associate 0..* TutoringSession
+1 TutoringSession associate 1 Subject
+1 TutoringSession associate 1 Payment
+1 TutoringSession associate 1 CancellationPolicy
+1 TutorRole associate 0..* Subject
+1 TutorRole associate 0..* TutoringSession
+1 StudentRole associate 0..* TutoringSession
+```
+========================================

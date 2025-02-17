@@ -1,0 +1,26 @@
+========================================
+Classes:
+Person(string name, string email, string address)
+Profile(Position position, Attribute attribute)
+Player(string name, int value) inherit Profile(Position, Attribute)
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotGoodSigning)
+ScoutingReport(string pros, string cons)
+HeadCoach() inherit Person()
+Director() inherit Person()
+TeamSportsScoutingSystem()
+Relationships:
+
+
+Composition:
+1 TeamSportsScoutingSystem contain 0..* Player
+1 TeamSportsScoutingSystem contain 0..* Recommendation
+1 TeamSportsScoutingSystem contain 0..* ScoutingReport
+1 TeamSportsScoutingSystem contain 1 HeadCoach
+1 TeamSportsScoutingSystem contain 1 Director
+Inheritance:
+Player inherit Profile(Position, Attribute)
+Association:
+0..* Player associate 0..* ScoutingReport
+1 HeadCoach associate 1 TeamSportsScoutingSystem
+1 Director associate 1 TeamSportsScoutingSystem
+========================================

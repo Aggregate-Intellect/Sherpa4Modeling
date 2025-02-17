@@ -1,0 +1,54 @@
+========================================
+Classes:
+Game(int numberOfPlayers)
+Board()
+Tile(Color color, boolean visited, boolean hidden, boolean actionTile, Position position)
+Connection(Tile tile1, Tile tile2)
+Player(PlayingPiece playingPiece, Color color)
+PlayingPiece(Player player, Position position)
+Die(int sides)
+ActionCard(ActionType actionType)
+Deck(List<ActionCard> cards)
+HiddenTile(Position position)
+StartingPosition(Player player, Position position)
+ActionTile(Position position)
+GameDesigner(Board board, HiddenTile hiddenTile, List<StartingPosition> startingPositions, Deck actionCards, List<ActionTile> actionTiles)
+Turn(Player player, Position currentPosition)
+Roll(Die die)
+Move(Position fromPosition, Position toPosition)
+Color(White, Black)
+Win(Player player)
+Lose(Player player)
+Relationships:
+
+
+Composition:
+1 Game contain 1 Board
+1 Game contain 0..* Tile
+1 Game contain 0..* Connection
+1 Game contain 1 HiddenTile
+1 Game contain 0..* StartingPosition
+1 Game contain 1 Deck
+1 Game contain 0..* ActionTile
+1 GameDesigner contain 1 Board
+1 GameDesigner contain 1 HiddenTile
+1 GameDesigner contain 0..* StartingPosition
+1 GameDesigner contain 1 Deck
+1 GameDesigner contain 0..* ActionTile
+1 Turn contain 1 Player
+1 Turn contain 1 Position
+1 Roll contain 1 Die
+1 Move associate 1 Position
+1 Move associate 1 Position
+Inheritance:
+Tile inherit Position
+PlayingPiece inherit Position
+Association:
+1 Player associate 1 PlayingPiece
+1 Player associate 1 Color
+1 Turn associate 1 Player
+1 Turn associate 1 Position
+1 Roll associate 1 Die
+1 Move associate 1 Position
+1 Move associate 1 Position
+========================================

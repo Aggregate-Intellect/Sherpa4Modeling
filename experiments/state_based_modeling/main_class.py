@@ -3,12 +3,17 @@ from sherpa_ai.agents.qa_agent import QAAgent
 from sherpa_ai.events import Event, EventType
 from sherpa_ai.memory.belief import Belief
 from sherpa_ai.models import SherpaChatOpenAI
-
+from langchain_together import ChatTogether
 from model_class import add_mg_sm
 from tqdm import tqdm
+import dotenv
+
 
 # from sherpa_ai.policies.react_policy import ReactPolicy
 from react_policy_modeling import ReactPolicy
+
+dotenv.load_dotenv()
+
 
 role_description = """You are a helpful agent help user to perform their task.
 
@@ -28,7 +33,8 @@ Never Ask question repetitively. Never make random assumption
 
 def main(description, title):
     belief = Belief()
-    llm = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.01)
+    # llm = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.01)
+    llm = ChatTogether(model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", temperature=0.01)
 
     policy = ReactPolicy(
         role_description=role_description,
@@ -39,7 +45,7 @@ def main(description, title):
     belief = add_mg_sm(belief)
     belief.set("description", description)
     belief.set("title", title)
-    belief.max_tokens = 100
+    belief.max_tokens = 1000
     belief.set_current_task(
         Event(EventType.task, "user", "Complete the modeling question")
     )

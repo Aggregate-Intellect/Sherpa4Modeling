@@ -1,0 +1,13 @@
+========================================
+Player(string name, string dateOfBirth)
+Role(string jobTitle)
+Coach(string jobTitle) inherit Role
+Director(string jobTitle) inherit Role
+Scout(string name, string contactInformation) inherit Role
+Employee(string name, string contactInformation)
+ScoutingSystem(string name, Profile profiles) inherit Employee
+Profile(string targetPosition, Attribute attributes)
+Attribute(string name, string value)
+ScoutingReports(string pros, string cons, string recommendation)
+TeamSport(string name) inherit ScoutingSystem
+========================================

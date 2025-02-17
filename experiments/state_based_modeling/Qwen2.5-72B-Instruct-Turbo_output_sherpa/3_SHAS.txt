@@ -1,0 +1,17 @@
+========================================
+SmartHomeAutomationSystem(string name, string version)
+SmartHome(string physicalAddress, List<Room> rooms)
+Room(string name, List<Device> devices)
+Device(string deviceIdentifier, DeviceType type, boolean isActive, Room room)
+SensorReading(int value, DateTime timestamp, Device sensor)
+ControlCommand(string command, CommandStatus status, DateTime timestamp, Device actuator)
+ActivityLog(List<LogEntry> entries)
+Owner(string name, string contactInfo, SmartHome smartHome)
+AutomationRule(string name, boolean isActive, BooleanExpression precondition, List<ControlCommand> commands, SmartHome smartHome)
+BooleanExpression(List<RelationalTerm> terms, List<BooleanOperator> operators)
+RelationalTerm(RelationalTermType termType, string termValue)
+DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+CommandStatus(Requested, Completed, Failed)
+BooleanOperator(AND, OR, NOT)
+LogEntry(DateTime timestamp, string message)
+========================================

@@ -1,0 +1,62 @@
+========================================
+Classes:
+Traveller(string name, string billingInformation, string company, string address, string travelPreferences)
+Hotel(string name, string location, string address, HotelRating rating)
+HotelRating(OneStar, TwoStar, ThreeStar, FourStar, FiveStar)
+RoomType(Single, Double, Twin)
+Room(RoomType roomType, int numberOfRooms, double price)
+PaymentMethod(PaidAtHotel, PrePaid)
+BookingStatus(Preliminary, Confirmed, Cancelled)
+CancellationPolicy(Flexible, Moderate, Strict)
+ReliabilityRating(Excellent, Good, Fair, Poor)
+Booking(string bookingId, Date arrivalDate, Date departureDate, int numberOfRooms, RoomType roomType, double budget, BookingStatus status, Date cancellationDeadline, CancellationPolicy cancellationPolicy)
+CreditCard(string cardNumber, Date expirationDate, int securityCode)
+Search(string city, Date arrivalDate, Date departureDate, int numberOfRooms, RoomType roomType, double budget, string travelPreferences)
+Offer(string offerId, double price, string hotelName, RoomType roomType, Date arrivalDate, Date departureDate)
+Confirmation(string confirmationId, boolean isConfirmed, Date confirmationDate)
+Cancellation(string cancellationId, boolean isCancelled, Date cancellationDate)
+Reimbursement(string reimbursementId, double amount, Date reimbursementDate)
+Compensation(string compensationId, double amount, Date compensationDate)
+Reliability(ReliabilityRating rating, Date ratingDate)
+Relationships:
+
+
+Composition:
+1 HotelBookingManagementSystem contain 0..* Traveller
+1 HotelBookingManagementSystem contain 0..* Hotel
+1 HotelBookingManagementSystem contain 0..* Room
+1 HotelBookingManagementSystem contain 0..* Booking
+1 HotelBookingManagementSystem contain 0..* CreditCard
+1 HotelBookingManagementSystem contain 0..* Search
+1 HotelBookingManagementSystem contain 0..* Offer
+1 HotelBookingManagementSystem contain 0..* Confirmation
+1 HotelBookingManagementSystem contain 0..* Cancellation
+1 HotelBookingManagementSystem contain 0..* Reimbursement
+1 HotelBookingManagementSystem contain 0..* Compensation
+1 HotelBookingManagementSystem contain 0..* Reliability
+1 Hotel contain 0..* Room
+1 Hotel contain 0..* Offer
+1 Booking contain 1 CreditCard
+1 Booking contain 1 Confirmation
+1 Booking contain 1 Cancellation
+1 Booking contain 1 Reimbursement
+1 Booking contain 1 Compensation
+1 Traveller contain 0..* Booking
+1 Traveller contain 0..* Reliability
+Inheritance:
+TravellerRole inherit UserRole
+HotelRole inherit UserRole
+HotelManager inherit HotelRole
+HotelStaff inherit HotelRole
+Association:
+0..* Traveller associate 0..* Search
+0..* Traveller associate 0..* Booking
+0..* Hotel associate 0..* Room
+0..* Hotel associate 0..* Offer
+0..* Booking associate 0..* Offer
+0..* Booking associate 0..* Confirmation
+0..* Booking associate 0..* Cancellation
+0..* Booking associate 0..* Reimbursement
+0..* Booking associate 0..* Compensation
+0..* Traveller associate 0..* Reliability
+========================================

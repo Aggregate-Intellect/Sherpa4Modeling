@@ -1,0 +1,8 @@
+========================================
+Person(string name, string email)
+Student(string name, string email, list tutoring_sessions) inherit Person
+Tutor(string name, string email, string bank_account, list subjects, dict expertise_levels, dict weekly_availability) inherit Person
+Subject(string name)
+TimeSlot(string start_time, string end_time)
+TutoringSession(Tutor tutor, Student student, Subject subject, string level, string target_date, string target_time, boolean is_confirmed, int hourly_price, string payment_method, TutoringSession follow_up_session)
+========================================

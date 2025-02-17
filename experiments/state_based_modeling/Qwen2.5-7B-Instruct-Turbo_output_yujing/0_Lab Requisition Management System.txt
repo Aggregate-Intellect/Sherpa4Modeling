@@ -1,0 +1,47 @@
+========================================
+Classes:
+Lab(string address, string registrationNumber, BusinessHours businessHours, Fee fee)
+Test(string name, Duration duration, SampleType sampleType)
+Sample(string type)
+Result(string status)
+Report(string content)
+Appointment(string confirmationNumber, Day appointmentDate, Time startTime, Time endTime, Lab lab)
+Requisition(PractitionerNumber practitionerNumber, Signature signature, string doctorName, string doctorAddress, string doctorPhone, HealthNumber patientHealthNumber, string patientFirstName, string patientLastName, string patientAddress, string patientPhone, Date validFrom, List<Test> tests, Interval repetitionInterval, int repetitionCount)
+Doctor(string name, string address, string phone, PractitionerNumber practitionerNumber)
+Patient(string firstName, string lastName, string address, string phone, HealthNumber healthNumber, DateOfBirth dateOfBirth)
+Interval(Weekly, Monthly, EveryHalfYear, Yearly)
+BusinessHours(Time startTime, Time endTime)
+Fee(int amount)
+SampleType(BloodTest, UltrasoundExamination, XRayExamination, UrineSample, StoolSample)
+Relationships:
+
+
+Composition:
+1 Lab contain 0..* Appointment
+1 Lab contain 0..* Requisition
+1 Lab contain 0..* Test
+1 Lab contain 0..* Sample
+1 Lab contain 0..* Result
+1 Lab contain 0..* Report
+1 Lab contain 0..* Doctor
+1 Lab contain 0..* Patient
+1 Lab contain 0..* SampleType
+1 Lab contain 0..* Interval
+1 Lab contain 0..* BusinessHours
+1 Lab contain 0..* Fee
+Inheritance:
+Doctor inherit Person
+Patient inherit Person
+Association:
+1 Requisition associate 0..1 Doctor
+1 Requisition associate 1 Patient
+1 Appointment associate 1 Lab
+1 Test associate 1 Sample
+1 Test associate 1 Result
+1 Test associate 1 Report
+1 Requisition associate 1..* Test
+1 Doctor associate 0..1 PractitionerNumber
+1 Patient associate 0..1 HealthNumber
+1 Requisition associate 1 Interval
+1 Requisition associate 1 PractitionerNumber
+========================================

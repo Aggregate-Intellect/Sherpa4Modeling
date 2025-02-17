@@ -1,0 +1,239 @@
+========================================
+Classes:
+Organizer(string username, string password, string email, string address, string phone)
+EventRole()
+EventOrganizer(string eventID)
+EventManager(string eventCategory)
+Attendee(string name, string email)
+EventAttendee(string attendeeID)
+Task(string name, string status)
+EventTask(string taskID)
+Invitation(string status)
+EventInvitation(string invitationID)
+Account(string username, string password)
+UserAccount(string accountId)
+UserAdmin(string adminName, string adminPassword)
+Location(string name, string address)
+EventLocation(string locationID)
+Checklist(string name)
+EventChecklist(string checklistID)
+Event(string name, string occasion, string location, string date, string time)
+BirthdayParty(string partyType)
+GraduationParty(string partyType)
+PartyType(enum PartyType partyType)
+EventStatus(enum EventStatus eventStatus)
+TaskStatus(enum TaskStatus taskStatus)
+InvitationStatus(enum InvitationStatus invitationStatus)
+AccountStatus(enum AccountStatus accountStatus)
+OrganizerType(enum OrganizerType organizerType)
+AttendeeType(enum AttendeeType attendeeType)
+EventOccasion(enum EventOccasion eventOccasion)
+LocationType(enum LocationType locationType)
+TaskOccasion(enum TaskOccasion taskOccasion)
+InvitationOccasion(enum InvitationOccasion invitationOccasion)
+AccountOccasion(enum AccountOccasion accountOccasion)
+OrganizerOccasion(enum OrganizerOccasion organizerOccasion)
+AttendeeOccasion(enum AttendeeOccasion attendeeOccasion)
+EventLocation(enum EventLocation eventLocation)
+TaskLocation(enum TaskLocation taskLocation)
+InvitationLocation(enum InvitationLocation invitationLocation)
+AccountLocation(enum AccountLocation accountLocation)
+OrganizerLocation(enum OrganizerLocation organizerLocation)
+AttendeeLocation(enum AttendeeLocation attendeeLocation)
+EventDate(enum EventDate eventDate)
+TaskDate(enum TaskDate taskDate)
+InvitationDate(enum InvitationDate invitationDate)
+AccountDate(enum AccountDate accountDate)
+OrganizerDate(enum OrganizerDate organizerDate)
+AttendeeDate(enum AttendeeDate attendeeDate)
+EventTime(enum EventTime eventTime)
+TaskTime(enum TaskTime taskTime)
+InvitationTime(enum InvitationTime invitationTime)
+AccountTime(enum AccountTime accountTime)
+OrganizerTime(enum OrganizerTime organizerTime)
+AttendeeTime(enum AttendeeTime attendeeTime)
+EventAddress(enum EventAddress eventAddress)
+TaskAddress(enum TaskAddress taskAddress)
+InvitationAddress(enum InvitationAddress invitationAddress)
+AccountAddress(enum AccountAddress accountAddress)
+OrganizerAddress(enum OrganizerAddress organizerAddress)
+AttendeeAddress(enum AttendeeAddress attendeeAddress)
+EventPhone(enum EventPhone eventPhone)
+TaskPhone(enum TaskPhone taskPhone)
+InvitationPhone(enum InvitationPhone invitationPhone)
+AccountPhone(enum AccountPhone accountPhone)
+OrganizerPhone(enum OrganizerPhone organizerPhone)
+AttendeePhone(enum AttendeePhone attendeePhone)
+EventEmail(enum EventEmail eventEmail)
+TaskEmail(enum TaskEmail taskEmail)
+InvitationEmail(enum InvitationEmail invitationEmail)
+AccountEmail(enum AccountEmail accountEmail)
+OrganizerEmail(enum OrganizerEmail organizerEmail)
+AttendeeEmail(enum AttendeeEmail attendeeEmail)
+Relationships:
+
+
+Composition:
+1 SchoolSystem contain 0..* Organizer
+1 SchoolSystem contain 0..* Attendee
+1 SchoolSystem contain 0..* Task
+1 SchoolSystem contain 0..* Invitation
+1 SchoolSystem contain 0..* Account
+1 SchoolSystem contain 0..* Location
+1 SchoolSystem contain 0..* Checklist
+1 Organizer contain 0..* EventOrganizer
+1 Organizer contain 0..* EventManager
+1 Attendee contain 0..* EventAttendee
+1 Task contain 0..* EventTask
+1 Invitation contain 0..* EventInvitation
+1 Account contain 0..* UserAccount
+1 Account contain 0..* UserAdmin
+1 Location contain 0..* EventLocation
+1 Checklist contain 0..* EventChecklist
+1 Event contain 0..* EventOrganizer
+1 Event contain 0..* EventManager
+1 Event contain 0..* EventLocation
+1 Event contain 0..* EventChecklist
+1 Event contain 0..* EventAttendee
+1 Event contain 0..* Task
+1 Event contain 0..* Invitation
+1 Event contain 0..* Account
+1 Event contain 0..* Location
+1 Event contain 0..* Checklist
+1 EventOrganizer inherit EventRole
+1 EventManager inherit EventRole
+1 EventAttendee inherit EventRole
+1 EventTask inherit EventRole
+1 EventInvitation inherit EventRole
+1 UserAccount inherit UserRole
+1 UserAdmin inherit UserRole
+1 EventLocation inherit EventRole
+1 EventChecklist inherit EventRole
+1 BirthdayParty inherit Event
+1 GraduationParty inherit Event
+1 PartyType inherit EventStatus
+1 TaskStatus inherit TaskStatus
+1 InvitationStatus inherit InvitationStatus
+1 AccountStatus inherit AccountStatus
+1 OrganizerType inherit OrganizerType
+1 AttendeeType inherit AttendeeType
+1 EventOccasion inherit EventOccasion
+1 LocationType inherit LocationType
+1 TaskOccasion inherit TaskOccasion
+1 InvitationOccasion inherit InvitationOccasion
+1 AccountOccasion inherit AccountOccasion
+1 OrganizerOccasion inherit OrganizerOccasion
+1 AttendeeOccasion inherit AttendeeOccasion
+1 EventLocation inherit EventLocation
+1 TaskLocation inherit TaskLocation
+1 InvitationLocation inherit InvitationLocation
+1 AccountLocation inherit AccountLocation
+1 OrganizerLocation inherit OrganizerLocation
+1 AttendeeLocation inherit AttendeeLocation
+1 EventDate inherit EventDate
+1 TaskDate inherit TaskDate
+1 InvitationDate inherit InvitationDate
+1 AccountDate inherit AccountDate
+1 OrganizerDate inherit OrganizerDate
+1 AttendeeDate inherit AttendeeDate
+1 EventTime inherit EventTime
+1 TaskTime inherit TaskTime
+1 InvitationTime inherit InvitationTime
+1 AccountTime inherit AccountTime
+1 OrganizerTime inherit OrganizerTime
+1 AttendeeTime inherit AttendeeTime
+1 EventAddress inherit EventAddress
+1 TaskAddress inherit TaskAddress
+1 InvitationAddress inherit InvitationAddress
+1 AccountAddress inherit AccountAddress
+1 OrganizerAddress inherit OrganizerAddress
+1 AttendeeAddress inherit AttendeeAddress
+1 EventPhone inherit EventPhone
+1 TaskPhone inherit TaskPhone
+1 InvitationPhone inherit InvitationPhone
+1 AccountPhone inherit AccountPhone
+1 OrganizerPhone inherit OrganizerPhone
+1 AttendeePhone inherit AttendeePhone
+1 EventEmail inherit EventEmail
+1 TaskEmail inherit TaskEmail
+1 InvitationEmail inherit InvitationEmail
+1 AccountEmail inherit AccountEmail
+1 OrganizerEmail inherit OrganizerEmail
+1 AttendeeEmail inherit AttendeeEmail
+0..* Organizer associate 0..* EventOrganizer
+0..* Organizer associate 0..* EventManager
+0..* Attendee associate 0..* EventAttendee
+0..* Task associate 0..* EventTask
+0..* Invitation associate 0..* EventInvitation
+0..* Account associate 0..* UserAccount
+0..* Account associate 0..* UserAdmin
+0..* Location associate 0..* EventLocation
+0..* Checklist associate 0..* EventChecklist
+0..* Event associate 0..* EventOrganizer
+0..* Event associate 0..* EventManager
+0..* Event associate 0..* EventLocation
+0..* Event associate 0..* EventChecklist
+0..* Event associate 0..* EventAttendee
+0..* Event associate 0..* Task
+0..* Event associate 0..* Invitation
+0..* Event associate 0..* Account
+0..* Event associate 0..* Location
+0..* Event associate 0..* Checklist
+1 SchoolSystem contain 0..* Organizer
+1 SchoolSystem contain 0..* Attendee
+1 SchoolSystem contain 0..* Task
+1 SchoolSystem contain 0..* Invitation
+1 SchoolSystem contain 0..* Account
+1 SchoolSystem contain 0..* Location
+1 SchoolSystem contain 0..* Checklist
+1 Organizer contain 0..* EventOrganizer
+1 Organizer contain 0..* EventManager
+1 Attendee contain 0..* EventAttendee
+1 Task contain 0..* EventTask
+1 Invitation contain 0..* EventInvitation
+1 Account contain 0..* UserAccount
+1 Account contain 0..* UserAdmin
+1 Location contain 0..* EventLocation
+1 Checklist contain 0..* EventChecklist
+1 Event contain 0..* EventOrganizer
+1 Event contain 0..* EventManager
+1 Event contain 0..* EventLocation
+1 Event contain 0..* EventChecklist
+1 Event contain 0..* EventAttendee
+1 Event contain 0..* Task
+1 Event contain 0..* Invitation
+1 Event contain 0..* Account
+1 Event contain 0..* Location
+1 Event contain 0..* Checklist
+1 EventOrganizer inherit EventRole
+1 EventManager inherit EventRole
+1 EventAttendee inherit EventRole
+1 EventTask inherit EventRole
+1 EventInvitation inherit EventRole
+1 UserAccount inherit UserRole
+1 UserAdmin inherit UserRole
+1 EventLocation inherit EventRole
+1 EventChecklist inherit EventRole
+1 BirthdayParty inherit Event
+1 GraduationParty inherit Event
+1 PartyType inherit EventStatus
+1 TaskStatus inherit TaskStatus
+1 InvitationStatus inherit InvitationStatus
+1 AccountStatus inherit AccountStatus
+1 OrganizerType inherit OrganizerType
+1 AttendeeType inherit AttendeeType
+1 EventOccasion inherit EventOccasion
+1 LocationType inherit LocationType
+1 TaskOccasion inherit TaskOccasion
+1 InvitationOccasion inherit InvitationOccasion
+1 AccountOccasion inherit AccountOccasion
+1 OrganizerOccasion inherit OrganizerOccasion
+1 AttendeeOccasion inherit AttendeeOccasion
+1 EventLocation inherit EventLocation
+1 TaskLocation inherit TaskLocation
+1 InvitationLocation inherit InvitationLocation
+1 AccountLocation inherit AccountLocation
+1 OrganizerLocation inherit OrganizerLocation
+1 AttendeeLocation inherit AttendeeLocation
+1 EventDate inherit EventDate
+========================================

@@ -1,0 +1,10 @@
+========================================
+User(Username username, Password password)
+Game(Name name, HallOfFame hallOfFame, LevelDesign levelDesign)
+Block(Color color, Points points)
+Level(LevelNumber levelNumber, BlockArrangement blockArrangement, GridPosition gridPosition)
+GameSpeed(MinSpeed minSpeed, MaxSpeed maxSpeed, SpeedIncreaseFactor speedIncreaseFactor)
+Paddle(Position position, Size size)
+LevelDesign(NumberOfLevels numberOfLevels, MinSpeed minSpeed, MaxSpeed maxSpeed, SpeedIncreaseFactor speedIncreaseFactor, BlockDuration blockDuration, InitialBlockCount initialBlockCount)
+BlockArrangement(Block block, GridPosition gridPosition)
+========================================

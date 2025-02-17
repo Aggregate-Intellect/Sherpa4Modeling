@@ -1,0 +1,29 @@
+========================================
+Classes:
+Hotel(string name, string address, string city, string rating, string chain)
+BookingRole()
+PreliminaryBooking(string bookingId, date arrivalDate, date departureDate, int numberOfRooms, enum RoomType roomType, enum PaymentType paymentType) inherit BookingRole()
+FinalizedBooking(string bookingId, date arrivalDate, date departureDate, int numberOfRooms, enum RoomType roomType, enum PaymentType paymentType, boolean isPrePaid, date cancellationDeadline, string creditCardInfo) inherit BookingRole()
+Traveller(string name, string billingInformation, string companyName, string preferences, int reliabilityRating)
+Offer(string price, string cityArea, enum HotelRating hotelRating, string preferences)
+Room(enum RoomType type, int capacity)
+CancellationPolicy(string policyDescription, int chargeAfterDeadline)
+enum RoomType(Single, Double, Twin)
+enum PaymentType(PrePaid, PayAtHotel)
+enum HotelRating(OneStar, TwoStars, ThreeStars, FourStars, FiveStars)
+Relationships:
+
+
+Composition:
+1 Hotel contain 0..* Offer
+1 Hotel contain 0..* Room
+0..* Traveller contain 0..* PreliminaryBooking
+0..* Traveller contain 0..* FinalizedBooking
+1 FinalizedBooking contain 0..1 CancellationPolicy
+Inheritance:
+PreliminaryBooking inherit BookingRole()
+FinalizedBooking inherit BookingRole()
+Association:
+1 Traveller associate 0..* Offer
+0..* PreliminaryBooking associate 0..1 FinalizedBooking
+========================================

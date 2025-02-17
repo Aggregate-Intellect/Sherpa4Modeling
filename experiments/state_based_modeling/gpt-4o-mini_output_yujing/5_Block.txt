@@ -1,0 +1,36 @@
+========================================
+Classes:
+Application(string name, string mode)
+User(string username, string password)
+Admin(string username, string password)
+Player(string username, string password, int lives, int score)
+Game(string name, int maxLevels, boolean isPublished)
+Block(string color, int points)
+Level(int levelNumber, string arrangement, boolean isRandom)
+Ball(int speed, string direction)
+Paddle(int length)
+Score(int totalScore)
+HallOfFame(string playerName, int highScore)
+enum GameMode(Play, Admin)
+enum BlockColor(Red, Green, Blue, Yellow, Orange, Purple)
+Relationships:
+
+
+Composition:
+1 Application contain 0..* Game
+1 Game contain 0..* Level
+1 Game contain 0..* Block
+1 Game contain 0..1 HallOfFame
+1 Level contain 0..* Block
+1 Player contain 0..1 Paddle
+1 Player contain 0..* Score
+1 Player contain 0..1 Ball
+Inheritance:
+Admin(string username, string password) inherit UserRole()
+Player(string username, string password, int lives, int score) inherit UserRole()
+Association:
+1 User associate 0..1 Admin
+1 User associate 0..1 Player
+0..* Player associate 0..* Game
+0..* Game associate 0..* HallOfFame
+========================================

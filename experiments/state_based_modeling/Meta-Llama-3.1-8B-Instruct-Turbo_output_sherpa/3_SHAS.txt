@@ -1,0 +1,15 @@
+========================================
+class SmartHomeAutomationService(string name)
+class Device(string id, string type)
+class SensorReading(string value, Time timestamp)
+class ControlCommand(string command, Time timestamp, Status status)
+class AutomationRule(string name, string description, string precondition, string action)
+class Room(string name, string address)
+class User(string name, string email)
+class AutomationRuleTrigger(AutomationRule rule, Time timestamp)
+class TriggerDeviceClassification(Device device, Time timestamp)
+class AutomationRuleDepreciation(AutomationRule rule, Time timestamp)
+class Sensor(string id, string type) inherit Device
+class Actuator(string id, string type) inherit Device
+class Owner(string name, string email) inherit User
+========================================

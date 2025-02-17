@@ -1,0 +1,39 @@
+========================================
+Classes:
+TileOApplication()
+GameDesigner(string name)
+BoardGame(string layout, int maxPlayers, int currentTurn)
+Player(string name, string color, int position)
+Tile(string type, boolean isVisited)
+ConnectionPiece(string direction)
+ActionTile(int turnsUntilRegular)
+ActionCard(string actionType)
+Die(int sides)
+PlayingPiece(string color, int position)
+HiddenTile(int position)
+ActionCardDeck(ActionCard[] cards)
+enum ActionCardType(ExtraTurn, ConnectTiles, RemoveConnection, MovePiece, LoseTurn)
+Relationships:
+
+
+Composition:
+1 TileOApplication contain 0..* GameDesigner
+1 GameDesigner contain 1 BoardGame
+1 BoardGame contain 0..* Player
+1 BoardGame contain 0..* Tile
+1 BoardGame contain 0..* ConnectionPiece
+1 BoardGame contain 0..* ActionTile
+1 BoardGame contain 0..* ActionCardDeck
+1 BoardGame contain 1 Die
+1 BoardGame contain 1 HiddenTile
+1 ActionCardDeck contain 32 ActionCard
+Inheritance:
+GamePlayer(int playerID) inherit PlayerRole()
+Spectator(string spectatorID) inherit PlayerRole()
+Association:
+1 BoardGame associate 0..* ActionCard
+0..* Player associate 0..1 PlayingPiece
+0..* Player associate 0..1 ActionTile
+0..* Tile associate 0..1 ConnectionPiece
+0..* Tile associate 0..1 ActionTile
+========================================

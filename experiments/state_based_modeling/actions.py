@@ -760,9 +760,16 @@ class GenerateFeedback(BaseAction):
 
     args: dict = {}
     llm: any
+    max_calls: int = 3
+    current_call: int = 0
+
+    def can_execute(self) -> bool:
+        return self.current_call < self.max_calls
+
 
     def execute(self) -> str:
         print("\033[91m GenerateFeedback \033[0m")
+        self.current_call += 1
         description = self.belief.get("description")
         task_description = self.belief.get("task_description")
 
@@ -1004,8 +1011,14 @@ class InspectClass(BaseAction):
 
     args: dict = {}
     llm: any
+    max_call: int = 5
+    current_call: int = 0
 
     def execute(self) -> str:
+        if self.current_call >= self.max_call:
+            return "Result: True"
+
+        self.current_call += 1
         print("\033[91m InspectClass \033[0m")
         description = self.belief.get("description")
         task_description = self.belief.get("task_description")
@@ -1057,8 +1070,14 @@ class InspectPattern(BaseAction):
 
     args: dict = {}
     llm: any
+    max_call: int = 5
+    current_call: int = 0
 
     def execute(self) -> str:
+        if self.current_call >= self.max_call:
+            return "Skip"
+
+        self.current_call += 1
         print("\033[91m InspectPattern \033[0m")
         description = self.belief.get("description")
         task_description = self.belief.get("task_description")

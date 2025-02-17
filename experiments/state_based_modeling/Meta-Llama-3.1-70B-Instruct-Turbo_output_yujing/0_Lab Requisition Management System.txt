@@ -1,0 +1,55 @@
+========================================
+Classes:
+Person(string name, string address, string phoneNumber)
+Doctor(string practitionerNumber, Image signature, string name, string address, string phoneNumber)
+'Patient(string healthNumber, string firstName, string lastName, Date dateOfBirth, string name, string address, string phoneNumber)
+Lab(string name, string address, Time startTime, Time endTime, int registrationNumber, int changeCancellationFee)
+Requisition(Date validDate, Doctor doctor, Patient patient, Test[] tests, int repetitionCount, RepetitionInterval repetitionInterval)
+Test(string name, int duration, boolean requiresAppointment, boolean requiresSampleDropoff, TestType testType)
+Appointment(Date date, Time startTime, Time endTime, Lab lab, Requisition requisition, string confirmationNumber)
+Result(string testName, boolean result, string reportContent)
+Report(string content)
+Image(byte[] imageData)
+Time(int hour, int minute)
+Date(int year, int month, int day)
+enum RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)
+enum TestType(BloodTest, UltrasoundTest, XRayTest)
+
+Relationships:
+
+
+Composition:
+1 LabTrackerSystem contain 0..* Doctor
+1 LabTrackerSystem contain 0..* Patient
+1 LabTrackerSystem contain 0..* Lab
+1 LabTrackerSystem contain 0..* Requisition
+1 LabTrackerSystem contain 0..* Appointment
+1 LabTrackerSystem contain 0..* Result
+1 LabTrackerSystem contain 0..* Report
+1 LabTrackerSystem contain 0..* Image
+1 LabTrackerSystem contain 0..* Time
+1 LabTrackerSystem contain 0..* Date
+1 Requisition contain 1 Doctor
+1 Requisition contain 1 Patient
+1 Requisition contain 1..* Test
+1 Appointment contain 1 Requisition
+1 Appointment contain 1 Lab
+1 Result contain 1 Test
+1 Report contain 1 Result
+1 Image contain 1 byte[]
+1 Time contain 1 int
+1 Time contain 1 int
+1 Date contain 1 int
+1 Date contain 1 int
+1 Date contain 1 int
+Inheritance:
+Doctor inherit Person
+Patient inherit Person
+Association:
+0..* Doctor associate 0..* Requisition
+0..* Patient associate 0..* Requisition
+0..* Patient associate 0..* Appointment
+0..* Lab associate 0..* Appointment
+0..* Test associate 0..* Result
+0..* Result associate 0..* Report
+========================================

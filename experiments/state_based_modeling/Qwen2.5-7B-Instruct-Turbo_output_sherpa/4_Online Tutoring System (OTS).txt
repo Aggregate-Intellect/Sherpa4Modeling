@@ -1,0 +1,13 @@
+========================================
+abstract class Patron(string name, string email)
+Tutor inherit Patron
+BankAccount(string accountNumber, string routingNumber, BigDecimal balance)
+CreditCardAccount(string creditCardNumber, string cardholderName, BigDecimal creditLimit, BigDecimal balance)
+WireTransferAccount(string transferIdentifier, BigDecimal amount, string status)
+ExpertiseLevel(Subject subject, string level)
+Subject(string name)
+Cancellation(CancellationType type, TutoringSession tutoringSession, BigDecimal penalty)
+TutoringRequest(Student student, Date targetDate, Time targetTime, Subject levelOfTutoring)
+TutoringSession(Date scheduledDate, Time startTime, Time endTime, TutoringRequest confirmedTutoringRequest, Student student, Tutor tutor, BigDecimal payment, BigDecimal discount, Cancellation cancellation)
+CancellationType(string value)
+========================================

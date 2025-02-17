@@ -1,0 +1,13 @@
+========================================
+```
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)
+Event(string eventType, string occasion, string locationName, string locationAddress, date startDate, time startTime, date endDate, time endTime)
+Attendee(string firstName, string lastName, string email, boolean isOrganizer)
+Task(string description, string status)
+Checklist(Task[] tasks)
+Location(string name, string address)
+Invitation(string status)
+Account(string email, string password)
+enum EventType(BirthdayParty, GraduationParty, Other)
+```
+========================================

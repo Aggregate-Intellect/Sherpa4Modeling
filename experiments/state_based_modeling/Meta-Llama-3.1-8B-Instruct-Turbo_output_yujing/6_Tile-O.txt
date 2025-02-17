@@ -1,0 +1,85 @@
+========================================
+Classes:
+['Designer(string name)', 'GameDesignerRole()', 'GameDesigner(int numberOfGamesDesigned) inherit GameDesignerRole()', 'GameDesigner(int numberOfTilesPlaced) inherit GameDesignerRole()', 'Player(string name, string color)', 'PlayerTurnRole()', 'PlayerTurn(string turnNumber) inherit PlayerTurnRole()', 'PlayerTurn(string tileVisited) inherit PlayerTurnRole()', 'Game(int numberOfPlayers, string gameStatus)', 'GameStatusRole()', 'StartedGame(int turnNumber) inherit GameStatusRole()', 'EndedGame(string winner) inherit GameStatusRole()', 'Action(string type)', 'ActionTakenRole()', 'ExtraTurnAction(int extraTurn) inherit ActionTakenRole()', 'MoveAction(string newTile) inherit ActionTakenRole()', 'Board(int width, int height)', 'Tile(string color, string type)', 'Connection(string type)', 'Piece(string color)', 'Side(string type)', 'Deck(string type)', 'Card(string choice, string description)', 'Choice(string type)', 'Die(int number)', 'Turn(int turnNumber)', 'Position(int x, int y)', 'ActionTile(string type)', 'GameAction(string type)', 'GameStatus(string status)', 'GameResult(string result)', 'Pile(string type)', 'Spare(int quantity)', 'ConnectionPiece(string type)', 'Color(string name)', 'GameBoard(int width, int height)', 'GamePlayer(string name, string color)', 'GameTurn(int turnNumber)', 'ActionCard(string choice, string description)']
+Relationships:
+
+
+Composition:
+0..* Game contain 0..* GameStatus
+1 Game contain 1 GameStatus
+1 Game contain 1 GameBoard
+1 GameBoard contain 0..* Tile
+1 GameBoard contain 0..* Connection
+1 GameBoard contain 0..* Piece
+1 GameBoard contain 0..* Side
+1 GameBoard contain 0..* Deck
+1 Deck contain 0..* Card
+1 Game contain 0..* GamePlayer
+1 GamePlayer contain 1 Player
+1 GamePlayer contain 1 Position
+1 Game contain 0..* GameTurn
+1 GameTurn contain 1 Turn
+1 GameTurn contain 1 PlayerTurn
+1 GameTurn contain 1 Action
+1 Action contain 1 ActionTaken
+1 ActionTaken contain 0..1 ExtraTurnAction
+1 ActionTaken contain 0..1 MoveAction
+1 Game contain 1 GameResult
+1 GameResult contain 1 GameStatus
+1 GameStatus contain 0..1 StartedGame
+1 GameStatus contain 0..1 EndedGame
+1 Game contain 1 Pile
+1 Pile contain 0..* ConnectionPiece
+1 Pile contain 0..* Spare
+1 Spare contain 1 ConnectionPiece
+Inheritance:
+GameDesigner(int numberOfGamesDesigned) inherit GameDesignerRole()
+GameDesigner(int numberOfTilesPlaced) inherit GameDesignerRole()
+PlayerTurn(string turnNumber) inherit PlayerTurnRole()
+PlayerTurn(string tileVisited) inherit PlayerTurnRole()
+StartedGame(int turnNumber) inherit GameStatusRole()
+EndedGame(string winner) inherit GameStatusRole()
+ExtraTurnAction(int extraTurn) inherit ActionTakenRole()
+MoveAction(string newTile) inherit ActionTakenRole()
+Association:
+0..* Player associate 0..* PlayerTurn
+1 Player associate 1 PlayerTurn
+0..* Game associate 0..* GameStatus
+1 Game associate 1 GameStatus
+0..* Game associate 0..* GameBoard
+1 Game associate 1 GameBoard
+0..* GameBoard associate 0..* Tile
+1 GameBoard associate 0..* Tile
+0..* GameBoard associate 0..* Connection
+1 GameBoard associate 0..* Connection
+0..* GameBoard associate 0..* Piece
+1 GameBoard associate 0..* Piece
+0..* GameBoard associate 0..* Side
+1 GameBoard associate 0..* Side
+0..* GameBoard associate 0..* Deck
+1 GameBoard associate 0..* Deck
+0..* Deck associate 0..* Card
+1 Deck associate 0..* Card
+0..* Game associate 0..* GamePlayer
+1 Game associate 1 GamePlayer
+1 GamePlayer associate 1 Player
+1 GamePlayer associate 1 Position
+0..* Game associate 0..* GameTurn
+1 Game associate 1 GameTurn
+1 GameTurn associate 1 Turn
+1 GameTurn associate 1 PlayerTurn
+1 GameTurn associate 1 Action
+1 Action associate 1 ActionTaken
+1 ActionTaken associate 0..1 ExtraTurnAction
+1 ActionTaken associate 0..1 MoveAction
+0..* Game associate 0..* GameResult
+1 Game associate 1 GameResult
+1 GameResult associate 1 GameStatus
+1 GameStatus associate 0..1 StartedGame
+1 GameStatus associate 0..1 EndedGame
+0..* Game associate 0..* Pile
+1 Game associate 1 Pile
+1 Pile associate 0..* ConnectionPiece
+1 Pile associate 0..* Spare
+1 Spare associate 1 ConnectionPiece
+========================================

@@ -1,0 +1,12 @@
+========================================
+User(string username, string password, boolean isAdmin, Game currentGame)
+Game(string gameName, string adminUsername, int minBallSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength)
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int initialBlockCount, List<Block> blocks)
+Ball(int speed, Direction direction)
+Paddle(int length)
+PlayArea(int width, int height)
+HallOfFame(string gameName, string playerName, int score)
+GameProgress(string gameName, string playerName, int levelNumber, int totalScore, int lives, int currentLevel)
+Direction(Up, Down, Left, Right)
+========================================

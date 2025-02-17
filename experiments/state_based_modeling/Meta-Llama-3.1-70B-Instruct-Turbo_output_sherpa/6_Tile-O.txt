@@ -1,0 +1,17 @@
+========================================
+ConnectionSide()
+ActionType()
+GameElement()
+Game(string gameName, int numberOfPlayers, boolean isStarted, string designerName) inherit GameElement
+BoardElement(int xPosition, int yPosition) inherit GameElement
+Tile(boolean isHidden, boolean isAction, String color, boolean isVisited, ConnectionSide[] connections, int disableTurns, boolean isFound) inherit BoardElement
+Piece(string pieceColor, int xPosition, int yPosition, int currentTurn) inherit BoardElement
+Board(int width, int height, Tile[][] tiles) inherit GameElement
+Die(int minValue, int maxValue)
+Card()
+ActionCard(ActionType actionType, String actionDescription) inherit Card
+Deck(ActionCard[] actionCards)
+Player(string playerName, string pieceColor, int currentTurn)
+Turn(int turnNumber, Player player, Action action)
+GameHistory(Turn[] turns)
+========================================

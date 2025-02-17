@@ -1,0 +1,28 @@
+========================================
+Classes:
+Game(string gameName, int numberOfPlayers, boolean isStarted)
+Player(string playerName, string pieceColor, int playerID)
+Board(int boardSize, int numberOfTiles)
+Tile(int tileID, boolean isHidden, boolean isActionTile, string color)
+Deck(int deckSize, int numberOfCards)
+Action(string actionType, string actionInstruction)
+Die(int numberOfSides)
+Relationships:
+
+
+Composition:
+1 Game contain 1 Board
+1 Game contain 1 Deck
+1 Game contain 1 Die
+1 Game contain 2..4 Player
+1 Board contain 1..* Tile
+1 Deck contain 1..* Action
+Inheritance:
+Designer inherit PlayerRole
+Player inherit PlayerRole
+Association:
+1 Player associate 1 Game
+1 Tile associate 0..1 Action
+1 Tile associate 0..4 Tile
+1 Deck associate 1 Game
+========================================

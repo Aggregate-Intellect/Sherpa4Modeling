@@ -1,0 +1,37 @@
+========================================
+Classes:
+SmartHome(string physicalAddress)
+Room(string name)
+SensorDevice(string deviceIdentifier)
+ActuatorDevice(string deviceIdentifier)
+Sensor(string deviceIdentifier, string type) inherit SensorDevice()
+Actuator(string deviceIdentifier, string type) inherit ActuatorDevice()
+SensorReading(int value, date timestamp)
+ControlCommand(string command, date timestamp, string status)
+Alert(string message)
+Owner(string name)
+AutomationRule(string name, boolean isActive)
+Precondition(string expression)
+Action(string commandSequence)
+ActiveRule(date timestamp)
+Relationships:
+
+
+Composition:
+1 SmartHome contain 0..* Room
+1 Room contain 0..* SensorDevice
+1 Room contain 0..* ActuatorDevice
+0..* SensorDevice contain 0..* SensorReading
+0..* ActuatorDevice contain 0..* ControlCommand
+1 SmartHome contain 0..* AutomationRule
+1 AutomationRule contain 0..1 Precondition
+1 AutomationRule contain 0..* Action
+0..* AutomationRule contain 0..* ActiveRule
+1 Owner contain 0..* AutomationRule
+Inheritance:
+Sensor inherit SensorDevice
+Actuator inherit ActuatorDevice
+Association:
+0..* Sensor associate 0..* SensorReading
+0..* Actuator associate 0..* ControlCommand
+========================================

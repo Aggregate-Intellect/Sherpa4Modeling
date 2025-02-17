@@ -1,0 +1,18 @@
+========================================
+Game(int startingPositionCount, int actionTileCount, HiddenTile hiddenTile)
+Tile(TileType tileType, bool visited)
+ConnectionPiece(BoardPieceType boardPieceType, Tile connectedTo)
+Player(string playerName, PlayingPieceType playingPieceType, Tile position)
+Die(DieType dieType, int rollsRemaining)
+ActionCard(ActionCardType actionCardType)
+Pile(BoardPieceType boardPieceType, int count)
+HiddenTile(TileType tileType, Tile position)
+StartingPosition(Tile tile, string playerName)
+ActionTile(ActionTileType actionTileType, ActionCardType actionCardType, int turnsActive)
+Board(list(Tile) tiles, list(ConnectionPiece) connections, list(ActionTile) actionTiles, HiddenTile hiddenTile, list(Player) players)
+Turn(Player currentPlayer, int rollsRemaining, int actionsRemaining)
+GameBoardAction(string actionType, string playerName, Tile tile)
+DieType(value)
+TileType(value)
+BoardPieceType(value)
+========================================

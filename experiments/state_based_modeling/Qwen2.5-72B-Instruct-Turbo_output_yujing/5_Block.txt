@@ -1,0 +1,42 @@
+========================================
+Classes:
+User(string username, string password)
+abstract UserRole()
+Player() inherit UserRole(int score, int lives)
+Admin() inherit UserRole()
+Game(string name, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, list hallOfFame)
+Block(string color, int points)
+Level(int levelNumber, bool isRandom, int initialBlockCount)
+Ball(int speed, Direction direction, tuple position)
+Paddle(int length, tuple position)
+PlayArea(int width, int height)
+enum Direction(Up, Down, Left, Right)
+Relatipnships:
+Composition:
+1 DestroyBlockSystem contain 0..* User
+1 DestroyBlockSystem contain 0..* Game
+1 DestroyBlockSystem contain 0..* Block
+1 DestroyBlockSystem contain 0..* Level
+1 DestroyBlockSystem contain 0..* Ball
+1 DestroyBlockSystem contain 0..* Paddle
+1 DestroyBlockSystem contain 0..* PlayArea
+Inheritance:
+Player inherit UserRole
+Admin inherit UserRole
+Association:
+0..* User associate 0..1 Player
+0..* User associate 0..1 Admin
+1 Game associate 1..* Level
+1 Level associate 0..* Block
+1 Game associate 0..* Block
+1 Game associate 1..* PlayArea
+1 PlayArea associate 1 Ball
+1 PlayArea associate 1 Paddle
+1 Player associate 1..* Game
+1 Game associate 0..* Player
+1 Game associate 0..1 Admin
+1 Admin associate 1..* Game
+1 Level associate 1 PlayArea
+1 Ball associate 1 PlayArea
+1 Paddle associate 1 PlayArea
+========================================

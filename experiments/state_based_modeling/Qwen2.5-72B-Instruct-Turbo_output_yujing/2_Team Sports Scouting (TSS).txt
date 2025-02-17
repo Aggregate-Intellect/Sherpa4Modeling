@@ -1,0 +1,41 @@
+========================================
+Classes:
+HeadCoach(string coachName, string clubName)
+Director(string directorName, string clubName)
+Scout(string scoutName, string clubName)
+Player(string playerName, Position playerPosition)
+Profile(string profileName, list attributes)
+Attribute(string attributeName, string attributeValue)
+LongList(string listName, list players)
+ScoutingAssignment(string assignmentName, Player player, Scout scout)
+Report(string reportName, string pros, string cons, Recommendation recommendation, ScoutingAssignment assignment)
+ShortList(string listName, list players)
+Offer(string offerDetails, Player player)
+Position
+Recommendation
+Relatipnships:
+Composition:
+1 TeamSportsScoutingSystem contain 0..* HeadCoach
+1 TeamSportsScoutingSystem contain 0..* Director
+1 TeamSportsScoutingSystem contain 0..* Scout
+1 TeamSportsScoutingSystem contain 0..* Player
+1 TeamSportsScoutingSystem contain 0..* Profile
+1 TeamSportsScoutingSystem contain 0..* Attribute
+1 TeamSportsScoutingSystem contain 0..* LongList
+1 TeamSportsScoutingSystem contain 0..* ScoutingAssignment
+1 TeamSportsScoutingSystem contain 0..* Report
+1 TeamSportsScoutingSystem contain 0..* ShortList
+1 TeamSportsScoutingSystem contain 0..* Offer
+1 TeamSportsScoutingSystem contain 0..* Position
+1 TeamSportsScoutingSystem contain 0..* Recommendation
+Inheritance:
+None
+Association:
+0..* Profile associate 0..* Attribute
+0..* LongList associate 0..* Player
+1 ScoutingAssignment associate 1 Player
+1 ScoutingAssignment associate 1 Scout
+1 Report associate 1 ScoutingAssignment
+0..* ShortList associate 0..* Player
+1 Offer associate 1 Player
+========================================
