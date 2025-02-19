@@ -1,0 +1,18 @@
+Enumerations:
+RoomType(Single, Double, Twin)
+PaymentType(PrePaid, PayAtHotel)
+HotelRating(OneStar, TwoStars, ThreeStars, FourStars, FiveStars)
+
+Classes:
+Hotel()
+BookingRole()
+PreliminaryBooking()
+BookingRole()
+FinalizedBooking()
+BookingRole()
+Traveller()
+Offer()
+Room()
+CancellationPolicy()
+BookingRole()
+BookingRole()

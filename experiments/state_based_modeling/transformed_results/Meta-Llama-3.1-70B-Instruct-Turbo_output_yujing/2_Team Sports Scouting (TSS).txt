@@ -1,0 +1,14 @@
+Enumerations:
+PlayerPosition(GK, LB, RB, CB, CM, LM, RM, ST)
+ScoutingRecommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+Classes:
+Person()
+Staff()
+Coach()
+Scout()
+Director()
+Player()
+Assignment()
+Report()
+Offer()

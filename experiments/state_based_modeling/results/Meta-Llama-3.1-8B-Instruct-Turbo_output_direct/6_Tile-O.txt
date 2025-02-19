@@ -1,0 +1,24 @@
+GameDesigner()
+Game()
+Player()
+PlayingPiece()
+Tile()
+ConnectionPiece()
+ActionTile()
+ActionCard()
+Board()
+GameBoardLayout()
+
+enum CardChoice(
+  RollExtraTurn,
+  ConnectTiles,
+  RemoveConnectionPiece,
+  MovePiece,
+  LoseTurn
+)
+
+enum Status(
+  Visited,
+  ActionFlagged,
+  Solved
+)

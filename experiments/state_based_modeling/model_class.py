@@ -28,14 +28,14 @@ from actions import (
 )
 
 # gpt-4o-mini, gpt-4
-# model_name = "gpt-4o-mini"
-model_name = "Qwen2.5-7B-Instruct-Turbo"
-llm_class = ChatTogether(model="Qwen/Qwen2.5-7B-Instruct-Turbo", temperature=0.01)
+model_name = "gpt-4o"
+# model_name = "Qwen2.5-7B-Instruct-Turbo"
+# llm_class = ChatTogether(model="Qwen/Qwen2.5-7B-Instruct-Turbo", temperature=0.01)
 
 
-llm_relation = llm_class
-# llm_class = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
-# llm_relation = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
+# llm_relation = llm_class
+llm_class = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
+llm_relation = SherpaChatOpenAI(model_name=model_name, temperature=0.01)
 
 
 def get_actions(belief: Belief) -> dict[str, BaseAction]:

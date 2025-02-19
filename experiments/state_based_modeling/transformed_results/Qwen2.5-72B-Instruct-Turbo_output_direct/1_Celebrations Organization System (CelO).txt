@@ -1,0 +1,11 @@
+Enumerations:
+EventStatus(Planned, InProgress, Completed)
+AttendanceStatus(Attending, MaybeAttending, NotAttending)
+TaskStatus(NeedToDo, Done, NotApplicable)
+
+Classes:
+Organizer()
+Attendee()
+Event()
+Location()
+Task()

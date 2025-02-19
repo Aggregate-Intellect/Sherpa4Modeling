@@ -1,0 +1,27 @@
+### HotelBookingManagementSystem
+
+### Classes
+
+1. Hotel()
+2. Traveler()
+3. Booking()
+4. HotelChain()
+5. RoomType()
+6. City()
+7. BankAccount()
+8. AccommodationOffer()
+9. Room()
+10. CancellationDeadline()
+
+### Enumerations
+
+1. enum TravelPreference()
+       (BreakfastIncluded, FreeWifi, 24HourFrontDesk)
+2. enum StarRating()
+       (One, Two, Three, Four, Five)
+3. enum PaymentOption()
+       (PrePaid, PaidAtHotel)
+4. enum BookingStatus()
+       (Preliminary, Confirmed, Cancelled)
+5. enum AreaOfOperation()
+       (City, Hotel)

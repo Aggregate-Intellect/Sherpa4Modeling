@@ -1,0 +1,11 @@
+Enumerations:
+
+
+Classes:
+Game()
+Player()
+Board()
+Tile()
+Deck()
+Action()
+Die()

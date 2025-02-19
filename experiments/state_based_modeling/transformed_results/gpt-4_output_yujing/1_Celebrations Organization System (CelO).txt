@@ -1,0 +1,14 @@
+Enumerations:
+EventType(BirthdayParty, GraduationParty)
+TaskStatus(NeedsToBeDone, HasBeenDone, NotApplicable)
+AttendanceStatus(WillAttend, MaybeWillAttend, CannotAttend)
+
+Classes:
+User()
+Organizer()
+Attendee()
+Event()
+Location()
+Invitation()
+Checklist()
+Task()

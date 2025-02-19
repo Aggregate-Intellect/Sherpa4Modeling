@@ -1,0 +1,13 @@
+Enumerations:
+
+
+Classes:
+Registration()
+Tutor()
+Student()
+TutoringLevel()
+Subject()
+TutoringRequest()
+TutoringSession()
+Cancellation()
+Discount()

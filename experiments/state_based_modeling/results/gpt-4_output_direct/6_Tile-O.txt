@@ -1,0 +1,7 @@
+GameBoard()
+Tile()
+ConnectionPiece()
+ActionCard()
+Player()
+Die()
+enum ActionCardType(RollDieForExtraTurn, ConnectTwoAdjacentTiles, RemoveConnectionPiece, MoveToArbitraryTile, LoseNextTurn)

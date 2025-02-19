@@ -1,0 +1,15 @@
+Enumerations:
+
+
+Classes:
+Hotel()
+Traveller()
+Booking()
+Room()
+HotelChain()
+SpecialOffer()
+CreditCard()
+Address()
+ReliabilityRating()
+Payment()
+SearchCriteria()

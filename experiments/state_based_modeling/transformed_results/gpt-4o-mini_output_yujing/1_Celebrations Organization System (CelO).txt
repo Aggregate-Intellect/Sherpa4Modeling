@@ -1,0 +1,10 @@
+Enumerations:
+Occasion(Birthday, Graduation, Other)
+
+Classes:
+Organizer()
+Event()
+Attendee()
+Task()
+Location()
+Invitation()

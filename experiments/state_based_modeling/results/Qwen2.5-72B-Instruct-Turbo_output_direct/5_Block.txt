@@ -1,0 +1,6 @@
+User()
+Game()
+Block()
+Level()
+enum GameStatus(Playing, Paused, Finished)
+enum Direction(Up, Down, Left, Right)

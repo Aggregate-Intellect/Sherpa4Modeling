@@ -1,0 +1,9 @@
+Enumerations:
+
+
+Classes:
+Event()
+Organizer()
+Attendee()
+Task()
+Location()

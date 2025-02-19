@@ -1,0 +1,10 @@
+Enumerations:
+LevelOfExpertise(PrimarySchool, HighSchool, University)
+
+Classes:
+Tutor()
+Student()
+TutoringSession()
+Subject()
+Availability()
+Payment()

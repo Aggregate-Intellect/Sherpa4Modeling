@@ -1,0 +1,15 @@
+Enumerations:
+BookingStatus(Preliminary, Finalized, Cancelled)
+PaymentType(PrePaid, PaidAtHotel)
+BookingConfirmationStatus(Confirmed, Unconfirmed, CancelledByHotel)
+CancellationPolicy(NoCharge, OneNightCharge)
+
+Classes:
+Hotel()
+Traveller()
+Booking()
+PreliminaryBooking()
+FinalizedBooking()
+RoomType()
+City()
+HotelChain()

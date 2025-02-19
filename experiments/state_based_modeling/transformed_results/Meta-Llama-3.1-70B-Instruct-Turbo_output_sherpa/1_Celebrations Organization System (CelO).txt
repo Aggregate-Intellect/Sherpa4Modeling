@@ -1,0 +1,11 @@
+Enumerations:
+
+
+Classes:
+Application()
+Person()
+Organizer()
+Attendee()
+Location()
+Event()
+Account()

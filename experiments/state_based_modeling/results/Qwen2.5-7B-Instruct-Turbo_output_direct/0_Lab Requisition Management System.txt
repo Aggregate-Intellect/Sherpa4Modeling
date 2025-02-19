@@ -1,0 +1,10 @@
+enum TestType()
+enum RepetitionInterval(Weekly, Monthly, EveryHalfYear, Yearly)
+enum AppointmentStatus()
+
+Patient()
+Doctor()
+Lab()
+Requisition()
+Test()
+Appointment()

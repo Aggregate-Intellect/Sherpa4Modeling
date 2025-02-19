@@ -33,8 +33,8 @@ Never Ask question repetitively. Never make random assumption
 
 def main(description, title):
     belief = Belief()
-    # llm = SherpaChatOpenAI(model_name="gpt-4o-mini", temperature=0.01)
-    llm = ChatTogether(model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", temperature=0.01)
+    llm = SherpaChatOpenAI(model_name="gpt-4o", temperature=0.01)
+    # llm = ChatTogether(model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", temperature=0.01)
 
     policy = ReactPolicy(
         role_description=role_description,

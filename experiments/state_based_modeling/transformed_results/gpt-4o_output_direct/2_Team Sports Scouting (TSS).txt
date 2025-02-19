@@ -1,0 +1,11 @@
+Enumerations:
+CrimeStatus(Solved, Pending, Unsolved)
+
+Classes:
+PISystem()
+PoliceStation()
+Case()
+PoliceOfficer()
+Victim()
+Crime()
+Note()

@@ -1,0 +1,21 @@
+========================================
+Classes:
+Event(string kind, datetime startDateTime, datetime endDateTime, string occasion, Location location)
+Organizer(string firstName, string lastName, string emailAddress, string postalAddress, string phoneNumber, string password)
+Attendee(string firstName, string lastName, string emailAddress, string password, string invitationStatus)
+Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean isNotApplicable)
+Location(string name, string address)
+Relationships:
+
+
+Composition:
+1 Event contain 0..* Task
+1 Event contain 1 Location
+Inheritance:
+EventOrganizer inherit EventRole
+EventAttendee inherit EventRole
+Association:
+0..* Organizer associate 1..* Event
+0..* Attendee associate 0..* Event
+0..* Attendee associate 0..* Task
+========================================

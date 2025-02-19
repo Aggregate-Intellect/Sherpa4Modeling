@@ -1,0 +1,13 @@
+Enumerations:
+TestType(Blood, Ultrasound, XRay, SampleDropOff)
+RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)
+TestResult(Negative, Positive)
+
+Classes:
+LabTracker()
+Doctor()
+Patient()
+Requisition()
+Test()
+Appointment()
+Lab()

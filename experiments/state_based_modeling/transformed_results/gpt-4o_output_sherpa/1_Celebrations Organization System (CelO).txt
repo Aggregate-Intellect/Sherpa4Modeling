@@ -1,0 +1,14 @@
+Enumerations:
+
+
+Classes:
+CelOApplication()
+Event()
+Person()
+Organizer()
+Attendee()
+Task()
+Invitation()
+Account()
+Location()
+Checklist()

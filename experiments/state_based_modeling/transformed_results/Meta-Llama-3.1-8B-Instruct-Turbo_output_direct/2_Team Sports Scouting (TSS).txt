@@ -1,0 +1,5 @@
+Enumerations:
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotGoodSigning)
+Position(GK, LB, RB, CB, ST, LW, RW, CAM, LCM, RCM, LB, DM)
+
+Classes:

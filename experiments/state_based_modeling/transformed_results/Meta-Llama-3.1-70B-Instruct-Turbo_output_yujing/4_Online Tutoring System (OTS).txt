@@ -1,0 +1,15 @@
+Enumerations:
+SessionLevel(PrimarySchool, HighSchool, University)
+PaymentMethod(CreditCard, WireTransfer)
+CancellationReason(Student, Tutor)
+SessionStatus(Requested, Confirmed, Cancelled)
+
+Classes:
+User()
+UserRole()
+TutorRole()
+StudentRole()
+Session()
+Request()
+Payment()
+Cancellation()

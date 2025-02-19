@@ -1,0 +1,12 @@
+Enumerations:
+Interval(Weekly, Monthly, HalfYearly, Yearly)
+
+Classes:
+Person()
+Doctor()
+Patient()
+Requisition()
+Test()
+Appointment()
+Lab()
+TestResult()

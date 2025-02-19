@@ -1,0 +1,14 @@
+Enumerations:
+CrimeStatus()
+BlockPosition()
+BlockType()
+GameStatus()
+LevelStatus()
+
+Classes:
+User()
+Player()
+Admin()
+Game()
+Level()
+Block()

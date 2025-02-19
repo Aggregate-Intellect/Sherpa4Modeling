@@ -1,0 +1,18 @@
+Enumerations:
+RecommendationType(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+Classes:
+TeamSportsScoutingSystem()
+Employee()
+HeadCoach()
+Director()
+Scout()
+HeadScout()
+Player()
+PlayerProfile()
+PlayerAttribute()
+ScoutingAssignment()
+ScoutingReport()
+Recommendation()
+ShortList()
+Offer()

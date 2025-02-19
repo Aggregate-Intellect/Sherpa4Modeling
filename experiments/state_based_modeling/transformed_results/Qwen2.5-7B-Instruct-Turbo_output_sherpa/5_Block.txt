@@ -1,0 +1,12 @@
+Enumerations:
+
+
+Classes:
+User()
+Game()
+Block()
+Level()
+GameSpeed()
+Paddle()
+LevelDesign()
+BlockArrangement()

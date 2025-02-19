@@ -1,0 +1,12 @@
+========================================
+``` 
+Person(string name, string emailAddress)
+Tutor(string bankAccount, list subjects, list expertiseLevels, list hourlyRates, list availability) inherit Person
+Student(list tutoringRequests, list tutoringSessions) inherit Person
+TutoringSession(date date, time startTime, time endTime, boolean isConfirmed, Tutor tutor, Student student, string subject, string level)
+TutoringRequest(date targetDate, time targetTime, string level, Tutor tutor, Student student, string subject)
+Payment(float amount, string method, string status, string transactionDetails, TutoringSession session)
+Availability(dayOfWeek day, time startTime, time endTime)
+CancellationPolicy(float studentFee, float tutorDiscount)
+```
+========================================

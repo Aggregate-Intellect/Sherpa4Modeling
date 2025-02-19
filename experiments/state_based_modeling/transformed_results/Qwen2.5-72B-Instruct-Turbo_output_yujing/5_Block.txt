@@ -1,0 +1,16 @@
+Enumerations:
+Direction(Up, Down, Left, Right)
+
+Classes:
+User()
+UserRole()
+Player()
+UserRole()
+Admin()
+UserRole()
+Game()
+Block()
+Level()
+Ball()
+Paddle()
+PlayArea()

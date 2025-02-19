@@ -1,0 +1,30 @@
+========================================
+Classes:
+abstract Device(string deviceId, DeviceType deviceType)
+SmartHomeAutomationSystem(list<SmartHome> homes, list<User> users)
+User(string userId, string name)
+SmartHome(string physicalAddress, list<Room> rooms)
+Room(string roomName, list<Device> devices)
+SensorDevice(string deviceId, DeviceType deviceType) inherit Device
+ActuatorDevice(string deviceId, DeviceType deviceType) inherit Device
+AutomationRule(string ruleId, string precondition, string action, boolean isActive, list<AutomationRule> dependentRules, list<AutomationRule> conflictingRules)
+ActivityLog(string logId, string timestamp, string description, CommandStatus commandStatus)
+enum DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+enum CommandStatus(Requested, Completed, Failed)
+enum BooleanOperator(AND, OR, NOT)
+Relationships:
+
+
+Composition:
+1 SmartHomeAutomationSystem contain 0..* SmartHome
+1 SmartHomeAutomationSystem contain 0..* User
+1 SmartHome contain 0..* Room
+1 Room contain 0..* Device
+Inheritance:
+SensorDevice inherit Device
+ActuatorDevice inherit Device
+Association:
+0..* SmartHome associate 0..* AutomationRule
+0..* SmartHome associate 0..* ActivityLog
+0..* AutomationRule associate 0..* AutomationRule
+========================================

@@ -1,0 +1,13 @@
+Enumerations:
+EventType(BirthdayParty, GraduationParty, Other)
+
+Classes:
+Organizer()
+Event()
+Attendee()
+Task()
+Checklist()
+Location()
+Invitation()
+Account()
+Attendance()

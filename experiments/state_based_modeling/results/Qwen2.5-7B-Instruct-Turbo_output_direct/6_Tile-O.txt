@@ -1,0 +1,5 @@
+enum ActionTileType()
+enum TileStatus()
+enum DiceValue()
+enum PlayerTurn()
+enum CardAction()

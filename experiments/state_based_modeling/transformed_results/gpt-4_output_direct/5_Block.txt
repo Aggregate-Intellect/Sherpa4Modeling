@@ -1,0 +1,10 @@
+Enumerations:
+GameStatus(Published, Paused, Ended)
+
+Classes:
+Game()
+Block()
+Level()
+Player()
+Admin()
+HallOfFame()

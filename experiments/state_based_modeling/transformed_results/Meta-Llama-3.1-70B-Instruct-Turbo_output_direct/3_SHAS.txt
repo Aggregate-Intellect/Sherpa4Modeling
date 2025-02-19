@@ -1,0 +1,14 @@
+Enumerations:
+CommandStatus(Requested, Completed, Failed)
+DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+
+Classes:
+SmartHome()
+Room()
+Device()
+SensorDevice()
+ActuatorDevice()
+SensorReading()
+ControlCommand()
+ActivityLog()
+AutomationRule()

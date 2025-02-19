@@ -1,0 +1,17 @@
+Enumerations:
+
+
+Classes:
+TileOApplication()
+User()
+GameDesigner()
+BoardGame()
+Player()
+Tile()
+Board()
+PlayingPiece()
+Die()
+ConnectionPiece()
+ActionCard()
+Deck()
+GameTurn()

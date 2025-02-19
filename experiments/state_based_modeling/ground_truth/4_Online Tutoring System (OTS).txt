@@ -1,0 +1,22 @@
+Enumerations:
+LevelOfTutoring(PrimarySchool, HighSchool, University)
+SessionStatus(Proposed, Confirmed, Completed, Paid, Cancelled)
+PaymentKind(CreditCard, WireTransfer)
+
+Classes:
+OTS()
+User(string name, string email)
+BestTutorAward(int year, int month)
+Tutor(string bankAccount)
+TutoringOffer(float hourlyPrice)
+Subject(string name)
+TutorAvailability(Date startTime, Time endTime)
+abstract TutoringRole()
+abstract TutoringElement(LevelOfTutoring tutoringLevel)
+Student()
+TutoringRequest()
+TutoringSession(Date sessionDate, float totalPrice, SessionStatus sessionStatus)
+Payment(PaymentKind paymentForm, date paymentDate)
+
+
+Relationships:

@@ -1,0 +1,8 @@
+User()
+Tutor()
+Student()
+TutoringSession()
+Subject()
+enum TutoringLevel(PrimarySchoolLevel, HighSchoolLevel, UniversityLevel)
+enum SessionStatus(Confirmed, Cancelled, Pending)
+enum CancellationPolicy(StudentLateCancellation, TutorLateCancellation)

@@ -1,0 +1,11 @@
+Enumerations:
+TutoringLevel(PrimarySchoolLevel, HighSchoolLevel, UniversityLevel)
+SessionStatus(Confirmed, Cancelled, Pending)
+CancellationPolicy(StudentLateCancellation, TutorLateCancellation)
+
+Classes:
+User()
+Tutor()
+Student()
+TutoringSession()
+Subject()

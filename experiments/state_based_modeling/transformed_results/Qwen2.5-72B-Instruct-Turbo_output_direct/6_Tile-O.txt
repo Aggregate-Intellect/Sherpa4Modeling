@@ -1,0 +1,15 @@
+Enumerations:
+ActionCardType(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseNextTurn)
+
+Classes:
+Game()
+Designer()
+Player()
+Board()
+Tile()
+Connection()
+HiddenTile()
+StartingPosition()
+ActionTile()
+ActionCard()
+Die()

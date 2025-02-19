@@ -1,0 +1,13 @@
+Enumerations:
+ActionCardType(RollDieForExtraTurn, ConnectTwoAdjacentTiles, RemoveConnectionPiece, MoveToArbitraryTile, LoseNextTurn)
+PlayerColor(Red, Blue, Green, Yellow)
+
+Classes:
+GameDesigner()
+GameBoard()
+Tile()
+ConnectionPiece()
+ActionCard()
+Player()
+Die()
+ActionTile()

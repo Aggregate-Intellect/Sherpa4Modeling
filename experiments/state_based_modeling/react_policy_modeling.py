@@ -9,6 +9,7 @@ from sherpa_ai.policies.base import BasePolicy, PolicyOutput
 if TYPE_CHECKING:
     from sherpa_ai.actions.base import BaseAction
     from sherpa_ai.memory.belief import Belief
+import re
 
 SELECTION_DESCRIPTION = """{role_description}
 
@@ -55,7 +56,9 @@ class ReactPolicy(BasePolicy):
 
     role_description: str
     output_instruction: str
-    llm: Any = None  # Cannot use langchain's BaseLanguageModel due to they are using Pydantic v1
+    llm: Any = (
+        None  # Cannot use langchain's BaseLanguageModel due to they are using Pydantic v1
+    )
     description: str = SELECTION_DESCRIPTION
     response_format: dict = {
         "command": {
@@ -75,12 +78,17 @@ class ReactPolicy(BasePolicy):
             str: Action to be taken
             dict: Arguments for the action
         """
-        try:
-            output = json.loads(output_str)
-        except json.decoder.JSONDecodeError:
-            logger.error("Output is not a proper json format {}", output_str)
+        json_pattern = re.compile(r"(\{.*\})", re.DOTALL)
+        match = json_pattern.search(output_str)
+
+        if match is not None:
+            output = json.loads(match.group(1))
+        else:
             return "Finished", None
-        command = output["command"]
+
+        command = output.get("command", output.get("action", None))
+        if command is None:
+            return "Finished", None
         name = command["name"]
         args = command.get("args", {})
         return name, args

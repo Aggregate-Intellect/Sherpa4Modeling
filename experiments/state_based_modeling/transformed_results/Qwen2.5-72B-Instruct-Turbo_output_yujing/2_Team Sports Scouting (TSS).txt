@@ -1,0 +1,15 @@
+Enumerations:
+
+
+Classes:
+HeadCoach()
+Director()
+Scout()
+Player()
+Profile()
+Attribute()
+LongList()
+ScoutingAssignment()
+Report()
+ShortList()
+Offer()

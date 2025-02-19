@@ -1,0 +1,23 @@
+Enumerations:
+CommandStatus(Requested, Completed, Failed)
+BooleanOperator(AND, OR, NOT)
+RoomName(LivingRoom, Kitchen, Bedroom)
+
+Classes:
+SmartHomeAutomationSystem()
+Device()
+SensorDevice()
+ActuatorDevice()
+SensorReading()
+ControlCommand()
+Alert()
+Owner()
+AutomationRule()
+Precondition()
+Action()
+Rule()
+ComplexRuleHierarchy()
+ActiveRule()
+DeviceRole()
+SensorRole()
+ActuatorRole()

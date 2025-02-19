@@ -1,0 +1,15 @@
+Enumerations:
+Interval(Weekly, Monthly, HalfYearly, Yearly)
+SampleType(Blood, Urine, Stool)
+
+Classes:
+LabTracker()
+Doctor()
+Patient()
+Requisition()
+Test()
+Lab()
+Appointment()
+Report()
+AppointmentChange()
+LabNetwork()

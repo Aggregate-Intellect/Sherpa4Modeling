@@ -1,0 +1,15 @@
+Enumerations:
+PaymentMethod(Type)
+SubjectLevel(PrimarySchool, HighSchool, University)
+TutoringSessionStatus(Agreed, Cancelled, Completed)
+SlotStatus(Available, Unavailable)
+PaymentStatus(Paid, Unpaid)
+
+Classes:
+Tutor()
+Student()
+TutoringSession()
+TutoringOffer()
+BankAccount()
+Subject()
+PaymentMethod()

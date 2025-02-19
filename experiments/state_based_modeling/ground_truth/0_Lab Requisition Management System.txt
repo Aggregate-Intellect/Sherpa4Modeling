@@ -1,0 +1,24 @@
+Enumerations:
+Interval(weekly, monthly, everyHalfYear, yearly)
+AccessType (reservable, walkIn, dropOff)
+DayOfWeek(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+
+Classes:
+LabTracker()
+Person(string lastName, string firstName, string address, string phoneNumber)
+abstract PersonRole(idNumber)
+Patient (string dateOfBirth)
+Doctor (string signature)
+Requisition (string effectiveDate, int repetitionCount, Interval repetitionInterval)
+TestResult(boolean negative, string report)
+SpecificTest(Data date)
+Appointment (string confirmation, Date date, string startTime, string endTime)
+BusinessHour(DayOfWeek dayOfWeek, string startTime, string endTime)
+Lab (string registrationNumber, string name, string address, boolean changeCancelFee)
+Test (string name, string duration)
+TestType(string name, string durationAdditive, AccessType access)
+
+
+Relationships:
+1 LabTracker contain * Person

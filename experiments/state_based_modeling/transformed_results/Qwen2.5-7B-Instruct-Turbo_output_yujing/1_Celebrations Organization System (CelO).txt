@@ -1,0 +1,11 @@
+Enumerations:
+
+
+Classes:
+Organizer()
+Event()
+Task()
+Location()
+Attendee()
+Invitation()
+Account()

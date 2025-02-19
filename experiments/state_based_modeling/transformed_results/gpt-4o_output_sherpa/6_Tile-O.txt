@@ -1,0 +1,11 @@
+Enumerations:
+ActionType(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)
+
+Classes:
+TileOApplication()
+Game()
+Designer()
+Board()
+Player()
+Tile()
+ActionCard()

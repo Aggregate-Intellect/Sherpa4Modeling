@@ -1,0 +1,20 @@
+Enumerations:
+GameMode(Play, Admin)
+BlockColor(Red, Green, Blue, Yellow, Orange, Purple)
+
+Classes:
+Application()
+User()
+Admin()
+Player()
+Game()
+Block()
+Level()
+Ball()
+Paddle()
+Score()
+HallOfFame()
+Admin()
+UserRole()
+Player()
+UserRole()

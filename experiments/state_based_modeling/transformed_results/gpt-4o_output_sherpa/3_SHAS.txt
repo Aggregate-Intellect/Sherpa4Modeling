@@ -1,0 +1,17 @@
+Enumerations:
+
+
+Classes:
+SmartHomeAutomationSystem()
+User()
+SmartHome()
+Room()
+Device()
+SensorDevice()
+ActuatorDevice()
+SensorReading()
+ControlCommand()
+ActivityLog()
+AutomationRule()
+UserRole()
+OwnerRole()

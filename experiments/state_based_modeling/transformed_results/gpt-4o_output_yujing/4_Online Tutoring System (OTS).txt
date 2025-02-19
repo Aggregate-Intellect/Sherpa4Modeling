@@ -1,0 +1,11 @@
+Enumerations:
+ExpertiseLevel(PrimarySchool, HighSchool, University)
+PaymentMethod(CreditCard, WireTransfer)
+
+Classes:
+User()
+Student()
+Tutor()
+TutoringSession()
+TutoringRequest()
+Payment()

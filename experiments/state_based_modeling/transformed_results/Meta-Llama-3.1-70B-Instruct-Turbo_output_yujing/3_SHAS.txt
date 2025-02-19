@@ -1,0 +1,23 @@
+Enumerations:
+DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+CommandStatus(Requested, Completed, Failed)
+BooleanOperator(AND, OR, NOT)
+RuleStatus(Active, Inactive)
+CommandType(LockDoor, TurnOnHeating)
+
+Classes:
+User()
+Owner()
+Administrator()
+Device()
+Sensor()
+Actuator()
+SmartHome()
+Room()
+Address()
+AutomationRule()
+Command()
+Reading()
+Log()
+Alert()
+RuleHierarchy()

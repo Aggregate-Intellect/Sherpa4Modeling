@@ -1,0 +1,18 @@
+Enumerations:
+BooleanOperator(AND, OR, NOT)
+
+Classes:
+SmartHomeAutomationSystem()
+User()
+SmartHome()
+Room()
+Device()
+SensorDevice()
+ActuatorDevice()
+InfrastructureMap()
+SensorReading()
+ControlCommand()
+ActivityLog()
+Owner()
+AutomationRule()
+RuleHierarchy()

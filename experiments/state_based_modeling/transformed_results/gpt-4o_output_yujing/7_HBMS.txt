@@ -1,0 +1,10 @@
+Enumerations:
+RoomType(Single, Double, Twin)
+
+Classes:
+Traveller()
+Booking()
+Hotel()
+Room()
+Offer()
+CreditCard()

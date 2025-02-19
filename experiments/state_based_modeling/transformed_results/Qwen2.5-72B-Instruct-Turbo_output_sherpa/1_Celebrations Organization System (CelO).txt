@@ -1,0 +1,16 @@
+Enumerations:
+AttendanceStatus(Attending, Maybe, NotAttending)
+
+Classes:
+Person()
+Organizer()
+Attendee()
+Event()
+Task()
+Location()
+Invitation()
+EventManager()
+manageEvent()
+TaskManager()
+markTaskAsDone()
+assignTaskToAttendee()

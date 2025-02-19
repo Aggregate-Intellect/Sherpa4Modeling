@@ -1,0 +1,8 @@
+HotelBookingManagementSystem()
+Traveller()
+Hotel()
+Room()
+Booking()
+enum RoomType(Single, Double, Twin)
+enum PaymentType(PrePaid, PaidAtHotel)
+enum BookingStatus(Confirmed, Cancelled)

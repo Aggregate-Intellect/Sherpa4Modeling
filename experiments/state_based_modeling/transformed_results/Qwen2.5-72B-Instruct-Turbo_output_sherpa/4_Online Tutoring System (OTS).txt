@@ -1,0 +1,10 @@
+Enumerations:
+
+
+Classes:
+Person()
+Student()
+Tutor()
+Subject()
+TimeSlot()
+TutoringSession()

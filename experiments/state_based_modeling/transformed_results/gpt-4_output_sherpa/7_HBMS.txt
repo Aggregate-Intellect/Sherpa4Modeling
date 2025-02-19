@@ -1,0 +1,12 @@
+Enumerations:
+
+
+Classes:
+HBMS()
+BusinessTraveller()
+AccommodationDeal()
+Hotel()
+Room()
+Booking()
+SpecialOffer()
+Confirmation()

@@ -1,0 +1,16 @@
+Enumerations:
+HotelRating()
+RoomType()
+PaymentMethod()
+BookingStatus()
+TravelPreference()
+BookingType()
+
+Classes:
+Hotel()
+Traveller()
+Booking()
+HotelChain()
+City()
+Address()
+CreditCard()

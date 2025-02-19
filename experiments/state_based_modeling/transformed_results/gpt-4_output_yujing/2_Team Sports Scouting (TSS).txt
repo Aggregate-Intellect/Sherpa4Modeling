@@ -1,0 +1,18 @@
+Enumerations:
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+Classes:
+ScoutingSystem()
+Club()
+Role()
+HeadCoach()
+Role()
+Director()
+Role()
+Scout()
+Role()
+PlayerProfile()
+Player()
+ScoutingAssignment()
+ScoutingReport()
+Offer()

@@ -1,0 +1,21 @@
+Enumerations:
+RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)
+
+Classes:
+LabTracker()
+Doctor()
+PersonRole()
+Patient()
+PersonRole()
+Requisition()
+Test()
+Appointment()
+Lab()
+Result()
+Report()
+BusinessHours()
+Fee()
+Doctor()
+PersonRole()
+Patient()
+PersonRole()

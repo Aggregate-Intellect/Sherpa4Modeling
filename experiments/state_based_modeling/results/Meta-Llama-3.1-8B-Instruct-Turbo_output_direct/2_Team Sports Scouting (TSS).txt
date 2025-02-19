@@ -1,0 +1,20 @@
+Club
+HeadCoach
+Director
+Scout
+Player
+PlayerAttribute
+Position
+enum Recommendation 
+    (KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotGoodSigning)
+ScoutingAssignment
+ScoutingReport
+enum Position 
+    (GK, LB, RB, CB, ST, LW, RW, CAM, LCM, RCM, LB, DM) 
+TargetProfile
+
+HeadScout
+ScoutingResults
+ShortList
+SignedPlayer
+OfficialOffer

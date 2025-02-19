@@ -1,0 +1,16 @@
+Enumerations:
+
+
+Classes:
+SmartHome()
+Room()
+Device()
+SensorDevice()
+ActuatorDevice()
+AutomationRule()
+BooleanExpression()
+RelationalTerm()
+BasicBooleanOperator()
+ControlCommand()
+ControlCommandStatus()
+Timestamp()

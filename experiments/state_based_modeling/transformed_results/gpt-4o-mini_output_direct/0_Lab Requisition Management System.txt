@@ -1,0 +1,12 @@
+Enumerations:
+RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)
+TestStatus(Negative, Positive)
+
+Classes:
+LabTracker()
+Doctor()
+Patient()
+Test()
+Requisition()
+Lab()
+Appointment()

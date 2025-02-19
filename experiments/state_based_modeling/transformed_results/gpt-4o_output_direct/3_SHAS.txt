@@ -1,0 +1,18 @@
+Enumerations:
+DeviceStatus(Activated, Deactivated)
+CommandStatus(Requested, Completed, Failed)
+RuleStatus(Active, Deactivated)
+
+Classes:
+SmartHomeAutomationSystem()
+SmartHome()
+Room()
+SensorDevice()
+ActuatorDevice()
+SensorReading()
+ControlCommand()
+ActivityLog()
+AutomationRule()
+Precondition()
+Action()
+RuleTrigger()

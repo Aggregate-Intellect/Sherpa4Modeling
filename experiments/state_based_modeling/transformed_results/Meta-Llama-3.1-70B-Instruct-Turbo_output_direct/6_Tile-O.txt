@@ -1,0 +1,14 @@
+Enumerations:
+TileType(Regular, Action, HiddenStart)
+ActionCardType(ExtraTurn, ConnectTiles, RemoveConnection, MoveArbitrary, LoseTurn)
+
+Classes:
+Player()
+GameDesigner()
+GameBoard()
+Tile()
+ConnectionPiece()
+ActionCard()
+Deck()
+Die()
+PlayingPiece()

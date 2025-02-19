@@ -1,0 +1,12 @@
+Enumerations:
+GameMode(Admin, Play)
+BlockColor()
+GameStatus(Active, Paused, Ended)
+
+Classes:
+Game()
+Block()
+Level()
+Player()
+Admin()
+HallOfFame()

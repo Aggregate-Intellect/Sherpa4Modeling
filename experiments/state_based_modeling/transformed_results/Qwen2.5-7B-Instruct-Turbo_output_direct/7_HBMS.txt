@@ -1,0 +1,21 @@
+Enumerations:
+CrimeStatus(enum Solved, Pending, Unsolved)
+HotelChain()
+RoomType()
+BookingStatus()
+PaymentMethod()
+TravelPreference()
+
+Classes:
+Traveller()
+Hotel()
+Room()
+City()
+HotelChainAffiliation()
+Booking()
+PreliminaryBooking()
+FinalizedBooking()
+Payment()
+Note()
+CityArea()
+HotelRating()

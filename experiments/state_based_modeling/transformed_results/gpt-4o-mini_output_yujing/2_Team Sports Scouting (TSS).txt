@@ -1,0 +1,14 @@
+Enumerations:
+Recommendation(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notAGoodSigning)
+
+Classes:
+Employee()
+HeadCoach()
+Director()
+Scout()
+Player()
+Profile()
+Attribute()
+ScoutingAssignment()
+ScoutingReport()
+ShortList()

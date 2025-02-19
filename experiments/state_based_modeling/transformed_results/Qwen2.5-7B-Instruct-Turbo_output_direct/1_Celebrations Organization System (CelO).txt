@@ -1,0 +1,12 @@
+Enumerations:
+EventOccasion()
+EventLocationType()
+AttendeeStatus()
+TaskStatus()
+
+Classes:
+Organizer()
+Event()
+Invite()
+Task()
+Attendee()

@@ -1,0 +1,12 @@
+Enumerations:
+
+
+Classes:
+Game()
+Designer()
+Board()
+Player()
+Tile()
+Die()
+ActionCard()
+ActionTile()

@@ -1,0 +1,18 @@
+Enumerations:
+RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)
+
+Classes:
+LabTrackerSoftware()
+Doctor()
+Role()
+PrescribingTestRole()
+Patient()
+BookingAppointmentRole()
+Requisition()
+Test()
+TestGroup()
+Appointment()
+Lab()
+Fee()
+Result()
+Report()

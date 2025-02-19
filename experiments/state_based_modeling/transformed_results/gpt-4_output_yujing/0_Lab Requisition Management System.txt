@@ -1,0 +1,13 @@
+Enumerations:
+
+
+Classes:
+Doctor()
+Patient()
+Test()
+BloodTest()
+UltrasoundExamination()
+XRayExamination()
+Appointment()
+Lab()
+Requisition()

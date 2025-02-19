@@ -1,0 +1,14 @@
+Enumerations:
+
+
+Classes:
+Patron()
+BankAccount()
+CreditCardAccount()
+WireTransferAccount()
+ExpertiseLevel()
+Subject()
+Cancellation()
+TutoringRequest()
+TutoringSession()
+CancellationType()

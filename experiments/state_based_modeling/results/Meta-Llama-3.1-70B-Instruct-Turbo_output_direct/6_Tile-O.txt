@@ -1,0 +1,12 @@
+Player()
+GameDesigner()
+GameBoard()
+Tile()
+ConnectionPiece()
+ActionCard()
+Deck()
+Die()
+PlayingPiece()
+
+enum TileType(Regular, Action, HiddenStart)
+enum ActionCardType(ExtraTurn, ConnectTiles, RemoveConnection, MoveArbitrary, LoseTurn)

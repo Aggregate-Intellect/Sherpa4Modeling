@@ -1,0 +1,11 @@
+Enumerations:
+ActionCardType(RollDieForExtraTurn, ConnectTwoAdjacentTiles, RemoveConnectionPiece, MoveToArbitraryTile, LoseNextTurn)
+
+Classes:
+GameBoard()
+Tile()
+ConnectionPiece()
+ActionCard()
+Player()
+Die()
+ActionTile()
