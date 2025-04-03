@@ -1,0 +1,10 @@
+__pycache__
+**/.env
+**/files/*
+**/testing*
+**/dist/
+**/env
+**/.coverage
+**/db
+**.db
+.install.stamp

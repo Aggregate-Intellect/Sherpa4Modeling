@@ -1,0 +1,7 @@
+enum PlayerPosition(GK, LB, RB, CM, FW)
+
+enum PlayerRating(Low, Medium, High)
+
+enum PlayerRecommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+
+enum ScoutingReportStatus(NotStarted, InProgress, Completed)

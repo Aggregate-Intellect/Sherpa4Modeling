@@ -1,0 +1,13 @@
+enum TestType(Single, Group)
+
+enum TestRepetitionInterval(Weekly, Monthly, EveryHalfYear, Yearly)
+
+enum TestAvailability(WalkIn, AppointmentRequired)
+
+enum TestResult(Negative, Positive)
+
+enum TestStatus(New, Confirmed, Completed)
+
+enum LabStatus(Open, Closed)
+
+enum AppCancellationFeeStatus(Within24Hours, After24Hours)

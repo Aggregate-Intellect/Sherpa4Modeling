@@ -1,0 +1,15 @@
+========================================
+Hotel(string address, string city, int hotelRating, string chainName)
+Traveller(string name, string billingAddress, string companyName, string companyAddress, enum TravelPreference[] travelPreferences) 
+Room(int roomId, enum RoomType roomType, double costPerNight)
+Booking(int bookingId, Date arrival, Date departure, int numberOfRooms, Room room, double budget, boolean isPreliminary, boolean isConfirmed, Date cancellationDeadline, boolean confirmationStatus)
+Address(string street, int buildingNumber, string postalCode)
+CreditCard(string cardNumber, Date expirationDate)
+CancellationPolicy(Date cancellationDeadline, boolean isPenaltyApplied)
+Payment(enum PaymentMethod paymentMethod, Date paymentDate)
+SpecialOffer(double offerPrice, Date expirationDate, boolean isMandatory)
+BillingInformation(string companyName, string companyAddress)
+enum PaymentMethod(CreditCard, BankTransfer)
+enum RoomType(Single, Double, Twin)
+enum TravelPreference(BreakfastIncluded, FreeWifi, TwentyFourSevenFrontDesk)
+========================================

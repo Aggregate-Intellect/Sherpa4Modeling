@@ -1,0 +1,20 @@
+========================================
+User(string Username, string Password)
+Game(string Name, HallOfFame HallOfFame)
+Admin() inherit User
+Player() inherit User
+Block(int Point, string Color)
+Level(inherit Game) string LevelName, int NumberOfLevels, Grid GridDesign, bool IsRandom, int NumberOfBlocks, Speed Speed, Length PaddleLength, int MinSpeed, float SpeedIncreaseFactor, int MaxPaddleLength, int MinPaddleLength
+Grid(int Row, int Column)
+Ball()
+Paddle()
+Life()
+Confirmation()
+GameMode(Enum GameMode)
+Application()
+HallOfFame()
+LevelDesign()
+GameSession()
+Score()
+BlockCollection()
+========================================

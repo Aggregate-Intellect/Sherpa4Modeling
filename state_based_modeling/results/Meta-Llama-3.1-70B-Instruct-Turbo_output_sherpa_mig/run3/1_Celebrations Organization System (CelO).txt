@@ -1,0 +1,11 @@
+========================================
+Account(string username, string email, string password)
+Organizer(string firstName, string lastName, string address, string phoneNumber, string password, boolean isAdmin) inherit AccountRole
+Attendee(string firstName, string lastName, string email, string password) inherit Account
+SpecificEvent(string name, string description, Date startTime, Date endTime, string occasion, string location, Organizer eventOrganizer)
+Location(string name, string address)
+Invitation(InvitationStatus invitationStatus, Date invitationDate, Date responseDate)
+Task(string name, string description, TaskStatus taskStatus, boolean isDesignatedForAttendee)
+Attendance(Attendee attendee, AttendanceStatus attendanceStatus, Invitation invitation)
+Checklist(SpecificEvent event, List<Task> tasks, ChecklistStatus checklistStatus)
+========================================

@@ -1,0 +1,20 @@
+========================================
+enum Position(type GK, type LB, type ST)
+enum Recommendation(type KeyPlayer, type FirstTeamPlayer, type ReserveTeamPlayer, type ProspectivePlayer, type NotGoodSigning)
+enum Status(type Pending, type InProgress, type Completed)
+enum StatusTwo(type Pending, type Accepted, type Expired)
+Employee(string employeeId, string name, string role)
+Club(string clubName, string location, list<Employee> employees, list<TeamName> teams)
+Player(string playerId, string name, Position position, string marketValue)
+Profile(string profileId, Position position, string attributeName, string attributeValue)
+Report(string reportId, string reportName, boolean hasPros, boolean hasCons, Recommendation recommendation)
+Assignment(string assignmentId, string assignmentName, Status status)
+ScoutingAssignment(string scoutingAssignmentId, Employee scout, Assignment assignment)
+PlayerProfileMatch(string playerProfileMatchId, Player player, Profile profile)
+Offer(string offerId, string offerName, StatusTwo status)
+TeamName(string teamName)
+Employee(string employeeId, string name, string role) 
+Director() inherit Employee
+HeadCoach() inherit Employee
+Scout() inherit Employee
+========================================

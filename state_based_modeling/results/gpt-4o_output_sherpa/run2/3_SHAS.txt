@@ -1,0 +1,16 @@
+========================================
+SmartHomeAutomationSystem()
+User(string userEmail, string userId)
+SmartHome(string physicalAddress)
+Room(string name)
+abstract Device(string deviceIdentifier, string type)
+SensorDevice() inherit Device
+ActuatorDevice() inherit Device
+SensorReading(float value, string timestamp)
+ControlCommand(string command, string timestamp, string status)
+ActivityLog()
+AutomationRule(boolean isActive, string timestamp, BooleanExpression precondition, list<ControlCommand> actions)
+BooleanExpression()
+enum BooleanOperator(AND, OR, NOT)
+RuleHierarchy()
+========================================

@@ -1,0 +1,15 @@
+========================================
+Person(string name, string email, string uniqueId) 
+Tutor(string bankAccount, enum SubjectType[] subjects, enum LevelOfExpertise[] levels, float hourlyPrice, enum Day[] days, Time[] times) inherit Person 
+Student() inherit Person 
+enum Day(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) 
+enum SubjectType(Mathematics, Science, Literature) 
+enum LevelOfExpertise(PrimarySchoolLevel, HighSchoolLevel, UniversityLevel) 
+enum PaymentMethod(CreditCard, WireTransfer) 
+ScheduledSession(Date sessionDate, Time sessionTime, float hourlyPrice, boolean confirmed) 
+Payment(enum PaymentMethod paymentMethod, float amount, boolean paid, Date timestamp, string uniqueId) 
+Cancellation(Date date, Time time, boolean cancelledByStudent, string reason, string uniqueId) 
+BillingInformation(string bankAccount, string creditCard, Date expirationDate) 
+Request(Date date, Time time, enum SubjectType subject, enum LevelOfExpertise level, string uniqueId, string studentId) 
+enum SessionStatus(Confirmed, Pending, Cancelled)
+========================================

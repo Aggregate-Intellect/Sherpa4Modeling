@@ -1,0 +1,12 @@
+========================================
+Scout(string name, ScoutType scoutType)
+Player(string name, int age, Position position, List<Attribute> attributes)
+Attribute(string name, int value)
+Position(PositionLiteral positionLiteral)
+TargetProfile(Position position, List<Attribute> attributes, string description, List<Requirement> requirements)
+ScoutType(string type)
+ShortList(Player player, Date shortListDate)
+HeadCoach(string name, List<Scout> scouts)
+Requirement(string requirement)
+Director(string name, List<ShortList> shortLists)
+========================================

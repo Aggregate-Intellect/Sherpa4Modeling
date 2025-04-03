@@ -1,0 +1,19 @@
+enum PlayerStatus(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotASignature)
+
+enum TargetPosition(GK, LB, RB, CF, ST, DM, RM, CM, LM, GK, DEF, MID, FW)
+
+enum ReportRecommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotASignature)
+
+class Player()
+
+class ScoutingReport()
+
+class ScoutingAssignment()
+
+class DesignatedPlayerProfile()
+
+class HeadCoach()
+
+class Director()
+
+class Scout()

@@ -1,0 +1,18 @@
+========================================
+SmartHome(string physicalAddress)
+Room(string name) inherit SmartHome
+SensorDevice(string deviceId, string deviceType) inherit SmartHome
+ActuatorDevice(string deviceId, string deviceType) inherit SmartHome
+SensorReading(string deviceId, datetime timestamp, float value) inherit SmartHome
+ControlCommand(string deviceId, string command, datetime timestamp, string status) inherit SmartHome
+ActivityLog() inherit SmartHome
+AutomationRule(int id, BooleanExpression precondition, list Action action, bool isActive) inherit SmartHome
+Precondition(BooleanExpression expression) inherit AutomationRule
+Action(list ControlCommand commands) inherit AutomationRule
+BooleanExpression(list RelationalTerm terms) inherit SmartHome
+RelationalTerm(AtomicRelationalTerm left, BooleanOperator operator, AtomicRelationalTerm right) inherit BooleanExpression
+AtomicRelationalTerm(string type, string value) inherit BooleanExpression
+CommandStatus(string status)
+BooleanOperator(string operator)
+Owner(string username, string email)
+========================================

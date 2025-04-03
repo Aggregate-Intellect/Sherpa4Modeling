@@ -1,0 +1,12 @@
+========================================
+Employee(string id, string name, string role)
+Club(string name, string location, string establishmentDate)
+Player(string id, string name, string positionType, date stats, string performance)
+ScoutingAssignment(string id, date startTime, date endTime, string details)
+Assignment(string id, date startTime, date endTime, string details)
+Report(string id, string content, date createdTime, string recommendation, string reportDetails, string ratings)
+ShortList(string id, date createdTime, string listDetails)
+Team(string id, string name, string teamStats, string performance)
+Contract(string id, string playerID, string contractDuration, string salary)
+ScoutingProcess(string id, string playerID, string scoutingAssignments, string reports)
+========================================

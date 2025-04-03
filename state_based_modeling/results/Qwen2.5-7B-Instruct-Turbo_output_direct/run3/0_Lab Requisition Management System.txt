@@ -1,0 +1,11 @@
+enum TestGroup(Blood, Ultrasound)
+
+enum TestType(BloodTest, XRay, Ultrasound, UrineTest, StoolTest)
+
+enum TestStatus(Negative, Positive)
+
+enum RequisitionType(OneTime, Repeated)
+
+enum AppointmentStatus(Confirmed, Changed, Canceled)
+
+enum DayOfWeek(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)

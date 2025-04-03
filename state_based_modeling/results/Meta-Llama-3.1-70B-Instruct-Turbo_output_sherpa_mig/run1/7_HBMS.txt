@@ -1,0 +1,20 @@
+========================================
+enum BookingType(preliminary, regular)
+enum PaymentType(prepaid, atHotel)
+enum CancellationStatus(cancelled, notCancelled)
+enum RoomType(single, double, twin)
+enum ReliabilityRating(veryLow, low, medium, high, veryHigh)
+enum Status(confirmed, notConfirmed)
+Party(string name, Address address)
+Traveller(string preferences, Address address, Company company) inherit Party
+Hotel(string name, string location, int rating, string chainName) inherit Party
+Company(string name) inherit Party
+Address(string street, string city, string zipCode, string country)
+Room(int number, RoomType type, double costPerNight)
+Booking(BookingType type, PaymentType paymentType, CancellationStatus cancelled, double cancellationCost, Date deadline, int hotelRating, Date dateOfArrival, Date dateOfDeparture)
+PreliminaryBooking(ReliabilityRating reliabilityRating) inherit Booking
+ConfirmedBooking() inherit Booking
+CreditCard(string number, Date expirationDate, int securityCode)
+Cancellation(CancellationStatus status, double cancellationCost, Date deadline, boolean hasPenalty, Status status)
+Search(Date dateOfArrival, Date dateOfDeparture, int numberOfRooms, RoomType roomType, int hotelRating, double budget, string preferences)
+========================================

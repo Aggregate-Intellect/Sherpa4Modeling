@@ -1,0 +1,17 @@
+========================================
+User(Username username)
+Player(Lives count, Score value)
+Admin() inherit Player
+Game(Name name, HallOfFame hallOfFame, List<Level> levels, List<Block> blocks, int speed, int speedIncreaseFactor)
+Block(Color color, int points)
+Level(Grid startingArrangement, int number, int numberOfBlocks, int speed, int speedIncreaseFactor, int max_length, int min_length)
+Wall(WallType type)
+Paddle(Position position)
+Score(int value)
+Lives(int count)
+GameSession() inherit Game(CurrentLevel number, CurrentScore value, CurrentLives count)
+Save() inherit GameSession()
+HallOfFame() Entries entries
+WallType()
+Grid() Cells cells
+========================================

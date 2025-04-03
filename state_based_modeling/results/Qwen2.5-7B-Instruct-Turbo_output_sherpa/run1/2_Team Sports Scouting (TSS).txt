@@ -1,0 +1,17 @@
+========================================
+abstract Profile()
+Player(name string, value value) inherit Profile()
+Target(position position, value value) inherit Profile()
+Attribute(name string, value value)
+recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotASigning)
+position(GK, LB, RB, CM, FW, DF, Midfielder, Forward)
+value(Excellent, Good, Average, NeedsImprovement)
+TeamSportsScoutingSystem()
+headCoach()
+director()
+club()
+scout()
+scoutingReport(pros string, cons string, recommendation recommendation)
+ScoutAssignment() inherit scout, player
+ShortList() inherit headCoach, player
+========================================

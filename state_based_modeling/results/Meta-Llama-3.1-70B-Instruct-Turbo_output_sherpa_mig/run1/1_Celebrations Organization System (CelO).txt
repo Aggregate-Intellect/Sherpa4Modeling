@@ -1,0 +1,12 @@
+========================================
+People(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password, boolean isOrganizer, boolean isAttendee)
+Location(string locationType, string name, string address)
+Event(string type, date startTime, date endTime, string occasion, Location location, Task[] tasks)
+Task(string name, boolean isCompleted, boolean isApplicable, Attendee assignedTo, boolean isDesignatedToAttendee)
+Invitation(string replyStatus, boolean isAttending, boolean isMaybeAttending)
+Account(string username, string password)
+Organizer() inherit People
+Attendee() inherit People
+Attendee(People person, Invitation[] invitations, Task[] tasks)
+Organizer(People person, Event[] events, Invitation[] invitations)
+========================================

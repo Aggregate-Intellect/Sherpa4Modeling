@@ -1,0 +1,11 @@
+========================================
+Person(string name, string email, string address, string phoneNumber, string postalAddress, string password)
+Organizer(string name, string email, string address, string phoneNumber, string postalAddress, string password, string organizerId) inherit Person
+Attendee(string name, string email, string address, string phoneNumber, string postalAddress, string password, string attendeeId) inherit Person
+EventType(string name)
+Event(string name, Date startDate, Time startTime, Date endDate, Time endTime, string occasion, string location, EventType eventType)
+Task(string name, string description, TaskStatusEnum taskStatus)
+Location(string name, string address)
+Account(string email, string password)
+Invitation(string email, InvitationStatusEnum invitationStatus)
+========================================

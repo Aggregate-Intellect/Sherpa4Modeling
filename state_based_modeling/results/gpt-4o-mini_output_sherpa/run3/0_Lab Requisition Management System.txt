@@ -1,0 +1,12 @@
+========================================
+LabTracker()
+abstract Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, string digitalSignature, date signatureDate) inherit Role()
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) inherit Role()
+Requisition(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber, date validFrom, string testGroup, int repeatCount, Interval interval)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
+Test(string testName, int duration, boolean requiresAppointment, boolean requiresSampleDropOff)
+Lab(string address, BusinessHours businessHours, float fee)
+Report(string results)
+BusinessHours(time startTime, time endTime)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+========================================

@@ -1,0 +1,13 @@
+========================================
+Game(string designerName, int numberOfPlayers, string currentTurn, boolean isGameActive, int spareConnectionCount, list<ActionCard> deck)
+Tile(int tileX, int tileY, string color, boolean isVisited, boolean isHidden)
+ActionTile(int actionTileX, int actionTileY, int actionDuration) inherit Tile
+ConnectionPiece(int connectionX, int connectionY, string direction)
+Board(int boardWidth, int boardHeight)
+ActionCard(enum ActionCardType actionType)
+enum ActionCardType(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)
+Die(int dieValue)
+PlayingPiece(string pieceColor, int pieceX, int pieceY)
+Player(string playerName, string playerColor, boolean hasWon, int startPositionX, int startPositionY, int currentPositionX, int currentPositionY)
+Turn(int turnNumber, string currentPlayer, int dieValue)
+========================================

@@ -1,0 +1,13 @@
+enum EventKind()
+enum EventStatus()
+enum AttendeeResponse()
+enum TaskStatus()
+enum TaskAssignment()
+enum LocationType()
+
+ Organizer()
+ Event()
+ Location()
+ Invitation()
+ Attendee()
+ Task()

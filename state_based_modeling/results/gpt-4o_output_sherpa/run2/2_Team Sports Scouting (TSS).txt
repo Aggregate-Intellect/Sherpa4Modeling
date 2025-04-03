@@ -1,0 +1,17 @@
+========================================
+```plaintext
+Employee(string name, string role)
+Club(string name)
+HeadCoach(string name) inherit Employee
+Director(string name) inherit Employee
+Scout(string name) inherit Employee
+PlayerProfile(string targetPosition, string attributeName, string attributeValue)
+Player(string name, int age, string position)
+LongList()
+ScoutingAssignment(string playerName, date assignmentDate)
+ScoutingReport(string playerName, string pros, string cons, Recommendation recommendation)
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+ShortList()
+Offer(date offerDate, string status)
+```
+========================================

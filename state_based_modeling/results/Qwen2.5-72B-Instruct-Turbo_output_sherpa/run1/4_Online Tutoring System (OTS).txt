@@ -1,0 +1,13 @@
+========================================
+Person(string name, string emailAddress)
+abstract Role()
+Student() inherit Role()
+Tutor(string bankAccount) inherit Role()
+TutorSubject(SubjectName subjectName, LevelOfExpertise levelOfExpertise, double hourlyPrice)
+TutoringSession(date targetDate, time targetTime, boolean isConfirmed, boolean isCancelled, boolean isStudentCancelled, boolean isTutorCancelled, time cancellationTime, double price, double discount, PaymentMethod paymentMethod)
+AvailabilitySlot(DayOfWeek dayOfWeek, time startTime, time endTime)
+enum SubjectName(Mathematics, Science, Literature)
+enum LevelOfExpertise(PrimarySchoolLevel, HighSchoolLevel, UniversityLevel)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum DayOfWeek(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+========================================

@@ -1,0 +1,32 @@
+========================================
+```
+OnlineTutoringSystem()
+Player(string name, string emailAddress)
+abstract Role()
+Student() inherit Role()
+Tutor(string bankAccount) inherit Role()
+Subject(string subjectName)
+Expertise(string level, string subjectName, float hourlyPrice)
+TutoringSession(date sessionDate, time sessionTime)
+Availability(string dayOfWeek, time startTime, time endTime)
+TutoringRequest(date targetDate, time targetTime, string level)
+Payment(string paymentMethod)
+Cancellation(boolean isCancelled, float penaltyAmount)
+Discount(float discountPercentage)
+abstract Level()
+PrimarySchool() inherit Level
+HighSchool() inherit Level
+University() inherit Level
+abstract PaymentMethod()
+CreditCard() inherit PaymentMethod
+WireTransfer() inherit PaymentMethod
+abstract DayOfWeek()
+Monday() inherit DayOfWeek
+Tuesday() inherit DayOfWeek
+Wednesday() inherit DayOfWeek
+Thursday() inherit DayOfWeek
+Friday() inherit DayOfWeek
+Saturday() inherit DayOfWeek
+Sunday() inherit DayOfWeek
+```
+========================================

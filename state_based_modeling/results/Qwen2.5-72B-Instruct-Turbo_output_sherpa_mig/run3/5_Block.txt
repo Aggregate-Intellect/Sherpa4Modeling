@@ -1,0 +1,14 @@
+========================================
+User(string username, string password, boolean isAdmin, boolean isPlayer)
+Game(string gameName, int minSpeed, int speedIncreaseFactor, int maxLength, int minLength, list hallOfFame)
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int blockCount, boolean isConfirmed, list grid)
+Ball(int speed, int direction)
+Paddle(int length, int positionX, int positionY)
+PlayArea(int width, int height)
+Life(int count)
+Score(int totalScore)
+Session(string playerUsername, string gameName, int levelNumber, boolean isPaused, int lives, int score)
+HighScoreEntry(string playerUsername, int score)
+enum Direction(Up, Down, Left, Right)
+========================================

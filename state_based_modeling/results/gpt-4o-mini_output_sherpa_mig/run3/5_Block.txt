@@ -1,0 +1,13 @@
+========================================
+DestroyBlockApplication()
+abstract User(string username, string password)
+Admin(string username, string password) inherit User
+Player(string username, string password, int lives, int score, string mode) inherit User
+Game(string name, Admin admin, HallOfFame hallOfFame, List<Block> blocks, List<Level> levels, int maxLevels)
+Block(string color, int points)
+Level(int levelNumber, List<Block> arrangement, boolean isRandom)
+Ball(int speed, String direction)
+Paddle(int length)
+HallOfFame(List<Player> highScores)
+enum GameMode(PlayMode, AdminMode)
+========================================

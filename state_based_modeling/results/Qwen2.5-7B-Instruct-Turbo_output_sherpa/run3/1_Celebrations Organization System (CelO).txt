@@ -1,0 +1,8 @@
+========================================
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password, EventKind eventKind, date startTime, date endTime, string occasion, EventLocation location, CelO)
+Event(string kind, date startTime, date endTime, string occasion, EventLocation location, CelO)
+EventLocation(string name, string address, CelO)
+Attendee(string firstName, string lastName, string email, CelO)
+Task(string description, TaskStatus status, CelO)
+TaskStatus(string status)
+========================================

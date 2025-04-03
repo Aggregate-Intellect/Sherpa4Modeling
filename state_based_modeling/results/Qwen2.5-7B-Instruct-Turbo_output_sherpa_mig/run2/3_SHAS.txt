@@ -1,0 +1,20 @@
+========================================
+smartHome(string physicalAddress)
+room() inherit smartHome
+sensorDevice(sensorDeviceType type, deviceIdentifier identifier)
+temperatureSensor() inherit sensorDevice
+movementSensor() inherit sensorDevice
+actuatorDevice(actuatorDeviceType type, deviceIdentifier identifier)
+lightController() inherit actuatorDevice
+lockController() inherit actuatorDevice
+sensorReading(sensorDevice device, int measuredValue, timestamp timestamp)
+controlCommand(actuatorDevice actuator, controlCommandStatus status)
+activityLog() inherit smartHome
+automationRule(automationRuleStatus status)
+precondition(BooleanExpression)
+action(controlCommandSequence)
+owner() inherit smartHome
+sensorDeviceType
+actuatorDeviceType
+controlCommandStatus
+========================================

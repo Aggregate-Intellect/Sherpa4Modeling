@@ -1,0 +1,15 @@
+========================================
+Club(string name, string location)
+HeadCoach(string name, string email)
+Director(string name, string email)
+Scout(string name, string email)
+HeadScout(string name, string email)
+Player(string name, string position, string team)
+PlayerProfile(string targetPosition, string name, list<Attribute> attributes)
+Attribute(string name, int value)
+ScoutingAssignment(string assignmentDetails, Scout scout, list<Player> longList, list<Player> shortList)
+ScoutingReport(string pros, string cons, RecommendationType recommendation)
+OfficialOffer(string offerDetails, Player player, Club club)
+enum RecommendationType(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notGoodSigning)
+abstract Role()
+========================================

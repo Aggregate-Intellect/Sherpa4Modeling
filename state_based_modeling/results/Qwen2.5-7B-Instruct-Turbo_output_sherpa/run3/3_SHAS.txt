@@ -1,0 +1,13 @@
+========================================
+smartHome(string physicalAddress)
+room(string name, smartHome physicalAddress)
+device(string deviceIdentifier)
+sensorDevice(sensorDeviceType, device)
+actuatorDevice(actuatorDeviceType, device)
+sensorReading(sensorDevice, datetime timestamp, float value)
+controlCommand(actuatorDevice, string command, datetime timestamp, controlCommandStatus status)
+activityLog(sensorReading, controlCommand)
+automationRule(BooleanExpression precondition, sequence of controlCommand action, automationRuleStatus status, string owner)
+precondition(BooleanExpression term1, operation operation, BooleanExpression term2)
+controlCommandStatus(string requested, string completed, string failed)
+========================================

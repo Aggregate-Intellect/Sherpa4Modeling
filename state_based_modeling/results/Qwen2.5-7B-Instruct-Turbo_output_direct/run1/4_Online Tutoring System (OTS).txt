@@ -1,0 +1,12 @@
+enum TutoringSessionStatus()
+
+enum TutoringRequestStatus()
+
+enum SubjectLevel(PrimarySchool, HighSchool, University)
+
+enum TutoringCancelPolicy(StudentCancels, TutorCancels)
+
+class Tutor()
+class Student()
+class TutoringSession()
+class TutoringRequest()

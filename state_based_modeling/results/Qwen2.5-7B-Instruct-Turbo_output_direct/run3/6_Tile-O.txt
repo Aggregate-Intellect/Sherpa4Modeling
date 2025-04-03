@@ -1,0 +1,14 @@
+enum TileType(Regular, Hidden, Action)
+
+enum PlayerTurn(Player1, Player2, Player3, Player4)
+
+enum ActionCardType(RollForExtraTurn, ConnectTiles, RemoveConnectionPiece, MoveToTile, LoseNextTurn)
+
+GameBoard()
+Tile()
+ConnectionPiece()
+Player()
+PlayingPiece()
+ActionTile()
+ActionDeck()
+ActionCard()

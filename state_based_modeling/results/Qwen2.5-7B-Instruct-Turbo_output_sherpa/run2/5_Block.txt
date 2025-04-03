@@ -1,0 +1,13 @@
+========================================
+abstract User(Username, Password)
+Player(inherit User, Lives, PlayMode)
+Admin(inherit User)
+abstract Game(Name, HallOfFame)
+abstract Block(Color, Points)
+Level(inherit Game, LevelOrderingSequence)
+GameDesign(inherit Game, Grid, Trajectory, BlockSet)
+PlayArea(inherit Game, Wall[])
+Trajectory(Path)
+Score(Score)
+Account(inherit Player, Lives, Score)
+========================================

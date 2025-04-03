@@ -1,0 +1,10 @@
+========================================
+Doctor(string practitionerNumber, string fullName, string address, string phoneNumber, byte[] signature)
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+Requisition(int requisitionId, date validFrom, int repeatTimes, enum Interval interval, Patient patient, list<Test> tests)
+Test(string testName, string group, int duration, bool result, string reportText, string sampleType)
+Lab(string address, string name, string registrationNumber, list<BusinessHours> businessHours, decimal changeFee, decimal cancellationFee)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, Lab lab, Requisition requisition)
+BusinessHours(time startTime, time endTime)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+========================================

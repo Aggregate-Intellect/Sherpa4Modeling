@@ -1,0 +1,10 @@
+========================================
+Tutor(string name, string email, string bankAccount)
+TutorOffer(int price, string levelName, string subjectName, date availabilityStart, date availabilityEnd) inherit TutorOffer
+TutorRequest(date requestedDate, string levelName) inherit TutorRequest
+Session(int price, date availabilityStart, date availabilityEnd, string levelName, string subjectName) inherit TutorOffer, TutorRequest
+Cancellation(bool isStudentCancelled, date cancellationTime) inherit Session
+Student(string name, string email) inherit Student
+Payment(float amount, string status, string mode) inherit Payment
+FollowUpRequest(date requestedDate, string levelName) inherit FollowUpRequest
+========================================

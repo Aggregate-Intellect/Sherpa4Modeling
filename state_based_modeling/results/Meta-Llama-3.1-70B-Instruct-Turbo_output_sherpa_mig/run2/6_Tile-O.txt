@@ -1,0 +1,26 @@
+========================================
+enum PieceColor(Red, Blue, Green, Yellow)
+Game(string gameName, Tile hiddenTile, Designer gameDesigner, Turn turn)
+Game() inherit GameComponent
+Designer(string name) 
+Designer() inherit GameComponent
+Player(string name, Piece piece, boolean hasWon)
+Player() inherit GameComponent
+Board(List<Tile> tiles, List<Connection> connections) 
+Board() inherit GameComponent
+Piece(PieceColor color, Tile currentTile) 
+Piece() inherit GameComponent
+Tile(string color, boolean isVisited, boolean isActionTile, boolean isHidden, int activationTurns) 
+Tile() inherit GameComponent
+enum Action{ RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn} 
+ActionCard(Action action, int turnsAffected)
+ActionCard() inherit GameComponent
+Connection(Tile leftTile, Tile rightTile) 
+Connection() inherit GameComponent
+Deck(List<ActionCard> actionCards) 
+Deck() inherit GameComponent
+Turn(int turnNumber, Player currentPlayer) 
+Turn() inherit GameComponent
+Die(int minRoll, int maxRoll, int currentRoll) 
+Die() inherit GameComponent
+========================================

@@ -1,0 +1,17 @@
+========================================
+```
+Person(string name, string emailAddress)
+Tutor(string bankAccount) inherit Person()
+Student() inherit Person()
+Subject(string name)
+Expertise(string level, string subject, double hourlyPrice)
+TutoringSession(date sessionDate, time sessionTime)
+Availability(string dayOfWeek, time startTime, time endTime)
+TutoringRequest(date targetDate, time targetTime, string level)
+Payment(string method)
+Cancellation(boolean isCancelled, double penalty)
+Discount(double percentage)
+enum SubjectName(Mathematics, Science, Literature)
+enum ExpertiseLevel(PrimarySchool, HighSchool, University)
+```
+========================================

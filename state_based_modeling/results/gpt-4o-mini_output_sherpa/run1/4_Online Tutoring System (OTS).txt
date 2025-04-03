@@ -1,0 +1,20 @@
+========================================
+OnlineTutoringSystem()
+Student(string name, string emailAddress)
+Tutor(string name, string emailAddress, string bankAccount)
+Subject(string name)
+Expertise(string level, string subject, float hourlyPrice)
+TutoringSession(date sessionDate, time sessionTime)
+Availability(string dayOfWeek, time startTime, time endTime)
+TutoringRequest(string level, date targetDate, time targetTime)
+Payment(string method)
+Cancellation(boolean isCancelled, float penalty)
+Discount(float percentage)
+abstract Level()
+PrimarySchool() inherit Level
+HighSchool() inherit Level
+University() inherit Level
+abstract PaymentMethod()
+CreditCard() inherit PaymentMethod
+WireTransfer() inherit PaymentMethod
+========================================

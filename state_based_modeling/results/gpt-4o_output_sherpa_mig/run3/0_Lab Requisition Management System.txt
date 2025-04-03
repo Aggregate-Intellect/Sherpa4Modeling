@@ -1,0 +1,14 @@
+========================================
+```  
+LabTracker()  
+abstract Person(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)  
+Doctor(int practitionerNumber, string signature) inherit Person  
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber) inherit Person  
+Requisition(string group, int repetitionNumber, RepetitionInterval repetitionInterval, date requisitionValidFrom, Doctor doctor, Patient patient, List<Test> tests)  
+Test(string group, int duration, boolean requiresAppointment, string testName)  
+Lab(string address, string registrationNumber, string name, string businessHours, int changeCancellationFee)  
+Appointment(date date, time startTime, time endTime, string confirmationNumber, Lab lab)  
+Report(boolean result, string reportDetails)  
+enum RepetitionInterval(Weekly, Monthly, HalfYearly, Yearly)  
+```  
+========================================

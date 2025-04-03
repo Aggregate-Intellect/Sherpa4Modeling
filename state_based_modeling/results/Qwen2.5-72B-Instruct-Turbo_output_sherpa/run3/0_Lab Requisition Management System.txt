@@ -1,0 +1,17 @@
+========================================
+Person(string fullName, string address, string phoneNumber, string healthNumber, date dateOfBirth)
+abstract Role()
+DoctorRole(int practitionerNumber, string digitalSignature) inherit Role
+PatientRole() inherit Role
+Requisition(int requisitionId, date validFrom, boolean repeat, int repeatCount, Interval interval, string doctorId, string patientId)
+BloodTestRequisition() inherit Requisition
+UltrasoundTestRequisition() inherit Requisition
+Test(string testName, int duration, string groupId, boolean isCombination, boolean requiresSample, boolean isWalkIn, boolean requiresAppointment)
+Lab(string labName, string address, string registrationNumber, time startTime, time endTime, int changeCancellationFee)
+Appointment(int appointmentId, string requisitionId, string labId, date appointmentDate, time startTime, time endTime, string confirmationNumber)
+Result(string resultValue, string requisitionId, string testId)
+Report(string reportText, string requisitionId, string testId)
+Sample(string sampleType, string requisitionId, string testId)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+TestGroup(string groupId, string groupName)
+========================================

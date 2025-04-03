@@ -1,0 +1,9 @@
+========================================
+PreliminaryBooking(boolean is_preliminary, float price, string city_area, HotelRating stars, TravelPreference key_preferences, string booking_identifier, Hotel hotel)
+FinalizedBooking(boolean is_preliminary, boolean is_confirmed, boolean is_prepaid, float price, string city_area, HotelRating stars, TravelPreference key_preferences, string booking_identifier, Hotel hotel)
+Traveller(string name, string billing_information, TravelPreference travel_preferences, ReliabilityRating reliability_rating)
+Hotel(string name, Address address, HotelRating rating, List<RoomType> room_types)
+City(string name, Address address)
+Address(string street, City city, string country)
+CreditCard(string card_number, string expiry_date, string cvv)
+========================================

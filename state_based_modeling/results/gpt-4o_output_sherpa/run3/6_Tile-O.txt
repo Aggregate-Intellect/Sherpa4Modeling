@@ -1,0 +1,14 @@
+========================================
+``` 
+TileOApplication()
+Game(int currentTurn, boolean isGameOver)
+Board(int width, int height)
+Player(string name, string color, int position)
+Tile(boolean isVisited, boolean isHidden, boolean isActionTile, int turnsToRegular)
+ActionCard(string description)
+Deck(int numberOfCards)
+enum Color(Red, Blue, Green, Yellow)
+Connection()
+GameState()
+```
+========================================

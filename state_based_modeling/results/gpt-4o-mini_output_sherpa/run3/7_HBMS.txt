@@ -1,0 +1,14 @@
+========================================
+Hotel(string name, string address, int rating, string city, string hotelChain)
+abstract Booking(string bookingIdentifier, date arrivalDate, date departureDate, PaymentMethodType paymentMethod, boolean isPrePaid, date cancellationDeadline)
+PreliminaryBooking() inherit Booking
+FinalizedBooking() inherit Booking
+Traveller(string name, string billingInformation, string companyName, string address, int reliabilityRating)
+AccommodationDeal(string price, string cityArea, int hotelRating, Preference preferences)
+Preference(boolean breakfastIncluded, boolean freeWifi, boolean frontDesk24_7)
+Room(RoomType type, int numberOfRooms)
+CompetitorHotel(string name, string offerDetails) inherit Hotel
+enum RoomType(Single, Double, Twin)
+enum PaymentMethodType(CreditCard, PayAtHotel)
+enum BookingStatus(Preliminary, Finalized, Cancelled)
+========================================

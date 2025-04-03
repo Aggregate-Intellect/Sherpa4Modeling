@@ -1,0 +1,15 @@
+========================================
+Player(string firstName, string lastName, string email, string password, string postalAddress, string phoneNumber)
+abstract Role()
+OrganizerRole() inherit Role
+AttendeeRole() inherit Role
+abstract Event(string occasion, Location location, string startDate, string startTime, string endDate, string endTime)
+BirthdayParty() inherit Event
+GraduationParty() inherit Event
+Task(string description, TaskStatus status, boolean isApplicable, boolean isForAttendees)
+Location(string name, string address)
+Invitation(ReplyStatus status)
+Checklist(List<Task> tasks)
+enum ReplyStatus(Accepted, Maybe, Declined)
+enum TaskStatus(ToDo, Done, NotApplicable)
+========================================

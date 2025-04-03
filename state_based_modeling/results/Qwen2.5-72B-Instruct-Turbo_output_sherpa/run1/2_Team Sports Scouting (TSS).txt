@@ -1,0 +1,18 @@
+========================================
+Person(string name, string email)
+abstract PersonRole()
+ScoutRole() inherit PersonRole
+HeadScoutRole() inherit PersonRole
+HeadCoachRole() inherit PersonRole
+DirectorRole() inherit PersonRole
+Team(string teamName, string teamLocation)
+Player(string playerName, Position playerPosition, Profile playerProfile, PlayerStatus playerStatus)
+Profile(string profileName, List<Attribute> attributes)
+Position(string positionName, string positionDescription)
+Attribute(string attributeName, int attributeValue)
+ScoutReport(string reportDetails, string pros, string cons, RecommendationType recommendation)
+ScoutingAssignment(string assignmentDetails, Player player, ScoutRole assignedScout, date assignmentDate)
+Offer(string offerDetails, date offerDate)
+enum PlayerStatus(LongList, ShortList, Signed, NotRecommended)
+enum RecommendationType(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotGoodSigning)
+========================================

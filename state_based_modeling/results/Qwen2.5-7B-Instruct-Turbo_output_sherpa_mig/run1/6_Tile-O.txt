@@ -1,0 +1,19 @@
+========================================
+Board()
+Tile()
+ConnectionPiece()
+Player()
+PlayingPiece()
+Die()
+ActionCard()
+Pile()
+TileType()
+ActionCardType()
+Direction()
+Abstract Designer() inherit Board
+Abstract HiddenTile() inherit Tile
+Abstract StartingPosition() inherit Tile
+Abstract ActionTile() inherit Tile
+Abstract Deck() inherit Pile
+Abstract SpareConnectionPiece() inherit ConnectionPiece
+========================================

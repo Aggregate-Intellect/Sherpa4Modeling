@@ -1,0 +1,15 @@
+========================================
+``` 
+Booking(string bookingIdentifier, float price, string cityArea, int hotelRating, string keyPreferences, date arrivalDate, date departureDate, int numberOfRooms, string roomType, float maxCostPerNight, boolean isPrePaid, date cancellationDeadline)
+PreliminaryBooking() inherit Booking
+FinalizedBooking() inherit Booking
+Hotel(string name, string address, int rating, string cityArea, string hotelChainName)
+Traveller(string name, string billingInformation, string companyName, string companyAddress, string travelPreferences, float reliabilityRating)
+Room(string type, int numberOfRooms, float costPerNight)
+SpecialOffer(float price, string cityArea, int hotelRating, string keyPreferences, date offerDeadline)
+CreditCard(string cardNumber, string cardHolderName, date expirationDate, int securityCode)
+Period(date startDate, date endDate)
+enum RoomType(Single, Double, Twin)
+enum BookingStatus(Preliminary, Finalized, Cancelled)
+```
+========================================

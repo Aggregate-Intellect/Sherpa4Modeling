@@ -1,0 +1,11 @@
+========================================
+User(string name, string emailAddress)
+abstract Role()
+StudentRole(list TutoringSession tutoringSessions) inherit Role()
+TutorRole(string bankAccount, map SubjectName hourlyPrices, list string weeklyAvailability, list SubjectName subjectsTaught) inherit Role()
+TutoringSession(user tutor, user student, date targetDate, time targetTime, boolean isConfirmed, boolean isCancelled, boolean isCancelledByStudent, boolean isCancelledByTutor, int cancellationHours, int sessionPrice, int discountPercentage)
+Payment(PaymentMethod paymentMethod, boolean isPaid)
+enum SubjectName(Mathematics, Science, Literature)
+enum LevelOfExpertise(PrimarySchoolLevel, HighSchoolLevel, UniversityLevel)
+enum PaymentMethod(CreditCard, WireTransfer)
+========================================

@@ -1,0 +1,16 @@
+========================================
+```plaintext
+SmartHomeAutomationSystem(string systemId, list<User> users, list<SmartHome> smartHomes)
+User(string userId, string userName, string role)
+SmartHome(string homeId, string physicalAddress, User owner, list<Room> rooms)
+Room(string roomId, string roomName, list<SensorDevice> sensors, list<ActuatorDevice> actuators)
+abstract Device(string deviceId, string deviceType)
+SensorDevice(string sensorType, string range) inherit Device
+ActuatorDevice(list<string> supportedCommands) inherit Device
+SensorReading(float measuredValue, string timestamp, string sensorId, string roomId)
+ControlCommand(string commandName, string timestamp, string status, string actuatorId)
+ActivityLog(string logId, list<SensorReading> sensorReadings, list<ControlCommand> controlCommands, list<AutomationRule> ruleTriggers)
+AutomationRule(string ruleId, boolean isActive, string precondition, list<ControlCommand> actions, list<AutomationRule> dependencies, list<AutomationRule> conflicts)
+enum BooleanOperator(AND, OR, NOT)
+```
+========================================

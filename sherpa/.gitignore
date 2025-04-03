@@ -1,0 +1,10 @@
+apps/slackbot/.env
+**/_build
+.env
+**/.env
+**/.env_backup
+**/.vscode/
+**/__pycache__
+*.db
+**/.venv
+**/log.txt

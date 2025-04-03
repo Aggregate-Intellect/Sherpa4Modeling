@@ -1,0 +1,13 @@
+TeamSportsScoutingSystem()
+Club()
+HeadCoach()
+Director()
+Scout()
+Player()
+PlayerProfile()
+PlayerAttribute()
+ScoutingAssignment()
+ScoutingReport()
+Recommendation()
+
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)

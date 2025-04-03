@@ -1,0 +1,22 @@
+========================================
+TeamSportsScoutingSystem(string name)
+Club(string name, string location)
+Profile(string description) [Abstract]
+PlayerProfile(PlayerPosition position, string description) inherit Profile
+DesignatedTargetProfile(PlayerPosition position, List<Attribute> attributes) inherit Profile
+HeadCoach(string name, string email)
+Director(string name, string email)
+Scout(string name, string email)
+Player(string name, PlayerPosition position, string team)
+Attribute(string name, string value)
+LongList(string name, string description)
+HeadScout(string name, string email)
+ScoutingAssignment(string name, string description, Scout scout)
+ScoutingReport(string pros, string cons, Recommendation recommendation)
+List(string name, string description) [Abstract]
+ShortList(string name, string description) inherit List
+OfficialOffer(string player, string terms, string status)
+PlayerPosition(GK, LB, RB, CB, DM, CM, LM, RM, AM, ST) [Enum]
+Recommendation(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notGoodSigning) [Enum]
+ScoutingRound(string name, string description)
+========================================

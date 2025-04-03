@@ -1,0 +1,17 @@
+========================================
+Game(int gameId, string gameName)
+Designer(string designerName)
+Board(int boardId, int width, int height)
+Tile(int tileId, string color, boolean visited, int xPosition, int yPosition)
+HiddenTile(boolean isHidden) inherit Tile
+StartingPosition(int startingPositionId, int xPosition, int yPosition)
+ActionTile(int actionTileId, int turnCount) inherit Tile
+Deck(int deckId, List<ActionCard> actionCards)
+ActionCard(int actionCardId, ActionDescription actionDescription)
+Die(int faceValue)
+PlayingPiece(int playingPieceId, string color, int xPosition, int yPosition)
+Player(int playerId, string playerName)
+Turn(int turnId, int playerId, int turnNumber)
+SpareConnectionPiece(int spareConnectionPieceId)
+enum ActionDescription(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)
+========================================

@@ -1,0 +1,7 @@
+enum EventKind()
+enum AttendStatus()
+organizer()
+event()
+location()
+attendee()
+task()

@@ -1,0 +1,14 @@
+========================================
+Person(string name, string emailAddress)
+Tutor(string name, string emailAddress, string bankAccountNumber, int hourlyPrice, string level, string[] availability) inherit Person
+Student(string name, string emailAddress) inherit Person
+enum Level { primarySchoolLevel, highSchoolLevel, universityLevel }
+enum PaymentMethod { creditCard, wireTransfer }
+enum SessionStatus { requested, confirmed, cancelled }
+enum DayOfWeek { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday }
+enum Subject { mathematics, science, literature }
+BankAccount(string accountNumber, string accountHolderName)
+Session(int sessionId, Subject subject, Tutor tutor, Student student, string level, string sessionDate, string sessionTime, SessionStatus sessionStatus)
+Request(string requestId, Subject subject, Tutor tutor, Student student, string level, string sessionDate, string sessionTime)
+AccountTransaction(string transactionId, Session session, int amount, PaymentMethod paymentMethod, boolean isPaid)
+========================================

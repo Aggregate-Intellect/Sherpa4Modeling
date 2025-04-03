@@ -1,0 +1,22 @@
+========================================
+Organizer(string firstName, string lastName, string email, string postalAddress, string phone, string password, EventType eventType, date startDate, date endDate, string occasion, string location)
+EventType
+BirthdayParty inherit EventType
+GraduationParty inherit EventType
+Wedding inherit EventType
+OtherEvent inherit EventType
+InvitationStatus(string status)
+Attending inherit InvitationStatus
+Maybe inherit InvitationStatus
+NotAttending inherit InvitationStatus
+Location(string name, string address)
+Task(string taskDescription)
+Birthday inherit Task
+Candles inherit Task
+Person(string firstName, string lastName)
+Account(string email)
+Invitation(Organizer organizer, string event, List<Person> attendees)
+Attendee(string firstName, string lastName, string email, Account account)
+EventList(Organizer organizer, List<Event>)
+CelO() inherit Event
+========================================

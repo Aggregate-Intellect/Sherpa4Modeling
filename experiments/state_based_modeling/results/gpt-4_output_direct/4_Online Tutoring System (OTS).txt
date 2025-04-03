@@ -1,7 +1,0 @@
-Tutor()
-Student()
-TutoringSession()
-Subject()
-Availability()
-Payment()
-enum LevelOfExpertise(PrimarySchool, HighSchool, University)

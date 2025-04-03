@@ -1,0 +1,11 @@
+========================================
+```plaintext
+CelOApplication()
+Event(string kind, date startDate, date endDate, string occasion, Location location, List<Task> tasks)
+abstract Person(string firstName, string lastName, string email, string password)
+Organizer(string postalAddress, string phoneNumber) inherit Person
+Attendee(InvitationStatus invitationStatus) inherit Person
+Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean notApplicable)
+Location(string name, string address)
+```
+========================================

@@ -1,0 +1,19 @@
+========================================
+Game(int id, string title)
+Designer(string name, string description)
+Player(string name, Piece piece)
+Tile(string type, bool connectedRight, bool connectedLeft, bool connectedTop, bool connectedBottom)
+Connection(string type, Tile tile1, Tile tile2)
+Die(int faces)
+Card(string type, Action action)
+Board(list<Tile> tiles)
+Piece(string color)
+Pile(list<Connection> connections)
+Turn(Player player, int number)
+HiddenTile(Tile tile)
+StartingPosition(Tile tile)
+ActionTile(Tile tile, int turnsToNormal)
+Deck(list<Card> cards)
+GameSession(Turn currentTurn, Board board, Deck deck, HiddenTile hiddenTile, list<ActionTile> actionTiles) inherit Game
+Action(ROLL_DIE, CONNECT_TILES, REMOVE_CONNECTION, MOVE_TO_TILE, LOSE_TURN)
+========================================

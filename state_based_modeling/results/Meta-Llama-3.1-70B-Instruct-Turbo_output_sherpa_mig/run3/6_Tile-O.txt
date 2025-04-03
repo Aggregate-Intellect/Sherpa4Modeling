@@ -1,0 +1,15 @@
+========================================
+GameDesigner(string name, int designerId)
+Game(string name, GameDesigner designer, Board board, List<Player> players, GameStatus status)
+GameStatus(active, paused, finished)
+Player(string playerName, string color, int playerId)
+Board(string layout, string gameType, int width, int height) 
+ActionCard(string description, string type) 
+Deck(int totalCards, int remainingCards)
+PlayingPiece(int playerId, int currentTile)
+Turn(int turnNumber, int currentPlayer, int lastRoll)
+Die(int faces, int lastRoll)
+Tile(int tileId, boolean isConnected, boolean isHidden, boolean isAction, string connections)
+ActionTile(string type, int turnsToRegular) inherit Tile
+Connection(string connectionType, int sourceTile, int targetTile)
+========================================

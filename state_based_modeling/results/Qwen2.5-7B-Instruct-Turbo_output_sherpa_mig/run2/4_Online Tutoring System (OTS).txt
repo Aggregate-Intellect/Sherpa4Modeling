@@ -1,0 +1,9 @@
+========================================
+Tutor(string name, string email, string bankAccount, Subject[] subjects, ExpertiseLevel[] expertise, int[] hourlyPrices, time[] weeklyAvailability) inherit Tutor
+Student(string name, string email, Subject[] requestedSubjects, ExpertiseLevel[] requestedExpertise, time[] requestedAvailability) inherit Student
+TutorProfile(string name, string email, string bankAccount, Subject[] subjects, ExpertiseLevel[] expertise, int[] hourlyPrices, time[] weeklyAvailability) inherit Tutor
+StudentProfile(string name, string email, Subject[] requestedSubjects, ExpertiseLevel[] requestedExpertise, time[] requestedAvailability) inherit Student
+TutoringSession(bool agreement, double price)
+TutoringRequest(string targetDate, time targetTime)
+TutoringCancellation(string reason, double discount)
+========================================

@@ -1,0 +1,12 @@
+========================================
+Location(string locationName, Address address)
+Address(string street, string city, string state, string zipCode)
+Event(string eventName, DateTime startDate, DateTime endDate, string occasion, string locationName, Address locationAddress, string eventKind)
+User(string firstName, string lastName, string email)
+Organizer(string phoneNumber, string password) inherit User
+Attendee(string attendance) inherit User
+Checklist(string checklistType)
+Task(string taskName, boolean isCompleted, boolean isOptional, boolean isDesignatedForAttendee)
+EventTask(string taskId, string eventId)
+AttendeeTask(string taskId, string attendeeId)
+========================================

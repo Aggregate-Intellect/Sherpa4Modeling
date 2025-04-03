@@ -1,8 +1,0 @@
-Enumerations:
-
-
-Classes:
-Position()
-ScoutingAssignment()
-ScoutingReport()
-PlayerProfileList()

@@ -1,0 +1,17 @@
+========================================
+Game(string name, boolean isActive, Player[] players, GameBoard board, GameDesigner createdBy)
+GameDesigner(string name, Game[] designedGames)
+ActionCard(string type, int turnsToDisable)
+Layout(string style)
+Tile(int x, int y, boolean isHidden, boolean isAction) inherit BoardComponent(string color)
+PlayingPiece(string color, Tile currentTile) inherit BoardComponent(string color)
+Connection(Tile source, Tile target, boolean isConnected)
+Die(int sides)
+Deck(ActionCard[] cards)
+GameBoard(int width, int height, string layoutStyle)
+Player(string name, boolean isActive, PlayingPiece piece)
+Turn(Player player, int rollResult, ActionCard[] actions)
+ActionCardType(string type)
+LayoutStyle(string type)
+GameHistory(Game game, GameDesigner designer, Player[] players, Turn[] turns)
+========================================

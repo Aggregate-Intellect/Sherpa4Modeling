@@ -1,0 +1,18 @@
+========================================
+OnlineTutoringSystem()
+Student(string name, string emailAddress)
+Tutor(string name, string emailAddress, string bankAccount)
+Subject(string name)
+Expertise(string level, string subject, float hourlyPrice)
+TutoringSession(date sessionDate, time sessionTime)
+Availability(string dayOfWeek, time startTime, time endTime)
+TutoringRequest(string targetDate, time targetTime)
+Payment(string method)
+abstract Cancellation(boolean isCancelled, float penalty)
+Discount(float percentage)
+enum Level(PrimarySchool, HighSchool, University)
+enum PaymentMethod(CreditCard, WireTransfer)
+abstract Role()
+StudentRole(string name, string emailAddress) inherit Role()
+TutorRole(string name, string emailAddress, string bankAccount) inherit Role()
+========================================

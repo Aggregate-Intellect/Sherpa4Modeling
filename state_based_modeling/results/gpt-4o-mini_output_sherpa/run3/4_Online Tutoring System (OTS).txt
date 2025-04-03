@@ -1,0 +1,17 @@
+========================================
+```
+OnlineTutoringSystem()
+Student(string name, string emailAddress)
+Tutor(string name, string emailAddress, string bankAccount)
+Subject(string name)
+Expertise(string level, string subject, float hourlyPrice)
+abstract TutoringSession(date sessionDate, time sessionTime)
+Availability(string dayOfWeek, time startTime, time endTime)
+TutoringRequest(date targetDate, time targetTime, string level)
+Payment(string method)
+Cancellation(boolean isCancelled, float penalty)
+Discount(float percentage)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum CancellationPolicy(StudentCancellation, TutorCancellation)
+```
+========================================

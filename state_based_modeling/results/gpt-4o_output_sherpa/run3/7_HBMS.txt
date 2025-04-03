@@ -1,0 +1,14 @@
+========================================
+```plaintext
+Hotel(string name, int rating, Address address, string hotelChain)
+Traveller(string name, string companyName, Address billingAddress, string travelPreferences, double reliabilityRating)
+Booking(string bookingId, date arrivalDate, date departureDate, int numberOfRooms, RoomType roomType, double maxCostPerNight, BookingStatus bookingStatus, date cancellationDeadline, boolean isPrePaid)
+Room(RoomType type, double pricePerNight, boolean isAvailable)
+SpecialOffer(double price, string cityArea, int hotelRating, string keyPreferences)
+CreditCard(string cardNumber, string cardHolderName, date expiryDate, int cvv)
+Address(string street, string city, string state, string postalCode, string country)
+enum RoomType(Single, Double, Twin)
+enum BookingStatus(Preliminary, Confirmed, Cancelled)
+Payment(double amount, string paymentMethod, string paymentStatus)
+```
+========================================

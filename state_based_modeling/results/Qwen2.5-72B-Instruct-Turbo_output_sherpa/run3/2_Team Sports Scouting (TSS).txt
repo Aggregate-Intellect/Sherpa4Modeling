@@ -1,0 +1,20 @@
+========================================
+Club(string name, string location)
+Employee(string name, string email)
+HeadCoach(string name, string email) inherit Employee
+Director(string name, string email) inherit Employee
+Scout(string name, string email) inherit Employee
+PlayerProfile(TargetPosition targetPosition, list[Attribute] attributes)
+TargetPosition(string positionCode, string positionName)
+Player(string name, string position, list[Attribute] attributes)
+Attribute(string name, string value)
+LongList(list[Player] players)
+HeadScout(string name, string email) inherit Employee
+ScoutingAssignment(string assignmentId, string playerId, string scoutId)
+ScoutingReport(string reportId, string assignmentId, string pros, string cons, Recommendation recommendation)
+enum Recommendation(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notGoodSigning)
+ShortList(list[Player] players)
+OfficialOffer(string offerId, string playerId, string clubId, string offerStatus)
+ClubEmployee(string clubId, string employeeId)
+PlayerScoutAssignment(string playerId, string assignmentId)
+========================================

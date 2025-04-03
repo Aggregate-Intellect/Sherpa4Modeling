@@ -1,0 +1,16 @@
+========================================
+User(string username, string email, string password, boolean isActive, int role)
+Device(string deviceId, string deviceType, boolean isActive, string deviceName, string deviceDescription)
+Sensor(string sensorType, string deviceName, string deviceDescription) inherit Device
+SensorReading(double measuredValue, Timestamp timestamp, Sensor sensor)
+Actuator(string actuatorType, string deviceName, string deviceDescription) inherit Device
+ActuatorStatus(boolean isOn, Timestamp timestamp, Actuator actuator)
+Home(string address, string homeId, string homeName, string homeDescription)
+Room(string roomId, string roomName, Home home, string roomDescription)
+Log(Timestamp timestamp, String logType, String status, double measuredValue, boolean isOn, Home home)
+AutomationRulePrecondition(String precondition, boolean isActive)
+AutomationRuleAction(String action, boolean isActive)
+Rule(AutomationRulePrecondition precondition, AutomationRuleAction action, boolean isActive, Timestamp lastTriggered, String ruleName, String ruleDescription)
+AutomationRuleDependency(Rule rule, Rule dependentRule)
+AutomationRuleConflict(Rule rule, Rule conflictingRule)
+========================================

@@ -1,0 +1,12 @@
+enum TileType()
+
+enum CardAction()
+enum GameStatus()
+
+class Game()
+class Board()
+class Tile()
+class Connection()
+class Player()
+class Die()
+class ActionCard()

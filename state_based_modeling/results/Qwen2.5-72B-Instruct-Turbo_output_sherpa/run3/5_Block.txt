@@ -1,0 +1,16 @@
+========================================
+User(string username, string password)
+abstract UserRole()
+Admin() inherit UserRole
+Player() inherit UserRole
+Game(string name, List<Score> hallOfFame)
+Block(string color, int points)
+Level(int number, Arrangement arrangement, int blockCount, int speed, float paddleLength)
+Ball(int speed)
+Paddle(float length)
+Life(int remainingLives)
+Score(int totalScore)
+Confirmation(bool isConfirmed)
+enum Arrangement(Fixed, Random)
+GameSession(Player player, Game game, Level currentLevel, Score score, Life remainingLives, bool isPaused)
+========================================

@@ -1,0 +1,6 @@
+Organizer()  
+Attendee()  
+Event()  
+Location()  
+Task()  
+enum AttendanceStatus(Attending, Maybe, NotAttending)

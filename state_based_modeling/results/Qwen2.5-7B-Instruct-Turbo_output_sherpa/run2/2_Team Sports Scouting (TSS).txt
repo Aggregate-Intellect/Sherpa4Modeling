@@ -1,0 +1,15 @@
+========================================
+User(string role)
+Scout(string name, int experience, string specialization) inherit User
+HeadCoach() inherit Scout
+Director() inherit Scout
+Player(string PlayerName, Date BirthDate, Position Position, int SkillLevel, string PerformanceHistory)
+Profile(Position Position, Attribute Attribute)
+ScoutingReport(string reportSummary, string pros, string cons, string recommendationType)
+Position(string code)
+Attribute(string name, int value)
+LongList(Player players[])
+ScoutingAssignment(string targetPlayer, Date startDate, Date endDate)
+ShortList(Player players[])
+DirectorOffer(Player players[])
+========================================

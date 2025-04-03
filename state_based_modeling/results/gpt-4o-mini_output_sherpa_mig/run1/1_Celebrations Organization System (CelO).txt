@@ -1,0 +1,13 @@
+========================================
+CelO()  
+abstract Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)  
+Event(string eventType, string occasion, string startDateTime, string endDateTime, string locationName, string locationAddress)  
+Attendee(string firstName, string lastName, string email, boolean isOrganizer)  
+Task(string description, string status, boolean isAssignedToAttendee)  
+Location(string name, string address)  
+Invitation(string status)  
+Checklist()  
+enum EventType(BirthdayParty, GraduationParty, Other)  
+enum InvitationStatus(Accepted, Maybe, Declined, NotResponded)  
+enum TaskStatus(NeedsToBeDone, Done, NotApplicable)  
+========================================

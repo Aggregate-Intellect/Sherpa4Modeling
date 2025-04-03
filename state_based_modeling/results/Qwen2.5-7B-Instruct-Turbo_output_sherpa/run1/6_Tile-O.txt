@@ -1,0 +1,19 @@
+========================================
+abstract Game(int boardSize)
+abstract Card(CardType type)
+abstract ActionTile(ActionTileType type)
+abstract Tile()
+HiddenTile() inherit Tile
+StartingTile() inherit Tile
+Connection() inherit Tile
+abstract Piece(Color color)
+abstract Player(string name)
+abstract Designer(string name)
+Die()
+abstract ActionCard() inherit Card
+Deck() inherit ActionCard
+abstract Turn() inherit Player
+GameBoard() inherit Tile, ActionTile, Piece, Turn
+Game() inherit GameBoard, Player, Turn
+GameSession() inherit Game, Turn
+========================================

@@ -1,0 +1,12 @@
+========================================
+Practitioner(string practitionerNumber, string name, string address, string phoneNumber, string digitalSignature)
+Patient(string healthNumber, string firstName, string lastName, Date dateOfBirth) inherit Practitioner
+Test(string testName, int duration, string groupName)
+Requisition(int requisitionId, Date validFromDate, Practitioner doctor, Patient patient, Test test, RepetitionPattern repetitionPattern, int repetitionCount)
+Lab(string labName, string address, Time dailyStartTime, Time dailyEndTime, decimal changeFee)
+Appointment(Date appointmentDate, Time startTime, Time endTime, Lab lab, Requisition requisition)
+TestResult(string result, boolean isPositive, string report)
+AppointmentConfirmation(int confirmationNumber, Date appointmentDate, Time startTime, Time endTime, Lab lab)
+Fee(decimal feeAmount, FeeType feeType)
+RepetitionPattern(string pattern, Date interval)
+========================================

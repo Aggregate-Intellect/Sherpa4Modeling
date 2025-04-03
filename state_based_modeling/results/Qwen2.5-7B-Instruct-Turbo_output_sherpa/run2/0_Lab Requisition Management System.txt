@@ -1,0 +1,10 @@
+========================================
+Requisition(int practitionerNumber, string signature, string fullName, string address, string phoneNumber, string healthNumber, string firstName, string lastName, string dateOfBirth, string startDate, Test[] tests, RepetitionPattern repetitionPattern)
+Patient(string healthNumber, string firstName, string lastName, string address, string phoneNumber)
+Doctor(string practitionerNumber, string signature, string fullName, string address, string phoneNumber)
+Test(string testType, TestDurationType testDurationType, IntervalType intervalType)
+Lab(string labAddress, string businessHours, string labRegistrationNumber)
+Appointment(string confirmationNumber, string labRegistrationNumber, string startDate, string startTime, string endTime)
+Result(string testType, string result, string report)
+LabBusinessHours(string labAddress, string businessHours)
+========================================

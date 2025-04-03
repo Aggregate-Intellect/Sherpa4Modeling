@@ -1,0 +1,11 @@
+enum AutomationRuleStatus(Active, Deactivated)
+
+enum AutomationRulePreconditionOperator(AND, OR, NOT)
+
+enum DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+
+enum CommandStatus(Requested, Completed, Failed)
+
+enum SensorReadingType(Temperature, Humidity, Light, Motion)
+
+enum RoomType(LivingRoom, Kitchen, Bathroom, Bedroom)

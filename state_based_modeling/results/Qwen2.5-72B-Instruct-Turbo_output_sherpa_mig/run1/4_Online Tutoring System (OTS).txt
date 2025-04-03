@@ -1,0 +1,16 @@
+========================================
+Person(string name, string email)
+Role()
+StudentRole(string studentId) inherit Role()
+TutorRole(string bankAccount, string tutorId) inherit Role()
+Subject(string name, SubjectLevel level)
+SubjectPrimary() inherit Subject
+SubjectHigh() inherit Subject
+SubjectUniversity() inherit Subject
+SubjectOffer(Subject subject, double hourlyPrice, List<TimeSlot> weeklyAvailability)
+TutoringSession(date targetDate, time targetTime, Subject subject, string tutorEmail, string studentEmail, boolean isConfirmed, boolean isCancelled, int hoursBeforeCancellation, double studentPenalty, double tutorDiscount)
+Payment(PaymentMethod paymentMethod, double amount)
+enum SubjectLevel(Primary, High, University)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum TimeSlot(time startTime, time endTime)
+========================================

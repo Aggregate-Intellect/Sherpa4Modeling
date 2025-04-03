@@ -1,0 +1,9 @@
+========================================
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password, string eventID)
+Attendee(string firstName, string lastName, string email, string password, string eventID, InvitationStatus invitationStatus)
+Event(string kind, date startDate, time startTime, date endDate, time endTime, string occasion, Location location)
+Task(string description, boolean isDone, boolean isApplicable, boolean isForAttendee)
+Location(string name, string address)
+Invitation(InvitationStatus status, string email)
+enum InvitationStatus(Accepted, Maybe, Declined, NotReplied)
+========================================

@@ -1,0 +1,12 @@
+========================================
+Organizer(string firstName, string lastName, string email, string address, string phoneNumber, string password)
+Attendee(string firstName, string lastName, string email, string password)
+Event(string occasion, Date startTime, Date endTime, string locationName, string locationAddress, EventKindType eventKind, Location locationAddressEnum, string systemDate)
+Location(string locationName, string locationAddress)
+Invitation(InvitationStatus invitationStatusEnum, Date invitationDate)
+Task(string taskName, boolean isApplicable, boolean isDone, boolean isDesignated, TaskStatus taskStatusEnum)
+Checklist(string checklistType, EventKindType subjectEnum)
+enum EventKindType(BirthdayParty, GraduationParty)
+enum InvitationStatus(Attending, MaybeAttending, NotAttending)
+enum TaskStatus(NeedsToBeDone, Done, NotApplicable)
+========================================

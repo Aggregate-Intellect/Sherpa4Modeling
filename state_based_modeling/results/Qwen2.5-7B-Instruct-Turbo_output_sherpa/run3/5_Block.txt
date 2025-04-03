@@ -1,0 +1,14 @@
+========================================
+User(string username, string password)
+Game(string name, int minimumSpeed, int speedIncreaseFactor, int maximumLength, int minimumLength)
+Block(enum Color color, int points)
+Level(int levelNumber)
+HallOfFame()
+GameSession(enum Status status)
+GameDesign(enum DesignMode mode)
+Paddle(position, movement)
+LevelDesign(levelNumber, blocks, randomMode)
+Score(totalScore)
+Life(livesRemaining)
+BlockDistribution() inherit LevelDesign
+========================================

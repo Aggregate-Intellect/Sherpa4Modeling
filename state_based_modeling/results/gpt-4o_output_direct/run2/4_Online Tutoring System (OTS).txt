@@ -1,0 +1,7 @@
+Tutor()  
+Student()  
+TutoringSession()  
+Subject()  
+Availability()  
+enum ExpertiseLevel(PrimarySchool, HighSchool, University)  
+enum PaymentMethod(CreditCard, WireTransfer)

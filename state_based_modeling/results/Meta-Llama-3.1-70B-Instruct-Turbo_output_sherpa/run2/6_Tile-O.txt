@@ -1,0 +1,21 @@
+========================================
+Application(string name)
+Game(boolean isStarted)
+Designer()
+Board(int width, int height, string layout)
+Player(string name, string color)
+Turn(Player player, ActionCard action, Tile outcome)
+GameStatus(Game game, Turn currentTurn, Player winner)
+PlayerStatus(Player player, Tile currentTile)
+Tile(string color, int xCoordinate, int yCoordinate, boolean isVisited)
+ActionTile(int turnsToConvert) inherit Tile
+Die(int sides)
+ 
+Connection(string type, Tile destination)
+ActionChoices(string action)
+ActionCard(string instruction, int turnsToExecute)
+Deck(int capacity, int remainingCards)
+Side(string side)
+Role(string role)
+Color(string color)
+========================================

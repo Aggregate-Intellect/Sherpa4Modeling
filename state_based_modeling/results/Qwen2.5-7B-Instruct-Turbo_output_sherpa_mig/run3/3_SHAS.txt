@@ -1,0 +1,24 @@
+========================================
+SmartHomeAutomationSystem()
+SmartHome(Address address, List[Room] rooms, List[Device] devices, List[AutomationRule] automationRules, ActivityLog activityLog)
+Room(string name, List[Device] devices)
+Device(DeviceIdentifier deviceID)
+Sensor(string sensorType, ActualTemperature actualReading)
+Actuator(string actuatorType)
+AutomationRuleStatus(Enum status)
+CommandStatus(Enum status)
+RuleRelationshipType(Enum relationship)
+AutomationRule(Precondition precondition, Action action, AutomationRuleStatus status, RuleRelationshipType relationshipType, List[Device] affectedDevices, TimeStamp lastTriggered)
+ControlCommand(string command, CommandStatus status)
+ActivityLog(List[ControlCommand] commands)
+Precondition(Condition condition)
+Action(List[ControlCommand] commands)
+TemperatureSensor(string sensorType, ActualTemperature actualTemperature) inherit Sensor
+MovementSensor(string sensorType) inherit Sensor
+LightController(string actuatorType, CommandStatus status) inherit Actuator
+LockController(string actuatorType, CommandStatus status) inherit Actuator
+ActualTemperature(float value, TimeStamp timestamp) inherit SensorReading
+SensorReading(float value, TimeStamp timestamp)
+Condition() inherit Precondition
+Time() inherit Precondition
+========================================

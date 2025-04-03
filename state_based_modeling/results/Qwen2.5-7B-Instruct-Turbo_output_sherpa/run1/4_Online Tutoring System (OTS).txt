@@ -1,0 +1,9 @@
+========================================
+Tutor(string bankAccount, List<string> subjects, Dictionary<Level, float> prices, Dictionary<Level, List<string>> availability)
+Student(string email, string name)
+Level(Enum PRIMARY, Enum HIGH_SCHOOL, Enum UNIVERSITY)
+Subject(Enum MATHEMATICS, Enum SCIENCE, Enum LITERATURE)
+TutoringSession(Date date, Time time, Tutor tutor, Student student, Level level, float price)
+TutoringRequest(Date date, Time time, Tutor tutor, Student student, Level level, float price)
+Cancellation(string reason)
+========================================

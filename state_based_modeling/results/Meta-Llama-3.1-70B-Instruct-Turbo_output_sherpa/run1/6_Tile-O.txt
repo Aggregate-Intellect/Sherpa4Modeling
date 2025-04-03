@@ -1,0 +1,27 @@
+========================================
+Game(boolean isStarted, int currentTurn, string designerName)
+GameConfiguration(int boardWidth, int boardHeight, int numberOfPlayers)
+Board(int width, int height)
+GameBoard(int width, int height) inherit Board
+Tile(int x, int y, boolean isHidden, boolean isAction, boolean isVisited, int color)
+ActionTile(int x, int y, boolean isHidden, boolean isAction, boolean isVisited, int color) inherit Tile
+ConnectionPiece(boolean isConnected)
+ConnectedConnectionPiece(boolean isConnected, Tile connectedTile)
+PlayingPiece(int color, int playerNumber, int currentTileX, int currentTileY)
+Player(string name, int playerNumber)
+Die(int numberOfSides)
+ActionCard(int actionType, int actionValue, int actionTileTurns)
+Deck(ActionCard[] cards)
+Turn(Player currentPlayer)
+ActionType(int typeValue)
+Side(int sideValue)
+Color(int colorValue)
+PlayerScore(string playerName, int score)
+enum changed into int, and side, action, color changed to integer values
+Gameboard is changed to inherit board 
+die attribute moved to GameConfiguration
+currentTurnNumber removed from player and game added an attribute of the player number whose current turn is 
+turn removed
+number of cards attribute removed 
+actiontype value changed to integer type
+========================================

@@ -1,0 +1,20 @@
+enum enum LevelStatus()
+
+enum enum GamePhase()
+
+User()
+Player()
+Admin()
+Game()
+Block()
+Level()
+HallOfFame()
+enum enum BlockColor()
+
+enum enum BlockPoints()
+
+enum enum SpeedStatus()
+
+enum enum PaddleLength()
+
+enum enum DifficultyLevel()

@@ -1,0 +1,9 @@
+========================================
+Game(string name, int maxLevels, int minSpeed, double speedIncreaseFactor, int maxLength, int minLength, List<Level> levels, List<Player> hallOfFame)
+Level(int levelNumber, int blockCount, boolean isRandom, double speed, int paddleLength, List<Block> blocks)
+Block(string color, int points)
+User(string username, string password, string mode)
+Admin() inherit User
+Player(string username, string password, int lives, int totalScore) inherit User
+GameDesign(string圭圭AdminUsername, Game game)
+========================================

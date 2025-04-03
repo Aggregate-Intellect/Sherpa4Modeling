@@ -1,0 +1,12 @@
+========================================
+```plaintext
+abstract Hotel(string name, string address, int rating, string city, string area, string hotelChainName)
+Traveller(string name, string billingInformation, string companyName, string companyAddress, string travelPreferences, float reliabilityRating)
+Booking(string bookingIdentifier, float price, string cityArea, int hotelRating, string keyPreferences, boolean isPrePaid, date cancellationDeadline, boolean isConfirmed)
+Room(RoomType type, int numberOfRooms, float costPerNight)
+SpecialOffer(float price, string cityArea, int hotelRating, string keyPreferences)
+CreditCard(string cardNumber, string cardHolderName, date expirationDate, int securityCode)
+Period(date arrivalDate, date departureDate)
+enum RoomType(Single, Double, Twin)
+```
+========================================
