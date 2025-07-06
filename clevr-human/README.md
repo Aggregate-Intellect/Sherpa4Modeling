@@ -93,6 +93,8 @@ Or to run the llama-3.1-70B-Instruct-Turbo model with the state machine approach
 python -m scripts.run_qa --approach state_machine --num_processes 8 --llm_type together --llm_name meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --log_folder logs/state_mathine/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --use_scene --num_runs 10 --output_folder results_new/Meta-Llama-3.1-70B-Instruct-Turbo/run1
 ```
 
+To repeat the experiments in the paper, run each LLM three times with the same command, but change the `--output_folder` argument to save the results in a different folder.
+
 The results will be saved in the `results_new` folder (cached results provided), and the logs will be saved in the `logs` folder. The results will be saved in a JSON file with the name of the LLM and the approach used. Each result file will contain the following fields:
 * **predicted**: The predicted answer to the question
 * **actual**: The actual answer to the question

@@ -1,10 +1,11 @@
-from argparse import ArgumentParser
-from loguru import logger
-from llm_coder.utils import generate_programs
-import dotenv
-from loguru import logger
-import sys
 import os
+import sys
+from argparse import ArgumentParser
+
+import dotenv
+from llm_coder.utils import generate_programs
+from loguru import logger
+
 dotenv.load_dotenv()
 
 logger.remove()  # remove the default handler configuration
@@ -29,7 +30,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_filename", type=str,
                         default="state_machine_samples.jsonl")
     parser.add_argument("--saving_frequency", type=int, default=30)
-    parser.add_argument("--num_parallel", type=int, default=8)
+    parser.add_argument("--num_parallel", type=int, default=1)
     parser.add_argument("--method", type=str,
                         choices=["state_machine", "state_machine_with_feedback", "direct_prompt", "agent_coder", "agent_coder_improved"], default="state_machine")
 

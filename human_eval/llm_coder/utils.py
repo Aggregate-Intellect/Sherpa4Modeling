@@ -39,7 +39,7 @@ def get_llm(llm_family, model_name, temperature):
     if llm_family == "openai":
         return ChatOpenAI(model=model_name, temperature=temperature)
     elif llm_family == "togetherai":
-        api_key = os.environ.get("TOGETHERAI_API_KEY")
+        api_key = os.environ.get("TOGETHER_API_KEY")
         return ChatOpenAI(
             base_url=TOGETHER_AI_BASE_URL,
             api_key=api_key,
