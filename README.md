@@ -11,6 +11,18 @@ This artifact is available at: https://github.com/Aggregate-Intellect/Sherpa4Mod
 
 The Zenodo DOI for this artifact is: [10.5281/zenodo.15824650](https://doi.org/10.5281/zenodo.15824650)
 
+## Organization
+
+
+### Description of the approaches
+Each approach implemented with Sherpa is modularized as you will see in the use case. Most of the time, each approach contains two components:
+* **states.py**: That contains the structure of the state machine
+* **actions.py**: That contains the implementation of each actions in the state machine
+
+In some cases, each approach may also contain some helper components, such as:
+* **prompts.py**: That contains the prompts used in the approach
+* **policy.py**: That contains the customized policy for state selection of the approach
+
 ## Installation
 
 ### Install Python
