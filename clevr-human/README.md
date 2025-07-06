@@ -1,27 +1,81 @@
-# State Machine for Clevr Human
-Designing a state machine for solving the question answering ask in the Clevr dataset.
-1. Install sherpa following the top-level read me
+# Sherpa for Clevr Human
+
+Designing a state machine for solving the question answering ask in the Clevr-Human dataset.
+
+## Installation
+
+1. Create a new virtual environment for this use case (not required, but recommended)
+
+   ```bash
+   # For venv
+   python -m venv clevr
+
+   # For conda
+   conda create -n clevr python=3.10
+   ```
+
+   Activate the virtual environment:
+
+   ```bash
+   # For venv
+   source clevr/bin/activate
+   # For conda
+   conda activate clevr
+   ```
+
+2. Install `sherpa` following the top-level Read
+3. Install the requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Create Dataset
+
 1. download the Download CLEVR v1.0 (no images) from [the Clevr website](https://cs.stanford.edu/people/jcjohns/clevr/)
 2. put the `CLEVR_val_scenes.json` file to the `data` folder
 3. Download human created questions from [here](https://cs.stanford.edu/people/jcjohns/iep/)
 4. Put the `CLEVR-Humans-val` file to the `data` folder
 5. Run `scripts/create_dataset.py` to create the dataset
-7. This script will push the dataset to HuggingFace. Update the `--dataset_name` argument when running the experiments to your dataset name 
+6. This script will push the dataset to HuggingFace. Update the `--dataset_name` argument when running the experiments to your dataset name
 
-6. The processed dataset is also available on [huggingface](https://huggingface.co/datasets/Dogdays/clevr_subset) (Link is mask for double-blind)
+7. The processed dataset is also available on [huggingface](https://huggingface.co/datasets/Dogdays/clevr_subset)
 
+## Setup the Environment Variables
+Create a `.env` file in the `clevr-human` folder and copy the content of `.env_template` to it. Then, set the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables to your OpenAI and TogetherAI API keys, respectively.
 
 ## Run Question Answering
-* Run the direct prompting approach (Using chain-of-thought)
+
+Run the `python -m scripts.run_qa ` command to run the question answering task. The command has several arguments to control the behavior of the script. Use the `--help` argument to see the available options.
+
+Arguments:
+options:
+
+  * **-h, --help**: show this help message and exit
+  * **--dataset_name**: Name of the processed dataset on HuggingFace. Default is `Dogdays/clevr_subset`. You normally don't need to change this unless you have created your own dataset.
+  * **--approach**: Scene-based question answering approach to run. One of {direct,state_machine,routing,react}           
+  * **--output_folder**: Output file to save the results
+  * **--num_processes**: Number of processes to use for parallel processing of the dataset
+  * **--log_folder**: Folder to save the execution logs
+  * **--llm_type**: Provider of the language model, one of {openai,together}
+                        
+  * **--llm_name**: Name of the LLM to use. The paper uses the following: gpt-4o (openai), gpt-4o-mini (openai), Qwen/Qwen2.5-7B-Instruct-Turbo (together), Qwen/Qwen2.5-7B-Instruct-Turbo (together) and Meta-Llama-3.1-70B-Instruct-Turbo (together). You can also use other LLM from the two providers. 
+  * **--temperature**: Temperature of the LLM, default is 0.01
+  * **--num_runs**: Max number of hops when running the state machine
+  * **--use_scene**: Whether to use the scene information in the prompt
+
+For example, to run the direct approach with the gpt-4o-mini model, you can run the following command:
+
 ```
-python -m scripts.run_qa --approach direct --num_processes 16 --llm_type openai --llm_name gpt-4o-mini --log_folder logs/direct --output_file direct_prompt_results_gpt-4o-mini.csv
+python -m scripts.run_qa --approach direct --num_processes 16 --llm_type openai --llm_name gpt-4o-mini --log_folder logs/direct/gpt-4o-mini --use_scene --num_runs 10 --output_folder results_new/gpt-4o-mini/run1
 ```
 
-* Run the state machine approach
+Or to run the llama-3.1-70B-Instruct-Turbo model with the state machine approach, you can run the following command (Note that TogetherAI has generally more strict request limitation than OpenAI, so it is better to use 8 processes instead of 16):
+
 ```
-python -m scripts.run_qa --approach state_machine --num_processes 16 --llm_type openai --llm_name gpt-4o-mini --log_folder logs/state_machine --output_file state_machine_results_gpt-4o-mini.csv
+python -m scripts.run_qa --approach state_machine --num_processes 8 --llm_type together --llm_name meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --log_folder logs/state_mathine/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --use_scene --num_runs 10 --output_folder results_new/Meta-Llama-3.1-70B-Instruct-Turbo/run1
 ```
 
-More running command samples are available in the `run.sh` file.
+The results will be saved in the `results_new` folder, and the logs will be saved in the `logs` folder. The results will be saved in a JSON file with the name of the LLM and the approach used. Each result file will contain the following fields:
+* **predicted**: The predicted answer to the question
+* **actual**: The actual answer to the question
+* **num_llm_calls**: The number of LLM calls made to answer the question

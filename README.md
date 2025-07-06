@@ -1,7 +1,15 @@
 # Sherpa Use Cases
+[![DOI](https://zenodo.org/badge/815307724.svg)](https://doi.org/10.5281/zenodo.15824650)
+
 This repo contains artifacts for the paper "SHERPA: A Model-Driven Framework for Large Language Model Execution"
 
 Specifically, it contains the code and data used for the three use cases presented in the paper, as well as a copy of the Sherpa v0.4.0 used in the paper. 
+
+## Artifact Location
+
+This artifact is available at: https://github.com/Aggregate-Intellect/Sherpa4Modeling
+
+The Zenodo DOI for this artifact is: [10.5281/zenodo.15824650](https://doi.org/10.5281/zenodo.15824650)
 
 ## Installation
 
@@ -28,20 +36,25 @@ conda activate sherpa
 ```
 
 ### Install Sherpa
-This artifact uses the [Sherpa](https://github.com/Aggregate-Intellect/sherpa) to for the use cases. Specifically, it uses the v0.4.0 of Sherpa, which is included in the `sherpa` folder in this repository. You can choose either to install Sherpa from the source code in this repository or install it from ``PyPI.
-To install Sherpa from the source code, you can run the following commands:
+This artifact uses the [Sherpa](https://github.com/Aggregate-Intellect/sherpa) to for the use cases. Specifically, it uses a slightly customized version of Sherpa v0.4.0, which is included in the `sherpa` folder in this repository. You can install Sherpa from the source code in this repository.
+To install Sherpa from the source code, first, install with [poetry](https://python-poetry.org/).
+```bash
+pip install poetry
+```
+
+Then, you can run the following commands:
 ```bash
 cd sherpa/src
 poetry install --with optional
 ```
 
-To install Sherpa from PyPI, you can run the following command:
-```bash
-pip install sherpa_ai==0.4.0
-```
-
 ### Install Dependencies
 Please refer the `README.md` file in each use case folder for the specific dependencies required for that use case.
+
+### LLMs
+This repository uses several APIs for accessing the Large Language Models. You need to set up the API keys for the LLMs you want to use. The supported LLMs are:
+- OpenAI: [OpenAI API](https://openai.com/api/)
+- TogetherAI: [TogetherAI API](https://www.together.ai/)
 
 ## Use cases
 the following folder contains material for each use case used in the paper:
