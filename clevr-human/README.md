@@ -2,6 +2,20 @@
 
 Designing a state machine for solving the question answering ask in the Clevr-Human dataset.
 
+## Organization
+The use case is organized as follows:
+* `clevr_qa` contains the code implementation for the use case
+   * The folder `react` contains the implementation of the ReACT approach
+   * The folder `routing` contains the implementation of the routing state machine approach
+   * The folder `state_machine` contains the implementation of the planning state machine approach
+   * The `question_answering/direct.py` file contains the implementation of the direct approach
+* `data` contains the processed dataset for this use case
+* `results_new` contains the cached results of the experiments run on the use case
+* `scripts` contains the scripts to create the dataset and run the question answering task
+* `.env_template` file contains the environment variables required to run the use case.
+* `requirements.txt` contains the requirements to run the use case
+* `evaluation.ipynb` contains the evaluation notebook to create tables and figures in the paper for the Clevr-Human use case
+
 ## Installation
 
 1. Create a new virtual environment for this use case (not required, but recommended)
@@ -53,6 +67,10 @@ options:
   * **-h, --help**: show this help message and exit
   * **--dataset_name**: Name of the processed dataset on HuggingFace. Default is `Dogdays/clevr_subset`. You normally don't need to change this unless you have created your own dataset.
   * **--approach**: Scene-based question answering approach to run. One of {direct,state_machine,routing,react}           
+   * direct: Directly use the LLM to answer the question
+   * state_machine: Use a planning state machine to answer the question
+   * routing: Use a routing state machine to answer the question
+   * react: Use a ReACT approach to answer the question
   * **--output_folder**: Output file to save the results
   * **--num_processes**: Number of processes to use for parallel processing of the dataset
   * **--log_folder**: Folder to save the execution logs
@@ -66,7 +84,7 @@ options:
 For example, to run the direct approach with the gpt-4o-mini model, you can run the following command:
 
 ```
-python -m scripts.run_qa --approach direct --num_processes 16 --llm_type openai --llm_name gpt-4o-mini --log_folder logs/direct/gpt-4o-mini --use_scene --num_runs 10 --output_folder results_new/gpt-4o-mini/run1
+python -m scripts.run_qa --approach direct --num_processes 1 --llm_type openai --llm_name gpt-4o-mini --log_folder logs/direct/gpt-4o-mini --use_scene --num_runs 10 --output_folder results_new/gpt-4o-mini/run1
 ```
 
 Or to run the llama-3.1-70B-Instruct-Turbo model with the state machine approach, you can run the following command (Note that TogetherAI has generally more strict request limitation than OpenAI, so it is better to use 8 processes instead of 16):
@@ -75,7 +93,16 @@ Or to run the llama-3.1-70B-Instruct-Turbo model with the state machine approach
 python -m scripts.run_qa --approach state_machine --num_processes 8 --llm_type together --llm_name meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --log_folder logs/state_mathine/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --use_scene --num_runs 10 --output_folder results_new/Meta-Llama-3.1-70B-Instruct-Turbo/run1
 ```
 
-The results will be saved in the `results_new` folder, and the logs will be saved in the `logs` folder. The results will be saved in a JSON file with the name of the LLM and the approach used. Each result file will contain the following fields:
+The results will be saved in the `results_new` folder (cached results provided), and the logs will be saved in the `logs` folder. The results will be saved in a JSON file with the name of the LLM and the approach used. Each result file will contain the following fields:
 * **predicted**: The predicted answer to the question
 * **actual**: The actual answer to the question
 * **num_llm_calls**: The number of LLM calls made to answer the question
+
+## Evaluation
+The evaluation steps are included in the `evaluation.ipynb` notebook to create tables and figures in the paper for the Clevr-Human use case. To run the notebook, run the following command:
+
+```bash
+jupyter notebook evaluation.ipynb
+```
+
+Execute all the cells in the notebook to generate the tables and figures. 
