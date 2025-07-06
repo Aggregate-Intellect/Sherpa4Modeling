@@ -2,6 +2,20 @@
 Designing state machines for solving the class name generation task in the Modeling dataset
 
 ## Organization
+The use case is organized as follows:
+* `evaluation` contains the code implementation for the evaluation of the use case
+* `modeling` contains the code implementation for the use case
+  * The file `model_class.py` contains the implementation of the Inspect state machine
+  * The file `model_class_mig.py` contains the implementation of the MIG state machine
+* `ground_truth` contains the ground truth model for the dataset
+* `results` contains the cached results of the experiments run on the use case
+* `scripts` contains the scripts to run the class name generation task
+    * The file `direct_main.py` contains the implementation of the direct approach
+* `.env_template` file contains the environment variables required to run the use case.
+* `requirements.txt` contains the requirements to run the use case
+* `requirements_eval.txt` contains the requirements to run the evaluation notebook
+* `evaluation.ipynb` contains the evaluation notebook to create tables and figures in the paper for the Modeling use case
+* `modeling_problems.csv` contains samples from the Modeling dataset
 
 ## Installation
 1. Create a new virtual environment for this use case (not required, but recommended)
@@ -64,13 +78,45 @@ Run `scripts.sm_main.py` to generate class names using the state machine approac
 
 For example, to run the Inspection state machine with the gpt-4o-mini model, you can run the following command:
 ```bash
-python scripts.sm_main --model_type=openai --llm=gpt-4o-mini --run_number 1 --approach sherpa
+python -m scripts.sm_main --model_type=openai --llm=gpt-4o-mini --run_number 1 --approach sherpa --num_processes 1
+```
+
+Or running the MIG state machine with the Meta-Llama-3.1-70B-Instruct-Turbo model, you can run the following command:
+```bash
+python -m scripts.sm_main --model_type=together --llm=meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --run_number 1 --approach sherpa_mig --num_processes 1
 ```
 
 ## Evaluation
-The evaluation requires Python 3.8. First install Python 3.8 with a virtual environment. Then install the requirements:
+Some dependencies in the evaluation part of this use case requires Python 3.8, so it is recommended to create a separate virtual environment for the evaluation part.
+
 ```bash
-pip install -r requirements.txt
+# For venv
+python -m venv modeling_evaluation
+
+# For conda
+conda create -n modeling_evaluation python=3.8
 ```
 
-Then run the `evaluation.ipynb` notebook. It will evaluate the generated classes and print the results. 
+Activate the virtual environment:
+
+```bash
+# For venv
+source modeling_evaluation/bin/activate
+# For conda
+conda activate modeling_evaluation
+```
+
+Then, install the requirements for the evaluation part:
+```bash
+pip install -r requirements_eval.txt
+```
+
+Then execute the `evaluation.ipynb` notebook to create tables and figures in the paper for the Modeling use case. To run the notebook, run the following command:
+
+```bash
+jupyter notebook evaluation.ipynb
+```
+
+> ![NOTE]
+> 
+> Note that the evaluation approach uses OpenAI ada embedding to embed the model contents for evaluation. the embedding results are cached in the `results` folder for cost and time efficiency. If you want to re-run the evaluation, you can delete all the `*_ada_embedding.txt` file in the results folder.

@@ -1,3 +1,14 @@
 networkx
 worde4mde==1.0
 gensim==4.2.0
+loguru
+pydantic==2.10.6
+pandas==2.0.3
+openai==1.66.5
+dotenv
+
+## Requirements for running the evaluation notebook
+jupyter==1.1.1
+pywinpty==2.0.8
+matplotlib
+scienceplots

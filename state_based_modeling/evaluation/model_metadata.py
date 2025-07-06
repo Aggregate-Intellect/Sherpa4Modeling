@@ -1,8 +1,7 @@
 from typing import Optional
 
 from loguru import logger
-
-from output_transformer import ClassNameOutputTransform
+from modeling.output_transformer import ClassNameOutputTransform
 
 
 class DomainModel:
