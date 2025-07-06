@@ -1,0 +1,13 @@
+========================================
+``` 
+TileOApplication(string version, string name)
+Game(int currentTurn, boolean isGameOver, int numberOfPlayers, string designerName)
+Board(int width, int height)
+Player(string name, string color, int position)
+Tile(boolean isVisited, boolean isHidden, boolean isActionTile)
+Die(int sides)
+ConnectionPiece(boolean isConnected)
+ActionCard(string description, string effect, string type)
+Deck(int numberOfCards)
+```
+========================================

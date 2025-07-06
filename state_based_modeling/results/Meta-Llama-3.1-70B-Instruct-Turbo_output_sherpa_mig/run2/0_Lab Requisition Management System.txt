@@ -1,0 +1,13 @@
+========================================
+Doctor(string practitionerNumber, string fullName, string address, string phoneNumber, DigitalSignature signature)
+Patient(string healthNumber, string firstName, string lastName, Date dateOfBirth, string address, string phoneNumber)
+TestGroup(string testName)
+Result(String result)
+Requisition(string requisitionId, Doctor doctor, Patient patient, Date validFromDate, int repetitionTimes, TestGroup tests)
+Test(string testName, int duration, boolean isRepeatedAllowed, boolean needAppointment, TestType TEST_TYPE)
+Lab(string labName, string address, string registrationNumber, Time startTime, Time endTime, int cancellationFee)
+Appointment(string confirmationNumber, Date appointmentDate, Time startTime, Time endTime, Lab lab, Requisition requisition, AppointmentStatus status)
+Report(string reportId, Result result, String reportDescription, Test test, Date reportDate)
+LabTracker()
+Prescriber() inherit Doctor
+========================================

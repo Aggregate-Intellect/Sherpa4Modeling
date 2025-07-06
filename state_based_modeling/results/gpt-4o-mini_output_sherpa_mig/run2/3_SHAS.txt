@@ -1,0 +1,23 @@
+========================================
+SmartHomeAutomationSystem()
+SmartHome(string physicalAddress)
+Room(string name)
+SensorDevice(string deviceIdentifier)
+ActuatorDevice(string deviceIdentifier)
+abstract Sensor(string type)
+TemperatureSensor() inherit Sensor
+MovementSensor() inherit Sensor
+abstract Actuator(string type)
+LightController() inherit Actuator
+LockController() inherit Actuator
+SensorReading(float measuredValue, date timestamp)
+ControlCommand(string command, date timestamp, string status)
+ActivityLog(list logs)
+Alert(string alertType, string message)
+Owner(string name)
+AutomationRule(string name, boolean isActive)
+Precondition(string expression)
+Action(string commandSequence)
+ActiveRule(date timestamp)
+enum DeviceStatus(Requested, Completed, Failed)
+========================================

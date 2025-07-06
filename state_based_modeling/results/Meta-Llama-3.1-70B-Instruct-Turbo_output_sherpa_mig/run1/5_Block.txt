@@ -1,0 +1,11 @@
+========================================
+User(string username, string password, boolean isAdmin, integer score, integer lastLevelPlayed, integer gameID, integer currentLevel)
+Game(string name, User admin, List<Block> blocks, List<Level> levels, HallOfFame hallOfFame, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, int numberOfBlocksPerLevel, boolean isPublished, GameState currentGameState)
+Block(ENUM blockColor, int points)
+Level(ENUM levelNumber, boolean isRandom, int[][] gridPositions)
+HallOfFame(List<String> players, List<Integer> scores)
+Score(integer score)
+GameState(Ball ball, Paddle paddle, List<Block> blocks, Level level)
+Ball(int xPosition, int yPosition, int speed, int direction)
+Paddle(int xPosition, int yPosition, int length)
+========================================

@@ -1,0 +1,19 @@
+========================================
+System(boolean isActive)
+User(string userId, string username)
+SmartHome(string homeId, string address)
+Room(string roomId, string roomName)
+Device(string deviceId, string deviceType)
+Sensor(string deviceId, string deviceType, int sensorValue, date timestamp, boolean isActive) inherit Device
+Actuator(string deviceId, string deviceType) inherit Device
+AutomationRule(string ruleId, boolean isActivated, Condition precondition, Command action)
+Condition(string expression)
+Command(string command)
+Reading(date logDate, string logMessage)
+ControlCommand(date logDate, string logMessage, Status status)
+Log(date logDate, string logMessage)
+Alert(string alertId, string alertMessage)
+AutomationRuleDependency(string ruleId, String dependentRuleId)
+enum Status(Inactive, Active, Requested, Completed, Failed) 
+Owner(string ownerId, string ownerName)
+========================================

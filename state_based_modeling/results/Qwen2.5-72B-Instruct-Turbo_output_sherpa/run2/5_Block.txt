@@ -1,0 +1,11 @@
+========================================
+User(string username, string password, string role)
+Game(string uniqueName, int minimumSpeed, int speedIncreaseFactor, int maximumPaddleLength, int minimumPaddleLength, list levels, HallOfFame hallOfFame)
+Block(string color, int points)
+Level(int levelNumber, bool isRandom, int numberOfBlocks, int speed, int paddleLength, list blocks)
+HallOfFame(list scores)
+Ball(int speed, int direction)
+Paddle(int length)
+Score(int totalScore)
+Life(int remainingLives)
+========================================

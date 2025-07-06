@@ -1,0 +1,10 @@
+========================================
+Person(string healthNumber, string firstName, string lastName, Date dateOfBirth, string address, string phoneNumber, string type)
+Credential(string practitionerNumber, string digitalSignature)
+Doctor() inherit Person, Credential
+Test(string testName, int duration, String[] requiredSamples, TestType testType, TestGroup testGroup)
+Lab(string address, string registrationNumber, time startTime, time endTime)
+Requisition(int requisitionId, Date validFrom, Person doctor, Person patient)
+RequestedTest(Test test, Date[] repeatDates, Interval interval)
+Appointment(int appointmentId, Date date, time startTime, time endTime, Person patient, Lab lab, Requisition requisition, decimal feeAmount)
+========================================

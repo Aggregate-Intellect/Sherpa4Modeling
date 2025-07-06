@@ -1,0 +1,21 @@
+========================================
+User(string name, string email)
+Role()
+Student() inherit Role
+Tutor(string bankAccount) inherit Role
+Subject
+ExpertiseLevel
+TutoringOffer(User tutor, Subject subject, ExpertiseLevel expertiseLevel, int hourlyPrice, string weeklyAvailability)
+TutoringSession(User tutor, User student, Subject subject, ExpertiseLevel expertiseLevel, string requestedDate, string requestedTime, string confirmedDate, string confirmedTime, boolean isCancelled, string cancellationReason, double discountPercentage)
+Payment(User student, User tutor, TutoringSession session, double amount, PaymentMethod paymentMethod)
+CancellationPolicy(int hoursBefore, double studentPenalty, double tutorDiscount)
+PaymentMethod(string method)
+CreditCard() inherit PaymentMethod
+WireTransfer() inherit PaymentMethod
+Primary() inherit ExpertiseLevel
+High() inherit ExpertiseLevel
+University() inherit ExpertiseLevel
+Mathematics() inherit Subject
+Science() inherit Subject
+Literature() inherit Subject
+========================================

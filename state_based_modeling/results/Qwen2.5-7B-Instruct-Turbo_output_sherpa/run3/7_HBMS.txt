@@ -1,0 +1,16 @@
+========================================
+Traveller(string name, BillingInformation billingInfo)
+BillingInformation(string companyName, string companyAddress)
+CreditCardInformation(string cardNumber)
+PreliminaryBooking(BookingIdentifier bookingIdentifier, TravelPreference travelPreference, HotelRoom hotelRoom)
+SpecialOffer(HotelRoom hotelRoom, TravelPreference travelPreference)
+ConfirmedBooking(BookingIdentifier bookingIdentifier, CreditCardInformation creditCardInfo)
+FinalizedBooking(PaymentType prepaid, CreditCardInformation creditCardInfo) inherit ConfirmedBooking
+PaymentType(inherit Enum)
+Hotel(CityArea city, string address, HotelChain hotelChain) inherit Hotel
+CityArea(string cityArea)
+Room(string type, int stars, bool fullyBooked) inherit HotelRoom
+SingleRoom() inherit Room
+DoubleRoom() inherit Room
+TwinRoom() inherit Room
+========================================

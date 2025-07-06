@@ -1,0 +1,16 @@
+========================================
+Game(int maxPlayers, int currentPlayers, boolean isGameRunning, string hiddenTileId, int actionTileCooldown, string currentTurnPlayerId, int remainingActionCards, string status)
+Designer(string name, string designerId)
+Board(int width, int height, string startingPositionPlayer1, string startingPositionPlayer2, string startingPositionPlayer3, string startingPositionPlayer4)
+Tile(string tileId, string color, boolean isVisited, boolean isHidden, boolean isActionTile)
+ConnectionPiece(string connectionId, string fromTileId, string toTileId)
+Player(string playerId, string playerName, string playingPieceColor, string playerPositionTileId, string currentTileId)
+Die(int sides)
+ActionTile(string actionTileId, string tileId, int cooldownDuration) inherit Tile
+ActionCardType(ExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)
+ActionCard(string actionCardId, ActionCardType actionType)
+Deck(string deckId, int totalCards)
+Turn(string turnId, string currentPlayerId, int turnNumber)
+Location(int x, int y)
+Pile(string pileId, int remainingPieces)
+========================================

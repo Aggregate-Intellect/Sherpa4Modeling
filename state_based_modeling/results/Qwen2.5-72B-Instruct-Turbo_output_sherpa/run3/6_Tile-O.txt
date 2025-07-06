@@ -1,0 +1,15 @@
+========================================
+Game(int numberOfPlayers, string currentTurn, boolean isGameActive, int spareConnectionCount)
+Designer(string designerName)
+Board(int boardWidth, int boardHeight)
+Tile(int tileX, int tileY, string color, boolean isVisited, boolean isHidden, boolean isAction, int actionDuration)
+ConnectionPiece(int connectionX, int connectionY, string direction)
+Deck(list actionCards)
+ActionCard(string actionType)
+Die(int dieValue)
+PlayingPiece(string pieceColor, int pieceX, int pieceY)
+Player(string playerName, string playerColor, boolean hasWon, int startPositionX, int startPositionY, int dieValue)
+Turn(int turnNumber, string currentPlayer)
+enum Color(White, Black, Red, Blue, Green, Yellow)
+enum ActionType(ExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)
+========================================

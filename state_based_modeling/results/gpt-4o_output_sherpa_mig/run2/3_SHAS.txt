@@ -1,0 +1,22 @@
+========================================
+```plaintext
+SmartHomeAutomationSystem()
+User(string userId, string name, string role)
+SmartHome(string physicalAddress)
+Room(string name)
+SensorDevice(string deviceIdentifier, string type)
+ActuatorDevice(string deviceIdentifier, string type)
+InfrastructureMap()
+SensorReading(float measuredValue, string timestamp)
+ControlCommand(string command, string timestamp, string status)
+ActivityLog()
+Alert(string alertType, string message, string timestamp)
+AutomationRule(boolean isActive, string timestamp)
+Precondition()
+Action()
+BooleanExpression()
+RelationalTerm()
+RuleHierarchy()
+enum BooleanOperator(AND, OR, NOT)
+```
+========================================

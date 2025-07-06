@@ -1,0 +1,15 @@
+========================================
+User(string username, string password, boolean isAdminMode)
+Admin() inherit User
+Game(string name, int minSpeed, double speedIncreaseFactor, int maxLength, int minLength)
+Block(string color, int points)
+Level(Game game, int levelNumber, Mode mode, Block[] blockArrangement)
+PlayArea(BlockGrid blockGrid, Paddle paddle, Ball ball)
+BlockGrid(int gridWidth, int gridHeight, Block[][] grid)
+Paddle(int xPosition, int yPosistion, int length)
+Ball(int xPosition, int yPosistion, int speed, double direction)
+HallOfFame(Game game, User[] topScorers)
+Score(User user, Game game, int score)
+ScoreBoard(Game game, Score[] scores)
+Mode(AdminMode, PlayMode)
+========================================

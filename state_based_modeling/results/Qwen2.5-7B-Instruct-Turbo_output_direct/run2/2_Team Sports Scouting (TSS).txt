@@ -1,0 +1,5 @@
+enum PlayerProfile(GK, LB, CD, RW, CM, LK, ST)
+
+enum PlayerStatus(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAPGoodSigning)
+
+enum ScoutAssignmentStatus(Completed, Pending)

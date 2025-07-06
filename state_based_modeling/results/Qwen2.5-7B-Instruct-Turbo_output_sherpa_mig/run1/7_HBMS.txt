@@ -1,0 +1,28 @@
+========================================
+Traveller(PatronType patronType, string name, BillingInformation billingInformation, TravelPreference[] travelPreferences)
+Booking(PrePaid prePaid, PaymentAtHotel paymentAtHotel, CancellationDeadline cancellationDeadline, ReliabilityRating reliabilityRating)
+PreliminaryBooking() inherit Booking
+FinalizedBooking() inherit Booking
+HotelChain()
+Hotel(HotelChain hotelChain, string address)
+Room()
+Type()
+Stars()
+TentativeBudget()
+TravelPreference()
+Budget()
+Price()
+CityArea()
+HotelRating()
+UniqueBookingIdentifier()
+CreditCardInformation()
+Registration(string name, BillingInformation billingInformation, TravelPreference[] travelPreferences)
+HBMS()
+Availability()
+FullBooked()
+SpecialOffer()
+Confirmation()
+FinancialCompensation()
+ReliabilityRating()
+CompetitorHotel() inherit HBMS
+========================================

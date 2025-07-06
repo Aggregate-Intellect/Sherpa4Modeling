@@ -1,0 +1,17 @@
+========================================
+```
+Team(string name)
+Club(string name)
+HeadCoach(string name)
+Director(string name)
+Scout(string name)
+abstract PlayerProfile(string profileName, string targetPosition)
+Player(string name, int age, string position)
+Attribute(string attributeName, string attributeValue)
+LongList(date creationDate)
+ShortList(date creationDate)
+ScoutingAssignment(date assignmentDate, string playerName)
+ScoutingReport(string playerName, string pros, string cons, Recommendation recommendation)
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+```
+========================================

@@ -1,0 +1,15 @@
+========================================
+DestroyBlockApplication()
+abstract Game(string name, HallOfFame hallOfFame, Admin admin, List<Block> blocks, List<Level> levels, int maxLevels)
+Admin(string username, string password)
+Player(string username, string password, int lives, int score, GameState gameState)
+Block(string color, int points)
+Level(int levelNumber, List<Block> arrangement, boolean isRandom)
+Ball(int speed, String direction)
+Paddle(int length)
+GameState(boolean isPaused, boolean isGameOver)
+HallOfFame(List<Player> highScores)
+enum GameMode(AdminMode, PlayMode)
+enum BlockColor(Red, Green, Blue, Yellow, Orange, Purple)
+enum Direction(Up, Down, Left, Right)
+========================================

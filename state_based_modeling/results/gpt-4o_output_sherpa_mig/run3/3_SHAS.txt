@@ -1,0 +1,24 @@
+========================================
+```plaintext
+SmartHomeAutomationSystem(list users, list smartHomes, InfrastructureMap infrastructureMap)
+User(string userID, string name, string role)
+SmartHome(string physicalAddress, list rooms, ActivityLog activityLog)
+Room(string name, list devices)
+abstract Device(string deviceIdentifier, DeviceType type)
+SensorDevice() inherit Device
+ActuatorDevice() inherit Device
+InfrastructureMap(list devices)
+SensorReading(float measuredValue, string timestamp)
+ControlCommand(string command, string timestamp, string status)
+ActivityLog(list sensorReadings, list controlCommands)
+Alert(string alertType, string timestamp)
+AutomationRule(boolean isActive, string timestamp, Precondition precondition, Action action)
+Precondition(BooleanExpression booleanExpression)
+Action(list controlCommands)
+BooleanExpression(list relationalTerms, list BooleanOperators)
+RelationalTerm()
+RuleHierarchy(list dependentRules, list conflictingRules)
+enum DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+enum BooleanOperator(AND, OR, NOT)
+```
+========================================

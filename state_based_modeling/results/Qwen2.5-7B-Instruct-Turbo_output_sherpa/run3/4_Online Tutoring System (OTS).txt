@@ -1,0 +1,13 @@
+========================================
+Tutor(string name, string email, string bankAccount)
+Student(string name, string email)
+TutoringRequest(string proposedDateTime, SubjectLevel subjectLevel, string proposedPrice) inherit TutoringSession
+TutoringSession(string confirmedDateTime, Tutor tutor, Student student, SubjectLevel subjectLevel, string price, PaymentMethod paymentMethod, string status)
+SubjectLevel()
+primary_school_level() inherit SubjectLevel
+high_school_level() inherit SubjectLevel
+university_level() inherit SubjectLevel
+PaymentMethod()
+credit_card() inherit PaymentMethod
+wire_transfer() inherit PaymentMethod
+========================================

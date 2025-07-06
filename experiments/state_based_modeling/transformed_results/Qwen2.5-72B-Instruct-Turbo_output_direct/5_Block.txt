@@ -1,9 +1,0 @@
-Enumerations:
-GameStatus(Playing, Paused, Finished)
-Direction(Up, Down, Left, Right)
-
-Classes:
-User()
-Game()
-Block()
-Level()

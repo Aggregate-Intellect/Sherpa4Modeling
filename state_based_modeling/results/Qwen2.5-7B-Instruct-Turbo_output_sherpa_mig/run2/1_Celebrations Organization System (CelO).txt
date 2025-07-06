@@ -1,0 +1,11 @@
+========================================
+Organizer(string firstName, string lastName, string postalAddress, string phone, string email, string password)
+Attendee(string firstName, string lastName, string email)
+Location(string name, string address)
+Event(string kind, DateTime startTime, DateTime endTime, string occasion, Location location, Organizer organizer)
+Invitation(string status)
+TaskStatusEnum(string DoNotApplicable, string NeedsToBeDone, string HasBeenDone)
+TaskStatus(TaskStatusEnum status) inherit TaskStatusEnum
+Task(string description, TaskStatus status) inherit TaskStatus
+Checklist(Event event) inherit Event
+========================================

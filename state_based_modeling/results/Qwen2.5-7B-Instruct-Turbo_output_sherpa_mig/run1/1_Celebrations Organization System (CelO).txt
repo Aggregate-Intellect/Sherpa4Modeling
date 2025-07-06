@@ -1,0 +1,23 @@
+========================================
+Organizer(string firstName, string lastName, string emailAddress, string postalAddress, string phoneNumber, string password, EventKind eventKind) inherit Organizer
+Event(date startTime, date endTime, string occasion, Location location, Organizer organizer) inherit Organizer
+Location(string name, string address) inherit Organizer
+Task(string description) inherit Organizer
+Invitation(instant invitationDate, InvitationStatus status) inherit Organizer
+EventKind(string name) inherit EventKind
+Role(string name) inherit Role
+EventStatus(string name) inherit EventStatus
+TimeZone(string id, string name) inherit TimeZone
+Birthday(string name) inherit EventKind
+Graduation(string name) inherit EventKind
+Party(string name) inherit EventKind
+Organizer() inherit Organizer
+Attendee() inherit Role
+Upcoming() inherit EventStatus
+Ongoing() inherit EventStatus
+Completed() inherit EventStatus
+HomeLocation() inherit Location
+PartyLocation() inherit Location
+BringTask() inherit Task
+SetupTask() inherit Task
+========================================

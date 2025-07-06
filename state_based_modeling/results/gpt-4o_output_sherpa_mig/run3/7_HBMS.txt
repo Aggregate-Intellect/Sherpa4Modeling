@@ -1,0 +1,12 @@
+========================================
+```  
+Hotel(string name, string address, int rating, string city, string hotelChain)  
+Traveller(string name, string billingInformation, string companyName, string companyAddress, string travelPreferences, CreditCard creditCardInfo, float reliabilityRating)  
+Booking(string bookingId, date arrivalDate, date departureDate, int numberOfRooms, string roomType, float maxCostPerNight, BookingStatus bookingStatus, date cancellationDeadline)  
+Room(string type, float pricePerNight, boolean isAvailable)  
+SpecialOffer(float price, string cityArea, int hotelRating, string keyPreferences)  
+CreditCard(string cardNumber, string cardHolderName, date expirationDate, int securityCode)  
+SearchCriteria(string city, date arrivalDate, date departureDate, int numberOfRooms, string roomType, int minHotelRating, float tentativeBudget, string travelPreferences)  
+BookingStatus(string status)  
+```  
+========================================

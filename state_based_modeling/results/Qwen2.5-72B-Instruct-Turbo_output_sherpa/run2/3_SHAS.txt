@@ -1,0 +1,21 @@
+========================================
+abstract Device(string deviceIdentifier, DeviceType type)
+SensorDevice(string deviceIdentifier, DeviceType type) inherit Device
+ActuatorDevice(string deviceIdentifier, DeviceType type) inherit Device
+SmartHomeAutomationSystem(string name, List<SmartHome> managedHomes, ActivityLog activityLog)
+SmartHome(string physicalAddress, List<Room> rooms, SmartHomeAutomationSystem shas)
+Room(string name, List<Device> devices, SmartHome smartHome)
+SensorReading(int measuredValue, date timestamp, SensorDevice sensor, Room room)
+ControlCommand(string commandName, date timestamp, CommandStatus status, ActuatorDevice actuator, Room room)
+enum CommandStatus(requested, completed, failed)
+ActivityLog(List<SensorReading> sensorReadings, List<ControlCommand> controlCommands)
+Alert(string name, Room room, string triggerConditions)
+Owner(string name, SmartHome smartHome, List<AutomationRule> automationRules)
+AutomationRule(string name, boolean isActive, Precondition precondition, Action action, Owner owner)
+Precondition(string booleanExpression, List<Room> rooms, List<Device> devices, List<SensorReading> sensorReadings, List<ControlCommand> controlCommands)
+Action(List<ControlCommand> sequenceOfCommands)
+enum DeviceType(temperatureSensor, movementSensor, lightController, lockController)
+enum RoomName(LivingRoom, Kitchen, Bedroom, Bathroom)
+enum BooleanOperators(AND, OR, NOT)
+DeviceStatus(active, inactive)
+========================================

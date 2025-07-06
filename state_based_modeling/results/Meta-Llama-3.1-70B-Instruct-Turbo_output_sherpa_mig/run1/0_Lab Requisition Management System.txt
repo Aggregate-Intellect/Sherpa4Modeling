@@ -1,0 +1,22 @@
+========================================
+User(string id, string name, string phoneNumber, string address)
+DoctorRole(string practitionerNumber, string signature) inherit User
+Lab(string registrationNumber, string labAddress, Date startTime, Date endTime, double changeCancellationFee, String businessHours)
+Patient(string healthNumber, string firstName, string lastName, Date dateOfBirth) inherit User
+Requisition(string healthNumber, string validFrom, string testName, DoctorRole doctor, TestGroup testGroup)
+Test(string name, string description)
+TestGroup(string groupName, Test[] tests)
+TestInterval(string intervalName, int intervalCount)
+Examination(int duration, boolean canCombine, boolean requiresAppointment, boolean requiresSample)
+BloodTest() inherit Examination
+Ultrasound() inherit Examination
+XRay() inherit Examination
+Appointment(string confirmationNumber, Date date, Date startTime, Date endTime, int labId)
+FixedAppointment() inherit Appointment
+RecurringAppointment(int recurrenceCount, TestInterval recurrenceInterval) inherit Appointment
+Report(string testName, TestResult result, string reportText)
+Sample() 
+BloodSample() inherit Sample
+StoolSample() inherit Sample
+UrineSample() inherit Sample
+========================================

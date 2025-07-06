@@ -1,0 +1,16 @@
+========================================
+User(string username, string password, boolean isAdmin)
+// The isAdmin attribute will be used to determine if a user is an admin or not
+// Comment: Player and Admin can be represented using the User class
+Game(string name, List<Level> levels, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, int initialNumberOfLives, List<Block> blocks)
+class Game has a HallOfFame which is a List of Score
+Score(string username, int score)
+Block(string color, int points)
+Level(int number, int gridWidth, int gridHeight, int initialBlockCount, boolean isRandom, List<Block> blocks)
+Ball(int xPosition, int yPosition, int speed, string direction)
+Paddle(int xPosition, int length)
+GameState(int currentLevel, Ball ball, Paddle paddle, int lives, int score)
+PlayArea is integrated into the Game class as width and height attributes
+Game has PlayArea attributes with int width and int height 
+// Note: Admin, Player, HallOfFame, PlayArea, GameObject, and Direction enum are removed based on the feedback.
+========================================

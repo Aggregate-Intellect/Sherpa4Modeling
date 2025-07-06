@@ -1,0 +1,20 @@
+enum GameStatus()
+
+enum LevelStatus()
+
+enum BlockColor()
+
+enum AdminMode()
+
+enum PlayerMode()
+
+enum BlockType()
+
+class User()
+class Admin()
+class Player()
+class Game()
+class Level()
+class Block()
+class HallOfFame()
+enum GamePhase()

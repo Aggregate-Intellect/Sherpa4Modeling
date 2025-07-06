@@ -1,0 +1,15 @@
+========================================
+Player(string username, string password, int score, int lives, int currentLevel)
+Admin(string username, string password, Game game)
+Game(string name, GameSettings gameSettings, List<Level> levels, HallOfFame hallOfFame)
+GameSettings(int numBlocks, int minSpeed, float speedIncreaseFactor, int maxPaddleLength, int minPaddleLength)
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int gridWidth, int gridHeight)
+SequentialLevel(int[] blockPositions) inherit Level
+RandomLevel() inherit Level
+HallOfFame(List<String> highScores)
+Ball(int xPosition, int yPosition, int speed, Direction direction)
+Paddle(int xPosition, int length)
+PlayArea(int width, int height, int xPosition, int yPosition)
+Direction(Up, Down, Left, Right)
+========================================

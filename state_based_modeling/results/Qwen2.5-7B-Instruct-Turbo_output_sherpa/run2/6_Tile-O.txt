@@ -1,0 +1,25 @@
+========================================
+abstract Game(type gameBoard, type playerCount, type currentPlayer, type actionCardDeck, type hiddenTile, type dieRoll, type turn)
+GameInDesignerMode() inherit abstract Game
+GameInPlayingMode() inherit abstract Game
+abstract Tile(type tileType, type position, type visited)
+HiddenTile() inherit abstract Tile
+RegularTile() inherit abstract Tile
+ActionTile() inherit abstract Tile
+abstract Player(type playerColor, type position)
+Player() inherit abstract Player
+PlayingPiece() inherit abstract PlayingPiece
+abstract PlayingPiece(type color, type position)
+ActionCard() inherit abstract ActionCard
+ActionCardOfRollDieForExtraTurn() inherit ActionCard
+ActionCardOfConnectTwoAdjacentTiles() inherit ActionCard
+ActionCardOfRemoveConnectionPiece() inherit ActionCard
+ActionCardOfMoveToArbitraryTile() inherit ActionCard
+ActionCardOfLoseNextTurn() inherit ActionCard
+abstract Turn() inherit abstract Turn
+TurnInPlayingState() inherit abstract Turn
+TurnInEndedState() inherit abstract Turn
+ActionCardType(RollDieForExtraTurn, ConnectTwoAdjacentTiles, RemoveConnectionPiece, MoveToArbitraryTile, LoseNextTurn)
+PlayerColor(Blue, Green, Red, Yellow)
+TileType(HiddenTile, RegularTile, ActionTile)
+========================================

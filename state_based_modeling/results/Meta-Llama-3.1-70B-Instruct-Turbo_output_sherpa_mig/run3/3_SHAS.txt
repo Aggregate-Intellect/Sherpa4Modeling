@@ -1,0 +1,18 @@
+========================================
+User(string userId, string userName, string password, string role)
+System()
+SmartHome(string name, string physicalAddress)
+Room(string roomName, int roomNumber, SmartHome smartHome)
+Device(string deviceName, string deviceId)
+SensorDevice(string sensorName, string deviceId, string type) inherit Device
+ActuatorDevice(string actuatorName, string deviceId, string type) inherit Device
+SensorReading(double value, Date timestamp, SensorDevice sensorDevice)
+Command(string commandName, Date timestamp, string status, ActuatorDevice actuatorDevice)
+ActivityLog(Date logDate, string logDescription)
+Alert(string alertName, Date alertDate)
+AutomationRule(string ruleName, Date ruleDate, string precondition, Command[] actions)
+Owner(string ownerName, string userId, SmartHome smartHome)
+Term(string termName)
+BooleanExpression(boolean isValid, Term term, string operator)
+Hierarchy()
+========================================

@@ -1,0 +1,20 @@
+========================================
+HBMS(string name, string description)
+Address(string street, string city, string postalCode, string country)
+Company(string name, Address address) inherit Traveller 
+City(string location) inherit Address
+Hotel(string name, Address address, Rating rating, HotelChain hotelChain, boolean hasFreeWifi, boolean hasBreakfast)
+Room(string type, int capacity, double pricePerNight)
+Booking(string bookingId, Date arrivalDate, Date departureDate, double totalPrice, Payment payment, PaymentType paymentType, Date cancellationDeadline, BookingStatus bookingStatus)
+Traveller(string name, string email, string phoneNumber, Address address, double reliabilityRating, List<Booking> bookings, List<PreferenceType> preferences)
+HotelChain(string name, Address address)
+Payment(int id)
+PaymentStatus(int id, Booking booking, Date timestamp, PaymentStatus previousStatus) inherit Payment 
+PaymentHistory(int id, Booking booking, Date timestamp, PaymentType paymentType) inherit Payment
+PreferenceType enum
+PaymentType enum
+BookingStatus enum
+Rating(int stars) 
+CancellationPolicy(string hotelId, Date cancellationDeadline, double cancellationFee)
+BookingStatusHistory(string id, Booking booking, Date timestamp, BookingStatus bookingStatus)
+========================================

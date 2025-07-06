@@ -1,0 +1,15 @@
+========================================
+LabTracker()
+abstract Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, string digitalSignature, date signatureDate)
+class Requisition(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber, date validFrom, int numberOfTimes, string intervalType)
+abstract Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+class Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
+class Lab(string address, BusinessHours businessHours, Fee fee)
+class Test(string testName, int duration, boolean requiresAppointment, boolean requiresSampleDropOff, string sampleType)
+class Result(string resultStatus)
+class Report(string reportDetails)
+class Fee(float amount)
+class BusinessHours(time startTime, time endTime)
+class Repetition(int numberOfTimes, string intervalType)
+enum IntervalType(Weekly, Monthly, HalfYear, Yearly)
+========================================

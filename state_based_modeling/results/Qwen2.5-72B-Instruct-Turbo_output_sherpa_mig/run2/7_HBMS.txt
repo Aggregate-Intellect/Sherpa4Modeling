@@ -1,0 +1,15 @@
+========================================
+abstract TravelEntity(int reliabilityRating)
+BusinessTraveller(string name, string billingInformation, string companyName, string companyAddress, int reliabilityRating) inherit TravelEntity
+abstract BookingEntity(int bookingId, string travellerName, string bookingDate, string arrivalDate, string departureDate, int numberOfRooms, RoomType roomType, boolean isPreliminary, PaymentStatus paymentStatus, string cancellationDeadline, boolean isConfirmed, string creditCardNumber)
+Booking(int bookingId, string travellerName, string bookingDate, string arrivalDate, string departureDate, int numberOfRooms, RoomType roomType, int hotelRating, boolean isPrePaid, PaymentStatus paymentStatus, string cancellationDeadline, boolean isConfirmed, string creditCardNumber) inherit BookingEntity
+abstract HotelEntity(int hotelId, string name, string address, int starRating, string city) inherit TravelEntity
+Hotel(int hotelId, string name, string address, int starRating, string city, boolean hasFreeWifi, boolean has247FrontDesk, boolean includesBreakfast, string hotelChain) inherit HotelEntity
+City(string cityName, string cityState, string cityCountry)
+HotelChain(string name, string headquarters)
+TravelPreference(string preferenceType, boolean isRequired)
+enum RoomType(Single, Double, Twin)
+enum PaymentStatus(Pending, Paid, Canceled, Refunded)
+enum ConfirmationStatus(Confirmed, Unconfirmed, Canceled)
+enum CompensationReason(CancelledByHotel, Other)
+========================================

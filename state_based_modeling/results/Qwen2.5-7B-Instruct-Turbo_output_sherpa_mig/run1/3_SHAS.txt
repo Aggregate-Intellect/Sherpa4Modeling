@@ -1,0 +1,16 @@
+========================================
+enum AutomationRuleStatus(activated, deactivated)
+enum CommandStatus(requested, completed, failed)
+enum DeviceType(temperatureSensor, movementSensor, lightController, lockController)
+enum BooleanOperator(AND, OR, NOT)
+abstract smartHome(physicalAddress)
+abstract room()
+abstractDevice(deviceIdentifier, type)
+RoomDevice(room, deviceIdentifier, type)
+abstract automationRule(automationPrecondition, automationAction, owner, timestamp, status)
+automationPrecondition(automationCondition)
+controlCommand()
+sensorReading(measuredValue, timestamp)
+activityLog(sensorReading, controlCommand)
+smartHomeController()
+========================================

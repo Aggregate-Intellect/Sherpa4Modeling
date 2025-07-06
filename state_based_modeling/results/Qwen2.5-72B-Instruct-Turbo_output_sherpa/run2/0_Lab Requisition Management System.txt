@@ -1,0 +1,15 @@
+========================================
+Person(string fullName, string address, string phoneNumber)
+abstract Role()
+DoctorRole(string practitionerNumber, string digitalSignature) inherit Role()
+PatientRole(string healthNumber, string firstName, string lastName, string dateOfBirth) inherit Role()
+Test(string testName, int duration, boolean walkIn, boolean dropOffSample)
+Requisition(int validFrom, string doctorPractitionerNumber, string patientHealthNumber, boolean isForSameGroup, int repetitionCount, repetitionInterval repetitionInterval)
+Lab(string labName, string labRegistrationNumber, string labAddress, string businessHours, int changeCancellationFee, List<BusinessHours> businessHoursList)
+Appointment(string confirmationNumber, string date, string startTime, string endTime, string labName, string labRegistrationNumber)
+Result(string testResult, string report)
+BusinessHours(string start, string end)
+RepetitionInterval()
+enum RepetitionInterval(Weekly, Monthly, HalfYear, Yearly) inherit RepetitionInterval
+LabNetwork(List<Lab> labs)
+========================================

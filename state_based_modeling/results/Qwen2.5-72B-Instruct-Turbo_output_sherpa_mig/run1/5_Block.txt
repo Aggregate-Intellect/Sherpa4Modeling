@@ -1,0 +1,12 @@
+========================================
+User(string username, string password, enum Role role)
+Role(enum Role(Admin, Player))
+Game(string name, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, List<Level> levels, HallOfFame hallOfFame)
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int numberOfBlocks)
+HallOfFame(List<Score> highScores)
+Ball(int speed, enum Direction direction)
+Paddle(int length, int position)
+PlayArea(int width, int height)
+Player(int lives, int score, int totalScore, int remainingLives)
+========================================

@@ -1,0 +1,13 @@
+========================================
+Person(string fullName, string address, string phoneNumber)
+abstract Role()
+Doctor(int practitionerNumber, string signature) inherit Role()
+Patient(string alphaNumericHealthNumber, string dateOfBirth) inherit Role()
+Examination(string groupName, int duration, string testType, string sampleType, string sampleDescription)
+Requisition(int requisitionNumber, string practitionerNumber, string patientAlphaNumericHealthNumber, string validityDate, boolean isRepeatable, int repeatCount, string repeatInterval)
+Lab(string labName, string address, string registrationNumber, string businessHours, int changeCancellationFee)
+Appointment(string confirmationNumber, string date, string startTime, string endTime, string labName, string labRegistrationNumber)
+Report(string testResult, string reportText)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+enum TestType(Blood, Ultrasound, XRay, Urine, Stool)
+========================================

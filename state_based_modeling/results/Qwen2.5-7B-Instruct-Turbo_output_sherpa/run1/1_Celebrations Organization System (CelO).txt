@@ -1,0 +1,9 @@
+========================================
+Organizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password, eventKind eventKind, date startDate, date endDate, string occasion, Location location)
+Attendee(string firstName, string lastName, string email)
+Location(string name, string address)
+Task(string description)
+Event(eventKind kind, date startDate, date endDate, string occasion, Location location, Organizer organizer, list<Task> tasks)
+enum TaskStatus { needToDo, hasBeenDone, notApplicable }
+enum eventKind { birthdayParty, graduationParty, wedding }
+========================================

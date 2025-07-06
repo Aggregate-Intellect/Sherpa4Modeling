@@ -1,0 +1,15 @@
+========================================
+```plaintext
+OTS()
+abstract User(string name, string emailAddress)
+Student() inherit User
+Tutor(string bankAccount) inherit User
+Subject(string name, string level, float hourlyPrice)
+TutoringSession(date date, time startTime, time endTime, boolean isConfirmed)
+TutoringRequest(string level, date targetDate, time targetTime)
+Payment(float amount, string method)
+Cancellation(boolean isStudentInitiated, date cancellationDate)
+enum SubjectLevel(PrimarySchool, HighSchool, University)
+enum PaymentMethod(CreditCard, WireTransfer)
+```
+========================================

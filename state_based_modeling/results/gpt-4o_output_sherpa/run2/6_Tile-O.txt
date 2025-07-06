@@ -1,0 +1,14 @@
+========================================
+```
+TileOApplication(string version)
+Game(int currentPlayerIndex, boolean isGameOver)
+GameSetup()
+Designer(string name)
+Board(int width, int height)
+Player(string name, string color)
+Tile(boolean isHidden, boolean isActionTile, boolean isVisited)
+ActionCard(string actionType)
+Deck(int numberOfCards)
+enum ActionType(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToTile, LoseTurn)
+```
+========================================

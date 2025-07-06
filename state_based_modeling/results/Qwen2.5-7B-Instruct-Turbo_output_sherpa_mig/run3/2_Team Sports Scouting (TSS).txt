@@ -1,0 +1,8 @@
+========================================
+headCoach(Profile targetPositions, Player players, Signing signingQueue)
+Scout(ScoutingAssignment scoutingAssignments)
+Player(string name, int value) inherit Signing(string targetPosition, string name, int value)
+Profile(string targetPosition)
+ScoutingAssignment(Scout assignedScouts, Player assignedPlayers, string status) inherit ScoutingReport(string pros, string cons, Profile recommendation)
+officialOffer(string status) inherit Signing(string targetPosition, string name, int value)
+========================================

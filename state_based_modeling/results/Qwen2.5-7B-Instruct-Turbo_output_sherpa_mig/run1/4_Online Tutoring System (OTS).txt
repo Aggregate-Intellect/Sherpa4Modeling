@@ -1,0 +1,13 @@
+========================================
+User(string name, string email)
+abstract Subject(string name)
+abstract Level(string name)
+TutoringRequest(date targetDate, time time, Level level, Subject subject, User tutor, string status)
+Session(int price, date dateTime, string status)
+Cancelation(bool isCancelled, date cancellationDate, string cancellationReason) inherit Session
+Payment(bool isPaid, date paymentDate) inherit Session
+CreditCard(string cardNumber, string expirationDate, string cvv, User userId)
+WireTransfer(string transferNumber, date transferDate, User userId)
+Role(string type) inherit User
+Review(string date) inherit Session
+========================================

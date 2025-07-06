@@ -1,0 +1,17 @@
+========================================
+Game(int id, string name, Designer designer, Board board, Turn currentTurn, List<Player> players, boolean isPlaying, Tile hiddenTile, Deck deck)
+Designer(string name)
+Board(List<Tile> tiles, List<Connection> connections)
+Tile(int id, string color, boolean isHidden, boolean isVisited, boolean isAction)
+ActionTile(int id, string color, boolean isHidden, boolean isVisited, boolean isAction, int actionTileTurnsRemaining) inherit Tile
+Connection(Tile tile1, Tile tile2)
+Player(int id, string color, Tile currentPosition, boolean hasLostTurn)
+ActionCard(int id, ActionCardType actionType)
+RollExtraTurnCard(int id, ActionCardType actionType) inherit ActionCard
+ConnectTilesCard(int id, ActionCardType actionType) inherit ActionCard
+RemoveConnectionCard(int id, ActionCardType actionType) inherit ActionCard
+MoveToTileCard(int id, ActionCardType actionType) inherit ActionCard
+LoseTurnCard(int id, ActionCardType actionType) inherit ActionCard
+Deck(List<ActionCard> cards)
+Turn(int turnNumber, Player currentPlayer)
+========================================

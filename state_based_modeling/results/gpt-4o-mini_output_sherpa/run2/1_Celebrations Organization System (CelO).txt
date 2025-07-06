@@ -1,0 +1,13 @@
+========================================
+CelO()  
+EventOrganizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)  
+Event(string eventType, date startDate, time startTime, date endDate, time endTime, string occasion, Location location)  
+Attendee(string firstName, string lastName, string email) inherit EventOrganizer  
+Task(string description, TaskStatus status)  
+Location(string name, string address)  
+Invitation(string email, boolean hasAccount, ResponseStatus responseStatus)  
+Checklist(Task[] tasks)  
+enum EventType(BirthdayParty, GraduationParty, Other)  
+enum ResponseStatus(Attending, Maybe, NotAttending)  
+enum TaskStatus(NeedsToBeDone, Done, NotApplicable)  
+========================================

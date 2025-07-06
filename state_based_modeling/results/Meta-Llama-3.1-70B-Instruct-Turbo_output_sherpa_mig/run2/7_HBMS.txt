@@ -1,0 +1,16 @@
+========================================
+RoomType(Single, Double, Twin)
+PreferenceName(Breakfast, Wifi, FrontDesk)
+ReliabilityRating(Low, Medium, High)
+BookingSystem(string systemName)
+HotelBookingSystem(string name) inherit BookingSystem
+Hotel(string name, int rating, string address)
+HotelChainHotel(string chainName) inherit Hotel
+IndependentHotel() inherit Hotel
+Traveller(string name, string company, string address, string billingInfo)
+Booking(int bookingId, Date arrival, Date departure, int numRooms, double budget, boolean isPreliminary, string type)
+Preference(PreferenceName preferenceName, boolean isOptional)
+Deadline(Date deadline, string deadlineType)
+CancellationPolicy(string deadline, double cancellationCharge)
+Room(int roomId, RoomType roomType)
+========================================

@@ -1,0 +1,12 @@
+CelOApplication()
+Organizer()
+Event()
+Attendee()
+Task()
+Location()
+InvitationStatus()
+Checklist()
+
+enum EventType(BirthdayParty, GraduationParty, Other)
+enum AttendanceStatus(WillAttend, MaybeAttend, CannotAttend)
+enum TaskStatus(NeedsToBeDone, Done, NotApplicable)

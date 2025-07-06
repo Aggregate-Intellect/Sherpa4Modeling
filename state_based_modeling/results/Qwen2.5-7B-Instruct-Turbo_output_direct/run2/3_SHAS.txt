@@ -1,0 +1,11 @@
+enum AutomationRuleStatus(Active, Deactivated)  
+enum RuleDependency(DependsOn, ConflictsWith)  
+
+class SmartHome  
+class Room  
+class SensorDevice  
+class ActuatorDevice  
+class SensorReading  
+class ControlCommand  
+class AutomationRule  
+class TriggerEvent()

@@ -1,0 +1,12 @@
+========================================
+Person(string name, string email)
+UserRole() 
+Tutor(string bankAccount, PaymentInformation paymentInformation) inherit UserRole()
+Student() inherit UserRole()
+Subject(string name, SubjectLevel level)
+TutoringSession(Time startTime, Time endTime, Date date, int hours, double price, SubjectLevel level, boolean cancelled, Date cancellationDate)
+SessionRequest(Date targetDate, Time targetTime, SubjectLevel level)
+Payment(double amount, Date paymentDate, boolean paid, PaymentMethod paymentMethod)
+PaymentInformation(string accountNumber, string bankName, string cardNumber, Date expirationDate)
+SubjectLevel(string level)
+========================================

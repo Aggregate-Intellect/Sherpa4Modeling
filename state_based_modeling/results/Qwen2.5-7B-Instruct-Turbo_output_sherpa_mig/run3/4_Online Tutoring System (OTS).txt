@@ -1,0 +1,16 @@
+========================================
+Tutor(string name, string email, string bank_account) inherit TutoringSessionStatus
+Student(string name, string email) inherit TutoringSessionStatus
+Confirmed() inherit TutoringSessionStatus
+Pending() inherit TutoringSessionStatus
+PaymentMethod() inherit TutoringSessionStatus
+CreditCard() inherit PaymentMethod
+WireTransfer() inherit PaymentMethod
+CancellationReason() inherit TutoringSessionStatus
+StudentCancellation() inherit CancellationReason
+TutorCancellation() inherit CancellationReason
+Subject(string subjectName) inherit TutoringSessionStatus
+Enrollment(string tutorEmail, string studentEmail, Subject subject, TutoringSessionStatus status, PaymentMethod paymentMethod) inherit TutoringSessionStatus
+TutoringSession(date proposedSessionDate, time proposedSessionTime, Tutor tutor, Student student, Subject subject, TutoringSessionStatus status, PaymentMethod paymentMethod) inherit TutoringSessionStatus
+Cancellation(string cancellationReason, Tutor tutor, Student student, TutoringSession tutoringSession) inherit TutoringSessionStatus
+========================================

@@ -1,0 +1,19 @@
+========================================
+Team(string teamName, string teamLocation)
+Employee(string employeeName, string employeeRole)
+Club(string clubName, string clubLocation)
+Player(string playerName, string playerPosition, int playerAge)
+Profile(string profileName, List<TargetPosition> targetPositions, List<Attribute> attributes)
+TargetPosition(string positionName)
+Attribute(string attributeName, string attributeValue)
+LongList(List<Player> players, DateTime dateCreated)
+HeadScout(string headScoutName)
+ScoutingAssignment(string assignmentName, DateTime assignmentDate, Scout assignedScout) inherit HeadScout
+Report(string reportDetails, string pros, string cons, RecommendationType recommendation)
+RecommendationType(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notGoodSigning)
+ShortList(List<Player> players, DateTime dateCreated)
+OfficialOffer(string offerDetails, DateTime offerDate)
+PlayerProfile(Profile profile, List<TargetPosition> targetPositions, List<Attribute> attributes)
+ScoutingRound(ScoutingAssignment assignment, Report report)
+ScoutAssignmentReport(ScoutingAssignment assignment, Report report)
+========================================

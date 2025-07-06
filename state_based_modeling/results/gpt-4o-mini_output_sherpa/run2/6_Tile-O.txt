@@ -1,0 +1,14 @@
+========================================
+TileOApplication()
+abstract Game(int numberOfPlayers, boolean isGameActive)
+Designer(string name)
+Board(int width, int height)
+Player(string name, string color, int positionX, int positionY)
+Tile(boolean isVisited, boolean isHidden)
+ConnectionPiece(string position)
+ActionCard(string actionType)
+ActionTile(boolean isActive, int turnsRemaining)
+Die(int currentValue)
+PlayingPiece(string color, int positionX, int positionY)
+enum ActionType(ExtraTurn, ConnectTiles, RemoveConnection, MovePiece, LoseTurn)
+========================================

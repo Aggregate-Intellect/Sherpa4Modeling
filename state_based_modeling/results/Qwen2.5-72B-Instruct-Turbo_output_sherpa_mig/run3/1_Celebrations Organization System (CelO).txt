@@ -1,0 +1,12 @@
+========================================
+Person(string firstName, string lastName, string email, string phoneNumber, string password)
+abstract Role() inherit Person
+Organizer() inherit Role
+Attendee(InvitationStatus invitationStatus) inherit Role
+Event(string kind, date startDate, date startTime, date endDate, time endTime, string occasion, Location location)
+Task(string description, TaskStatus taskStatus, Role taskAssignee)
+Location(string name, string address)
+enum EventKind(BirthdayParty, GraduationParty)
+enum InvitationStatus(NotReplied, WillAttend, MaybeAttend, CannotAttend)
+enum TaskStatus(NeedsToBeDone, Done, NotApplicable)
+========================================

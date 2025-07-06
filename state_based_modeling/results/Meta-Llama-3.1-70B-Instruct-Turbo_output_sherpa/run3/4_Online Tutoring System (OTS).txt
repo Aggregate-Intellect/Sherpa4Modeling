@@ -1,0 +1,13 @@
+========================================
+enum Level(primary, secondary, university, postgraduate)
+enum Day(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+enum PaymentMethod(creditCard, wireTransfer, paypal)
+enum SessionStatus(confirmed, pending, rescheduled, cancelled)
+abstract User(string name, string email, string password)
+Tutor(string bankAccount) inherit User
+Subject(string name, Level level, string description)
+Session(int id, Time startTime, Time endTime, Date date, int price, SessionStatus sessionStatus, string sessionNotes)
+Payment(int sessionId, Date paymentDate, boolean paid, PaymentMethod paymentMethod, int paymentAmount)
+Schedule(Level level, Day day, Time startTime, Time endTime, string scheduleNotes)
+TimeSlot(Time startTime, Time endTime, SessionStatus slotStatus)
+========================================

@@ -1,0 +1,15 @@
+========================================
+``` 
+DestroyBlockApplication(list<User> users, list<Game> games, User currentUser, Game currentGame)
+Game(string name, HallOfFame hallOfFame, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, list<Level> levels, list<Block> blocks)
+abstract User(string username, string password)
+Admin() inherit User
+Player(int lives, int totalScore, Game currentGame) inherit User
+HallOfFame(list<ScoreEntry> scores)
+Block(string color, int points)
+Level(int levelNumber, int rows, int columns, boolean isRandom, list<Block> blocks)
+Ball(int speed, string direction)
+Paddle(int length, int position)
+ScoreEntry(string username, int score)
+```
+========================================

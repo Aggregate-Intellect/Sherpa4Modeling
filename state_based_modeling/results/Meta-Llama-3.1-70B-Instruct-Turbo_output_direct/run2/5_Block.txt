@@ -1,0 +1,10 @@
+User()
+Admin()
+Game()
+Block()
+Level()
+Player()
+HallOfFame()
+
+enum BallDirection(Up, Down, Left, Right)
+enum CruiseMode(Random)

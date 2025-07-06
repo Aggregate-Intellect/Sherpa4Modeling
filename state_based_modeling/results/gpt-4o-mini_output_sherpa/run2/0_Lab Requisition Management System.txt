@@ -1,0 +1,14 @@
+========================================
+LabTracker()
+abstract Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, string digitalSignature, date signatureDate)
+Requisition(date validFrom, string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber, int numberOfTimes, Interval interval)
+Test(string testName, Duration duration)
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
+Lab(string address, BusinessHours businessHours, Fee fee)
+Report(string results)
+BusinessHours(time startTime, time endTime)
+Fee(float amount)
+Duration(int durationInMinutes)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+========================================

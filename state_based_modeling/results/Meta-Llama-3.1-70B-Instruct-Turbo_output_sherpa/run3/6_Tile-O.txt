@@ -1,0 +1,14 @@
+========================================
+GameComponent()
+Application(string name, boolean isRunning, Game currentGame)
+Game(string name, int numberOfPlayers, int currentTurn, Board board, Player[] players, Die die, Deck deck, string designerName) inherit GameComponent
+GameSettings(string gameName, int numberOfPlayers, string designerName)
+GameResult(string winner, Game game)
+Board(int width, int height, string layout, Tile[][] tiles, ConnectionPiece[] connections) inherit GameComponent
+Player(string name, string color, int turns, int xPosition, int yPosition) inherit GameComponent
+Tile(boolean isHidden, boolean isAction, boolean isVisited, int xPosition, int yPosition) inherit GameComponent
+Die(int sides, int currentValue) inherit GameComponent
+ConnectionPiece(int xPosition, int yPosition, Tile tile1, Tile tile2) inherit GameComponent
+ActionCard(string type, string instruction) inherit GameComponent
+Deck(int size, int currentCardIndex, ActionCard[] cards) inherit GameComponent
+========================================

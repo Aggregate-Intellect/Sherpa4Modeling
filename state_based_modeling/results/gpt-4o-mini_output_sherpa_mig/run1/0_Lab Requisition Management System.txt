@@ -1,0 +1,15 @@
+========================================
+LabTracker()
+Doctor(int practitionerNumber, string fullName, string address, string phoneNumber, Signature signature, date requisitionValidFrom)
+Requisition(HealthNumber healthNumber, string firstName, string lastName, date dateOfBirth, string address, string phoneNumber, List<Test> tests, int repeatCount, Interval interval)
+Patient(string firstName, string lastName, HealthNumber healthNumber, date dateOfBirth, string address, string phoneNumber)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, string labName, int registrationNumber)
+Test(string testName, int duration, boolean isWalkInOnly, boolean requiresAppointment)
+Lab(string address, BusinessHours businessHours, List<Test> tests, Fee fee)
+HealthNumber(string healthNumber)
+Signature(string digitalSignature, string image)
+Report(string results)
+BusinessHours(time startTime, time endTime)
+Fee(decimal amount)
+enum Interval(Weekly, Monthly, HalfYear, Yearly)
+========================================

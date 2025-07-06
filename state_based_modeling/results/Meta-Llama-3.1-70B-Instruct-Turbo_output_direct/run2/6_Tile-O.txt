@@ -1,0 +1,13 @@
+GameDesigner()
+Game()
+Board()
+Tile()
+ConnectionPiece()
+ActionCard()
+ActionTile()
+Player()
+Turn()
+Die()
+
+enum ActionCardType(RollExtraTurn, ConnectTiles, RemoveConnection, MoveToArbitraryTile, LoseTurn)
+enum PlayerColor()

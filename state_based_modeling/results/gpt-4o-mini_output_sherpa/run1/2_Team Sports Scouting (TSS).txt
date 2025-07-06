@@ -1,0 +1,21 @@
+========================================
+```
+TeamSportsScoutingSystem()
+Employee(string name, string role)
+Club(string name)
+abstract EmployeeProfile(string name, string role)
+HeadCoach() inherit EmployeeProfile
+Director() inherit EmployeeProfile
+Scout() inherit EmployeeProfile
+Player(string name, string position)
+PlayerProfile(string targetPosition, List<PlayerAttribute> attributes)
+PlayerAttribute(string name, string value)
+ScoutingAssignment(string playerId, string scoutId)
+ScoutingReport(string playerId, List<string> pros, List<string> cons, Recommendation recommendation)
+Recommendation(string type)
+HeadScout() inherit Scout
+ShortList(List<string> playerIds)
+Offer(string playerId, string clubId)
+enum RecommendationType(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notAGoodSigning)
+```
+========================================

@@ -1,0 +1,14 @@
+========================================
+Requisition(Doctor doctor, Patient patient)
+Test(Duration duration, SampleType sampleType, Result result, Report report)
+Examination(Duration duration, SampleType sampleType, Result result, Report report)
+Lab(string registrationNumber, BusinessHours businessHours)
+Doctor(fullName: String, address: String, phoneNumber: String)
+Patient(healthcareNumber: String, firstName: String, lastName: String, dateOfBirth: String, address: String, phoneNumber: String)
+Test(duration: Duration, sampleType: SampleType, result: Result, report: Report)
+Examination(duration: Duration, sampleType: SampleType, result: Result, report: Report)
+subclass Requisition() inherit Doctor, Patient
+subclass Test() inherit Requisition
+subclass Examination() inherit Requisition
+class Lab()
+========================================

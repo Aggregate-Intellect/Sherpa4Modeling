@@ -1,0 +1,14 @@
+========================================
+OTS(string name, string description)
+User(string name, string email)
+Tutor(string name, string email, string bankAccountNumber) inherit User
+Level(enum Level primary, secondary, tertiary)
+PaymentMethod(enum PaymentMethod creditCard, wireTransfer)
+Subject(string name, string description)
+TutoringSession(string subject, Level level, double hourlyPrice, Date date, Time time, SessionSlot sessionSlot)
+Availability(string day, Time startTime, Time endTime)
+Request(Level level, Date date, Time time, string subject)
+Payment(double amount, PaymentMethod paymentMethod)
+SessionSlot(Date date, Time time)
+Cancellation(boolean isCancelled, Date cancellationDate, Time cancellationTime)
+========================================

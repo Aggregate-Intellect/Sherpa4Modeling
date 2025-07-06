@@ -1,0 +1,22 @@
+========================================
+Game(string gameName, int playerLimit, boolean isRunning)
+Designer(string designerName)
+Board(int boardSize, int tileCount, List<Tile> tiles, List<Connection> connections)
+Tile(int tileID, boolean isHidden, boolean isVisited, boolean isAction)
+Connection(int connectionID, int fromTileID, int toTileID)
+Player(int playerID, string color, int currentTileID)
+Deck(int deckSize, int remainingCards)
+abstract ActionCard(int cardID, string actionType)
+ActionCardExtraTurn() inherit ActionCard
+ActionCardConnectTiles() inherit ActionCard
+ActionCardRemoveConnection() inherit ActionCard
+ActionCardMoveToTile() inherit ActionCard
+ActionCardLoseTurn() inherit ActionCard
+Die(int faceValue)
+Turn(int turnNumber, int currentPlayerID)
+StartingPosition(int positionID, int startingTileID, int playerID)
+ActionTile(int actionTileID, int activationTurnsRemaining)
+enum Color(White, Black, Red, Blue, Green, Yellow)
+GameBoard(List<Tile> tiles, List<Connection> connections)
+ActionTileEffect(int turnCount)
+========================================

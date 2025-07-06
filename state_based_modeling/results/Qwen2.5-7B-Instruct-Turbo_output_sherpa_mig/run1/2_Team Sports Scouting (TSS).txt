@@ -1,0 +1,12 @@
+========================================
+HeadCoach(string name, string email, string position)
+Scout(string name, string email, string position)
+ScoutReport(string pros, string cons, Recommendation recommendation)
+Profile(Enum targetPosition, string name, int value)
+Assignment(Enum targetPosition)
+KeyPlayer() inherit ScoutReport
+FirstTeamPlayer() inherit ScoutReport
+ReserveTeamPlayer() inherit ScoutReport
+ProspectivePlayer() inherit ScoutReport
+NotASigning() inherit ScoutReport
+========================================

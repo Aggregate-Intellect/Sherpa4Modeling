@@ -1,0 +1,9 @@
+enum EventKind()
+enum EventStatus()
+
+class Organizer()
+class Attendee()
+class Event()
+class Location()
+class Task()
+enum TaskStatus()

@@ -1,0 +1,13 @@
+========================================
+```plaintext
+CelOApplication()
+Event(EventType kind, date startDate, date endDate, string occasion, Location location)
+Organizer(string firstName, string lastName, string postalAddress, string phoneNumber) inherit Account
+Attendee(string firstName, string lastName, string invitationStatus) inherit Account
+abstract Account(string email, string password)
+Location(string name, string address)
+Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean notApplicable)
+Checklist()
+enum EventType(BirthdayParty, GraduationParty)
+```
+========================================

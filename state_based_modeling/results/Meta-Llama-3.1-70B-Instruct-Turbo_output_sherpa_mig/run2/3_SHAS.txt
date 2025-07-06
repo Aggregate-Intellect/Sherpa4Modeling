@@ -1,0 +1,10 @@
+========================================
+User(string id, string name)
+SmartHome(string address, Owner owner)
+Room(string name, int roomNumber)
+Device(string deviceIdentifier, boolean isActive, string deviceType)
+AutomationRule(string ruleId, boolean isActive, boolean isEditable, boolean isConflicting, string precondition, string action)
+Owner(string ownerId)
+SensorReading(int measuredValue, Date timestamp)
+ControlCommand(string command, Date timestamp, string status)
+========================================

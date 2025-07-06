@@ -1,0 +1,16 @@
+========================================
+Club(string name, string location, string league)  
+HeadCoach(string name, int yearsOfExperience)  
+Director(string name, int yearsOfExperience)  
+Scout(string name, int experienceYears)  
+HeadScout() inherit Scout  
+PlayerProfile(string position, int age, int height, int weight)  
+Player(string name, int age, string position, string team, string nationality, bool longListed, bool shortListed, RecommendationType recommended, bool signed, string offerId, string dateOffered, string terms) inherit PlayerProfile  
+Attribute(string name, string value)  
+LongList(string dateCreated, string description)  
+ScoutingAssignment(string assignmentId, string dateAssigned, string location)  
+ScoutingReport(string reportId, string dateSubmitted, string pros, string cons, RecommendationType recommendation)  
+ShortList(string dateCreated, string description)  
+OfficialOffer(string offerId, string dateOffered, string terms)  
+enum RecommendationType(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notGoodSigning)
+========================================

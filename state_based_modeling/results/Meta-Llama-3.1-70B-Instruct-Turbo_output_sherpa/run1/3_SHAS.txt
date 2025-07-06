@@ -1,0 +1,22 @@
+========================================
+Device(string deviceId, boolean isActive, Status status, DeviceType deviceType)
+Sensor() inherit Device
+Sensor(string measurementUnit, SensorType sensorType)
+Actuator() inherit Device
+Actuator(ActuatorType actuatorType)
+SmartHome(string address, string infrastructureMap, string ownerName, Room[] rooms)
+Room(string roomName, Device[] devices)
+SensorReading(string measuredValue, Date timestamp, Sensor sensor)
+ControlCommand(string command, string status, Date timestamp, CommandType commandType)
+ActivityLog(Date timestamp, string logEntry, SmartHome smartHome)
+Alert(string alertMessage, Date timestamp, SmartHome smartHome)
+AutomationRule(boolean isActive, Date timestamp, AutomationRuleStatus automationRuleStatus, string ruleDependency, string precondition, string action, SmartHome smartHome, Room[] rooms)
+RuleDependency(AutomationRule[] dependentRules)
+User(string username, string password) 
+DeviceType()
+SensorType()
+ActuatorType()
+CommandType()
+AutomationRuleStatus()
+Status()
+========================================

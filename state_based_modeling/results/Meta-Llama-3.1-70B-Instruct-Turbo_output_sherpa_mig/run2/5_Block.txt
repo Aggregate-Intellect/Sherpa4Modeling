@@ -1,0 +1,9 @@
+========================================
+User(string username, string password, boolean isAdmin)
+Game(string name, int minSpeed, float speedIncreaseFactor, int maxLength, int minLength, User admin)
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int[][] grid, int blocksShown)
+GameStatus(int level, int lives, int score)
+GameLog(dateTime startTime, dateTime endTime, string outcome)
+HallOfFame(string[] scores)
+========================================

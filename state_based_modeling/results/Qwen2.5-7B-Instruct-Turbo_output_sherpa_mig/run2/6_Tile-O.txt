@@ -1,0 +1,10 @@
+========================================
+Game(string gameIdentifier, string gameType)
+Board(string gameIdentifier, List<Tile> tiles, Tile hiddenTile, List<Tile> actionTiles)
+Designer(string gameIdentifier, List<Tile> tilesLayout, Tile hiddenTile, List<Tile> actionTiles, List<ActionCard> actionCards)
+Player(string gameIdentifier, Color color, Tile currentTile, bool playedPiece)
+Tile(string gameIdentifier, TileType tileType, Color color)
+Connection(string gameIdentifier, Tile tile1, Tile tile2, string connectionString)
+Pile(string gameIdentifier, List items)
+ActionType(string gameIdentifier, ActionType actionType)
+========================================

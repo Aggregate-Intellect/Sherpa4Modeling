@@ -1,0 +1,12 @@
+========================================
+abstract user(string username, string password)
+abstract admin(boolean isAdmin)
+game(string name, BlockCollection blockCollection, Level[] levels, HallOfFame hallOfFame, gameDesign gameDesign) inherit superclass
+player(int lives) inherit superclass
+block(string color, int points)
+level(int levelNumber, int initialBlocks, int speed, int paddleLength, int minSpeed, double speedIncreaseFactor, int maxPaddleLength, int minPaddleLength)
+gameDesign(BlockCollection blockCollection, Level[] levels)
+hallOfFame(int[] highScores)
+playArea(int width, int height, wall topWall, wall leftWall, wall rightWall)
+wall(int height, boolean isRandom)
+========================================

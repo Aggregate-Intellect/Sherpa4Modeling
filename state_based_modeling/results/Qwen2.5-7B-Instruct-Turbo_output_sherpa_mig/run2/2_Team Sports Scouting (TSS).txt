@@ -1,0 +1,14 @@
+========================================
+abstract targetPosition(GK, LB)
+abstract playerProfileType(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notASigning)
+abstract recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotASigning)
+headCoach()
+director()
+club()
+scout()
+player(string name, number value, playerProfileType profileType)
+scoutingAssignment(player)
+scoutingReport(string pros, string cons, recommendation recommendation, player profile)
+playerList(player, enum status)
+officialOffer(player)
+========================================

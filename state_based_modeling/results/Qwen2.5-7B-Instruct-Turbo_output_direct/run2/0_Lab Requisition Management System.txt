@@ -1,0 +1,5 @@
+enum TestType()
+enum TestRepetitionInterval(Weekly, Monthly, EveryHalfYear, Yearly)
+enum AppointmentStatus()
+enum LabServiceType()
+enum TestResult()

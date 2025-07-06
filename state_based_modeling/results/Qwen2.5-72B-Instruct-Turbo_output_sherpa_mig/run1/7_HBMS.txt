@@ -1,0 +1,17 @@
+========================================
+Hotel(string name, string address, int rating, string hotelChain, List<RoomType> availableRoomTypes)
+Booking(string bookingId, string travellerId, string hotelId, date arrivalDate, date departureDate, int numberOfRooms, string roomType, int costPerNight, enum BookingStatus status, date confirmationDeadline, date cancellationDeadline, boolean isPrePaid, enum PaymentMethod paymentMethod, string specialOfferId, date confirmationDate, enum CancellationPolicyType cancellationPolicy)
+Traveller(string travellerId, string name, string billingInformation, string companyName, string companyAddress, List<TravelPreference> travelPreferences)
+HotelChain(string hotelChainId, string name)
+RoomType(string roomTypeId, string type, string description)
+SpecialOffer(string specialOfferId, string hotelId, string bookingId, int costPerNight, List<TravelPreference> keyPreferences)
+ReliabilityRating(string reliabilityRatingId, string travellerId, int rating)
+FinancialCompensation(string financialCompensationId, string bookingId, string hotelId, int compensationAmount)
+enum PaymentMethod(PrePaid, PaidAtHotel)
+enum RoomType(Single, Double, Twin)
+enum BookingStatus(Preliminary, Confirmed, Cancelled)
+enum CancellationPolicyType(NoCharge, ChargeOneNight)
+Availability(string hotelId, date startDate, date endDate, List<RoomType> availableRoomTypes)
+Notification(string notificationId, string bookingId, string hotelId, string content, date sentDate)
+TravelPreference(boolean breakfastIncluded, boolean freeWifi, boolean twentyFourSevenFrontDesk)
+========================================

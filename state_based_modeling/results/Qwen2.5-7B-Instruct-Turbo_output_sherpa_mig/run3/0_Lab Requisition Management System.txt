@@ -1,0 +1,22 @@
+========================================
+RequisitionDetails(Requisition practitionerNumber, Signature signature, string doctorName, string doctorAddress, PhoneNumber doctorPhoneNumber, HealthNumber patientHealthNumber, FirstName patientFirstName, LastName patientLastName, DateOfBirth patientDateOfBirth, string patientAddress, PhoneNumber patientPhoneNumber)
+Doctor(requisitionDetails, PractitionerNumber practitionerNumber, Signature signature, FirstName firstName, LastName lastName, Address address, PhoneNumber phoneNumber) inherit RequisitionDetails
+Patient(requisitionDetails, HealthNumber healthNumber, FirstName firstName, LastName lastName, DateOfBirth dateOfBirth, Address address, PhoneNumber phoneNumber) inherit RequisitionDetails
+abstract Test(Duration duration)
+BloodTest(duration, TestType testType) inherit Test
+UltrasoundTest(duration, TestType testType) inherit Test
+XRayTest(duration, TestType testType) inherit Test
+UrineTest(duration, TestType testType) inherit Test
+StoolTest(duration, TestType testType) inherit Test
+enum Interval(weekly, monthly, every_half_year, yearly)
+enum TestType(ElizabethanTest, WalkInTest, SampleDropTest)
+ScheduledTest(numberOfRepetitions, repetitionInterval, Test test, RequisitionDetails requisitionDetails)
+abstract LabServiceBloodTest(duration, TestType testType, LabServiceTestType labServiceTestType) inherit Test
+abstract LabServiceUltrasoundTest(duration, TestType testType, LabServiceTestType labServiceTestType) inherit Test
+abstract LabServiceXRayTest(duration, TestType testType, LabServiceTestType labServiceTestType) inherit Test
+abstract LabServiceUrineTest(duration, TestType testType, LabServiceTestType labServiceTestType) inherit Test
+abstract LabServiceStoolTest(duration, TestType testType, LabServiceTestType labServiceTestType) inherit Test
+enum LabServiceTestType(LabServiceBloodTest, LabServiceUltrasoundTest, LabServiceXRayTest, LabServiceUrineTest, LabServiceStoolTest)
+Lab(RegistrationNumber registrationNumber, Address address, int businessHourStart, int businessHourEnd)
+Appointment(ConfirmationNumber confirmationNumber, Lab lab, StartTime startTime, EndTime endTime, RegistrationNumber registrationNumber, AppointmentStatus status)
+========================================

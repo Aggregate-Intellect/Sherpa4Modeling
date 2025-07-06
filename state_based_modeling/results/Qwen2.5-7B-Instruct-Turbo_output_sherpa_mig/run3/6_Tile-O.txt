@@ -1,0 +1,12 @@
+========================================
+Board(Tuple tiles, Tuple connections, HiddenTile hiddenTile, Tuple actionTiles, Die die, Deck deck)
+Tile(string position, TileColor color, bool isActionTile, int actionDuration)
+ConnectionPiece(Tile tile1, Tile tile2)
+Player(string color, int turnOrder, bool locked)
+PlayingPiece(string color, string position)
+ActionCard(ActionCardType cardType)
+Die(int sides)
+Deck(Tuple cards)
+HiddenTile(string position, bool isHidden)
+ActionTile(string position, int actionDuration)
+========================================

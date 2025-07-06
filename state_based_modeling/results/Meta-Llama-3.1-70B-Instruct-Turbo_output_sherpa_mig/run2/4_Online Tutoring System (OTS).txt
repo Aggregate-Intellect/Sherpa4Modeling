@@ -1,0 +1,17 @@
+========================================
+Person(string name, string email)
+UserRole() inherit Person
+Tutor(string bankAccountId, string accountNumber) inherit UserRole
+Student() inherit UserRole
+enum SubjectLevel(PrimarySchool, HighSchool, University)
+enum PaymentMethod(CreditCard, WireTransfer)
+enum DayOfWeek(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+enum Subjects(Mathematics, Science, Literature)
+Session(int id, Subjects subject, SubjectLevel level, double price, DayOfWeek day, time startTime, time endTime, boolean confirmed)
+Request(string requestId, int sessionId, date requestedDate, time requestedTime, SubjectLevel level)
+Payment(int paymentId, double amount, date paymentDate, time paymentTime, PaymentMethod paymentMethod)
+Availability(string availabilityId, DayOfWeek weekDay, time startTime, time endTime)
+Cancellation(int cancellationId, date cancellationDate, time cancellationTime, boolean partialPayment)
+TutorSubject(int tutorId, Subjects subject, SubjectLevel level, double price)
+TutorAvailability(int tutorId, string availabilityId)
+========================================

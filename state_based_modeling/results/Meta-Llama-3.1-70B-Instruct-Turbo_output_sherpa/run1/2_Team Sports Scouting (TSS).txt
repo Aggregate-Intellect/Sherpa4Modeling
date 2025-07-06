@@ -1,0 +1,16 @@
+========================================
+Club(string name, string location, string sportsName, string teamName, Map<string,ScoutingAssignment> scoutingAssignments)
+User(string name, string email)
+HeadCoach() inherit User
+Scout() inherit User
+Director() inherit User
+Player(string playerName, string playerEmail, boolean isShortListed)
+Profile(string profileName, string profileDescription)
+PlayerAttribute(String attributeName, String attributeValue)
+PlayerProfile(List<PlayerAttribute> attributes, Position position)
+ScoutingAssignment(String assignmentDescription, Date assignmentDate)
+Report(string reportName, string reportDescription, ReportRecommendation recommendation, string prosConsDescription)
+Offer(string offerName, string offerDescription)
+ReportRecommendation(keyPlayer, firstTeamPlayer, reserveTeamPlayer, prospectivePlayer, notGoodSigning)
+Position(GK, LB)
+========================================

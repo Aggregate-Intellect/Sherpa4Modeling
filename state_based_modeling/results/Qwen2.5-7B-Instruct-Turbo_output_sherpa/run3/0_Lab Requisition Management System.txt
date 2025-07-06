@@ -1,0 +1,19 @@
+========================================
+abstract Doctor(string practitionerNumber, string signature, string fullName, string address, string phoneNumber)
+abstract Patient(string healthNumber, string firstName, string lastName, string dateOfBirth, string address, string phoneNumber)
+abstract Requisition(Doctor doctor, Patient patient, Date validityDate, Repeats repeats)
+abstract Test(Duration duration, Type testType, SampleType sampleType)
+Repeats(int numberOfTimes, repeatInterval interval)
+enum repeatInterval(weekly, monthly, every_half_year, yearly)
+enum testType(blood_test, ultrasound_examination)
+enum testSampleType(blood_sample, urine_sample, stool_sample)
+enum appointmentType(walk_in, appointment)
+abstract Lab(string address, string registrationNumber, BusinessHours businessHours, Fee fee)
+abstract Confirmation(ConfirmationNumber confirmationNumber, Date appointmentDate, Time startTime, Time endTime, Lab lab)
+abstract Result(string result, Report report)
+abstract Appointment(Patient patient, Lab lab, Requisition requisition, Date appointmentDate, Time startTime, Time endTime)
+subclass BusinessHours()
+subclass Fee(float changeCancellationFee)
+subclass Report(string content)
+inherit class Requisition inherit class Repeats
+========================================

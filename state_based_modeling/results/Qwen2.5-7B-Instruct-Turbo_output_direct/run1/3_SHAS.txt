@@ -1,0 +1,9 @@
+enum AutomationRuleStatus(Active, Deactivated)
+
+enum AutomationRuleTriggerEvent(SensorReading, ControlCommand)
+
+enum CommandStatus(Requested, Completed, Failed)
+
+enum DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+
+enum SensorReadingType(Temperature, Humidity, LightIntensity)

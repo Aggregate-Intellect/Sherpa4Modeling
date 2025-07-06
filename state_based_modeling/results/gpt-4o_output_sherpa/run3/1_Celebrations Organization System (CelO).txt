@@ -1,0 +1,10 @@
+========================================
+```plaintext
+CelOApplication()
+Event(string kind, date startDate, date endDate, string occasion, string locationName, string locationAddress)
+Organizer(string firstName, string lastName, string postalAddress, string phoneNumber) inherit Account
+Task(string description, string status)
+Attendee(string firstName, string lastName, string status) inherit Account
+abstract Account(string emailAddress, string password)
+```
+========================================

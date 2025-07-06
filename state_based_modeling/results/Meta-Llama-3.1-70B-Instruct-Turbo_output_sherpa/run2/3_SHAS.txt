@@ -1,0 +1,16 @@
+========================================
+Device(string deviceIdentifier, DeviceCategory category, DeviceStatus status)
+Sensor(boolean isTemperatureSensor, boolean isMovementSensor, integer sensorReadings, timestamp lastUpdate) inherit Device
+Actuator(integer sensorReadings, timestamp lastUpdate, string status) inherit Device
+AutomationAction(sequence commandSequence, UserControlStatus status)
+AutomationRule(Condition condition, AutomationAction action, RuleType type, UserControlStatus status)
+ActivityLogEntry(timestamp logTimestamp, integer logId)
+ActivityLog(sequence ActivityLogEntry entries)
+SmartHome(string address, string name)
+Room(string name, int roomNumber)
+Owner(string ownerId, string name)
+DeviceCategory(string name)
+DeviceStatus(string name)
+RuleType(string name)
+Condition(boolean preconditionMet, AutomationRule rule)
+========================================

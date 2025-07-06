@@ -1,0 +1,19 @@
+========================================
+``` 
+Team(string name, Club club, List<Player> players)
+Club(string name, List<Team> teams, List<HeadCoach> headCoaches, List<Director> directors, List<Scout> scouts)
+abstract HeadCoach(string name, List<PlayerProfile> playerProfiles)
+Director(string name, List<Offer> offersMade)
+abstract Scout(string name, List<ScoutingAssignment> scoutingAssignments, List<ScoutingReport> scoutingReports)
+PlayerProfile(string profileName, List<TargetPosition> targetPositions, List<PlayerAttribute> playerAttributes)
+Player(string name, int age, List<PlayerProfile> playerProfiles, List<ScoutingReport> scoutingReports)
+LongList(date creationDate, List<Player> players, HeadScout headScout)
+HeadScout(string name, List<LongList> longLists, List<ScoutingAssignment> scoutingAssignments) inherit Scout
+ScoutingAssignment(date assignmentDate, Player player, Scout scout, List<Objective> objectives)
+ScoutingReport(Player player, string pros, string cons, Recommendation recommendation, ScoutingAssignment scoutingAssignment, Scout scout)
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+ShortList(date creationDate, List<Player> players, HeadCoach headCoach)
+TargetPosition(string positionCode, string positionName)
+PlayerAttribute(string attributeName, string attributeValue)
+```
+========================================

@@ -1,0 +1,21 @@
+========================================
+```
+SmartHomeAutomationSystem(list users, list smartHomes, InfrastructureMap infrastructureMap)
+User(string userID, string name, string role)
+SmartHome(string physicalAddress, list rooms, ActivityLog activityLog)
+Room(string name, list sensorDevices, list actuatorDevices)
+SensorDevice(string deviceIdentifier, string type, SensorReading currentReading)
+ActuatorDevice(string deviceIdentifier, string type, string currentStatus, list supportedCommands)
+InfrastructureMap(list devices)
+SensorReading(float measuredValue, string timestamp)
+ControlCommand(string command, string timestamp, string status)
+ActivityLog(list sensorReadings, list controlCommands)
+Alert(string alertType, string conditions)
+AutomationRule(boolean isActive, string timestamp, Precondition precondition, Action action)
+Precondition(BooleanExpression booleanExpression)
+Action(list controlCommands)
+BooleanExpression(list relationalTerms, list booleanOperators)
+RelationalTerm(string reference)
+RuleHierarchy(list dependencies, list conflicts)
+```
+========================================

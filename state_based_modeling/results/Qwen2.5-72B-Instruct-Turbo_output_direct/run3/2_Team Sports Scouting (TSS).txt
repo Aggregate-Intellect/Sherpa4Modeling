@@ -1,0 +1,8 @@
+PlayerProfile()
+HeadCoach()
+Director()
+Scout()
+LongList()
+ShortList()
+ScoutingReport()
+enum Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotGoodSigning)

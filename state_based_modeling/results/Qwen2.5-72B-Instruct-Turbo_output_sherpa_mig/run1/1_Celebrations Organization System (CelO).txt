@@ -1,0 +1,18 @@
+========================================
+Person(string firstName, string lastName, string emailAddress, string password)
+abstract Role()
+OrganizerRole(string postalAddress, string phoneNumber) inherit Role()
+AttendeeRole() inherit Role()
+Event(string kind, date startDate, time startTime, date endDate, time endTime, string occasion, Location location)
+Task(string description, boolean isDone, boolean isApplicable, boolean isForAttendee)
+Location(string name, string address)
+EventChecklist(List<Task> tasks)
+abstract EventKind()
+BirthdayParty() inherit EventKind
+GraduationParty() inherit EventKind
+abstract InvitationStatus()
+NotReplied() inherit InvitationStatus
+WillAttend() inherit InvitationStatus
+MaybeAttend() inherit InvitationStatus
+CannotAttend() inherit InvitationStatus
+========================================

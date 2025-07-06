@@ -1,0 +1,19 @@
+========================================
+Hotel(string name, string address, string city, int rating, string hotelChain)
+Booking(string bookingId, string bookingStatus, string bookingType, date arrivalDate, date departureDate, int roomId, int numberOfRooms, int rating, float budget, string paymentMethod, date cancellationDeadline, float costPerNight)
+PreliminaryBooking(string bookingId, string bookingStatus, date arrivalDate, date departureDate, int numberOfRooms, float costPerNight, float tentativeBudget) inherit Booking
+RegularBooking(string bookingId, string bookingStatus, date arrivalDate, date departureDate, int numberOfRooms, float costPerNight, string paymentMethod) inherit Booking
+BusinessTraveller(string name, string billingInformation, string companyName, string companyAddress, string travelPreferences, string reliabilityRating)
+enum BookingStatus(Preliminary, Confirmed, Canceled, Completed)
+enum BookingType(Regular, Preliminary)
+enum TravelPreferences(BreakfastIncluded, FreeWifi, TwentyFourHourFrontDesk)
+enum PaymentMethod(CreditCard, PrePaid, PayAtHotel)
+Cancellation(boolean cancellationStatus, date cancellationDate, float cancellationFee)
+HotelChain(string chainName)
+Room(string roomType, int roomNumber)
+AccommodationDeal(string dealDetails, float dealCost)
+SpecialOffer(string offerDetails, float offerCost, string offerConditions)
+CreditCard(string cardNumber, string cardHolderName, date expiryDate, string cvv)
+Confirmation(string confirmationStatus, date confirmationDate)
+FinancialCompensation(string compensationDetails, float compensationAmount)
+========================================

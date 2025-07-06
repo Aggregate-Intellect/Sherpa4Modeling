@@ -1,0 +1,16 @@
+========================================
+abstract Hotel(string name, string address, int rating, string hotelChain)
+HotelChain(string hotelChain, string contactInfo, string website)
+City(string cityName, string cityArea)
+Traveller(string travellerId, string name, string billingInformation, string companyName, string companyAddress, string travelPreferences, double reliabilityRating)
+enum PaymentType(PRE_PAID, PAID_AT_HOTEL)
+enum RoomType(SINGLE, DOUBLE, TWIN)
+enum BookingStatus(PRELIMINARY, FINALIZED, CONFIRMED, CANCELLED)
+abstract Booking(string bookingId, string travellerId, string hotelId, date arrivalDate, date departureDate, int numberOfRooms, RoomType roomType, double price, PaymentType paymentType, date confirmationDate, date cancellationDeadline, BookingStatus bookingStatus)
+SpecialOffer(string offerId, string hotelId, string bookingId, double offerPrice, string offerDetails)
+Payment(string paymentId, string bookingId, PaymentType paymentType, double amount, date paymentDate)
+CancellationPolicy(string policyId, string bookingId, date cancellationDeadline, double cancellationFee)
+ReliabilityRating(string ratingId, string travellerId, double ratingValue)
+RoomAvailability(string roomId, string hotelId, date date, RoomType roomType, bool availabilityStatus)
+HotelService(string serviceId, string hotelId, string serviceName)
+========================================

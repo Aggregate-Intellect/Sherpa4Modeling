@@ -1,0 +1,18 @@
+enum TutorStatus()
+
+enum SessionStatus()
+
+enum TransactionType()
+
+enum SubjectLevel()
+
+enum Availability()
+
+enum PaymentMethod()
+
+Tutor()
+Student()
+TutoringSession()
+Subject()
+AvailabilitySlot()
+Payment()

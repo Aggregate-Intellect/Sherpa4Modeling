@@ -1,0 +1,12 @@
+========================================
+```plaintext
+abstract Person(string fullName, string address, string phoneNumber)
+Doctor(int practitionerNumber, string signature, date requisitionValidFrom) inherit Person
+Patient(string healthNumber, string firstName, string lastName, date dateOfBirth) inherit Person
+abstract Requisition(string digitalSignature, date requisitionDate, Patient patient, string testGroup, int repeatCount, string repeatInterval)
+Test(string testName, int duration, boolean requiresAppointment, boolean isWalkIn, boolean isSampleDropOff)
+Lab(string address, string registrationNumber, string businessHours, float changeCancellationFee)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, Lab lab)
+LabNetwork()
+```
+========================================

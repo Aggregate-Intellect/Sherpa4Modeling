@@ -1,0 +1,10 @@
+========================================
+Employee(string name, string role, Date birthDate, string specialization, string certification, Date certificationDate, string department)
+Club(string name, string location)
+PlayerProfile(string targetPosition, string attributeName, string attributeValue)
+Player(string name, string position, Date birthDate, string nationality)
+Assignment(Date assignmentDate, Date dueDate, string assignmentStatus)
+ScoutingReport(string recommendation, string pros, string cons)
+DesignatedPlayerProfile(string playerId, string targetPosition, string attributeName, string attributeValue)
+ScoutingAssignment(string assignmentId, string scoutId, string playerId, string assignmentStatus)
+========================================

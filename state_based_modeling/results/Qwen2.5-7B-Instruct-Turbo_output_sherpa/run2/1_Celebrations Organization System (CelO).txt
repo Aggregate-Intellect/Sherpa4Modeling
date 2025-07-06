@@ -1,0 +1,12 @@
+========================================
+EventKind()
+EventStatus()
+UserAccount(string username, string email, string password)
+Location(string name, string address)
+Task(string description)
+Checklist(Task taskList[])
+Attendee(UserAccount account, string firstName, string lastName)
+Organizer(string firstName, string lastName, string email, string address, string phoneNumber, string password)
+Event(EventKind kind, string occasion, date startDate, date endDate, Location location, Checklist checklist, EventStatus[] invitations)
+Invitation(EventStatus status, Attendee attendee)
+========================================

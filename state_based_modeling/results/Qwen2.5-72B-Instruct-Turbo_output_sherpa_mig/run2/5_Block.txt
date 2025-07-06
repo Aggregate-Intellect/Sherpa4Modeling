@@ -1,0 +1,8 @@
+========================================
+User(string username, string password, boolean isAdmin)
+Game(string name, int minSpeed, int speedIncreaseFactor, int maxPaddleLength, int minPaddleLength, int startingNumberOfBlocks, list hallOfFame)
+Block(string color, int points)
+Level(int levelNumber, boolean isRandom, int startingNumberOfBlocks)
+PlayArea(int width, int height, int ballSpeed, int paddleLength)
+enum Wall(Top, Left, Right, Bottom)
+========================================

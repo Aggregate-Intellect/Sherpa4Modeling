@@ -1,8 +1,0 @@
-Enumerations:
-Subject(Mathematics, Science, Literature)
-Level(PrimarySchool, HighSchool, University)
-
-Classes:
-Tutor()
-Student()
-TutoringSession()

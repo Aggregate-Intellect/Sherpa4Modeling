@@ -1,8 +1,0 @@
-PISystem()
-PoliceStation()
-Case()
-PoliceOfficer() 
-Victim()
-Crime()
-Note()
-enum CrimeStatus(Solved, Pending, Unsolved)

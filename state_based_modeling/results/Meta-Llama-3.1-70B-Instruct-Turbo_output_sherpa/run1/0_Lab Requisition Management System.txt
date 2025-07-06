@@ -1,0 +1,13 @@
+========================================
+Person(string name, string address, string phoneNumber)
+Doctor(int practitionerNumber, Blob signature) inherit Person
+Patient(string healthNumber, string firstName, string lastName, Date dateOfBirth) inherit Person
+TestGroup(string groupName, List<Test> tests)
+Test(string testName, int duration, boolean requiresAppointment, boolean requiresSample, TestGroup testGroup)
+Requisition(int requisitionNumber, Date validDate, boolean repeated, int repeatTimes, string repeatInterval, List<RequisitionTest> requisitionTests)
+Lab(string labName, string address, string businessHours, int registrationNumber, double fee)
+Appointment(int appointmentNumber, Date appointmentDate, string timeSlot, int labRegistrationNumber)
+Result(string testName, boolean result, string report)
+RequisitionTest(Requisition requisition, Test test)
+RepeatInterval(Weekly, Monthly, HalfYearly, Yearly)
+========================================

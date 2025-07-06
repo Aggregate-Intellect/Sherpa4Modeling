@@ -1,0 +1,13 @@
+========================================
+Person(string fullName, string address, string phoneNumber, string healthNumber, date dateOfBirth)
+Role()
+DoctorRole(string practitionerNumber, string signature) inherit Role
+PatientRole(string insuranceProvider, string insuranceNumber) inherit Role
+Requisition(date validFrom, Person patient, int repeatTimes, RepeatInterval repeatInterval)
+Test(string name, int duration, boolean isWalkIn, boolean isSampleDropOff, string sampleType)
+Lab(string name, string address, string registrationNumber, int fee, BusinessHours businessHours)
+Appointment(string confirmationNumber, date appointmentDate, time startTime, time endTime, Lab lab)
+Report(string result, string content)
+BusinessHours(time startTime, time endTime)
+RepeatInterval(Weekly, Monthly, HalfYear, Yearly)
+========================================

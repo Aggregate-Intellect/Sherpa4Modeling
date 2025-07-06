@@ -1,0 +1,20 @@
+========================================
+Club(string name, string location)
+Employee(string employeeId, string name, string role)
+HeadCoach() inherit Employee
+Scout() inherit Employee
+Director() inherit Employee
+Assignment(int assignmentId, string description)
+ScoutingAssignment(int assignmentId, Scout scout, Player player, string description) inherit Assignment
+Player(string playerId, string playerName, Position position)
+Profile(string profileId, Position position, list[Attribute] attributes)
+Team(string teamId, string teamName)
+Report(int reportId, list[string] pros, list[string] cons, Recommendation recommendation)
+Offer(int offerId, string status)
+Attribute(string name, string value)
+Position(GK, LB, RB, CB, CM, DM, CF, ST)
+Recommendation(KeyPlayer, FirstTeamPlayer, ReserveTeamPlayer, ProspectivePlayer, NotAGoodSigning)
+ScoutingRound(int roundId, ScoutingAssignment scoutingAssignment, Report report, Recommendation recommendation)
+ScoutingResult(int resultId, ScoutingRound scoutingRound, string outcome)
+PlayerProfile(Player player, Profile profile)
+========================================

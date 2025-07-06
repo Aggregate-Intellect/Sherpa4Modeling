@@ -1,0 +1,13 @@
+========================================
+Requisition(numericPractitionerNumber: int, fullName: str, address: str, phoneNumber: str, patient: Patient, doctor: Doctor, validFrom: datetime, repeatedTests: bool, interval: Interval, testRequirements: TestRequirementSpecific)
+BloodTest(duration: int, testType: TestType, testGroup: TestGroup)
+Ultrasound(duration: int, testType: TestType, testGroup: TestGroup)
+Test(duration: int, testType: TestType, testGroup: TestGroup, testRequirement: TestRequirementSpecific)
+Interval(interval: Interval)
+TestType(testType: str)
+TestGroup(testGroup: str)
+TestRequirementSpecific(testRequirement: str, walkIn: bool, sampleType: str)
+Lab(name: str, address: str, registrationNumber: int, startTime: datetime, endTime: datetime, changeCancellationFee: int, walkInTests: bool, sampleTests: Sample)
+Appointment(confirmationNumber: str, startTime: datetime, endTime: datetime, lab: Lab, results: enum {negative, positive}, report: blob)
+Signature(image: blob)
+========================================

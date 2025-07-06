@@ -1,0 +1,9 @@
+========================================
+EventOrganizer(string firstName, string lastName, string email, string postalAddress, string phoneNumber, string password)
+Attendee(string firstName, string lastName, string email, string password, StatusType isAttending)
+enum StatusType(NotReplied, Confirmed, Maybe, NotAttending)
+enum TaskStatus(ToDo, Done, NotApplicable)
+Event(string occasion, Location location, string startDate, string startTime, string endDate, string endTime, string kind)
+abstract Task(string description, TaskStatus status, boolean isApplicable, boolean isAssignedToAttendee)
+Location(string name, string address)
+========================================

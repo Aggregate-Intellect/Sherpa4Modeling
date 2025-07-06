@@ -1,0 +1,13 @@
+========================================
+abstract User(string username, string password, boolean isAdmin)
+Player(string username, string password, int lives, int totalScore) inherit User
+Block(string color, int points)
+Paddle(int length, int minLength, int maxLength)
+Ball(int speed, int direction, int minSpeed, int speedIncreaseFactor)
+PlayArea(int width, int height)
+HallOfFame(string gameName, int highScore)
+Game(string gameName, int minimumSpeed, int speedIncreaseFactor, int maximumLength, int minimumLength, boolean isPaused, boolean isConfirmed)
+Level(int levelNumber, boolean isRandom, int startingBlockCount)
+GameSession(string gameId, Player player, Level currentLevel, boolean isPaused, boolean isConfirmed)
+BlockArrangement(List<Block> blocks, boolean isRandom)
+========================================

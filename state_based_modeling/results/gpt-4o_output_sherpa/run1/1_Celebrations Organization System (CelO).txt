@@ -1,0 +1,13 @@
+========================================
+```plaintext
+CelOApplication()
+Event(string kind, date startDate, date endDate, string occasion, Location location)
+Person(string firstName, string lastName, string emailAddress, string password, string uniqueId)
+abstract EventRole()
+OrganizerRole(string postalAddress, string phoneNumber) inherit EventRole()
+AttendeeRole(string attendanceStatus, boolean hasReplied) inherit EventRole()
+Task(string description, boolean needsToBeDone, boolean hasBeenDone, boolean isNotApplicable, string responsiblePersonId)
+Checklist(list<Task> tasks)
+Location(string name, string address, string uniqueId)
+```
+========================================

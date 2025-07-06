@@ -1,9 +1,0 @@
-Enumerations:
-AutomationRuleStatus(Active, Deactivated)
-SensorReadingStatus(Received, Processed)
-RoomType(LivingRoom, Kitchen, Bedroom, Bathroom)
-DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
-SensorType(Temperature, Movement)
-ActuatorType(Light, Lock)
-
-Classes:

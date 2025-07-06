@@ -1,0 +1,24 @@
+========================================
+Booking(BookingType bookingType, PrepaidStatus prepaidStatus, ConfirmationStatus confirmationStatus)
+PreliminaryBooking() inherit Booking
+FinalizedBooking() inherit Booking
+HotelRoom(RoomType roomType, RoomStatus roomStatus)
+SingleRoom() inherit HotelRoom
+DoubleRoom() inherit HotelRoom
+TwinRoom() inherit HotelRoom
+Traveller(string name, string billingInformation, string travelPreferences)
+Hotel(string name, Address address, HotelChain hotelChain)
+HotelChain()
+City()
+Address(string city, string street, string postalCode)
+CreditCard(string creditCardNumber, string expiryDate, string cvv)
+TravelPeriod(date arrivalDate, date departureDate)
+ReliabilityRating(int rating)
+HotelDeal(string dealDescription, int dealPrice, int hotelRating)
+HotelOffer(Hotel hotel, HotelDeal hotelDeal, date offerDeadline)
+HotelDealOffer(Hotel hotel, HotelDeal hotelDeal, date offerDeadline)
+HotelDealResponse(Hotel hotel, HotelDeal hotelDeal, bool accepted)
+HotelDealConfirmation(Hotel hotel, FinalizedBooking finalizedBooking)
+HotelDealCancellation(Hotel hotel, FinalizedBooking finalizedBooking, date cancellationDate)
+HotelDealCompensation(Hotel hotel, FinalizedBooking finalizedBooking, int compensationAmount)
+========================================

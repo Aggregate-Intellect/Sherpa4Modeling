@@ -1,0 +1,18 @@
+========================================
+SmartHomeAutomationSystem(string name, string version, list smart_homes, list alerts)
+SmartHome(string address, list rooms)
+Room(string name, list devices)
+Device(string deviceIdentifier, string deviceType, boolean isActive)
+SensorDevice() inherit Device
+ActuatorDevice() inherit Device
+SensorReading(int measured_value, string timestamp, SensorDevice sensor_device)
+ControlCommand(string command, string timestamp, string status, ActuatorDevice actuator_device)
+ActivityLog(list log_entries)
+Owner(string name, string contactInformation, list rules)
+Rule(string name, boolean isActive, Owner owner)
+AutomationRule(string name, boolean isActive, Owner owner, string boolean_expression, string control_commands, list rule_dependencies)
+Alert(string description, string timestamp)
+enum DeviceType(TemperatureSensor, MovementSensor, LightController, LockController)
+enum Command(LockDoor, TurnOnHeating)
+enum Status(Requested, Completed, Failed)
+========================================

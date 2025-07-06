@@ -1,0 +1,8 @@
+Event()
+Organizer()
+Attendee()
+Location()
+Task()
+enum EventStatus(NotStarted, InProgress, Finished)
+enum InvitationStatus(NotReplied, Attending, MaybeAttending, NotAttending)
+enum TaskStatus(NeedsToBeDone, Done, NotApplicable)

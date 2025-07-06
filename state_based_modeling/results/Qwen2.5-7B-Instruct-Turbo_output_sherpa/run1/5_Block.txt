@@ -1,0 +1,16 @@
+========================================
+abstract User(string Username, string UserPassword)
+abstract Player(User: User) inherit User
+abstract Admin(User: User) inherit User
+abstract Game(Name: string, HallOfFame: HallOfFame, Score: Score, Lives: int)
+Level(Number: int, NumberOfBlocks: int, Speed: int, SpeedIncreaseFactor: int, MaxLength: int, MinimumLength: int)
+abstract Block(Color: string, Points: int)
+enum WallType { Top, Left, Right }
+Paddle(Position: Position)
+GameSession(Save: bool, HighScore: Score)
+BlockArrangement(Blocks: List<Block>)
+RandomBlockSelection(Blocks: List<Block>)
+GameLevelConfiguration(LevelNumber: int, NumberOfBlocks: int, Speed: int, SpeedIncreaseFactor: int, MaxLength: int, MinimumLength: int, StartingArrangement: BlockArrangement, Random: bool)
+GamePlay(Player: Player, Game: Game, Level: Level)
+GameSessionManager(GameSession: GameSession)
+========================================

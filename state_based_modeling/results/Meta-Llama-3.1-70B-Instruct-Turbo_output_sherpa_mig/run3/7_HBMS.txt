@@ -1,0 +1,31 @@
+========================================
+enum RoomType(string Single, string Double, string Twin)
+enum PaymentType(string Prepaid, string PaidAtHotel)
+enum BookingStatus(string Preliminary, string Confirmed, string Cancelled)
+enum HotelRating(string OneStar, string TwoStar, string ThreeStar, string FourStar, string FiveStar)
+enum TravelPreference(string BreakfastIncluded, string WifiIncluded, string FrontDesk247)
+ 
+CreditCard(string cardNumber, string cvv, Date expirationDate)
+ 
+Hotel(string name, string address, HotelRating rating)
+ 
+Booking(string id, Date arrivalDate, Date departureDate, int roomCount, float price, string city, float budget, boolean cancel, boolean prepaid, boolean hotelConfirmed, Date deadline, BookingStatus status)
+ 
+Room(Enum RoomType roomType, int count, boolean available, boolean breakfastIncluded, boolean wifiIncluded, boolean frontDesk247)
+ 
+ReliabilityRating(int rating, int bookingCount)
+ 
+Traveller(string name, string company, string companyAddress, boolean breakfastIncluded, boolean wifiIncluded, boolean frontDesk247, CreditCard creditCardInfo, ReliabilityRating reliabilityRating)
+ 
+City(string name)
+ 
+Payment(float amount, PaymentType type, Date paymentDate)
+ 
+Address(string street, string city, string country, string postalCode)
+ 
+Period(Date startTime, Date endTime)
+ 
+SpecialOffer(string description, float price, boolean includedWifi, boolean includedBreakfast)
+ 
+HotelCancellationPolicy(Date deadline, int cancellationFeePerNight)
+========================================
