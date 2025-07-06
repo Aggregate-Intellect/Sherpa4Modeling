@@ -69,6 +69,9 @@ This repository uses several APIs for accessing the Large Language Models. You n
 - TogetherAI: [TogetherAI API](https://www.together.ai/)
 
 ## Use cases
+> [!NOTE]
+> Excepting installing Sherpa, all the instructions for the use cases must be executed in the corresponding use case folder.
+
 the following folder contains material for each use case used in the paper:
 * `human_eval` contains the material for the HumanEval benchmark for the code generation use case
 * `clevr-human` contains the material for the Clevr-Human dataset for the question answering use case

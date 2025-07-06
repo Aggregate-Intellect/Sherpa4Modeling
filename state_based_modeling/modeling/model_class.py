@@ -2,19 +2,19 @@ import os
 
 from langchain_core.language_models import LanguageModelLike
 from loguru import logger
+from modeling.actions import (CheckPlayerRolePattern, GenerateFeedback,
+                              IdentifyAbstractClasses, IdentifyAttributes,
+                              IdentifyClasses, IdentifyEnumerationClasses,
+                              IdentifyNouns, IdentifyPlayerRolePattern,
+                              IdentifyRelationships, InspectClass,
+                              InspectPattern, IntegrateClasses,
+                              IntegrateFeedback, Respond, StartQuestion,
+                              SummarizePlayerRolePattern, UserHelp)
 from sherpa_ai.actions.base import BaseAction
 from sherpa_ai.actions.belief_actions import RetrieveBelief, UpdateBelief
 from sherpa_ai.memory.belief import Belief
 from sherpa_ai.memory.state_machine import SherpaStateMachine
 from transitions.extensions import HierarchicalGraphMachine
-
-from actions import (CheckPlayerRolePattern, GenerateFeedback,
-                     IdentifyAbstractClasses, IdentifyAttributes,
-                     IdentifyClasses, IdentifyEnumerationClasses,
-                     IdentifyNouns, IdentifyPlayerRolePattern,
-                     IdentifyRelationships, InspectClass, InspectPattern,
-                     IntegrateClasses, IntegrateFeedback, Respond,
-                     StartQuestion, SummarizePlayerRolePattern, UserHelp)
 
 
 def get_actions(

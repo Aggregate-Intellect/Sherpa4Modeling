@@ -6,9 +6,8 @@ import dotenv
 import pandas as pd
 from langchain_core.prompts import ChatPromptTemplate
 from loguru import logger
+from modeling.utils import get_llm
 from tqdm import tqdm
-
-from utils import get_llm
 
 dotenv.load_dotenv()
 
@@ -79,7 +78,7 @@ if __name__ == "__main__":
     parser.add_argument("--llm", type=str, help="Model name", required=True)
     parser.add_argument("--model_type", type=str, help="Model type", required=True)
     parser.add_argument(
-        "--output_folder", type=str, help="Output folder", default="results_new"
+        "--output_folder", type=str, help="Output folder", default="results"
     )
     parser.add_argument(
         "--run_number", type=int, help="Run number", default=1, required=True

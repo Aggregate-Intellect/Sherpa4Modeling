@@ -6,16 +6,15 @@ from multiprocessing import Pool
 import dotenv
 import pandas as pd
 from loguru import logger
+from modeling.model_class import add_mg_sm
+from modeling.model_class_mig import add_mg_sm as add_mg_sm_mig
+# from sherpa_ai.policies.react_policy import ReactPolicy
+from modeling.react_policy_modeling import ReactPolicy
+from modeling.utils import get_llm
 from sherpa_ai.agents.qa_agent import QAAgent
 from sherpa_ai.events import Event, EventType
 from sherpa_ai.memory.belief import Belief
 from tqdm import tqdm
-
-from model_class import add_mg_sm
-from model_class_mig import add_mg_sm as add_mg_sm_mig
-# from sherpa_ai.policies.react_policy import ReactPolicy
-from react_policy_modeling import ReactPolicy
-from utils import get_llm
 
 dotenv.load_dotenv()
 
@@ -105,7 +104,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Transform output")
     parser.add_argument("--llm", type=str, required=True)
     parser.add_argument("--model_type", type=str, required=True)
-    parser.add_argument("--output_folder", type=str, default="results_new")
+    parser.add_argument("--output_folder", type=str, default="results")
     parser.add_argument(
         "--approach", type=str, default="sherpa", choices=["sherpa", "sherpa_mig"]
     )

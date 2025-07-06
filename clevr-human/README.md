@@ -1,4 +1,4 @@
-# Sherpa for Clevr Human
+# Sherpa for Clevr Human (The Question Answering Use Case)
 
 Designing a state machine for solving the question answering ask in the Clevr-Human dataset.
 
