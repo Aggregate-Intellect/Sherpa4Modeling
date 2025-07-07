@@ -109,7 +109,7 @@ if __name__ == "__main__":
         "--approach", type=str, default="sherpa", choices=["sherpa", "sherpa_mig"]
     )
     parser.add_argument("--run_number", type=int, required=True)
-    parser.add_argument("--num_processes", type=int, default=8)
+    parser.add_argument("--num_processes", type=int, default=1)
     args = parser.parse_args()
 
     # Read the CSV file

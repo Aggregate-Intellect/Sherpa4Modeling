@@ -25,7 +25,7 @@ The use case is organized as follows:
    python -m venv modeling
 
    # For conda
-   conda create -n modeling python=3.10
+   conda create -n modeling python=3.12
    ```
 
    Activate the virtual environment:
@@ -55,7 +55,7 @@ Run `scripts/direct_main.py` to generate class names using LLMs only. It contain
 * **--llm**: Name of the LLM to use. The paper uses the following: gpt-4o (openai), gpt-4o-mini (openai), Qwen/Qwen2.5-7B-Instruct-Turbo (together), Qwen/Qwen2.5-7B-Instruct-Turbo (together) and Meta-Llama-3.1-70B-Instruct-Turbo (together). You can also use other LLMs from the two providers.
 * **--run_number**: Run number to use for the experiment. This is used to create a unique output folder for the results.
 * **--output_folder**: Output folder to save the results, default is `results_new`
-* **--num_processes**: Number of processes to use for parallel processing of the dataset, default is 8
+* **--num_processes**: Number of processes to use for parallel processing of the dataset, default is 1
 
 For example, to run the direct approach with the gpt-4o-mini model, you can run the following command:
 
@@ -74,7 +74,7 @@ Run `scripts.sm_main.py` to generate class names using the state machine approac
 * **--llm**: Name of the LLM to use. The paper uses the following: gpt-4o (openai), gpt-4o-mini (openai), Qwen/Qwen2.5-7B-Instruct-Turbo (together), Qwen/Qwen2.5-7B-Instruct-Turbo (together) and Meta-Llama-3.
 * **--run_number**: Run number to use for the experiment. This is used to create a unique output folder for the results.
 * **--output_folder**: Output folder to save the results, default is `results_new`
-* **--num_processes**: Number of processes to use for parallel processing of the dataset, default is 8
+* **--num_processes**: Number of processes to use for parallel processing of the dataset, default is 1
 * **--approach**: Approach to use for generating class names. One of {sherpa, sherpa_mig}
     * Sherpa runs the Inspection State machine in the paper
     * sherpa_mig runs the MIG state machine in the paper

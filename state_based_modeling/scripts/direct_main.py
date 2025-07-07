@@ -84,7 +84,7 @@ if __name__ == "__main__":
         "--run_number", type=int, help="Run number", default=1, required=True
     )
     parser.add_argument(
-        "--num_processes", type=int, help="Number of processes", default=8
+        "--num_processes", type=int, help="Number of processes", default=1
     )
 
     args = parser.parse_args()

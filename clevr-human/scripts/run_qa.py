@@ -4,11 +4,10 @@ from multiprocessing import Pool
 
 import dotenv
 import pandas as pd
+from clevr_qa.question_answerer import get_answerer
 from datasets import load_dataset
 from loguru import logger
 from tqdm import tqdm
-
-from clevr_qa.question_answerer import get_answerer
 
 dotenv.load_dotenv()  # Load environment variables from .env file
 
@@ -78,7 +77,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--num_processes",
         type=int,
-        default=16,
+        default=1,
         help="Number of processes to use for parallel processing of the dataset",
     )
     parser.add_argument(

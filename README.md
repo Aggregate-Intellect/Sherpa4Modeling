@@ -79,6 +79,7 @@ the following folder contains material for each use case used in the paper:
 
 Please refer the `README.md` in each folder for the details of the use case and how to run the experiments.
 
+Each use case contains a `evaluation.ipynb` notebook that contains the steps to use generated results to create tables and figures in the paper.
 
 ## Citation
 If you found this repository useful, please consider citing the following paper:

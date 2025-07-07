@@ -25,7 +25,7 @@ The use case is organized as follows:
    python -m venv clevr
 
    # For conda
-   conda create -n clevr python=3.10
+   conda create -n clevr python=3.12
    ```
 
    Activate the virtual environment:
@@ -59,10 +59,7 @@ Create a `.env` file in the `clevr-human` folder and copy the content of `.env_t
 
 ## Run Question Answering
 
-Run the `python -m scripts.run_qa ` command to run the question answering task. The command has several arguments to control the behavior of the script. Use the `--help` argument to see the available options.
-
-Arguments:
-options:
+Run the `python -m scripts.run_qa ` command to run the question answering task. The command has several arguments to control the behavior of the script. Use the `--help` argument to see the available options:
 
   * **-h, --help**: show this help message and exit
   * **--dataset_name**: Name of the processed dataset on HuggingFace. Default is `Dogdays/clevr_subset`. You normally don't need to change this unless you have created your own dataset.
@@ -87,10 +84,10 @@ For example, to run the direct approach with the gpt-4o-mini model, you can run 
 python -m scripts.run_qa --approach direct --num_processes 1 --llm_type openai --llm_name gpt-4o-mini --log_folder logs/direct/gpt-4o-mini --use_scene --num_runs 10 --output_folder results_new/gpt-4o-mini/run1
 ```
 
-Or to run the llama-3.1-70B-Instruct-Turbo model with the state machine approach, you can run the following command (Note that TogetherAI has generally more strict request limitation than OpenAI, so it is better to use 8 processes instead of 16):
+Or to run the llama-3.1-70B-Instruct-Turbo model with the state machine approach, you can run the following command:
 
 ```
-python -m scripts.run_qa --approach state_machine --num_processes 8 --llm_type together --llm_name meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --log_folder logs/state_mathine/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --use_scene --num_runs 10 --output_folder results_new/Meta-Llama-3.1-70B-Instruct-Turbo/run1
+python -m scripts.run_qa --approach state_machine --num_processes 1 --llm_type together --llm_name meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --log_folder logs/state_mathine/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo --use_scene --num_runs 10 --output_folder results_new/Meta-Llama-3.1-70B-Instruct-Turbo/run1
 ```
 
 To repeat the experiments in the paper, run each LLM three times with the same command, but change the `--output_folder` argument to save the results in a different folder.
