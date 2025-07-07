@@ -42,7 +42,7 @@ human_eval-jupyterlab-1  |         http://127.0.0.1:8888/lab?token=<token>
 3. Open the Jupyter lab in your browser with `http://localhost:8888`, and provide the value of the `token` from the terminal output. then you will be able to run the experiments in the subsequent steps.
 
 ## Setup the Environment Variables
-Create a `.env` file in the `clevr-human` folder and copy the content of `.env_template` to it. Then, set the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables to your OpenAI and TogetherAI API keys, respectively.
+Create a `.env` file and copy the content of `.env_template` to it. Then, set the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables to your OpenAI and TogetherAI API keys, respectively.
 
 
 ## Run the Code Generation

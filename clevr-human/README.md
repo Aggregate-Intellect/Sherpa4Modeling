@@ -55,7 +55,7 @@ The use case is organized as follows:
 7. The processed dataset is also available on [huggingface](https://huggingface.co/datasets/Dogdays/clevr_subset)
 
 ## Setup the Environment Variables
-Create a `.env` file in the `clevr-human` folder and copy the content of `.env_template` to it. Then, set the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables to your OpenAI and TogetherAI API keys, respectively.
+Create a `.env` file and copy the content of `.env_template` to it. Then, set the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables to your OpenAI and TogetherAI API keys, respectively.
 
 ## Run Question Answering
 
