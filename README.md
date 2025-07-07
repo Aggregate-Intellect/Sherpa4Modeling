@@ -28,7 +28,7 @@ In some cases, each approach may also contain some helper components, such as:
 ### Install Python
 To run the code in this repository, you need to install Python. We recommend using a virtual environment such as [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/).
 
-> Unless otherwise specified, this repository has been developed with Python 3.10. Earlier or later versions may also work, but are not guaranteed.
+> Unless otherwise specified, this repository has been developed with Python 3.12. Earlier or later versions may also work, but are not guaranteed.
 
 Create the virtual environment:
 ```bash
@@ -36,7 +36,7 @@ Create the virtual environment:
 python -m venv sherpa
 
 # For conda
-conda create -n sherpa python=3.10
+conda create -n sherpa python=3.12
 ```
 
 Activate the virtual environment:
