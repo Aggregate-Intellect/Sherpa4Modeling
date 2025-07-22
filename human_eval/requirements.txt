@@ -1,9 +1,11 @@
+../sherpa/src
 pandas==2.2.3
 langchain-together==0.2.0
 langchain_core==0.3.56
 pydantic==2.10.3
 langchain_openai==0.2.12
 sympy==1.14.0
+python-dotenv==1.1.1
 
 ## Requirements for running the evaluation notebook
 jupyter==1.1.1

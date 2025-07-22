@@ -20,7 +20,6 @@ poetry install --with optional,test,lint
 
 ### From source (with pip editable mode):
 ```bash
-git clone
 cd sherpa/src
 pip install -e .
 ```

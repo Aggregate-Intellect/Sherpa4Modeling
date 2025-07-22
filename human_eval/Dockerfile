@@ -5,11 +5,7 @@ WORKDIR /app
 
 
 # Install poetry and sherpa
-RUN pip install --no-cache-dir poetry
-COPY sherpa /opt/sherpa
-RUN cd /opt/sherpa/src && \
-    poetry config virtualenvs.create false && \
-    poetry install
+COPY sherpa /sherpa
 
 # Install requirements
 COPY human_eval/requirements.txt /app/requirements.txt

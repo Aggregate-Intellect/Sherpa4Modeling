@@ -48,16 +48,17 @@ conda activate sherpa
 ```
 
 ### Install Sherpa
-This artifact uses the [Sherpa](https://github.com/Aggregate-Intellect/sherpa) to for the use cases. Specifically, it uses a slightly customized version of Sherpa v0.4.0, which is included in the `sherpa` folder in this repository. You can install Sherpa from the source code in this repository.
-To install Sherpa from the source code, first, install with [poetry](https://python-poetry.org/).
-```bash
-pip install poetry
-```
+This artifact uses the [Sherpa](https://github.com/Aggregate-Intellect/sherpa) to for the use cases. Specifically, it uses a slightly customized version of Sherpa v0.4.0, which is included in the `sherpa` folder in this repository. You can install Sherpa from the source code with `pip` edit mode in this repository.
 
-Then, you can run the following commands:
+>[!NOTE]
+>
+> The following step is optional, as it has already been configured in the `requirements.txt` files in each use case folder. However, if you experience any issues with the installation from the `requirements.txt` files, remove the first line of the `requirements.txt` file in the use case folder and run the following commands to install Sherpa.
+
+To install Sherpa from the source code, run the following commands in the top-level of the directory:
 ```bash
 cd sherpa/src
-poetry install --with optional
+pip install -e .
+cd ../..
 ```
 
 ### Install Dependencies
@@ -70,16 +71,22 @@ This repository uses several APIs for accessing the Large Language Models. You n
 
 ## Use cases
 > [!NOTE]
-> Excepting installing Sherpa, all the instructions for the use cases must be executed in the corresponding use case folder.
+>
+> All the instructions for the use cases must be executed in the corresponding use case folder.
 
 the following folder contains material for each use case used in the paper:
-* `human_eval` contains the material for the HumanEval benchmark for the code generation use case
-* `clevr-human` contains the material for the Clevr-Human dataset for the question answering use case
-* `state_based_modeling` contains the material for the class name generation use case
+* `human_eval` contains the material for the HumanEval benchmark for the **code generation** use case
+* `clevr-human` contains the material for the Clevr-Human dataset for the **question answering** use case
+* `state_based_modeling` contains the material for the **class name generation** use case
 
 Please refer the `README.md` in each folder for the details of the use case and how to run the experiments.
 
 Each use case contains a `evaluation.ipynb` notebook that contains the steps to use generated results to create tables and figures in the paper.
+
+## A Note on Other LLMs
+The use cases in this repository is tested for the following LLMs: GPT-4o, GPT-4o-mini, Qwen/Qwen2.5-7B-Instruct-Turbo, and Meta-Llama-3.1-70B-Instruct-Turbo. However, you can use other LLMs by using the wrappers from LangChain.  
+
+Some new LLMs may require upgrade the LangChain version. For example, the latest `gpt-4.1-nano` requires to update `langchain_openai` with `pip install -U langchain_openai`. While newer version of the dependency may work, this repository is only tested with the specific versions used in the requirements of each use case.
 
 ## Citation
 If you found this repository useful, please consider citing the following paper:

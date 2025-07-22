@@ -1,10 +1,14 @@
 # Sherpa for Clevr Human (The Question Answering Use Case)
 
+> [!NOTE]
+>
+> The following command assumes you are in the `clevr-human` folder.
+
 Designing a state machine for solving the question answering ask in the Clevr-Human dataset.
 
 ## Organization
 The use case is organized as follows:
-* `clevr_qa` contains the code implementation for the use case
+* `clevr_qa` contains the code implementation for the use case. Specifically, it includes the implementation of the following approaches in the paper:
    * The folder `react` contains the implementation of the ReACT approach
    * The folder `routing` contains the implementation of the routing state machine approach
    * The folder `state_machine` contains the implementation of the planning state machine approach
@@ -36,30 +40,27 @@ The use case is organized as follows:
    # For conda
    conda activate clevr
    ```
-
-2. Install `sherpa` following the top-level Read
-3. Install the requirements:
+2. Install the requirements:
    ```bash
    pip install -r requirements.txt
    ```
 
 ## Create Dataset
-
-1. download the Download CLEVR v1.0 (no images) from [the Clevr website](https://cs.stanford.edu/people/jcjohns/clevr/)
-2. put the `CLEVR_val_scenes.json` file to the `data` folder
-3. Download human created questions from [here](https://cs.stanford.edu/people/jcjohns/iep/)
-4. Put the `CLEVR-Humans-val` file to the `data` folder
-5. Run `scripts/create_dataset.py` to create the dataset
-6. This script will push the dataset to HuggingFace. Update the `--dataset_name` argument when running the experiments to your dataset name
-
-7. The processed dataset is also available on [huggingface](https://huggingface.co/datasets/Dogdays/clevr_subset)
+1. Download the dataset using the `download_datasets.sh` script,or follow the following manual instructions:
+   1. download the Download CLEVR v1.0 (no images) from [the Clevr website](https://cs.stanford.edu/people/jcjohns/clevr/)
+   2. put the `CLEVR_val_scenes.json` file to the `data` folder
+   3. Download human created questions from [here](https://cs.stanford.edu/people/jcjohns/iep/)
+   4. Put the `CLEVR-Humans-val.json` file to the `data` folder
+2. Run `python -m scripts.create_dataset` to create the dataset
+3. This script will push the dataset to HuggingFace. Update the `--hg_dataset_name` argument when running the experiments to your dataset name. To update the dataset, you may need to login HuggingFace from the command line using `huggingface-cli login` command. Please refer this [link](https://huggingface.co/docs/huggingface_hub/en/quick-start#authentication) for more details.
+4. The processed dataset is also available on [huggingface](https://huggingface.co/datasets/Dogdays/clevr_subset)
 
 ## Setup the Environment Variables
 Create a `.env` file and copy the content of `.env_template` to it. Then, set the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables to your OpenAI and TogetherAI API keys, respectively.
 
 ## Run Question Answering
 
-Run the `python -m scripts.run_qa ` command to run the question answering task. The command has several arguments to control the behavior of the script. Use the `--help` argument to see the available options:
+Run the `python -m scripts.run_qa ` command to run the question answering task. The command has several arguments to control the behavior of the script. Use the `--help` argument to see the available arguments:
 
   * **-h, --help**: show this help message and exit
   * **--dataset_name**: Name of the processed dataset on HuggingFace. Default is `Dogdays/clevr_subset`. You normally don't need to change this unless you have created your own dataset.
@@ -105,3 +106,10 @@ jupyter notebook evaluation.ipynb
 ```
 
 Execute all the cells in the notebook to generate the tables and figures. 
+
+
+## Troubleshooting
+* If you encountered `Unauthorized` error while access the dataset uploaded, make sure you have logged in to HuggingFace using the `huggingface-cli login` command.
+* If you encounter a `BadRequestError` error about data type of the dataset while running the question answering task. Please compare the dataset you are using with the pre-processed dataset in this [link](https://huggingface.co/datasets/Dogdays/clevr_subset) and make sure the dataset is in the same format. 
+* If you encounter any `ModuleNotFoundError` error, make sure you have installed the requirements in the `requirements.txt` file and currently in the `clevr-human` folder.
+* Also make sure that you have set the environment variables in the `.env` file correctly, especially the `OPENAI_API_KEY` and `TOGETHER_API_KEY` variables.
